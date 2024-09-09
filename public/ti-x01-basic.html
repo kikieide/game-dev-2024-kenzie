@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Capture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #video {
+            border: 1px solid black;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Webcam Capture</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <div id="controls">
+        <input type="text" id="filename" placeholder="Enter file name">
+        <button id="capture">Capture</button>
+    </div>
+    <script>
+        const video = document.getElementById('video');
+        const captureButton = document.getElementById('capture');
+        const filenameInput = document.getElementById('filename');
+
+        // Access the webcam
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Error accessing webcam: ", err);
+            });
+
+        captureButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const filename = filenameInput.value || 'capture';
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/jpeg');
+            link.download = `${filename}.jpeg`;
+            link.click();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
 
