@@ -32,7 +32,7 @@
     <h1>Webcam!!</h1>
     <video id="video" width="640" height="480" autoplay></video>
     <div id="controls">
-        <input type="text" id="filename" placeholder="Enter file name">
+        <input type="text" id="filename" placeholder="Default">
         <button id="capture">Capture</button>
     </div>
     <script>
@@ -59,7 +59,7 @@
             const filename = filenameInput.value || 'capture';
             const link = document.createElement('a');
             link.href = canvas.toDataURL('image/jpeg');
-            link.download = `${default}.jpeg`;
+            link.download = `${'default'}.jpeg`;
             link.click();
         });
     </script>
