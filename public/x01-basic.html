@@ -32,7 +32,9 @@
     <h1>Webcam!!</h1>
     <video id="video" width="640" height="480" autoplay></video>
     <div id="controls">
+        <textarea id="filename" name="filename">Default
         <input type="text" id="filename" placeholder="filename">
+        </textarea>
         <button id="capture">Capture</button>
     </div>
     <script>
@@ -63,7 +65,6 @@
             link.click();
         });
     </script>
-    <a href="canvas.toDataURL" download="default-filename.txt">Download File</a>
 </body>
 </html>
 
