@@ -11,6 +11,38 @@
           border-color:red;">italic with a border</i>
 </br>
  <input type="checkbox" value="reading">Reading
+ <span class="checkmark"></span>
+ .neumorphism-checkbox input {
+  display: none;
+}
+
+.neumorphism-checkbox .checkmark {
+  width: 25px;
+  height: 25px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  position: relative;
+  cursor: pointer;
+}
+
+.neumorphism-checkbox input:checked + .checkmark {
+  background: #2196F3;
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.neumorphism-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+ 
 </br>
   <input type="checkbox" value="sports">Sports
 </br>
