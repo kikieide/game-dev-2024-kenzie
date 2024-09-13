@@ -32,15 +32,14 @@
     <h1>Webcam!!</h1>
     <video id="video" width="640" height="480" autoplay></video>
     <div id="controls">
-        <textarea id="filename" name="filename">Default
-        </textarea>
-        <input type="text" id="filename" placeholder="filename">
+        <input type="text" id="filename" placeholder="Enter Filename" value="default=filename">
         <button id="capture">Capture</button>
     </div>
     <script>
         const video = document.getElementById('video');
         const captureButton = document.getElementById('capture');
         const filenameInput = document.getElementById('filename');
+        
 
         // Access the webcam
         navigator.mediaDevices.getUserMedia({ video: true })
@@ -61,7 +60,7 @@
             const filename = filenameInput.value || 'capture';
             const link = document.createElement('a');
             link.href = canvas.toDataURL('image/jpeg');
-            link.download = `${'filename'}.jpeg`;
+            link.download = `${filename}.jpeg`;
             link.click();
         });
     </script>
