@@ -18,37 +18,42 @@
 
 
 <style>
-<input type:"checkbox">
- <span class="checkmark"></span>
- .neumorphism-checkbox input {
-  display: none;
-}
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
-.neumorphism-checkbox .checkmark {
-  width: 25px;
-  height: 25px;
-  background: #e0e0e0;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
-  position: relative;
-  cursor: pointer;
-}
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
 
-.neumorphism-checkbox input:checked + .checkmark {
-  background: #2196F3;
-  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
-}
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+            position: relative;
+            cursor: pointer;
+        }
 
-.neumorphism-checkbox input:checked + .checkmark::after {
-  content: "";
-  position: absolute;
-  left: 8px;
-  top: 4px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
+        .checkbox:checked::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            background: #4caf50;
+            border-radius: 3px;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff;
+        }
     
   </style>
 
