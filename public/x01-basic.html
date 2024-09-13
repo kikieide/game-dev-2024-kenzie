@@ -59,7 +59,7 @@
             const filename = filenameInput.value || 'capture';
             const link = document.createElement('a');
             link.href = canvas.toDataURL('image/jpeg');
-            link.download = `${filename}.jpeg`;
+            link.download = `${default}.jpeg`;
             link.click();
         });
     </script>
