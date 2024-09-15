@@ -1,16 +1,17 @@
 <head>
    <style>
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        body {
-            background: linear-gradient(270deg, #ff7e5f, #feb47b);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-    </style>
+   @keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100vw, 100vh); }
+}
+
+.particle {
+    width: 5px;
+    height: 5px;
+    background: white;
+    position: absolute;
+    animation: move 5s linear infinite;
+   </style>
 <h1 align=center>t1a04-forms-kenzie.html</h1>
 <form action="submit.html">
   <b style="font-size: 60px;
