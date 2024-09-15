@@ -1,16 +1,14 @@
 <head>
    <style>
-   @keyframes move {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(100vw, 100vh); }
+  @keyframes wave {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 0; }
 }
 
-.particle {
-    width: 5px;
-    height: 5px;
-    background: white;
-    position: absolute;
-    animation: move 5s linear infinite;
+body {
+    background: url('wave.png') repeat-x;
+    animation: wave 10s linear infinite;
+}
    </style>
 <h1 align=center>t1a04-forms-kenzie.html</h1>
 <form action="submit.html">
