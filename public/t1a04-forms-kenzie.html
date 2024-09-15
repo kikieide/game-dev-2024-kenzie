@@ -1,13 +1,13 @@
 <head>
    <style>
-  @keyframes wave {
-    0% { background-position: 0 0; }
-    100% { background-position: 1000px 0; }
+@keyframes colorFade {
+    0% { background-color: #ff7e5f; }
+    50% { background-color: #feb47b; }
+    100% { background-color: #ff7e5f; }
 }
 
 body {
-    background: url('wave.png') repeat-x;
-    animation: wave 10s linear infinite;
+    animation: colorFade 10s infinite;
 }
    </style>
 <h1 align=center>t1a04-forms-kenzie.html</h1>
@@ -33,9 +33,9 @@ Select Numbers:<imput type="password" id="password" name="password" value="never
     <input type= "checkbox" value="sports">Sports</br>
 <br>
     <br>
+   <b style="font-size: 30px;">Feedback:</b>
     <textarea rows=4 cols=90 >
-     
-    </textarea><br><br>
+     </textarea><br><br>
     <select >
       <option value="usa">USA</option>
       <option value="canada">Canada</option>
