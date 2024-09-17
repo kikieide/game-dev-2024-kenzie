@@ -40,34 +40,4 @@
 
   <div id="myDiv01">...</div>
   </div>
-  <body>
-      let tasks = [];
 
-function addTask() {
-    let taskInput = document.getElementById('taskInput');
-    let taskText = taskInput.value.trim();
-    if (taskText !== "") {
-        tasks.push({ text: taskText, completed: false });
-        taskInput.value = "";
-        displayTasks();
-    }
-}
-
-function displayTasks() {
-    let taskList = document.getElementById('taskList');
-    taskList.innerHTML = "";
-    tasks.forEach((task, index) => {
-        let li = document.createElement('li');
-        li.textContent = task.text;
-        li.className = task.completed ? 'completed' : '';
-        li.onclick = () => toggleTaskCompletion(index);
-        taskList.appendChild(li);
-    });
-}
-
-function toggleTaskCompletion(index) {
-    tasks[index].completed = !tasks[index].completed;
-    displayTasks();
-}
-
-  </body>
