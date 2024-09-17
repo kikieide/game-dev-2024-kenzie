@@ -1,4 +1,5 @@
 <head>
+  <script src="script.js"></script>
   <style>
   input {border: 10px double #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
@@ -21,5 +22,7 @@ function myVar(myIn){
 myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
    }">
 
-  <div id="myDiv01">...</div>
+  <div id="myDiv01">...</div><br><br>
+  <p id="myParagraph">This is the original text.</p>
+    <button onclick="changeText()">Click Me!</button>
 </body>
