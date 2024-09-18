@@ -29,14 +29,13 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
 
   <div id="myDiv01">...</div><br><br>
   <style>
-    input {border: 10px dotted #ff9999;
+    input {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
          border-radius: 5px;
               }
     </style>
   <input type=text id="inputText" value="This is the original text">
   <input type=text id="newtext" placeholder="Enter new text">
-    <input type=button value="Click Me!" onclick="{
-      changeText('text')
-    }>
+   <button onclick="changeText()">Change Text</button>
+
 </body>
