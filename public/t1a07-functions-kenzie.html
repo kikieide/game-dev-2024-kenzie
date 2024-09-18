@@ -1,7 +1,7 @@
 <head>
   <script src="script.js">
     function changeText(myParagraph){
-    document.getElementById("myParagraph").textContent = "The text has been changed!";
+    document.getElementById(myParagraph).textContent = "The text has been changed!";
 }
   </script>
   <style>
@@ -28,5 +28,5 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
 
   <div id="myDiv01">...</div><br><br>
   <p id="myParagraph">This is the original text.</p>
-    <button onclick="changeText()">Click Me!</button>
+    <button onclick="changeText(myParagraph)">Click Me!</button>
 </body>
