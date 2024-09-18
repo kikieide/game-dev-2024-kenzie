@@ -1,10 +1,5 @@
 <head>
-   <script>
-        function changeText(new text) {
-                       var newText = document.getElementById("newText").value;
-            document.getElementById("inputText").value = newText;
-        }
-    </script>
+   
   <style>
   input {border: 10px double #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
@@ -34,8 +29,15 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
          border-radius: 5px;
               }
     </style>
-  <input type=text id="inputText" value="This is the original text">
-  <input type=text id="newtext" placeholder="Enter new text">
-   <button onclick="changeText()">Change Text</button>
+   <input type="text" id="inputText" value="This is the original text.">
+    <input type="text" id="newText" placeholder="Enter new text here">
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            var newText = document.getElementById("newText").value;
+            document.getElementById("inputText").value = newText;
+        }
+    </script>
 
 </body>
