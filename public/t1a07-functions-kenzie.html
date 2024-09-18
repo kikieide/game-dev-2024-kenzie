@@ -27,6 +27,7 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
    }">
 
   <div id="myDiv01">...</div><br><br>
-  <p id="myParagraph">This is the original text.</p>
-    <button onclick="changeText(myParagraph)">Click Me!</button>
+  <input type=text id="myParagraph" value="This is the original text">
+    <input type=button value="Click Me!" onclick="{
+      changeText('myParagraph').innerhtml">
 </body>
