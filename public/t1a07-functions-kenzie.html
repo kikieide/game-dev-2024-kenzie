@@ -71,7 +71,7 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
         let t= progress/duration;
         let position= height(1 - t);
         element.style.transform = 'translateY(' + position + 'px)';
-        if (progress=duration) {
+        if (progress < duration) {
                     window.requestAnimationFrame(step); }
                                      }
             window.requestAnimationFrame(step);
