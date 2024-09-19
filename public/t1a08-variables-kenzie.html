@@ -11,6 +11,14 @@
       margin: 10px;
     }
   </style>
+   <style>
+    .message-box2 {
+      padding: 10px;
+      border: 10px double hsl(330, 100%, 85%);
+      width: fit-content;
+      margin: 10px;
+    }
+  </style>
   <h1 align=center>t1a08-variables-kenzie</h1>
 <a href="https://www.w3schools.com/js/js_variables.asp"> here</a><br>
 <input type="text" id="myIn01" value="5"><br>
@@ -37,9 +45,21 @@
 let mySunny = false;
 let message;
 if (myRaining) {
- message= "Take an umbrella!";
+ message= "Stay Indoors!";
 } else {
-  message= "Enjoy the sunshine!";
+  message= "Go Outside!";
+}
+   document.getElementById('weatherMessage').innerText = message;
+</script>
+  <div id="weatherMessage" class="message-box">...</div>
+  <script>
+      let myRaining = false;
+let mySunny = true;
+let message;
+if (myRaining) {
+ message= "Stay Indoors!";
+} else {
+  message= "Go Outside!";
 }
    document.getElementById('weatherMessage').innerText = message;
 </script>
