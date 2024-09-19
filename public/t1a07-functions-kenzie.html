@@ -60,16 +60,12 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
     <input type="button" value="Bounce" onclick="bounce()">
     <script>
         function bounce() {
-            const element = document.getElementById('bounceElement');
-            let start = null;
-            const height = 100; 
-            const duration = 1500; 
-
-            function step(timestamp) {if (!start) start = timestamp;
-                let progress = timestamp - start;
-                let position = Math.abs(Math.sin(progress / duration * Math.PI)) * height;
-                element.style.transform = 'translateY(' + position + 'px)';
-                if (progress < duration) {
+                 if (!start) start = timestamp;
+        let progress = timestamp - start;
+        let t = progress / duration;
+        let position = height * (1 - t); 
+        element.style.transform = 'translateY(' + position + 'px)';
+        if (progress < duration) {
                     window.requestAnimationFrame(step); }
                                      }
             window.requestAnimationFrame(step);
