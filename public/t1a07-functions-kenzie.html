@@ -19,7 +19,16 @@
     
     </style>
 <h1 align=center>t1a07-functions-kenzie.html</h1>
-
+ <style>
+        #bounceElement {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
 <script>
 function myVar(myIn){
   return document.getElementById(myIn)
@@ -28,6 +37,27 @@ function myVar(myIn){
 </script>
 </head>
 <body>
+    div id="bounceElement"></div>
+    <button onclick="bounce()">Bounce</button>
+    <script>
+        function bounce() {
+            const element = document.getElementById('bounceElement');
+            let start = null;
+            const height = 200; // Height of the bounce
+            const duration = 2000; // Duration of the animation in milliseconds
+
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                let progress = timestamp - start;
+                let position = Math.abs(Math.sin(progress / duration * Math.PI)) * height;
+                element.style.transform = 'translateY(' + position + 'px)';
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+    </script>
 <input type=text id="myFirstName" value="kenzie">
 <input type=button value="Show on page" onclick="{
   
