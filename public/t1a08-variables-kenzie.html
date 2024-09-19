@@ -1,4 +1,13 @@
-<h1 align=center>t1a08-variables-kenzie</h1>
+<head>
+  <style>
+    .message-box {
+      padding: 10px;
+      border: 10px, hsl(330, 100%, 85%);
+      width: fit-content;
+      margin: 10px;
+    }
+  </style>
+  <h1 align=center>t1a08-variables-kenzie</h1>
 <a href="https://www.w3schools.com/js/js_variables.asp"> here</a><br>
 <input type="text" id="myIn01" value="5"><br>
 <input type="text" id="myIn02" value="7"><br>
@@ -14,16 +23,17 @@
   document.getElementById('myDiv01').innerHTML = 'Your answer is ' + myTotal;
 }"><br><br>
 
-
+</head>
+<body>
 
       boolean<br>
-<div id="weatherMessage">...</div>
+<div id="weatherMessage" class="message-box">...</div>
 <script>
       let myRaining = true;
 let mySunny = false;
 let message;
 if (myRaining) {
-  message= "Take an umbrella!";
+ message= "Take an umbrella!";
 } else {
   message= "Enjoy the sunshine!";
 }
@@ -35,3 +45,4 @@ if (myRaining) {
       float
       char
       string
+</body>
