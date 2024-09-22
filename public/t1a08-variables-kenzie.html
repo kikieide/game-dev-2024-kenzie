@@ -20,13 +20,20 @@
     }
   </style>
   <style>
-  .greeting {
-    background-color: hsl(300, 55%, 90%);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 24px;
+  .greeting1 {background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 24px;
+    .greeting2 {background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 24px;
         }
     </style>
   <h1 align=center>t1a08-variables-kenzie</h1>
@@ -90,17 +97,17 @@ if (mySunny2) {
         document.getElementById('average').innerText = "Average: " + average.toFixed(2);
     </script><br><br>
      <b style="color:green; background-color:yellow; font-size: 18px; "> single string greeting</b><br>
-  <div id="greeting" class="greeting"></div>
+  <div id="greeting1" class="greeting"></div>
 <script>
     let greeting = "hello world";
-    document.getElementById('greeting').innerHTML = greeting;
+    document.getElementById('greeting1').innerHTML = greeting;
 </script><br>
-  <div id="greeting" class="greeting"></div>
+  <div id="greeting2" class="greeting"></div>
   <script>
-       let greeting = "Hello";
-    let name = "kenzie";
-    let message = greeting + ", " + name + "!"; 
-    document.getElementById('greeting').innerHTML = message;
+       let greeting2 = "Hello";
+    let name2 = "kenzie";
+    let message2 = greeting2 + ", " + name2 + "!"; 
+    document.getElementById('greeting2').innerHTML = message2;
   </script>
   
 </body>
