@@ -87,5 +87,11 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
             window.requestAnimationFrame(step);
         }
     </script>
+         <input type=button value="colorButton">Change Background Color</input>
+         <script>
+        document.getElementById('colorButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'lightblue';
+        });
+    </script>
      </div>
 </body>
