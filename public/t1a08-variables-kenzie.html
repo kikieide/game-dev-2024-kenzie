@@ -69,16 +69,13 @@ if (mySunny2) {
       double
       float
       char
-      string
-  <ul id="fruitsList"></ul>
-    <script src="script.js"></script>
+<div id="myTextbox">...</div>
   <script>
-  let fruits = ["apple", "banana", "cherry"];
-    let fruitsList = document.getElementById('fruitsList');
-    fruits.forEach(function(fruit) {
-  let listItem = document.createElement('li');
-  listItem.textContent = fruit;
-  fruitsList.appendChild(listItem);
-});
+let name = 'Alice';
+let message = `Hello, ${name}!`;
+document.getElementById('myTextbox').value = message;
+    
   </script>
+      string
+
 </body>
