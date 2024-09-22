@@ -68,13 +68,27 @@ if (mySunny2) {
       int
       double
       float
+  <h1>Float Numbers Calculation</h1>
+    <p id="numbers"></p>
+    <p id="sum"></p>
+    <p id="average"></p>
+
+    <script>
+        // Declare an array of float numbers
+        let numbers = [4.5, 3.2, 5.8, 6.1, 2.9];
+
+        // Calculate the sum of the numbers
+        let sum = numbers.reduce((acc, num) => acc + num, 0);
+
+        // Calculate the average
+        let average = sum / numbers.length;
+
+        // Output the results
+        document.getElementById('numbers').innerText = "Numbers: " + numbers.join(", ");
+        document.getElementById('sum').innerText = "Sum: " + sum.toFixed(2);
+        document.getElementById('average').innerText = "Average: " + average.toFixed(2);
+    </script>
       char
- <div id="myTextbox" class="message=box">...</div>
-  <script>
-    let name = 'Alice';
-    let message = 'Hello, ${name}!`;
-    document.getElementById('myTextbox').innerText = message;
-  </script>
       string
 
 </body>
