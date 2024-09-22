@@ -87,11 +87,13 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
             window.requestAnimationFrame(step);
         }
     </script>
-         <input type=button id="colorButton">Change Background Color
+         </div>
+     <input type=button id="colorButton" value="Change Background Colour">
+     <input type=button id="resetButton" value="Reset Background Colour">
          <script>
         document.getElementById('colorButton').addEventListener('click', function() {
-            document.body.style.backgroundColor = 'lightblue';
-        });
+            document.body.style.backgroundColor = 'green';   });
+              document.getElementById('resetButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = '';
     </script>
-     </div>
 </body>
