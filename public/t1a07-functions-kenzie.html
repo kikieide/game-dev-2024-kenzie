@@ -3,6 +3,15 @@
       body {
          background-color: hsl(0, 0%, 80%);
             </style>
+    <style>
+    .text-box {
+            border: 2px solid black; 
+            padding: 20px;
+            background-color: white;
+            width: fit-content;
+            margin: 20px auto;
+        }
+           </style>
   <style>
   #inputText {border: 10px double #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
@@ -56,6 +65,7 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
         }
     </script>
     <br><br>
+     <div class="text-box">
 <div id="bounceElement"></div>
     <input type="button" value="Bounce" onclick="bounce()">
     <script>
@@ -77,4 +87,5 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
             window.requestAnimationFrame(step);
         }
     </script>
+     </div>
 </body>
