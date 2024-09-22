@@ -70,7 +70,15 @@ if (mySunny2) {
       float
       char
       string
+  <ul id="fruitsList"></ul>
+    <script src="script.js"></script>
   <script>
   let fruits = ["apple", "banana", "cherry"];
+    let fruitsList = document.getElementById('fruitslist').value;
+    fruits.forEach(function(fruit) {
+  let listItem = document.createElement('li');
+  listItem.textContent = fruit;
+  fruitsList.appendChild(listItem);
+});
   </script>
 </body>
