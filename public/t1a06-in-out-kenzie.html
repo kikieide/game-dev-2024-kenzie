@@ -28,18 +28,11 @@
 
   <div id="myDiv01">...</div>
   </div>
-<h1>Interactive Quiz</h1>
-    <p>What is the capital of France?</p>
-    <input type="text" id="answer" placeholder="Your answer">
-    <button onclick="checkAnswer()">Submit</button>
-    <p id="feedback"></p>
-    <script>
-        function checkAnswer() {
-            const answer = document.getElementById('answer').value.toLowerCase();
-            const feedback = document.getElementById('feedback');
-            if (answer === 'paris') {
-                feedback.innerText = 'Correct!';
-            } else {
-                feedback.innerText = 'Incorrect. Try again!';
-            }
-        }
+     <input type=button id="colorButton" value="Change Background Colour">
+     <input type=button id="resetButton" value="Reset Background Colour">
+         <script>
+        document.getElementById('colorButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'lightblue';   });
+              document.getElementById('resetButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = ''; });
+    </script>
