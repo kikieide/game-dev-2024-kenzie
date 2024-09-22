@@ -37,18 +37,21 @@
             document.body.style.backgroundColor = ''; });
     </script>
    <input type=button onclick="generateRandomPicture()" value="Random Pictures!">
-   <div id="myPictures""></div>
+   <div id="myPictures"></div>
    <script>
-      const images [
+      const images = [
       'https://static.displate.com/857x1200/displate/2022-12-21/da6d7d543a499726b9ab946a9ea950ad_6b53d7a9bdff45347173984f10d4eb46.jpg?text=Image+1',
          'https://i.imgflip.com/5vwjhm.jpg?text=Image+2',
       'https://howtodrawanimals.net/wp-content/uploads/2010/08/drawing.jpg?text=Image+3',
          'https://th.bing.com/th/id/OIP.uBPWeCP6AubfkZyoH1MruQAAAA?rs=1&pid=ImgDetMain?text=Image+4',
          ];
-      function generateRandomPicture() {
-         const randomIndex = Math.floor(Math.random() * images.length);
-         const pictureContainer = document.getElementById('myPictures');
-   myPictures.innerHTML = `<img src="${images[randomIndex]}" alt="Random Picture">`;
+function generateRandomPicture() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const pictureContainer = document.getElementById('myPictures');
+    const imgElement = document.createElement('img');
+    imgElement.src = images[randomIndex];
+    imgElement.alt = 'Random Picture';
+    pictureContainer.innerHTML = '';
+    pictureContainer.appendChild(imgElement);
 }
-   
    </script>
