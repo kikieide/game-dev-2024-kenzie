@@ -92,7 +92,7 @@ if (mySunny2) {
     <b id="sum"></b><br>
     <b id="average"></b><br>
     <script>
-        let numbers = [4.5, 3.2, 5.8, 6.1, 2.9];
+        const numbers = [4.5, 3.2, 5.8, 6.1, 2.9];
         let sum = numbers.reduce((acc, num) => acc + num, 0);
         let average = sum / numbers.length;
         document.getElementById('numbers').innerText = "Numbers: " + numbers.join(", ");
@@ -102,15 +102,15 @@ if (mySunny2) {
      <b style="color:green; background-color:yellow; font-size: 18px; "> single string greeting</b><br>
   <div id="greeting1" class="greeting"></div>
 <script>
-    let greeting = "hello world";
+    const greeting = "hello world";
     document.getElementById('greeting1').innerHTML = greeting;
 </script><br>
    <b style="color:green; background-color:yellow; font-size: 18px; "> double string greeting</b><br>
   <div id="greeting2" class="greeting"></div>
   <script>
-       let greeting2 = "hello";
-    let name = "kenzie";
-    let message3 = greeting2 + ", " + name + "!"; 
+       const greeting2 = "hello";
+    const name = "kenzie";
+    const message3 = greeting2 + ", " + name + "!"; 
     document.getElementById('greeting2').innerHTML = message3;
   </script>
   
