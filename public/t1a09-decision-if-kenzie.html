@@ -1,3 +1,4 @@
+<head>
 <h1 align=center>t1a09-decision-if-kenzie.htmll</h1>
 
 <input type=text id="myText1" value="Fred">
@@ -21,4 +22,25 @@
       document.getElementById('myDiv01').innerHTML = 'Was expecting Fred >:'
     }
   }"><br>
-   
+</head>
+<body>
+ <input type=text id="myText2" value="jgjsgjsg">
+  <div id="myDiv02">...</div>
+<input type=button value="True" onclick="{
+   let myIn2 = true;
+        let myIn3 = true;
+        let myIn4 = false;
+
+        let resultElement = document.getElementById('myText2');
+   if (myIn2 && myIn3 && myIn4) {
+            resultElement.textContent = "Congratulations! You answered all questions correctly.";
+        } else {
+  resultElement.textContent = "Try Again!" }
+  }"><br>
+
+
+
+
+
+  
+</body>
