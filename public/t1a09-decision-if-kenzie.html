@@ -61,15 +61,19 @@
   <input type=text id="myText03" value="??">       
 <input type=number id="myNum03" value="10">
   <input type=button value="'Or' decision" onclick="{
-    let isClicked = document.getElementById('myText03');
-    if (isClicked === 'Change' || myNum3 < 5) {
+    let textBox = document.getElementById('myText03').;
+    let myNum3 = document.getElementById('myNum03').value;
+    if (textBox.value === 'Change' || myNum3 < 5) {
       textBox.style.color = 'red';
     } else {
       textBox.style.color = 'white';
     }
   }"><br>
 <br><br>
-<input type="checkbox"
+<input type="checkbox" id="myCheckbox2">One
+<input type="checlbox" id="myCheckbox3">Two
+<input type=button value="Pick one" onclick="{
+  let my
   
 
   
