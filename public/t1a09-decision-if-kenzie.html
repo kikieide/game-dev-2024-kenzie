@@ -27,8 +27,8 @@
   }"><br>
   <br><br>
   <i style="font-size: 15px;">You forgot your password! Good thing it is "password" and your number is greater than 10</i>
-  <input type=text id="myPass1" value="Password">
-  <input type="number" id="myNum2" value="14">
+  <input type=text id="myPass1" value="???">
+  <input type="number" id="myNum2" value="2">
   <div id="myDiv02"></div>                 
 
 <input type="button" value="'And' decision" onclick="{
@@ -57,7 +57,15 @@
   }
 }"><br>
   <input type=text id="myText03" value="YN">       
-<div id="feature2" class="Colour">
+<input type=number id="myNum03" value="10">
+  <input type=button value="'Or' decision" onclick="{
+    let isClicked = document.getElementById('myText03');
+    if (isClicked == 'Change' || myNum3 < 5) {
+      textBox.style.color = 'red';
+    } else {
+      textBox.style.color = 'white';
+    }
+  }"><br>
   
 
   
