@@ -35,9 +35,9 @@
   let myNum2 = document.getElementById('myNum2').value;
   let featureElement = document.getElementById('feature');
       if (myIn2 === 'Password' || myNum2 > 10) {
-  featureElement.classlist.remove('hidden');
+  featureElement.classList.remove('hidden');
       } else {
-        featureElement.classlist.add('hidden');
+        featureElement.classList.add('hidden');
       }
 }"><br>
     <div id="feature" class="hidden">
