@@ -60,7 +60,7 @@
 <input type=number id="myNum03" value="10">
   <input type=button value="'Or' decision" onclick="{
     let isClicked = document.getElementById('myText03');
-    if (isClicked == 'Change' || myNum3 < 5) {
+    if (isClicked === 'Change' || myNum3 < 5) {
       textBox.style.color = 'red';
     } else {
       textBox.style.color = 'white';
