@@ -83,7 +83,7 @@
  function checkAndEnlarge() {
         let checkbox2 = document.getElementById('myCheckbox2');
         let checkbox3 = document.getElementById('myCheckbox3');
-        if (!checkbox2.checked || !checkbox3.checked) {
+        if (!checkbox2.checked || checkbox3.checked) {
             checkbox2.style.width = '40px';
             checkbox2.style.height = '40px';
             checkbox3.style.width = '40px';
