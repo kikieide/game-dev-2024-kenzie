@@ -30,7 +30,9 @@
   <input type=text id="myPass1" value="Password">
   <input type="number" id="myNum2" value="14">
   <div id="myDiv02"></div>
-  <input type=text id=
+  <input type=text id="myText03" value="YN">
+     <input type="checkbox" id="myCheckbox1">Click!
+  <div id="myMessage"></div>                              
 </head>
 <body>
 <input type="button" value="'And' decision" onclick="{
@@ -44,9 +46,7 @@
       }
 }"><br>
     <div id="feature" class="hidden">
-    <input type="text" placeholder="suprise!">
-        <input type="checkbox" id="myCheckbox1">Click!
-  <div id="myMessage"></div>                              
+    <input type="text" placeholder="suprise!">        
 <input type="button" value="'Not' decision" onclick="{
   let isChecked = document.getElementById('myCheckbox1').checked;
   let messageElement = document.getElementById('myMessage');
