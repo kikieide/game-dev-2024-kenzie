@@ -1,4 +1,4 @@
-<head>
+
 <h1 align=center>t1a09-decision-if-kenzie.html</h1>
 <style>
   .hidden {
@@ -29,12 +29,8 @@
   <i style="font-size: 15px;">You forgot your password! Good thing it is "password" and your number is greater than 10</i>
   <input type=text id="myPass1" value="Password">
   <input type="number" id="myNum2" value="14">
-  <div id="myDiv02"></div>
-  <input type=text id="myText03" value="YN">
-     <input type="checkbox" id="myCheckbox1">Click!
-  <div id="myMessage"></div>                              
-</head>
-<body>
+  <div id="myDiv02"></div>                 
+
 <input type="button" value="'And' decision" onclick="{
   let myIn2 = document.getElementById('myPass1').value;
   let myNum2 = document.getElementById('myNum2').value;
@@ -48,6 +44,8 @@
     <div id="feature" class="hidden">
     <input type="text" placeholder="suprise!">  
       <br><br>
+      <input type="checkbox" id="myCheckbox1">Click!
+  <div id="myMessage"></div>                  
 <input type="button" value="'Not' decision" onclick="{
   let isChecked = document.getElementById('myCheckbox1').checked;
   let messageElement = document.getElementById('myMessage');
@@ -57,8 +55,8 @@
     messageElement.innerHTML = 'Good job!';
   }
 }"><br>
-
-
+  <input type=text id="myText03" value="YN">       
+<div id="feature2" class="Colour">
+  
 
   
-</body>
