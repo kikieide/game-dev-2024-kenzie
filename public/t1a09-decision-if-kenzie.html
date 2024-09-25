@@ -4,6 +4,12 @@
   .hidden {
   display: none;
   </style>
+<style>
+        #myCheckbox2, #myCheckbox3 {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
 <input type=text id="myText1" value="Fred">
 <input type=number id="myNum1" value="14">
 <div id="myDiv01">...</div>
@@ -72,18 +78,23 @@
 <br><br>
 <input type="checkbox" id="myCheckbox2">One
 <input type="checlbox" id="myCheckbox3">Two
-<input type=button value="Pick one" onclick="checkAndEnlarge()">
-  let myCheckboxA = true;
-  let myCheckboxB = false;
+<input type="button" value="Pick one" onclick="checkAndEnlarge()">
+<script>
  function checkAndEnlarge() {
-   if (!myCheckboxA || myCheckboxB) {
-            let checkbox = document.getElementById('myCheckbox');
-            checkbox.style.width = '40px';
-            checkbox.style.height = '40px';
-} else {
- let checkbox = document.getElementById('myCheckbox');
-            checkbox.style.width = '14px';
-            checkbox.style.height = '15px';
+        let checkbox2 = document.getElementById('myCheckbox2');
+        let checkbox3 = document.getElementById('myCheckbox3')
+        if (!myCheckboxA || myCheckboxB) {
+            checkbox2.style.width = '40px';
+            checkbox2.style.height = '40px';
+            checkbox3.style.width = '40px';
+            checkbox3.style.height = '40px';
+        } else {
+            checkbox2.style.width = '14px';
+            checkbox2.style.height = '15px';
+            checkbox3.style.width = '14px';
+            checkbox3.style.height = '15px';
+        }
+ }<br>
   
 
   
