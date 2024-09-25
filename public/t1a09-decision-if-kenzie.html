@@ -72,8 +72,18 @@
 <br><br>
 <input type="checkbox" id="myCheckbox2">One
 <input type="checlbox" id="myCheckbox3">Two
-<input type=button value="Pick one" onclick="{
-  let my
+<input type=button value="Pick one" onclick="checkAndEnlarge()">
+  let myCheckboxA = true;
+  let myCheckboxB = false;
+ function checkAndEnlarge() {
+   if (!myCheckboxA || myCheckboxB) {
+            let checkbox = document.getElementById('myCheckbox');
+            checkbox.style.width = '40px';
+            checkbox.style.height = '40px';
+} else {
+ let checkbox = document.getElementById('myCheckbox');
+            checkbox.style.width = '14px';
+            checkbox.style.height = '15px';
   
 
   
