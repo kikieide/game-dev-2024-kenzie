@@ -64,10 +64,10 @@
 }"><br>
 <br><br>
 <i style="font-size: 15px;">Type "Change", or have a value less than 5!</i>
-  <input type=text id="myText03" value="??">       
-<input type=number id="myNum03" value="10">
-  <input type=button value="'Or' decision" onclick="{
-    let textBox = document.getElementById('myText03').;
+<input type="text" id="myText03" value="??">       
+<input type="number" id="myNum03" value="10">
+<input type="button" value="'Or' decision" onclick="{
+    let textBox = document.getElementById('myText03');
     let myNum3 = document.getElementById('myNum03').value;
     if (textBox.value === 'Change' || myNum3 < 5) {
       textBox.style.color = 'red';
