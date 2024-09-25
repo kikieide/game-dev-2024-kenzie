@@ -29,10 +29,12 @@
   <i style="font-size: 15px;">You forgot your password! Good thing it is "password" and your number is greater than 10</i>
   <input type=text id="myPass1" value="Password">
   <input type="number" id="myNum2" value="14">
-  <div id="myDiv02">...</div>
+  <div id="myDiv02"></div>
+  <input type="checkbox" id="myCheckbox1">Click!
+  <div id="myMessage"></div>
 </head>
 <body>
-<input type=button value="'And' decision" onclick="{
+<input type="button" value="'And' decision" onclick="{
   let myIn2 = document.getElementById('myPass1').value;
   let myNum2 = document.getElementById('myNum2').value;
   let featureElement = document.getElementById('feature');
@@ -45,7 +47,15 @@
     <div id="feature" class="hidden">
     <input type="text" placeholder="suprise!">
                                     
-
+<input type="button" value="'Not' decision" onclick="{
+  let isChecked = document.getElementById('myCheckbox1').checked;
+  let messageElement = document.getElementById('myMessage');
+  if (!isChecked) {
+    messageElement.innerHTML = 'Check the box!';
+  } else {
+    mesageElement.innerHTML = 'Good job!';
+  }
+}"><br>
 
 
 
