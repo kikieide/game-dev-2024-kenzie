@@ -1,5 +1,14 @@
 <head>
   <style>
+  .text-box { 
+    border: 2px solid black; 
+    padding: 20px;
+    background-color: hsl(0, 0%, 80%);
+    width: fit-content;
+     margin: 20px auto;
+        }
+  </style>
+  <style>
       body {
          background-color: hsl(0, 0%, 80%);
             </style>
@@ -113,5 +122,17 @@ if (mySunny2) {
     const message3 = greeting2 + ", " + name + "!"; 
     document.getElementById('greeting2').innerHTML = message3;
   </script>
-  
+  <div id="text-box">
+  <input type=text id="myIn05" placeholder="hi">
+    <input type=button value="Click Me" onclick="displayGreeing()">
+
+    <script>
+        function displayGreeting() {
+            let myName = document.getElementById('myIn05').value;
+            const myGreeting = "hello";
+            const myMessage = myGreeting + ", " + myName;
+            document.getElementById('myGreeting').innerHTML = myMessage;
+        }
+    </script>
+  </div>
 </body>
