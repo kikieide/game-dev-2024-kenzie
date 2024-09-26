@@ -37,13 +37,12 @@
             left: 50px;
         }
     </style>
-     <style>
-        #slideElement {width: 100px;
-            height: 100px;
-            background-color: #ff9999;
-            position: botton-left;
-            top: 50px;
-            left: 50px;
+      <style>
+        #slideElement {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
         }
     </style>
     
@@ -108,21 +107,23 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
     </script>
     <br><br>
     <input type=button value="Slide" onclick="slide()">
-    <script>
-function slide() {
-    const myElement01 = document.getElementById('slideElement');
-    let myStart =null;
-    const myHeight = 50;
-    const myDuration = 1500;
-    function myStep(timestamp) {
-        if (!start) start= timestamp;
-        let myProgress= timestamp - start;
-        let t= progress / duration;
-        let myPosition= height * (1-myT); 'translateX(' + position + 'px)';             
-if (progress < duration) {
-                    window.requestAnimationFrame(step); }
-                                     }
-            window.requestAnimationFrame(step);
+     <script>
+        function slide() {
+            const myElement = document.getElementById('slideElement');
+            let start = null;
+            const height = 50;
+            const duration = 1500;
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                let progress = timestamp - start;
+                let t = progress / duration;
+                let position = height * (1 - t);
+                myElement.style.transform = 'translateX(' + position + 'px)';
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+  window.requestAnimationFrame(step);
         }
     </script>
 </body>
