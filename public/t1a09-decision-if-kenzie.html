@@ -123,8 +123,8 @@
 <input type=text id="myText06">
   <input type=button value="One" onclick="myClick()">
  <script>
-  function myClick(){
-    let textBox2 = document.getElementById('myText04');
+  function myClick() {
+     let textBox2 = document.getElementById('myText04');
     let textBox3 = document.getElementById('myText05');
     let textBox4 = document.getElementById('myText06');
     let featureElement3 = document.getElementById('hidden2');
@@ -133,16 +133,17 @@
 
     if (textBox2.value === 'One') {
       textBox2.style.color = 'green';
-      featureElement3.classList.add('hidden2');
-      featureElement4.classList.add('hidden3');
-      featureElement5.classList.add('hidden4');
-    } else {
       featureElement3.classList.remove('hidden2');
       featureElement4.classList.remove('hidden3');
       featureElement5.classList.remove('hidden4');
+    } else {
+      textBox2.style.display = 'none';
+      featureElement3.classList.add('hidden2');
+      featureElement4.classList.add('hidden3');
+      featureElement5.classList.add('hidden4');
     }
   }
-   </script>
+</script>
   
 </div>
 
