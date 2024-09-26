@@ -45,6 +45,14 @@
             position: middle;
         }
     </style>
+     <style>
+        #rotateElement {
+            width: 100px;
+            height: 100px;
+            background-color: #ff9999;
+            position: middle;
+        }
+    </style>
     
 <script>
 function myVar(myIn){
@@ -108,7 +116,9 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
     <br><br>
          <div class="text-box">
     <input type=button value="Slide" onclick="slide()">
+              <input type=button value="Rotate" onclick="rotate()">
      <div id="slideElement"></div>
+              <div id="rotateElement"></div>
      <script>
         function slide() {
             const myElement = document.getElementById('slideElement');
@@ -121,6 +131,25 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
                 let t = progress / duration;
                 let position = height * (1 - t);
                 myElement.style.transform = 'translateX(' + position + 'px)';
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                }
+            }
+  window.requestAnimationFrame(step);
+        }
+    </script>
+             <script>
+        function rotate() {
+            const myElement = document.getElementById('rotateElement');
+            let start = null;
+            const height = 50;
+            const duration = 1500;
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                let progress = timestamp - start;
+                let t = progress / duration;
+                let position = height * (1 - t);
+                myElement.style.transform = 'translateXY(' + position + 'px)';
                 if (progress < duration) {
                     window.requestAnimationFrame(step);
                 }
