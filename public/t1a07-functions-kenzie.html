@@ -37,6 +37,16 @@
             left: 50px;
         }
     </style>
+     <style>
+        #slideElement {width: 100px;
+            height: 100px;
+            background-color: #ff9999;
+            position: botton-left;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+    
 <script>
 function myVar(myIn){
   return document.getElementById(myIn)
@@ -95,5 +105,24 @@ myVar('myDiv01').innerHTML = 'Your name is ' + myVar( 'myFirstName' ).value
             document.body.style.backgroundColor = 'lightblue';   });
               document.getElementById('resetButton').addEventListener('click', function() {
             document.body.style.backgroundColor = ''; });
+    </script>
+    <br><br>
+    <input type=button value="Slide" onclick="slide()">
+    <script>
+function slide() {
+    const myElement01 = document.getElementById('slideElement');
+    let myStart =null;
+    const myHeight = 50;
+    const myDuration = 1500;
+    function myStep(timestamp) {
+        if (!start) start= timestamp;
+        let myProgress= timestamp - start;
+        let t= progress / duration;
+        let myPosition= height * (1-myT); 'translateX(' + position + 'px)';             
+if (progress < duration) {
+                    window.requestAnimationFrame(step); }
+                                     }
+            window.requestAnimationFrame(step);
+        }
     </script>
 </body>
