@@ -124,9 +124,11 @@ if (mySunny2) {
   </script>
   <div id="text-box">
   <input type=text id="myIn05" placeholder="hi">
-    <input type=button value="Click Me" onclick="displayGreeing()">
-
+    <input type=button value="Click Me" onclick="displayGreeting()">
+<p id="myGreeting"></p>
     <script>
+      let myName = "kenzie";
+  let myName2 = "fred";
         function displayGreeting() {
             let myName = document.getElementById('myIn05').value;
             const myGreeting = "hello";
