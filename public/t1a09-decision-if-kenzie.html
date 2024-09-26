@@ -27,12 +27,8 @@
   </style>
 
   <style>
-.hidden2 {
+.hidden2, .hidden3, .hidden4 {
   display: none;
-  .hidden3 {
-    display: none;
-    .hidden4 {
-      display: none;
   </style>
 <input type=text id="myText1" value="Fred">
 <input type=number id="myNum1" value="14">
@@ -125,24 +121,28 @@
 <input type="text" id="myText04">
 <input type="text" id="myText05">
 <input type=text id="myText06">
-  <input type=button value="One" onclick="{
+  <input type=button value="One" onclick="myClick()">
+ <script>
+  function myClick(){
     let textBox2 = document.getElementById('myText04');
     let textBox3 = document.getElementById('myText05');
     let textBox4 = document.getElementById('myText06');
     let featureElement3 = document.getElementById('hidden2');
     let featureElement4 = document.getElementById('hidden3');
     let featureElement5 = document.getElementById('hidden4');
-    if (textBox2.value == 'One') {
+
+    if (textBox2.value === 'One') {
       textBox2.style.color = 'green';
-      featureElement3.classList.add ('hidden2');
-            featureElement4.classList.add ('hidden3');
-            featureElement5.classList.add ('hidden4');
+      featureElement3.classList.add('hidden2');
+      featureElement4.classList.add('hidden3');
+      featureElement5.classList.add('hidden4');
     } else {
-      featureElement3.classList.remove ('hidden2');
-            featureElement4.classList.remove ('hidden3');
-            featureElement5.classList.remove ('hidden4');
+      featureElement3.classList.remove('hidden2');
+      featureElement4.classList.remove('hidden3');
+      featureElement5.classList.remove('hidden4');
     }
-  }"><br>
+  }<br>
+   </script>
   
 </div>
 
