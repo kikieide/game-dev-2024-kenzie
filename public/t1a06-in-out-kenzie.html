@@ -61,3 +61,13 @@ function generateRandomPicture() {
     pictureContainer.appendChild(imgElement);
 }
    </script>
+   <input type=button id="myCounterButton" value="click me" onclick="myCounter()">
+<div id="myDiv02">0</div>
+   <script>
+      let myCount = 0;
+      function myCounter() {
+         myCount++;
+         document.getElementById('myDiv02').innerHTML = myCount;
+      }
+   </script>
+   
