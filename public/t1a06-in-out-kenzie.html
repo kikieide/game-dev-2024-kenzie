@@ -88,15 +88,15 @@ function generateRandomPicture() {
     </script>
    <br><br>
 
-      <input type=checkbox id="myChoice1" name="choices" value="Option 1" onclick="displaySelectedOption('myChoice1')"> Option 1
-   <input type=checkbox id="myChoice2" name="choices" value="Option 2" onclick="displaySelectedOption('myChoice2')"> Option 2
-   <input type=checkbox id="myChoice3" name="choices" value="Option 3" onclick="displaySelectedOption('myChoice3')"> Option 3
-      <input type=checkbox id="myChoice4" name="choices" value="Option 4" onclick="displaySelectedOption('myChoice4')"> Option 4
+      <input type=checkbox id="myChoice1" name="choices" value="Option 1" onclick="displaySelectedChoice('myChoice1')"> Option 1
+   <input type=checkbox id="myChoice2" name="choices" value="Option 2" onclick="displaySelectedChoice('myChoice2')"> Option 2
+   <input type=checkbox id="myChoice3" name="choices" value="Option 3" onclick="displaySelectedChoice('myChoice3')"> Option 3
+      <input type=checkbox id="myChoice4" name="choices" value="Option 4" onclick="displaySelectedChoice('myChoice4')"> Option 4
    <div id="myDiv04">...</div>
 <script>
-   function displaySelectedOption(choiceId) {
-      let selectedOption = document.getElementById(optionId);
-      document.getElementById('myDiv04').innerHTML = selectedOption.value;
+   function displaySelectedChoice(choiceId) {
+      let selectedChoice = document.getElementById(choiceId);
+      document.getElementById('myDiv04').innerHTML = selectedChoice.value;
    }
 </script>
    
