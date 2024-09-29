@@ -88,5 +88,15 @@ function generateRandomPicture() {
     </script>
    <br><br>
 
-      <input type=checkbox id=
+      <input type=checkbox id="myChoice1" name="choices" value="Option 1" onclick="displaySelectedOption('myChoice1')"> Option 1
+   <input type=checkbox id="myChoice2" name="choices" value="Option 2" onclick="displaySelectedOption('myChoice2')"> Option 2
+   <input type=checkbox id="myChoice3" name="choices" value="Option 3" onclick="displaySelectedOption('myChoice3')"> Option 3
+      <input type=checkbox id="myChoice4" name="choices" value="Option 4" onclick="displaySelectedOption('myChoice4')"> Option 4
+   <div id="myDiv04">...</div>
+<script>
+   function displaySelectedOption(choiceId) {
+      let selectedOption = document.getElementById(optionId);
+      document.getElementById('myDiv04').innerHTML = selectedOption.value;
+   }
+</script>
    
