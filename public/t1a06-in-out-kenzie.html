@@ -71,8 +71,19 @@ function generateRandomPicture() {
    </script>
    <input type=button id="myCounterButton" value="click me" onclick="myCounter()">
 <div id="myDiv02">0</div>
-   <br>
    
-  
+   <br><br>
+   
+   <input type=radio id="myOption1" placeholder="options" value="Option 1" onclick="dsplaySelectedOption('myOption1')"> Option 1
+   <input type=radio id="myOption2" placeholder="options" value="Option 2" onclick="dsplaySelectedOption('myOption2')"> Option 2
+   <input type=radio id="myOption3" placeholder="options" value="Option 3" onclick="dsplaySelectedOption('myOption3')"> Option 3
+   <input type=radio id="myOption4" placeholder="options" value="Option 4" onclick="dsplaySelectedOption('myOption4')"> Option 4
+   <div id=myDiv03">...</div>
+   <script>
+      function displaySelectedOption(optionId) {
+         let selectedOption = document.getElementById(optionId);
+         document.getElementById('myDiv03').value = selectedOption.value;
+      }
+   </script>
    <br><br>
    
