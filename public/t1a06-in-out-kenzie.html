@@ -33,6 +33,14 @@
   }">
 
   <div id="myDiv01">...</div>
+   <br>
+   <script>
+      let myCount = 0;
+      function myCounter() {
+         myCount++;
+         document.getElementById('myDiv02').innerHTML = myCount;
+      }
+   </script>
   </div>
      <input type=button id="colorButton" value="Change Background Colour">
      <input type=button id="resetButton" value="Reset Background Colour">
@@ -63,11 +71,8 @@ function generateRandomPicture() {
    </script>
    <input type=button id="myCounterButton" value="click me" onclick="myCounter()">
 <div id="myDiv02">0</div>
-   <script>
-      let myCount = 0;
-      function myCounter() {
-         myCount++;
-         document.getElementById('myDiv02').innerHTML = myCount;
-      }
-   </script>
+   <br>
+   
+  
+   <br><br>
    
