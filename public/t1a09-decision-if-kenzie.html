@@ -125,8 +125,8 @@
     const strengthMessage = document.getElementById('myDiv06');
 
     passwordInput.addEventListener('input', () => {
-        const myPassword = myPasswordInput.value;
-        let myStrength = '';
+        const myPassword = passwordInput.value;
+        let strength = '';
 
         if (myPassword.length < 6) {
             strength = 'Too short';
