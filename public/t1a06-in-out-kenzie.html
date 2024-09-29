@@ -99,4 +99,12 @@ function generateRandomPicture() {
       document.getElementById('myDiv04').innerHTML = selectedChoice.value;
    }
 </script>
-   
+   <br><br>
+   <input type=date id="myDate" onchange="displaySelectedDate()">
+   <div id="myDiv05">...</div>
+   <script>
+      function displaySelectedDate() {
+         let selectedDate = document.getElementById('myDate').value;
+         document.getElementById('myDiv05').innerHTML = selectedDate.value;
+      }
+   </script>
