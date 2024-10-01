@@ -21,16 +21,16 @@
 
  <input type="text" id="myFunction" value="freddy"><br>
   <input type="button" value="Set Array" onclick="{
-    myArray[0] = 'Hello';
-    myArray[1] = 'World';
-    myArray[2] = 'How are you';
+    myArray1[0] = 'Hello';
+    myArray1[1] = 'World';
+    myArray1[2] = 'How are you';
 
     document.getElementById('myDiv02').innerHTML = 'You set the array';
   }">
   <input type="button" value="Show Array" onclick="{
     document.getElementById('myDiv02').innerHTML = '';
     for (let i = 0; i < myArray.length; i++) {
-      document.getElementById('myDiv02').innerHTML += 'myArray[' + i + '] = ' + myArray[i] + '<br>';
+      document.getElementById('myDiv02').innerHTML += 'myArray[' + i + '] = ' + myArray1[i] + '<br>';
     }
   }"><br>
   <div id="myDiv02">...</div>
