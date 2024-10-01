@@ -19,32 +19,23 @@
     }"><br>
     <div id="myDiv01">...</div>
 
- <input type="text" id="myFunction" value="freddy"><br>
-  <input type="button" value="Set Array" onclick="{
-    myArray1[0] = 'Hello';
-    myArray1[1] = 'World';
-    myArray1[2] = 'How are you';
-
-    document.getElementById('myDiv02').innerHTML = 'You set the array';
+<br><br>
+<script>
+  let myMax1 = 6
+  let myArray1 = new Array(myMax1)
+</script>
+<input type=text id="myText01" value="fred"><br>
+<input type=button value="Set Array" onclick="{
+  const myA = {
+    ['A', 'B', 'C', 'D'] ['1', '2', '3']
+}
+  document.getElementById('myDiv03').innerHTML = 'You set the array'
   }">
-  <input type="button" value="Show Array" onclick="{
-    document.getElementById('myDiv02').innerHTML = '';
-    for (let i = 0; i < myArray1.length; i++) {
-      document.getElementById('myDiv02').innerHTML += 'myArray1[' + i + '] = ' + myArray1[i] + '<br>';
-    }
-  }"><br>
-  <div id="myDiv02">...</div>
-  <div id="output"></div>
-
-  <script>
-    let myFunctions = [
-      function() { return 'Hello'; },
-      function() { return 'World'; },
-      function() { return 'How are you?'; }
-    ];
-    let myArray1 = new Array(3);
-
-    function callFunction(index) {
-      document.getElementById('output').innerHTML = myFunctionsindex;
-    }
-  </script>
+<input type=button value="Show Array" onclick="{
+  document.getElementById('myDiv03').innerHTML = ''
+  for (myLoop1 =0; myLoop1 < 3; myLoop1++){
+    document.getElementById('myDiv03').innerHTML += 'myArray1[' + myLoop1 + '] = ' + myArray[myLoop] + '<br>'
+  }
+}"><br>
+<div id="myDiv03">...</div>
+  
