@@ -70,14 +70,15 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
 <div id="myDiv01"><font color="red">...</font></div>
   <br><br>
   Counter
-<div id="myDiv02">...<.div>
-  <input type=number id="myInput02" value="0">
-  <input type=button value="counter" onclick="{
-    const myT = parseInt(document.getElementById('myInput02').value);
+<div id="myDiv02">...</div>
+    <input type="number" id="myInput02" value="0">
+    <input type="button" value="counter" onclick="{
+        const myT = parseInt(document.getElementById('myInput02').value);
         const myD = document.getElementById('myDiv02');
-           myD.innerHTML = '';
-    for (let myI = 0; myI <=2; myI++){
-       myD.innerHTML += (myI + myT) + '<br>';
+        myD.innerHTML = '';
+        for (let myI = 0; myI <= 2; myI++) {
+            myD.innerHTML += (myI + myT) + '<br>';
+        }
     }">
       
 
