@@ -14,7 +14,7 @@
   <input type=button value="Show Array" onclick="{
     document.getElementById('myDiv01').innerHTML = ''
     for (myLoop=0; myLoop < 3; myLoop++){
-    document.getElementbyId('myDiv01').innerHTML += 'myArray[' + myLoop + '] = ' + myArray[myLoop] + '<br>'
+    document.getElementById('myDiv01').innerHTML += 'myArray[' + myLoop + '] = ' + myArray[myLoop] + '<br>'
     }
     }"><br>
     <div id="myDiv01">...</div>
