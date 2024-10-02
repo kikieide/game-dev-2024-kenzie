@@ -49,6 +49,8 @@ Scroll through the numbers!
 <div id="myDiv03">...</div>
 
 <br><br>
+Filter the array!
+<br>
 <script>
   let myMax2 = 3
   let myArray2 = new Array(myMax2)
@@ -68,7 +70,6 @@ Scroll through the numbers!
         document.getElementById('myDiv04').innerHTML += 'myArray2[' + myLoop2 + '] = { name: ' + myArray2[myLoop2].name + ', price: ' + myArray2[myLoop2].price + ' }<br>';
     }
 }">
-Filter the Array!
 <input type=button value="Show Filtered Array" onclick="{
     const myFilter = myArray2.filter((item) => {
         return item.price >= 2000000;
