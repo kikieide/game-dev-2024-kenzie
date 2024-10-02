@@ -36,4 +36,30 @@
   }
 }"><br>
 <div id="myDiv03">...</div>
-  
+<br><br>
+<script>
+  let myMax2 = 3
+  let myArray2 = new Array(myMax2)
+</script>
+  <input type=button value="Set Array" onclick="{
+    myArray2 = [
+      { name: 'Bugatti', price: 3000000 },
+           { name: 'Bugatti', price: 3000000 },
+           { name: 'Pagani', price: 2600000 },
+           { name: 'Ferrari', price: 1500000 },
+           { name: 'Koenigsegg', price: 3000000 },
+           { name: 'Lamborghini', price: 500000 },
+      ]
+    
+    const myFilter = items.filter((myArray2) => {
+      return item.price >= 2000000
+        });
+      document.getElementById('myDiv04').innerHTML = 'You set the array'
+    }">
+<input type="button" value="Show Array" onclick="{
+    document.getElementById('myDiv04').innerHTML = '';
+    for (let myLoop2 = 0; myLoop2 < myArray2.length; myLoop2++) {
+        document.getElementById('myDiv04').innerHTML += 'myArray2[' + myLoop2 + '] = ' + JSON.stringify(myArray2[myLoop2]) + '<br>';
+    }
+}">
+    
