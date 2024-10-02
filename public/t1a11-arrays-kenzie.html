@@ -37,10 +37,10 @@
   document.getElementById('myDiv03').innerHTML = 'You set the array'
   }">
 <input type=button value="Show Array" onclick="{
-    let myNum = parseInt(document.getElementById('myNum01').value, 10);
+    let myNums = parseInt(document.getElementById('myNum01').value, 10);
   document.getElementById('myDiv03').innerHTML = ''
-  if (myNum >= 0 && myNum < myArray1.length) {
-    document.getElementById('myDiv03').innerHTML += 'myArray1[' + myNum + '] = ' + myArray1[myNum] + '<br>'
+  if (myNums >= 0 && myNums < myArray1.length) {
+    document.getElementById('myDiv03').innerHTML += 'myArray1[' + myNums + '] = ' + myArray1[myNums] + '<br>'
   } else {
     document.getElementById('myDiv03').innerHTML = 'Index out of Range';
   }
