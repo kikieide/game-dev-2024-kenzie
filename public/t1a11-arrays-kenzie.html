@@ -51,20 +51,20 @@
             name: 'Lamborghini', price: 500000,
       ]
     }">
-<input type=button value="Show filtered array" onclick="{
-   const myFilter = items.filter((myArray2) => {
-      return item.price >= 2000000
-        });
-      document.getElementById('myDiv04').innerHTML = 'You set the array'
-         for (let myLoop2 = 0; myLoop2 < myFilter.length; myLoop2++) {
-        document.getElementById('myDiv04').innerHTML += 'myFilter[' + myLoop2 + '] = ' + JSON.stringify(myFilter[myLoop2]) + '<br>';
-    }
-}">
 <input type="button" value="Show Full Array" onclick="{
     document.getElementById('myDiv04').innerHTML = '';
     for (let myLoop2 = 0; myLoop2 < myArray2.length; myLoop2++) {
-        document.getElementById('myDiv04').innerHTML += 'myArray2[' + myLoop2 + '] = ' + JSON.stringify(myArray2[myLoop2]) + '<br>';
+        document.getElementById('myDiv04').innerHTML += 'myArray2[' + myLoop2 + '] = { name: ' + myArray2[myLoop2].name + ', price: ' + myArray2[myLoop2].price + ' }<br>';
     }
 }">
-<div id="myDiv04">...</div>
-    <br><br>
+
+<input type=button value="Show Filtered Array" onclick="{
+    const myFilter = myArray2.filter((item) => {
+        return item.price >= 2000000;
+    });
+    document.getElementById('myDiv04').innerHTML = '';
+    for (let myLoop2 = 0; myLoop2 < myFilter.length; myLoop2++) {
+        document.getElementById('myDiv04').innerHTML += 'myFilter[' + myLoop2 + '] = { name: ' + myFilter[myLoop2].name + ', price: ' + myFilter[myLoop2].price + ' }<br>';
+    }
+}">
+<div id="myDiv04"></div>
