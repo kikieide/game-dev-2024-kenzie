@@ -1,4 +1,10 @@
+<style>
+      body {
+         background-color: hsl(331, 50%, 80%);
+            </style>
+
 <script>
+  
   // Set a few Global Variables
   let myMax = 6
   let myArray = new Array(myMax)
@@ -31,7 +37,7 @@
   document.getElementById('myDiv03').innerHTML = 'You set the array'
   }">
 <input type=button value="Show Array" onclick="{
-    let myNum = document.getElementById('myNum').value;
+    let myNum = document.getElementById('myNum01').value;
   document.getElementById('myDiv03').innerHTML = ''
   if (myNum >= 0 && myNum < myArray1.length) {
     document.getElementById('myDiv03').innerHTML += 'myArray1[' + myLoop1 + '] = ' + myArray1[myLoop1] + '<br>'
