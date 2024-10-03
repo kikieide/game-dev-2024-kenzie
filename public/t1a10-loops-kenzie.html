@@ -12,8 +12,6 @@
       height: 50px;
       background-color: pink;
       position: absolute;
-      top: 50px;
-      left: 0;
     }
   </style>
 <h4>Example Working Code</h4>
@@ -98,9 +96,9 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
   <script>
     function myAnimation() {
       let square = document.getElementById('mySquare01');
-      let interval = 10;
+      let interval = 7;
       function myCube() {      
-    for (let i = 0; i <= 500; i++) {
+    for (let i = 0; i <= 1000; i++) {
       (function(i) {
         setTimeout(function() {
          square.style.left = i + 'px';
