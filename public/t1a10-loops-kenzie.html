@@ -102,7 +102,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
       function myCube() {      
     for (let i = 0; i <= 500; i++) {
       (function(i) {
-        myTimeout(function() {
+        setTimeout(function() {
           mySquare01.style.left = i + 'px';
         }, i * interval);
       })(i);
