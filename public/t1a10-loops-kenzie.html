@@ -164,8 +164,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
         setTimeout(function() {
           const height1 = 100; 
     const duration1 = 1500; 
-           let progress1= timestamp - start;
-        let t= progress1 / duration1;
+        let translateY= progress1 / duration1;
         let position1= height1 * (1 - t);
         square2.style.transform = 'translateY(' + position + 'px)';
         }, i * interval1);
