@@ -90,7 +90,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
     }">
   <br><br>
 
-  <div id="mySquare01">...</div>
+  <div id="mySquare01"></div>
   
   <input type=button value="button" onclick="{
     function() {
@@ -101,7 +101,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
     for (let i = 0; i <= 500; i++) {
       (function(i) {
         myTimeout(function() {
-          square.style.left = i + 'px';
+          mySquare01.style.left = i + 'px';
         }, i * interval);
       })(i);
     }
