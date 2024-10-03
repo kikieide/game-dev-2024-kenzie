@@ -32,22 +32,27 @@
   
   <input type=button value="Slide!" onclick="myAnimation()">
   <script>
-    function myAnimation() {
-      let image = document.getElementById('myImage');
-        image.style.display = 'block';
-      let interval = 7;
-      function myCube() {      
-    for (let i = 0; i <= 1000; i++) {
-      (function(i) {
-        setTimeout(function() {
-        image.style.left = i + 'px';
-            let rotation = i * 0.72;
-          square1.style.transform = 'rotate(' + rotation + 'deg)';
-        }, i * interval);
-      })(i);
-    }
+    let imageObject = {
+      element: document.getElementById('myImage'),
+      show: function() {
+        this.element.style.display = 'block';
+      },
+      slideAndRotate: function() {
+        this.show();
+        let interval = 7;
+        for (let i = 0; i <= 1000; i++) {
+          (function(i, obj) {
+            setTimeout(function() {
+              obj.element.style.left = i + 'px';
+              let rotation = i * 0.72;
+              obj.element.style.transform = 'rotate(' + rotation + 'deg)';
+            }, i * interval);
+          })(i, this);
+        }
       }
-    myCube();
+    };
+    function myAnimation() {
+      imageObject.slideAndRotate();
     }
       </script>
       
