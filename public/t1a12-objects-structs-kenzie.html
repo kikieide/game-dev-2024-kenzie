@@ -7,6 +7,9 @@
       top: -5px;
       display: none;
     }
+    #myText {
+        display: none;
+    }
   </style>
 <a href="https://www.w3schools.com/js/js_objects.asp">W3 school refrence</a>
 
@@ -29,30 +32,43 @@
   <div id="myDiv01">...</div>
 <br><br>
  <img id="myImage" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2097560/capsule_616x353.jpg?t=1658533485" alt="Sliding Image">
-  
-  <input type=button value="Slide!" onclick="myAnimation()">
+  <input type=button value="Slide!" onclick="myAnimation(); myTextAnimation();">
   <script>
-    let imageObject = {
-      element: document.getElementById('myImage'),
-      show: function() {
-        this.element.style.display = 'block';
-      },
-      slideAndRotate: function() {
-        this.show();
-        let interval = 7;
-        for (let i = 0; i <= 1000; i++) {
-          (function(i, obj) {
-            setTimeout(function() {
-              obj.element.style.left = i + 'px';
-              let rotation = i * 0.72;
-              obj.element.style.transform = 'rotate(' + rotation + 'deg)';
-            }, i * interval);
-          })(i, this);
-        }
-      }
-    };
+      let myObject = {
+    species: "Dog",
+    name: "Dog",
+    age: 5,
+    isMammal: true,
+    sound: function() {
+        return "Woof!";
+    }
+};
+          
     function myAnimation() {
-      imageObject.slideAndRotate();
+      let image = document.getElementById('myImage');
+      image.style.display = 'block';
+      let interval = 7;
+      for (let i = 0; i <= 1000; i++) {
+        (function(i) {
+          setTimeout(function() {
+            image.style.left = i + 'px';
+            let rotation = i * 0.72;
+            image.style.transform = 'rotate(' + rotation + 'deg)';
+          }, i * interval);
+        })(i);
+      }
+    }
+    function myTextAnimation() {
+      let interval = 7;
+      for (let i = 0; i <= 1000; i++) {
+        (function(i) {
+          setTimeout(function() {
+            if (i === 1000) {
+              document.getElementById('myText').style.display = 'block';
+            }
+          }, i * interval);
+        })(i);
+      }
     }
       </script>
       
