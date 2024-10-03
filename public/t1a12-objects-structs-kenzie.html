@@ -1,4 +1,13 @@
 <h2 align=center>t1a12-objects-structs-kenzie.html</h2>
+<style>
+    #mySquare01 {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      position: relative;
+      top: -5px;
+    }
+  </style>
 <a href="https://www.w3schools.com/js/js_objects.asp">W3 school refrence</a>
 
 <h4>Ex. Object Code</h4>
@@ -18,3 +27,24 @@
   document.getElementById('myDiv01').innerHTML += 'eyeColor: ' + myPerson.eyeColor + '<br>'
   }">
   <div id="myDiv01">...</div>
+<br><br>
+<div id="mySquare01"></div>
+  
+  <input type=button value="Slide!" onclick="myAnimation()">
+  <script>
+    function myAnimation() {
+      let square = document.getElementById('mySquare01');
+      let interval = 7;
+      function myCube() {      
+    for (let i = 0; i <= 1000; i++) {
+      (function(i) {
+        setTimeout(function() {
+         square.style.left = i + 'px';
+        }, i * interval);
+      })(i);
+    }
+      }
+    myCube();
+    }
+      </script>
+      
