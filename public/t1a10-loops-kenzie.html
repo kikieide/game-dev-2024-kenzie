@@ -6,6 +6,14 @@
 <pre>
   
 </pre>
+  <style>
+    #mySquare01 {
+      width: 50px;
+      height: 50px;
+      position: middle; 
+      background-color: pink;
+    }
+  </style>
 <h4>Example Working Code</h4>
 Max loops: <input id="myNum01" type="number" value="4"><br>
 Weird Number: <input id="myWeird01" type="number" value="2"><br>
@@ -79,6 +87,26 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
         for (let myI = 0; myI <= 2; myI++) {
             myD.innerHTML += (myI + myT) + '<br>';
         }
+    }">
+  <br><br>
+
+  <div id="mySquare01">...</div>
+  
+  <input type=button value="button" onclick="{
+    function() {
+      let square = document.getElementById('mySquare01');
+      let position = 0;
+      let interval = 10;
+      function myCube() {      
+    for (let i = 0; i <= 500; i++) {
+      (function(i) {
+        myTimeout(function() {
+          square.style.left = i + 'px';
+        }, i * interval);
+      })(i);
+    }
+      }
+    myCube();
     }">
       
 
