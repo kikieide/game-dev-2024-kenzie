@@ -29,6 +29,7 @@
       background-color: pink;
       position: relative;
       top: 5px;
+    }
   </style>
 <h4>Example Working Code</h4>
 Max loops: <input id="myNum01" type="number" value="4"><br>
@@ -108,7 +109,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
 
   <div id="mySquare01"></div>
   
-  <input type=button value="Slide!" onclick="myAnimation()">
+  <input type=button value="Slide Loop!" onclick="myAnimation()">
   <script>
     function myAnimation() {
       let square = document.getElementById('mySquare01');
@@ -129,7 +130,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
 
  <div id="mySquare02"></div>
   
-  <input type=button value="Slide and Rotate!" onclick="myAnimation01()">
+  <input type=button value="Rotate Loop!" onclick="myAnimation01()">
   <script>
     function myAnimation01() {
       let square1 = document.getElementById('mySquare02');
@@ -162,13 +163,14 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
     for (let i = 0; i <= 1000; i++) {
       (function(i) {
         setTimeout(function() {
-          const height1 = 100; 
-    const duration1 = 1500; 
-        let translateY= progress1 / duration1;
-        let position1= height1 * (1 - t);
-        square2.style.transform = 'translateY(' + position + 'px)';
-        }, i * interval1);
-      })(i);
+        let progress1 = (i * interval2) % duration1;
+       let t = progress1 / duration1;
+       let position1 = height1 * (1 - Math.abs(2 * t - 1));
+        square2.style.transform = 'translateY(' + position1 + 'px)';
+          }, i * interval2);
+        })(i);
+      }
+
     }
       }
     myCube2();
