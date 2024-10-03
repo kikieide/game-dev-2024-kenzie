@@ -12,6 +12,16 @@
       height: 50px;
       background-color: pink;
       position: absolute;
+      bottom: 5px;
+    }
+  </style>
+  <style>
+    #mySquare02 {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      position: absolute;
+      bottom: 5px;
     }
   </style>
 <h4>Example Working Code</h4>
@@ -92,7 +102,7 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
 
   <div id="mySquare01"></div>
   
-  <input type=button value="button" onclick="myAnimation()">
+  <input type=button value="Slide!" onclick="myAnimation()">
   <script>
     function myAnimation() {
       let square = document.getElementById('mySquare01');
@@ -111,7 +121,26 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
       </script>
    
 
-
+ <div id="mySquare02"></div>
+  
+  <input type=button value="Slide and Rotate!" onclick="myAnimation01()">
+  <script>
+    function myAnimation01() {
+      let square1 = document.getElementById('mySquare02');
+      let interval1= 7;
+      function myCube1() {      
+    for (let i = 0; i <= 1000; i++) {
+      (function(i) {
+        setTimeout(function() {
+         square1.style.left = i + 'px';
+          square1.style.transform = `rotate(${i * 0.72}deg)`;
+        }, i * interval);
+      })(i);
+    }
+      }
+    myCube1();
+    }
+      </script>
 
 
 
