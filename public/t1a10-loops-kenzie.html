@@ -23,6 +23,12 @@
       position: relative;
       top: 0px;
     }
+    #mySquare03 {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      position: relative;
+      top: 5px;
   </style>
 <h4>Example Working Code</h4>
 Max loops: <input id="myNum01" type="number" value="4"><br>
@@ -140,6 +146,33 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
     }
       }
     myCube1();
+    }
+      </script>
+  
+  <br><br>
+  
+ <div id="mySquare03"></div>
+  
+  <input type=button value="Bounce Loop!" onclick="myAnimation02()">
+  <script>
+    function myAnimation02() {
+      let square2= document.getElementById('mySquare03');
+      let interval2= 7;
+      function myCube2() {      
+    for (let i = 0; i <= 1000; i++) {
+      (function(i) {
+        setTimeout(function() {
+          const height1 = 100; 
+    const duration1 = 1500; 
+           let progress1= timestamp - start;
+        let t= progress1 / duration1;
+        let position1= height1 * (1 - t);
+        square2.style.transform = 'translateY(' + position + 'px)';
+        }, i * interval1);
+      })(i);
+    }
+      }
+    myCube2();
     }
       </script>
 
