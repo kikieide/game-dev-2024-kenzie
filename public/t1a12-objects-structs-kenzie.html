@@ -83,4 +83,28 @@
       }
     }
       </script>
+<br>
+<div id="userInfo"></div>
+
+<input type=password id="password">
+<input type=button value="submit" onclick="{
+      let user = {
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            preferences: {
+                theme: 'dark',
+                notifications: true
+            },
+            displayInfo: function() {
+                const userInfoDiv = document.getElementById('userInfo');
+                userInfoDiv.innerHTML = `
+                    <p>Name: ${this.name}</p>
+                    <p>Email: ${this.email}</p>
+                    <p>Theme: ${this.preferences.theme}</p>
+                    <p>Notifications: ${this.preferences.notifications}</p>
+                `;
+            }
+        };
+        user.displayInfo();
+    ">
       
