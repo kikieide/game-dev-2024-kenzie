@@ -96,12 +96,12 @@
 <div id="text-box">
 <div id="userInfo"></div>
 
-<input type=text id="name" placeholder="name">
-    <input type=email id="myEmail" placeholder="email">
-    <input type=text id="theme" placeholder="theme">
-    <input type=checkbox id="myCheckbox" placeholder="notifications">
-<input type=button value="submit" onclick="{
-      let user = {
+<input type="text" id="name" placeholder="name">
+    <input type="email" id="myEmail" placeholder="email">
+    <input type="text" id="theme" placeholder="theme">
+    <input type="checkbox" id="myCheckbox"> Notifications
+    <input type="button" value="Submit" onclick="{
+        let user = {
             name: document.getElementById('name').value,
             email: document.getElementById('myEmail').value,
             preferences: {
@@ -112,15 +112,15 @@
                 const myInfo = document.getElementById('userInfo');
                 myInfo.innerHTML = `
                     <ul>
-                    <li>Name: ${this.name}</li>
-                    <li>Email: ${this.email}</li>
-                    <li>Theme: ${this.preferences.theme}</li>
-                    <li>Notifications: ${this.preferences.notifications}</li>
-               </ul>
+                        <li>Name: ${this.name}</li>
+                        <li>Email: ${this.email}</li>
+                        <li>Theme: ${this.preferences.theme}</li>
+                        <li>Notifications: ${this.preferences.notifications}</li>
+                    </ul>
                 `;
             }
         };
         user.displayInfo();
-    ">
+    }">
 </div>
       
