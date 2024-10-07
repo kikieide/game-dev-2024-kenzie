@@ -15,6 +15,15 @@
     }
 
   </style>
+ <style>
+    .text-box {
+            border: 2px solid black; 
+            padding: 20px;
+            background-color: white;
+            width: fit-content;
+            margin: 20px auto;
+        }
+           </style>
 <a href="https://www.w3schools.com/js/js_objects.asp">W3 school refrence</a>
 
 <h4>Ex. Object Code</h4>
@@ -84,20 +93,24 @@
     }
       </script>
 <br>
+<div id="text-box">
 <div id="userInfo"></div>
 
-<input type=password id="password">
+<input type=text id="name" name="name">
+    <input type=email id="myEmail" name="email">
+    <input type=text id="theme" name="theme">
+    <input type=checkbox id="myCheckbox" value="notifications">
 <input type=button value="submit" onclick="{
       let user = {
-            name: 'John Doe',
-            email: 'john.doe@example.com',
+            name: document.getElementById('name').value,
+            email: document.getElementById('myEmail').value,
             preferences: {
-                theme: 'dark',
-                notifications: true
+                theme: document.getElementById('theme').value,
+                notifications: document.getElementById('myCheckbox').checked
             },
             displayInfo: function() {
-                const userInfoDiv = document.getElementById('userInfo');
-                userInfoDiv.innerHTML = `
+                const myInfo = document.getElementById('userInfo');
+                myInfo.innerHTML = `
                     <p>Name: ${this.name}</p>
                     <p>Email: ${this.email}</p>
                     <p>Theme: ${this.preferences.theme}</p>
