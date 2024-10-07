@@ -166,29 +166,29 @@ Weird Number: <input id="myWeird01" type="number" value="2"><br>
  <div id="mySquare03"></div>
   
   <input type=button value="Bounce Loop!" onclick="myAnimation02()">
-  <script>
-    function myAnimation02() {
-      let square2= document.getElementById('mySquare03');
-      let interval2= 7;
-      let height1 = 100; 
-      let duration1 = 1500; 
-      function myCube2() {      
-    for (let i = 0; i <= 1000; i++) {
-      (function(i) {
-        setTimeout(function() {
-        let progress1 = (i * interval2) % duration1;
-       let t1 = progress1 / duration1;
-       let position1 = height1 * (1 - Math.abs(2 * t1 - 1));
-        square2.style.transform = 'translateY(' + position1 + 'px)';
-          }, i * interval2);
-        })(i);
-      }
+ <script>
+        function myAnimation02() {
+            let square2 = document.getElementById('mySquare03');
+            let interval2 = 7;
+            let height1 = 100;
+            let duration1 = 1500;
 
-    }
-      }
-    myCube2();
-    }
-      </script>
+            function myCube2() {
+                for (let i = 0; i <= 1000; i++) {
+                    (function(i) {
+                        setTimeout(function() {
+                            let progress1 = (i * interval2) % duration1;
+                            let t1 = progress1 / duration1;
+                            let position1 = height1 * (1 - Math.abs(2 * t1 - 1));
+                            square2.style.transform = 'translateY(' + position1 + 'px)';
+                        }, i * interval2);
+                    })(i);
+                }
+            }
+
+            myCube2();
+        }
+    </script>
 </body>
 
 
