@@ -111,10 +111,12 @@
             displayInfo: function() {
                 const myInfo = document.getElementById('userInfo');
                 myInfo.innerHTML = `
-                    <p>Name: ${this.name}</p>
-                    <p>Email: ${this.email}</p>
-                    <p>Theme: ${this.preferences.theme}</p>
-                    <p>Notifications: ${this.preferences.notifications}</p>
+                    <ul>
+                    <li>Name: ${this.name}</li>
+                    <li>Email: ${this.email}</li>
+                    <li>Theme: ${this.preferences.theme}</li>
+                    <li>Notifications: ${this.preferences.notifications}</li>
+               </ul>
                 `;
             }
         };
