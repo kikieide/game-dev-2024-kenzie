@@ -46,6 +46,33 @@ research abut objects and arrays here<br>
     }"><br>
 <div id="myDiv02">...</div>
 <br><br>
-<i style="border-style: solid black; 
-  
+<i style="border-style: solid black; ">Filter the objects in the array!"</i><br>
+<input type=button value="Array with object in it" onclick="{
+   class Person1 {
+  constructor(name1, age1, height1) {
+   this.name1 = name;
+   this.age1 = age;
+   this.height1 = height;
+        }
+    }
+  let persons1 = [
+    new Person1('Alex', 25, '5.11'),
+    new Person1('Jane', 19, '5.6'),
+    new Person1('Joe', 23, '6.1')
+    ];
+    let output = '';
+    persons1.forEach(person1 => {
+        output += `Name: ${person1.name}, Age: ${person1.age}, Height: ${person1.height}<br>`;
+    });
+    document.getElementById('myDiv03').innerHTML = output;
+}"><input type=button value="Show Filtered Array" onclick="{
+    const myFilter = myArray2.filter((item) => {
+        return item.person1 >= 3;
+    });
+    document.getElementById('myDiv03').innerHTML = '';
+    for (let myLoop2 = 0; myLoop2 < myFilter.length; myLoop2++) {
+        document.getElementById('myDiv03').innerHTML += 'myFilter[' + myLoop2 + '] = { name: ' + myFilter[myLoop2].name + ', person1: ' + myFilter[myLoop2].price + ' }<br>';
+    }
+}">
+<div id="myDiv03">...</div>
   
