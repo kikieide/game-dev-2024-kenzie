@@ -12,7 +12,6 @@ research abut objects and arrays here<br>
 2 buttons and a div - 1 labelled array w/ object in it and 2nd labelled object w/ array in it<br><br>
 
 <div id="myDiv01"></div>
-<div id="myDiv02"></div>
 <input type=button value="Array with object in it" onclick="{
    class Person {
   constructor(name, age, height) {
@@ -42,9 +41,9 @@ research abut objects and arrays here<br>
   <input type=button value="Show Array" onclick="{
   document.getElementById('myDiv02').innerHTML = '';
   for (myLoop=0; myLoop < 3; myLoop++){
-    document.getElementById('myDiv02').innerHTML += 'myArray[' + myLoop + '] = ' + myArray[myLoop] + '<br>'
+    document.getElementById('myDiv02').innerHTML += 'myArray + myName[' + myLoop + '] = ' + myArray[myLoop] + '<br>'
     }
     }"><br>
-
+<div id="myDiv02">...</div>
   
   
