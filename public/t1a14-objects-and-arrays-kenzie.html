@@ -65,7 +65,8 @@ research abut objects and arrays here<br>
         output += `Name: ${person1.name}, Age: ${person1.age}, Height: ${person1.height}<br>`;
     });
     document.getElementById('myDiv03').innerHTML = output;
-}"><input type=button value="Show Filtered Array" onclick="{
+    }">
+  <input type=button value="Show Filtered Array" onclick="{
     const myFilter = myArray2.filter((item) => {
         return item.person1 >= 3;
     });
@@ -75,4 +76,30 @@ research abut objects and arrays here<br>
     }
 }">
 <div id="myDiv03">...</div>
+<br><br>
+<i style="color: red; ">splice objects into the array!</i><br>
+<input type=button value="Array with object in it" onclick="{
+   class Person {
+  constructor(name, age, height) {
+   this.name = name;
+   this.age = age;
+   this.height = height;
+        }
+    }
+  let persons = [
+    new Person('Alex', 25, '5.11'),
+    new Person('Jane', 19, '5.6'),
+    new Person('Joe', 23, '6.1')
+    ];
+    let output = '';
+    persons.forEach(person => {
+        output += `Name: ${person.name}, Age: ${person.age}, Height: ${person.height}<br>`;
+    });
+    document.getElementById('myDiv01').innerHTML = output;
+}">
+<div id="myDiv04">...</div>
+<br><br>
+
+
+
   
