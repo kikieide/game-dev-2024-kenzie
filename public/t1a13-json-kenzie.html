@@ -3,7 +3,8 @@
 <script>
   
   function myShowJSON(myIn){
-    document.getElementById('myDiv01').innerHTML = `Sent: ${myIn} `
+    document.getElementById('myDiv1').innerHTML = `Selected URL: ${myIn}`;
+      fetchData(myIn);
   }
   
   async function fetchData(myUrl) {
