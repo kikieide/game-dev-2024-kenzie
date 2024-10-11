@@ -1,32 +1,39 @@
 <h1 align=center>t1a13-json-kenzie.html</h1>
 
 <script>
+  
   function myShowJSON(myIn){
     document.getElementById('myDiv01').innerHTML = `Sent: ${myIn} `
   }
+  
   async function fetchData(myUrl) {
     document.getElementById('myDiv1').innerHTML = ''
     const response = await fetch(myUrl);
     const data = await response.json();
-    
+
     console.log(data);
 
-    const myJson = await JSON.stringify(data, null, 2);
-    document.getElementById('myDiv01').innerHTML = myJson
-}
-</script>
-explanation of json compared to js. objects formatted for this textarea<br>
-<textarea cols=70 ROWS=5>
-</textarea><br><br>
+    const myJson = JSON.stringify(data, null, 2);
+    document.getElementById('myDiv01').innerHTML = myJson;
+  }
 
-json returning url: <input type=text id="myText1" value="show JSON" size=80">
-<input type=button value="show JSON" onclick="{
+  function clearJSON() {
+    document.getElementById('myDiv01').innerHTML = '';
+  }
+</script>
+
+explanation of JSON compared to JS objects, formatted for this textarea:<br>
+<textarea cols="70" rows="5"></textarea><br><br>
+
+JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
+<input type="button" value="show JSON" onclick="{
   fetchData(document.getElementById('myText1').value)
 }"><br><br>
+<input type="button" value="Clear JSON" onclick="clearJSON()"><br><br>
 
 <select size="1" onchange="myShowJSON(this.value)">
   <option value="https://randomfox.ca/floof/">randomfox</option>
-  <option value="https://dog.ceo/api/breeds/image/random">god.ceo</option>
+  <option value="https://dog.ceo/api/breeds/image/random">dog.ceo</option>
 </select><br><br>
 
 <div id="myDiv1">...</div>
@@ -37,11 +44,10 @@ json returning url: <input type=text id="myText1" value="show JSON" size=80">
   https://api.coindesk.com/v1/bpi/currentprice.json
 </pre>
 
-
-maket he select box JSON show up in the DIV -more URL's in select box<br><br>
+make the select box JSON show up in the DIV - more URLs in the select box:<br><br>
 <div id="myDiv1">...</div>
 <br>
-my specific JSON<br>
+My specific JSON:<br>
 <div id="myDiv2">...</div>
-<br><br>
+<br>
 
