@@ -13,7 +13,7 @@
 
     console.log(data);
 
-    const myJson = JSON.stringify(data, null, 2);
+    const myJson = await JSON.stringify(data, null, 2);
     document.getElementById('myDiv01').innerHTML = myJson;
   }
 
