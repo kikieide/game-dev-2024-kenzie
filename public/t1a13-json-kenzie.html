@@ -27,6 +27,8 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
 <input type="button" value="show JSON" onclick="
   fetchData(document.getElementById('myText1').value)"><br><br>
 
+<div id="myDiv1">...</div>
+
 <select size="1" onchange="myShowJSON(this.value)">
   <option value="https://api.coindesk.com/v1/bpi/currentprice.json">coindesk</option>
   <option value="https://dog.ceo/api/breeds/image/random">dog.ceo</option>
@@ -67,7 +69,6 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
     }
 </script>
 
-<div id="myDiv1">...</div>
 <div id="myDiv2">...</div>
 
 <pre>
