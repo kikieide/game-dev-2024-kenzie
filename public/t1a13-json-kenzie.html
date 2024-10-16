@@ -15,11 +15,11 @@
     console.log(data);
 
     const myJson = await JSON.stringify(data, null, 2);
-    document.getElementById('myDiv01').innerHTML = myJson;
+    document.getElementById('myDiv1').innerHTML = myJson;
   }
 
   function clearJSON() {
-    document.getElementById('myDiv01').innerHTML = '';
+    document.getElementById('myDiv1').innerHTML = '';
   }
 </script>
 
@@ -46,7 +46,7 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
 </pre>
 
 make the select box JSON show up in the DIV - more URLs in the select box:<br><br>
-<div id="myDiv1">...</div>
+<div id="myDiv01">...</div>
 <br>
 My specific JSON:<br>
 <div id="myDiv2">...</div>
