@@ -18,9 +18,6 @@
     document.getElementById('myDiv1').innerHTML = myJson;
   }
 
-  function clearJSON() {
-    document.getElementById('myDiv1').innerHTML = '';
-  }
 </script>
 
 explanation of JSON compared to JS objects, formatted for this textarea:<br>
@@ -29,11 +26,11 @@ explanation of JSON compared to JS objects, formatted for this textarea:<br>
 JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
 <input type="button" value="show JSON" onclick="
   fetchData(document.getElementById('myText1').value)"><br><br>
-<input type="button" value="Clear JSON" onclick="clearJSON()"><br><br>
 
 <select size="1" onchange="myShowJSON(this.value)">
   <option value="https://api.coindesk.com/v1/bpi/currentprice.json">coindesk</option>
   <option value="https://dog.ceo/api/breeds/image/random">dog.ceo</option>
+  <option value="https://api.spacexdata.com/v4/launches/latest">spacexdata</option>
 </select><br><br>
 
 <div id="myDiv1"></div>
