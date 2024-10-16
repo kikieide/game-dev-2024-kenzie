@@ -31,9 +31,41 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
   <option value="https://api.coindesk.com/v1/bpi/currentprice.json">coindesk</option>
   <option value="https://dog.ceo/api/breeds/image/random">dog.ceo</option>
   <option value="https://api.spacexdata.com/v4/launches/latest">spacexdata</option>
+  <option value="www.thecocktaildb.com/api/json/v1/1/search.php?f=a">cocktails-by-first-letter</option>
 </select><br><br>
 
-<div id="myDiv1"></div>
+<input type="text" id="myText01" value="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6" size="80">
+<input type="button" value="show JSON" onclick="
+  fetchData(document.getElementById('myText01').value)"><br><br>
+
+<select size="1" onchange="myShowJSON(this.value)">
+  <option value="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6">Shuffle Deck</option>
+  <option value="https://deckofcardsapi.com/api/deck/new/draw/?count=2">Draw Cards</option>
+</select><br><br>
+</select>
+  <div id="myDiv01">...</div>
+<script>
+    function myShowJSON(myIn) {
+        document.getElementById('myDiv01').innerHTML = `Selected URL: ${myIn}`;
+        fetchData(myIn);
+    }
+
+    async function fetchData(url) {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            displayData(data);
+        } catch (error) {
+            document.getElementById('myDiv01').innerHTML = `Error: ${error.message}`;
+        }
+    }
+
+    function displayData(data) {
+        document.getElementById('myDiv01').innerHTML = `<h3>Response:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+    }
+</script>
+
+<div id="myDiv1">...</div>
 <div id="myDiv2">...</div>
 
 <pre>
@@ -42,7 +74,7 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
 </pre>
 
 make the select box JSON show up in the DIV - more URLs in the select box:<br><br>
-<div id="myDiv01">...</div>
+<div id="myDiv02">...</div>
 <br>
 My specific JSON:<br>
 <div id="myDiv2">...</div>
