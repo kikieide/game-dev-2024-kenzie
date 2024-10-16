@@ -46,13 +46,13 @@ research abut objects and arrays here<br>
     }"><br>
 <div id="myDiv02">...</div>
 <br><br>
-<i style="border-style: solid black; ">Filter the objects in the array!"</i><br>
+<i>Filter the objects in the array!"</i><br>
 <input type=button value="Array with object in it" onclick="{
-   class Person1 {
+   class Person01 {
   constructor(name1, age1, height1) {
-   this.name1 = name;
-   this.age1 = age;
-   this.height1 = height;
+   this.name1 = name1;
+   this.age1 = age1;
+   this.height1 = height1;
         }
     }
   let persons1 = [
@@ -60,9 +60,9 @@ research abut objects and arrays here<br>
     new Person1('Jane', 19, '5.6'),
     new Person1('Joe', 23, '6.1')
     ];
-    let output = '';
+    let myOutput = '';
     persons1.forEach(person1 => {
-        output += `Name: ${person1.name}, Age: ${person1.age}, Height: ${person1.height}<br>`;
+        output += `Name1: ${person1.name1}, Age1: ${person1.age1}, Height1: ${person1.height1}<br>`;
     });
     document.getElementById('myDiv03').innerHTML = output;
     }">
