@@ -45,23 +45,25 @@ JSON returning URL: <input type="text" id="myText1" value="show JSON" size="80">
 </select>
   <div id="myDiv01">...</div>
 <script>
-    function myShowJSON(myIn) {
-        document.getElementById('myDiv01').innerHTML = `Selected URL: ${myIn}`;
+   function myShowJSON(myIn) {
         fetchData(myIn);
     }
-
+    function myShowDeckJSON(myIn) {
+        fetchData(myIn);
+    }
     async function fetchData(url) {
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            displayData(data);
+        document.getElementById('myDiv1').innerHTML = 'Loading...';
+      try {
+     const response = await fetch(url);
+     const data = await response.json();
+     displayData(data);
         } catch (error) {
-            document.getElementById('myDiv01').innerHTML = `Error: ${error.message}`;
+          document.getElementById('myDiv1').innerHTML = `Error: ${error.message}`;
         }
     }
-
-    function displayData(data) {
-        document.getElementById('myDiv01').innerHTML = `<h3>Response:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+ function displayData(data) {
+    const displayDiv = (data.deck_id) ? 'myDiv01' : 'myDiv1';
+     document.getElementById(displayDiv).innerHTML = `<h3>Response:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
     }
 </script>
 
