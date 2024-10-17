@@ -5,7 +5,7 @@
             </style>
 <script>
   
-  function myShowJSON(myIn){
+  function myShowJSON1(myIn){
     document.getElementById('myDiv1').innerHTML = `Selected URL: ${myIn}`;
       fetchData(myIn);
   }
@@ -17,8 +17,8 @@
 
     console.log(data);
 
-    const myJson = await JSON.stringify(data, null, 2);
-    document.getElementById('myDiv1').innerHTML = myJson;
+    const myJson1 = await JSON.stringify(data, null, 2);
+    document.getElementById('myDiv1').innerHTML = myJson1;
   }
 
 </script>
