@@ -39,14 +39,14 @@ research abut objects and arrays here<br>
 
 <script>
   let myObject = {
-  myMax1 = 3
-  myName1 = 'Alex'
-   myArray1 = ['reading', 'running', 'writing']
+  myMax1: 3
+  myName1: 'Alex'
+   myArray1: ['reading', 'running', 'writing']
   };
     </script>
   <input type=button value="Object Containing Array" onclick="{
   document.getElementById('myDiv02').innerHTML = '';
-  for (myLoop1=0; myLoop1 < myMax1; myLoop1++){
+  for (myLoop1=0; myLoop1 < myObject.myMax1; myLoop1++){
     document.getElementById('myDiv02').innerHTML += 'myArray1 + myName1[' + myLoop1 + '] = ' + myObject.myArray1[myLoop1] + '<br>';
   }
     }"><br>
@@ -56,30 +56,30 @@ research abut objects and arrays here<br>
 
 <i>Filter the objects in the array!"</i><br>
 <script>
-   class Person01 {
-  constructor(name1, age1, height1) {
-   this.name1 = name1;
-   this.age1 = age1;
-   this.height1 = height1;
-        }
+  class Person01 {
+    constructor(name1, age1, height1) {
+      this.name1 = name1;
+      this.age1 = age1;
+      this.height1 = height1;
     }
+  }
   let persons1 = [
     new Person01('Alex', 25, '5.11'),
     new Person01('Jane', 19, '5.6'),
     new Person01('Joe', 23, '6.1')
-    ];
-   function showArray() {
+  ];
+  function showArray() {
     let myOutput = '';
-    persons1.forEach(persons1 => {
-      output += `Name1: ${persons1.name1}, Age1: ${persons1.age1}, Height1: ${persons1.height1}<br>`;
+    persons1.forEach(person1 => {
+      myOutput += `Name1: ${person1.name1}, Age1: ${person1.age1}, Height1: ${person1.height1}<br>`;
     });
-    document.getElementById('myDiv03').innerHTML = output;
-   }
+    document.getElementById('myDiv03').innerHTML = myOutput;
+  }
   function showFilteredArray() {
-    const myFilter = persons1.filter(person1 => persons1.age1 >= 23);
+    const myFilter = persons1.filter(person1 => person1.age1 >= 23);
     document.getElementById('myDiv03').innerHTML = '';
-    myFilter.forEach((persons1, index) => {
-      document.getElementById('myDiv03').innerHTML += `myFilter[${index}] = { name: ${persons1.name1}, age: ${persons1.age1}, height: ${persons1.height1} }<br>`;
+    myFilter.forEach((person1, index) => {
+      document.getElementById('myDiv03').innerHTML += `myFilter[${index}] = { name: ${person1.name1}, age: ${person1.age1}, height: ${person1.height1} }<br>`;
     });
   }
 </script>
