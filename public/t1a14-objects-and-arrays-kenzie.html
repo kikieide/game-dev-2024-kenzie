@@ -63,12 +63,12 @@ research abut objects and arrays here<br>
     new Person01('Joe', 23, '6.1')
     ];
    function showArray() {
-    let output = '';
+    let myOutput = '';
     persons1.forEach(person1 => {
       output += `Name1: ${person1.name1}, Age1: ${person1.age1}, Height1: ${person1.height1}<br>`;
     });
     document.getElementById('myDiv03').innerHTML = output;
-  
+   }
   function showFilteredArray() {
     const myFilter = persons1.filter(person1 => person1.age1 >= 23);
     document.getElementById('myDiv03').innerHTML = '';
