@@ -99,7 +99,9 @@ research abut objects and arrays here<br>
 </select>
 <input type="button" value="Splice objects!" onclick="spliceObject()">
 <script>
+<script>
   let persons = [];
+
   function initializeArray() {
     class Person {
       constructor(name, age, height) {
@@ -122,13 +124,13 @@ research abut objects and arrays here<br>
   function spliceObject() {
     let mySelect = document.getElementById('mySelect');
     let index = parseInt(mySelect.value, 10);
-
+    
     if (index >= 0 && index < persons.length) {
       persons.splice(index, 1, new Person('Chris', 28, '5.9'));
     } else if (index === persons.length) {
       persons.push(new Person('Chris', 28, '5.9'));
     }
-   displayArray();
+    displayArray();
   }
   function displayArray() {
     let myOutput2 = '';
@@ -137,7 +139,7 @@ research abut objects and arrays here<br>
     });
     document.getElementById('myDiv04').innerHTML = myOutput2;
   }
-  loadArray();
+  window.onload = initializeArray;
 </script>
 <div id="myDiv04">...</div>
 <br><br>
