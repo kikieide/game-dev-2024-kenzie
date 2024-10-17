@@ -1,4 +1,17 @@
-<h1 align=center>t1a15-events-kenzie</h1>
 
 <body onMouseMove="{
-  document.getElementById('myDiv01').innerHTML = `x:$
+  document.getElementById('myDiv01').innerHTML = `x:${event.clientX},
+  y:${event.clientY}'
+  }" onKeyDown="{
+  document.getElementById('myDiv03').innerHTML = `key:${event.key}'
+  }">
+  <h1 align=center>t1a15-events-kenzie</h1>
+get rid of alerts + have 8 events on page<br>
+<b onTouchStart="{alert('onTouchStart')}">Input:</b>
+  <input type=text id="myFirstName" value="Fred"
+    onBlur="{'alert('onBlur??')}"><br><br>
+<input type=button value="Show on Page" onclick="{
+  document.getElementById('myDiv01').innerHTML = 'Hey'
+  }"><br><br>
+  <div id="myDiv01" onMouseOver ="{alert('onMouseOver')}">...</div><br><br>
+</body>
