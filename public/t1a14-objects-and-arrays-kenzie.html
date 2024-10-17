@@ -32,17 +32,16 @@ research abut objects and arrays here<br>
     document.getElementById('myDiv01').innerHTML = output;
 }">
 <br><br>
-<input type=button value="Object with array inside" onclick="{
-  let myMax = 3
-  let myName = 'Alex'
-  let myArray = ['reading', 'running', 'writing']
-   document.getElementById('myDiv02').innerHTML = 'You set the array'
-  }">
+<script>
+  let myMax1 = 3
+  let myName1 = 'Alex'
+  let myArray1 = ['reading', 'running', 'writing']
+    </script>
   <input type=button value="Show Array" onclick="{
   document.getElementById('myDiv02').innerHTML = '';
-  for (myLoop=0; myLoop < 3; myLoop++){
-    document.getElementById('myDiv02').innerHTML += 'myArray + myName[' + myLoop + '] = ' + myArray[myLoop] + '<br>'
-    }
+  for (myLoop1=0; myLoop1 < myMax1; myLoop1++){
+     document.getElementById('myDiv02').innerHTML += 'myArray1 + myName1[' + myLoop1 + '] = ' + myArray1[myLoop1] + '<br>';
+  }
     }"><br>
 <div id="myDiv02">...</div>
 <br><br>
