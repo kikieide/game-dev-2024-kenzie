@@ -39,11 +39,11 @@ research abut objects and arrays here<br>
 
 <script>
   let myObject = {
-  myMax1: 3
-  myName1: 'Alex'
-   myArray1: ['reading', 'running', 'writing']
+    myMax1: 3,
+    myName1: 'Alex',
+    myArray1: ['reading', 'running', 'writing']
   };
-    </script>
+</script>
   <input type=button value="Object Containing Array" onclick="{
   document.getElementById('myDiv02').innerHTML = '';
   for (myLoop1=0; myLoop1 < myObject.myMax1; myLoop1++){
@@ -90,25 +90,55 @@ research abut objects and arrays here<br>
 
 
 <i style="color: red; ">splice objects into the array!</i><br>
-<input type=button value="Array with object in it" onclick="{
-   class Person {
-  constructor(name, age, height) {
-   this.name = name;
-   this.age = age;
-   this.height = height;
-        }
+<input type="button" value="Array with object in it" onclick="initializeArray()">
+<select id="mySelect">
+  <option value="0">Replace Alex</option>
+  <option value="1">Replace Jane</option>
+  <option value="2">Replace Joe</option>
+  <option value="3">Add person</option>
+</select>
+<input type="button" value="Splice objects!" onclick="spliceObject()">
+<script>
+  let persons = [];
+  function initializeArray() {
+    class Person {
+      constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+      }
     }
-  let persons = [
-    new Person('Alex', 25, '5.11'),
-    new Person('Jane', 19, '5.6'),
-    new Person('Joe', 23, '6.1')
+    persons = [
+      new Person('Alex', 25, '5.11'),
+      new Person('Jane', 19, '5.6'),
+      new Person('Joe', 23, '6.1')
     ];
     let output = '';
     persons.forEach(person => {
-        output += `Name: ${person.name}, Age: ${person.age}, Height: ${person.height}<br>`;
+      output += `Name: ${person.name}, Age: ${person.age}, Height: ${person.height}<br>`;
     });
     document.getElementById('myDiv04').innerHTML = output;
-}">
+  }
+  function spliceObject() {
+    let mySelect = document.getElementById('mySelect');
+    let index = parseInt(mySelect.value, 10);
+
+    if (index >= 0 && index < persons.length) {
+      persons.splice(index, 1, new Person('Chris', 28, '5.9'));
+    } else if (index === persons.length) {
+      persons.push(new Person('Chris', 28, '5.9'));
+    }
+   displayArray();
+  }
+  function displayArray() {
+    let myOutput2 = '';
+    persons.forEach(person => {
+      myOutput2 += `Name: ${person.name}, Age: ${person.age}, Height: ${person.height}<br>`;
+    });
+    document.getElementById('myDiv04').innerHTML = myOutput2;
+  }
+  loadArray();
+</script>
 <div id="myDiv04">...</div>
 <br><br>
 
