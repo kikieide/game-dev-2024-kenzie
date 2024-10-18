@@ -37,14 +37,13 @@ research abut objects and arrays here<br>
 }">
 <br><br>
 
-<script>
-  let myObject = {
+
+  <input type=button value="Object Containing Array" onclick="{
+     let myObject = {
     myMax1: 3,
     myName1: 'Alex',
     myArray1: ['reading', 'running', 'writing']
   };
-</script>
-  <input type=button value="Object Containing Array" onclick="{
   document.getElementById('myDiv02').innerHTML = '';
   for (myLoop1=0; myLoop1 < myObject.myMax1; myLoop1++){
     document.getElementById('myDiv02').innerHTML += 'myArray1 + myName1[' + myLoop1 + '] = ' + myObject.myArray1[myLoop1] + '<br>';
