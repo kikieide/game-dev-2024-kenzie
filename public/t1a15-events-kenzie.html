@@ -9,6 +9,16 @@
     align-items: center;
     text-align: center;
   }
+    #myDiv01{
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size:  4.1rem;
+    font-weight: italic;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    }
 </style>
 <body onMouseMove="{
   document.getElementById('myDiv01').innerHTML = `x:${event.clientX},
@@ -26,17 +36,40 @@ get rid of alerts + have 8 events on page<br>
     onBlur="{'alert('onBlur??')}"><br><br>
   
 <input type=button value="Show on Page" onclick="{
-  document.getElementById('myDiv01').innerHTML = 'Hey'
+  document.getElementById('myDiv4').innerHTML = 'Hey'
+   myDiv4.addEventListener('mouseover', event => {
+        event.target.style.backgroundColor = 'yellow';
+  event.target.textContent = '🎃🎃🎃';
+  });
+  myDiv4.addEventListener('mouseout' event => {
+  event.target.textContent = 'Hey';
+  });
   }"><br><br>
-  <div id="myDiv01" onMouseOver ="{alert('onMouseOver')}">...</div><br><br>
-  <div id="myDiv2"></div>
+  <div id="myDiv4">...</div>
+  <div id="myDiv01">
+    Click me!
+  </div><br><br>
 
+  <div id="myDiv2">...</div>
+  
+<div id="myDiv03"></div>
+  
 <script>
   const myDiv3 = document.getelementById("myDiv3");
-  function myColor(event)
-  event.target.style.backgroundColor = "red";
-  event.target.textContent = "ouch"
-  myDiv3.addEventListener("click", "color");
+  const myDiv01 = document.getelementById("myDiv01");
+
+  myDiv3.addEventListener("click", event => {
+    event.target.style.backgroundColor = "red";
+  event.target.textContent = "ouch";
+  });
+  myDiv01.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "yellow";
+  event.target.textContent = "🎃🎃🎃";
+  });
+  myDiv01.addEventListener("mouseout" event => {
+       event.target.style.backgroundColor = "lightgreen";
+  event.target.textContent = "Click me!";
+  });
 </script>
   
   <div id="myDiv3">
