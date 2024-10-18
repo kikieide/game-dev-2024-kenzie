@@ -1,8 +1,8 @@
 <style>
   #myDiv3{
     background-color: lightgreen;
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     font-size:  4.1rem;
     font-weight: italic;
     display: flex;
@@ -11,8 +11,8 @@
   }
     #myDiv01{
     background-color: lightgreen;
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
     font-size:  4.1rem;
     font-weight: italic;
     display: flex;
@@ -45,6 +45,7 @@ get rid of alerts + have 8 events on page<br>
     event.target.textContent = 'Hey';
   });
 }">
+<br><br>
 <br>
   <div id="myDiv4">...</div>
   <div id="myDiv01">
@@ -55,23 +56,23 @@ get rid of alerts + have 8 events on page<br>
   
 <div id="myDiv03"></div>
   
+  
 <script>
   const myDiv3 = document.getElementById("myDiv3");
   const myDiv01 = document.getElementById("myDiv01");
-
   myDiv3.addEventListener("click", event => {
     event.target.style.backgroundColor = "red";
-  event.target.textContent = "ouch";
+    event.target.textContent = "ouch";
   });
   myDiv01.addEventListener("mouseover", event => {
-        event.target.style.backgroundColor = "yellow";
-  event.target.textContent = "🎃🎃🎃";
+    event.target.style.backgroundColor = "yellow";
+    event.target.textContent = "";
   });
-  myDiv01.addEventListener("mouseout" event => {
-       event.target.style.backgroundColor = "lightgreen";
-  event.target.textContent = "Click me!";
+  myDiv01.addEventListener("mouseout", event => {
+    event.target.style.backgroundColor = "lightgreen";
+    event.target.textContent = "Click me!";
   });
-</script>
+  <br><br>
   
   <div id="myDiv3">
     Click me!
