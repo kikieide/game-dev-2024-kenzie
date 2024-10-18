@@ -1,4 +1,15 @@
-
+<style>
+  #myDiv03{
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size:  4.1rem;
+    font-weight: italic;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+</style>
 <body onMouseMove="{
   document.getElementById('myDiv01').innerHTML = `x:${event.clientX},
   y:${event.clientY}'
@@ -6,12 +17,29 @@
   document.getElementById('myDiv03').innerHTML = `key:${event.key}'
   }">
   <h1 align=center>t1a15-events-kenzie</h1>
+  
 get rid of alerts + have 8 events on page<br>
-<b onTouchStart="{alert('onTouchStart')}">Input:</b>
+  
+<b onTouchStart="document.getElementById('myDiv2').innerHTML = 'Touched'">Input</b><br>
+  
   <input type=text id="myFirstName" value="Fred"
     onBlur="{'alert('onBlur??')}"><br><br>
+  
 <input type=button value="Show on Page" onclick="{
   document.getElementById('myDiv01').innerHTML = 'Hey'
   }"><br><br>
   <div id="myDiv01" onMouseOver ="{alert('onMouseOver')}">...</div><br><br>
+  <div id="myDiv2"></div>
+
+<script>
+  const myDiv3 = document.getelementById("myDiv3");
+  function myColor(event)
+  event.target.style.backgroundColor = "red";
+  event.target.textContent = "ouch"
+  myDiv3.addEventListener("click", color);
+</script>
+  
+  <div id="myDiv3">
+    Click me!
+  </div>
 </body>
