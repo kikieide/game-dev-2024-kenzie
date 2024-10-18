@@ -125,7 +125,8 @@ research abut objects and arrays here<br>
     
     if (index >= 0 && index < persons.length) {
       persons.splice(index, 1, new Person('Chris', 28, '5.9'));
-    } else if (index === persons.length) {
+    } else {
+    if (index === persons.length) {
       persons.push(new Person('Chris', 28, '5.9'));
     }
     displayArray();
