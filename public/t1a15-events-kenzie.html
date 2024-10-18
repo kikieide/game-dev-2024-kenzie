@@ -32,19 +32,20 @@ get rid of alerts + have 8 events on page<br>
   
 <b onTouchStart="document.getElementById('myDiv2').innerHTML = 'Touched'">Input</b><br>
   
-  <input type=text id="myFirstName" value="Fred"
-    onBlur="{'alert('onBlur??')}"><br><br>
+<input type="text" id="myFirstName" value="Fred" onBlur="document.getElementById('myDiv2').innerHTML = 'Lost focus'">
+<br>
   
-<input type=button value="Show on Page" onclick="{
-  document.getElementById('myDiv4').innerHTML = 'Hey'
-   myDiv4.addEventListener('mouseover', event => {
-        event.target.style.backgroundColor = 'yellow';
-  event.target.textContent = '🎃🎃🎃';
+<input type="button" value="Show on Page" onclick="{
+  document.getElementById('myDiv4').innerHTML = 'Hey';
+  myDiv4.addEventListener('mouseover', event => {
+    event.target.style.backgroundColor = 'yellow';
+    event.target.textContent = '';
   });
-  myDiv4.addEventListener('mouseout' event => {
-  event.target.textContent = 'Hey';
+  myDiv4.addEventListener('mouseout', event => {
+    event.target.textContent = 'Hey';
   });
-  }"><br><br>
+}">
+<br>
   <div id="myDiv4">...</div>
   <div id="myDiv01">
     Click me!
@@ -55,8 +56,8 @@ get rid of alerts + have 8 events on page<br>
 <div id="myDiv03"></div>
   
 <script>
-  const myDiv3 = document.getelementById("myDiv3");
-  const myDiv01 = document.getelementById("myDiv01");
+  const myDiv3 = document.getElementById("myDiv3");
+  const myDiv01 = document.getElementById("myDiv01");
 
   myDiv3.addEventListener("click", event => {
     event.target.style.backgroundColor = "red";
