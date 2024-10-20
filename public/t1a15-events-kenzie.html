@@ -17,21 +17,26 @@
         text-align: center;
         }
 </style>
+onmousemove + onkeydown<br>
 <body onMouseMove="{
-  document.getElementById('myDiv01').innerHTML = `x:${event.clientX},
+  document.getElementById('myDiv5').innerHTML = `x:${event.clientX},
   y:${event.clientY}'
   }" onKeyDown="{
-  document.getElementById('myDiv03').innerHTML = `key:${event.key}'
+  document.getElementById('myDiv6').innerHTML = `key:${event.key}'
   }">
+   <div id="myDiv5">...</div><br>
+   <div id="myDiv6">...</div>
   <h1 align=center>t1a15-events-kenzie</h1>
   
 get rid of alerts + have 8 events on page<br>
-  
+   ontouchstart!<br>
+  <div id="myDiv2">...</div>
 <b onTouchStart="document.getElementById('myDiv2').innerHTML = 'Touched'">Input</b><br>
   
 <input type="text" id="myFirstName" value="Fred" onBlur="document.getElementById('myDiv2').innerHTML = 'Lost focus'">
-<br>
-  <div id="myDiv4">...</div>
+<br><br>
+  <div id="myDiv4">...</div><br><br>
+   mouseover + mouseout<br>
   <input type="button" value="Show on Page" onclick="{
     document.getElementById('myDiv4').innerHTML = 'Hey';
     myDiv4.addEventListener('mouseover', event => {
@@ -44,12 +49,12 @@ get rid of alerts + have 8 events on page<br>
 }">
 <br><br>
 <br>
-   
+   onclick, mouseover, mouseout<br>
 <div id="myDiv01">Click me!</div>
    <br><br>
+   onclick<br>
     <div id="myDiv3">Click me!</div>
     <div id="myDiv2">...</div>
-    <div id="myDiv03"></div>
   
   
   <script>
