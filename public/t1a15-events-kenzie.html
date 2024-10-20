@@ -1,19 +1,20 @@
 <style>
    #myDiv3, #myDiv01 {
-            background-color: lightgreen;
-            width: 150px;
-            height: 150px;
-            font-size: 4.1rem;
-            font-weight: italic;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        background-color: lightgreen;
+        width: 150px;
+        height: 150px;
+        font-size: 4.1rem;
+        font-weight: italic;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
         }
         #myDiv4 {
-            margin-top: 20px;
-            padding: 10px;
-            text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        text-align: center;
         }
 </style>
 <body onMouseMove="{
@@ -50,8 +51,8 @@ get rid of alerts + have 8 events on page<br>
   
   
   <script>
-    const myDiv3 = document.getElementById("myDiv3");
-    const myDiv01 = document.getElementById("myDiv01");
+    const myBox3 = document.getElementById("myDiv3");
+    const myBox01 = document.getElementById("myDiv01");
     myDiv3.addEventListener("click", event => {
       event.target.style.backgroundColor = "red";
       event.target.textContent = "ouch";
