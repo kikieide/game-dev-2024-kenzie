@@ -27,14 +27,13 @@
         }
 </style>
 onmousemove + onkeydown<br>
-<body onMouseMove="{
-  document.getElementById('myDiv5').innerHTML = `x:${event.clientX},
-  y:${event.clientY}'
-  }" onKeyDown="{
-  document.getElementById('myDiv6').innerHTML = `key:${event.key}'
-  }">
-   <div id="myDiv5">...</div>
-   <div id="myDiv6">...</div>
+<body onmousemove="{
+  document.getElementById('myDiv5').innerHTML = `x:${event.clientX}, y:${event.clientY}`;
+}" onkeydown="{
+  document.getElementById('myDiv6').innerHTML = `key:${event.key}`;
+}">
+    <div id="myDiv5">...</div>
+    <div id="myDiv6">...</div>
   <h1 align=center>t1a15-events-kenzie</h1>
   
 get rid of alerts + have 8 events on page<br>
