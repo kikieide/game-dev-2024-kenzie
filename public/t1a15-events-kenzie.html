@@ -31,11 +31,12 @@ get rid of alerts + have 8 events on page<br>
   
 <input type="text" id="myFirstName" value="Fred" onBlur="document.getElementById('myDiv2').innerHTML = 'Lost focus'">
 <br>
-  
+  <div id="myDiv4">...</div>
   <input type="button" value="Show on Page" onclick="{
     document.getElementById('myDiv4').innerHTML = 'Hey';
     myDiv4.addEventListener('mouseover', event => {
       event.target.style.backgroundColor = 'yellow';
+       event.target.textContent = 'Hey';
     });
     myDiv4.addEventListener('mouseout', event => {
       event.target.style.background = 'green'
@@ -45,6 +46,7 @@ get rid of alerts + have 8 events on page<br>
 <br>
    
 <div id="myDiv01">Click me!</div>
+   <br><br>
     <div id="myDiv3">Click me!</div>
     <div id="myDiv2">...</div>
     <div id="myDiv03"></div>
