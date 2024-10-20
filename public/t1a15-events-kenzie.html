@@ -11,10 +11,19 @@
         text-align: center;
         cursor: pointer;
         }
-        #myDiv4 {
+   #myDiv4 {
         margin-top: 20px;
         padding: 10px;
         text-align: center;
+        }
+    }
+    #myDiv5, #myDiv6 {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        font-size: 4.1rem;
+        font-weight: bold;
         }
 </style>
 onmousemove + onkeydown<br>
@@ -24,13 +33,13 @@ onmousemove + onkeydown<br>
   }" onKeyDown="{
   document.getElementById('myDiv6').innerHTML = `key:${event.key}'
   }">
-   <div id="myDiv5">...</div><br>
+   <div id="myDiv5">...</div>
    <div id="myDiv6">...</div>
   <h1 align=center>t1a15-events-kenzie</h1>
   
 get rid of alerts + have 8 events on page<br>
    ontouchstart!<br>
-  <div id="myDiv2">...</div>
+  <div id="myDiv2"></div>
 <b onTouchStart="document.getElementById('myDiv2').innerHTML = 'Touched'">Input</b><br>
   
 <input type="text" id="myFirstName" value="Fred" onBlur="document.getElementById('myDiv2').innerHTML = 'Lost focus'">
