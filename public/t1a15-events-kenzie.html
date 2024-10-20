@@ -35,7 +35,6 @@ get rid of alerts + have 8 events on page<br>
     document.getElementById('myDiv4').innerHTML = 'Hey';
     myDiv4.addEventListener('mouseover', event => {
       event.target.style.backgroundColor = 'yellow';
-      event.target.textContent = '';
     });
     myDiv4.addEventListener('mouseout', event => {
       event.target.style.background = 'green'
@@ -43,7 +42,11 @@ get rid of alerts + have 8 events on page<br>
 }">
 <br><br>
 <br>
-
+   
+<div id="myDiv01">Click me!</div>
+    <div id="myDiv3">Click me!</div>
+    <div id="myDiv2">...</div>
+    <div id="myDiv03"></div>
   
   
   <script>
@@ -55,7 +58,6 @@ get rid of alerts + have 8 events on page<br>
     });
     myDiv01.addEventListener("mouseover", event => {
       event.target.style.backgroundColor = "yellow";
-      event.target.textContent = "";
     });
       myDiv01.addEventListener("click", event => {
       event.target.style.backgroundColor = "red";
@@ -67,16 +69,7 @@ get rid of alerts + have 8 events on page<br>
     });
   </script>
   <br><br>
-  <div id="myDiv4">...</div>
-<br><br>
 
-<div id="myDiv01">Click me!</div>
-<br><br>
-
-<div id="myDiv2">...</div>
-<div id="myDiv03"></div>
-
-<div id="myDiv3">Click me!</div>
  
     
 </body>
