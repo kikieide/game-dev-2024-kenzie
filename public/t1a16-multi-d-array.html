@@ -36,7 +36,7 @@ Input: <input type=text id="myFirstName" value="fred"><br>
 }">
 <input type=button value="show 2d array" onclick="{
     document.getElementById('myDiv2').innerHTML = '';
-  let table = '<table-border=1>'; 
+  let table = '<table border=1>'; 
   for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
     let row = '<tr>'; 
     for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2].length; myLoop3++) {
@@ -56,12 +56,12 @@ document.getElementById('myDiv2').innerHTML = table;
 <div id="myDiv2">...</div>
 
 <input type=button value="set 3d array" onclick="{
-  myArrayManual = ][[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]];
+  myArrayManual = [[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [10, 11, 12]]];
   document.getElementById('myDiv3').innerHTML = 'you set the array';
 }">
 <input type=button value="show 3d array" onclick="{
   document.getElementById('myDiv3').innerHTML = '';
-  for  (let myLoop4 = 0; myLoop4 < myMax; myLoop4++) {
+  for  (let myLoop4 = 0; myLoop4 < myArrayManual.length; myLoop4++) {
   for (let myLoop5 = 0; myLoop5 < myArrayManual[myLoop4].length; myLoop5++) {
   for (let myLoop6 = 0; myLoop6 < myArrayManual[myLoop4][myLoop5].length; myLoop6++) {
      document.getElementById('myDiv3').innerHTML += 
