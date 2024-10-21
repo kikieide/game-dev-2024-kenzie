@@ -39,7 +39,7 @@ Input: <input type=text id="myFirstName" value="fred"><br>
   let table = '<tb=1>'; 
   for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
     let row = '<tr>'; 
-    for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2].length; myLoop3++) {
+    for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2]; myLoop3++) {
       row += `<td>myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}</td>`;
     }
     row += '</tr>';
@@ -59,3 +59,11 @@ document.getElementById('myDiv2').innerHTML = table;
   myArrayManual = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]];
   document.getElementById('myDiv3').innerHTML = 'you set the array';
 }">
+<input type=button value="show 3d array" onclick="{
+  document.getElementById('myDiv3').innerHTML = '';
+  for  (let myLoop4 = 0; myLoop4 < myMax; myLoop4++) {
+  for (let myLoop5 = 0; myLoop5 < myArrayManual[myLoop4]; myLoop5++) {
+  for (let myLoop6 = 0; myLoop6 < myArrayManual[myLoop6]; myLoop6++) {
+    myArrayManual[${myLoop4}][${myLoop5}][${myLoop6}]= ${myArrayManual[myLoop4][myLoop5][myLoop6]}</td>`;
+    }
+  
