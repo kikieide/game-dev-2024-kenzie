@@ -36,7 +36,8 @@ Input: <input type=text id="myFirstName" value="fred"><br>
   let myMax1 = 3;
   for (let myLoop2 = 0; myLoop2 < myMax1; myLoop2++) {
     for (let myLoop3= 0; myLoop3 < myMax1; myLoop3++) {
-    document.getElementById('myDiv2').innerHTML += `myArrayManual1[${myLoop2}] = ${myArrayManual1[myLoop2].join(', ')}<br>`;
+    document.getElementById('myDiv2').innerHTML += 
+    `myArrayManual1[${myLoop2}][${myLoop3}] = ${myArrayManual1[myLoop2][myLoop3]}<br>`;
   }
 }">
 <div id="myDiv2">...</div>
