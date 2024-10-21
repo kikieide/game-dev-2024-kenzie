@@ -64,8 +64,23 @@ document.getElementById('myDiv2').innerHTML = table;
   for  (let myLoop4 = 0; myLoop4 < myMax; myLoop4++) {
   for (let myLoop5 = 0; myLoop5 < myArrayManual[myLoop4]; myLoop5++) {
   for (let myLoop6 = 0; myLoop6 < myArrayManual[myLoop4][myLoop5].length; myLoop6++) {
+     document.getElementById('myDiv3').innerHTML += 
     `myArrayManual[${myLoop4}][${myLoop5}][${myLoop6}]= ${myArrayManual[myLoop4][myLoop5][myLoop6]}<br>`;
     }
   }
   }">
   <div id="myDiv3">...</div>
+<input type="button" value="set 2d array" onclick="{
+  myArrayManual = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+  document.getElementById('myDiv4').innerHTML = 'you set the array';
+}">
+<input type=button value="show 2d array" onclick="{
+    document.getElementById('myDiv4').innerHTML = '';
+  for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
+    for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2].length; myLoop3++) {
+       document.getElementById('myDiv4').innerHTML += 
+     `myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}<br>`;
+    }
+  }
+}">
+<div id="myDiv4">...</div>
