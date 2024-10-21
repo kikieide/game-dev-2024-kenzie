@@ -35,15 +35,14 @@ Input: <input type=text id="myFirstName" value="fred"><br>
   document.getElementById('myDiv2').innerHTML = 'you set the array';
 }">
 <input type=button value="show 2d array" onclick="{
-  document.getElementById('myDiv2').innerHTML = '';
-   const table = '<table border='1'>';
-  for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) 
-  let row = '<tr>';
-    for (let myLoop3= 0; myLoop3 < myMax; myLoop3++) {
-    document.getElementById('myDiv2').innerHTML += 
-    row += `<td>myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}</td>`;
+    document.getElementById('myDiv2').innerHTML = '';
+  let table = '<table border="1">'; // Fixed border attribute syntax
+  for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
+    let row = '<tr>'; // Corrected placement of the row declaration
+    for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2].length; myLoop3++) {
+      row += `<td>myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}</td>`;
     }
-       row += '</tr>';
+    row += '</tr>';
     table += row;
   }
   table += '</table>';
