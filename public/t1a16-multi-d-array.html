@@ -36,11 +36,17 @@ Input: <input type=text id="myFirstName" value="fred"><br>
 }">
 <input type=button value="show 2d array" onclick="{
   document.getElementById('myDiv2').innerHTML = '';
-  for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
+   const table = '<table border='1'>';
+  for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) 
+  let row = '<tr>';
     for (let myLoop3= 0; myLoop3 < myMax; myLoop3++) {
     document.getElementById('myDiv2').innerHTML += 
-    `myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}<br>`;
-     }
+    row += `<td>myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}</td>`;
+    }
+       row += '</tr>';
+    table += row;
   }
+  table += '</table>';
+document.getElementById('myDiv2').innerHTML = table;
 }">
 <div id="myDiv2">...</div>
