@@ -1,9 +1,18 @@
 <h1 align=center>t1a17-move-kenzie</h1>
+<style>
+  .text-box {
+            border: 2px solid black; 
+            padding: 20px;
+            background-color: white;
+            width: fit-content;
+            margin: 20px auto;
+        }
+</style>
 <script>
   //global variables
   let myClock02
 </script>
-
+<div class="text-box">
 <input type=button id="myButton02" value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = 
   parseInt(document.getElementById('myImage01').style.left) + 10 +  'px'
@@ -15,9 +24,12 @@ clearInterval(myClock02)
     document.getElementById('myButton02').click()
     }, 30) //activate click every 30 ms (milliseconds)
     }"><br><br>
-<input type=button value="Stop" onclick="{
-  clearInterval(myClock02)
-  document.getElementById('myImage01').innerHTML = '';
-}
-  }">
     <img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
+<br><br>
+  <input type=button id="myButton3" value="Image Left" onclick="{
+    document.getElementById('myImage2').style.right =
+      parseInt(document.getElementById('myImage2').style.right) + 10 + 'px'
+  }"><br><br>
+  <img id="myImage2" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
+<br><br>
+</div>
