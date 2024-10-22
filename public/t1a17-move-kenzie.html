@@ -32,4 +32,9 @@ clearInterval(myClock02)
   }"><br><br>
   <img id="myImage2" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 <br><br>
+  <input type=button id="myButton4" value="Rotate left" onclick="{
+     document.getElementById('myImage2').style.right =
+      parseInt(document.getElementById('myImage2').style.right) + 10 + 'px'
+    parseInt(document.getElementById('myImage2').style.transform.right) + 10 + 'px'
+  }"><br><br>
 </div>
