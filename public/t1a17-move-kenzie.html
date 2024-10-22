@@ -30,6 +30,13 @@ clearInterval(myClock02)
     document.getElementById('myImage2').style.right =
       parseInt(document.getElementById('myImage2').style.right) + 10 + 'px'
   }"><br><br>
+   <input type=button value="Auto Move Left" onclick="{
+    document.getElementById('myImage2').style.left = 0
+clearInterval(myClock02)
+    myClock02 = setInterval(function(){
+    document.getElementById('myButton3').click()
+    }, 30) 
+    }"><br><br>
   <img id="myImage2" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 <br><br>
   <input type=button id="myButton4" value="Rotate left" onclick="{
