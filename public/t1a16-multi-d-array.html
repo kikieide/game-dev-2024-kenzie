@@ -61,14 +61,14 @@ document.getElementById('myDiv2').innerHTML = table;
 }">
 <input type=button value="show 3d array" onclick="{
   document.getElementById('myDiv3').innerHTML = '';
-  for  (let myLoop4 = 0; myLoop4 < myArrayManual.length; myLoop4++) {
-  for (let myLoop5 = 0; myLoop5 < myArrayManual[myLoop4].length; myLoop5++) {
-  for (let myLoop6 = 0; myLoop6 < myArrayManual[myLoop4][myLoop5].length; myLoop6++) {
-     document.getElementById('myDiv3').innerHTML += 
-    `myArrayManual[${myLoop4}][${myLoop5}][${myLoop6}]= ${myArrayManual[myLoop4][myLoop5][myLoop6]}<br>`;
-    }
+ for (let myLoop4 = 0; myLoop4 < myMax; myLoop4++) {
+ for (let myLoop5 = 0; myLoop5 < myMax; myLoop5++) {
+for (let myLoop6 = 0; myLoop6 < myMax; myLoop6++) {
+ document.getElementById('myDiv3').innerHTML += `myArrayManual[${myLoop4}][${myLoop5}][${myLoop6}] = ${myArrayManual[myLoop4][myLoop5][myLoop6]}<br>`;
+       }   
+     }
   }
-  }">
+}">
   <div id="myDiv3">...</div>
 <input type="button" value="set 2d array" onclick="{
   myArrayManual = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
@@ -85,18 +85,13 @@ document.getElementById('myDiv2').innerHTML = table;
 }">
 <div id="myDiv4">...</div>
 <input type="button" value="set 2d array" onclick="{
-  myArrayManual = [['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  ['1', '2', '3', '4', '5', '6', '7'],
-  ['8', '9', '10', '11', '12', '13', '14'],
-  ['15', '16', '17', '18', '19', '20', '21'],
-  ['22', '23', '24', '25', '26', '27', '28'],
-  ['29', '30', '31']];
+  myArrayManual = [['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], ['1', '2', '3', '4', '5', '6', '7'], ['8', '9', '10', '11', '12', '13', '14'],['15', '16', '17', '18', '19', '20', '21'],  ['22', '23', '24', '25', '26', '27', '28'], ['29', '30', '31']];
   document.getElementById('myDiv5').innerHTML = 'you set the array';
 }">
 <input type=button value="show 2d calendar array" onclick="{
     document.getElementById('myDiv5').innerHTML = '';
   for (let myLoop2 = 0; myLoop2 < myMax; myLoop2++) {
-    for (let myLoop3 = 0; myLoop3 < myArrayManual[myLoop2].length; myLoop3++) {
+    for (let myLoop3 = 0; myLoop3 < myMax; myLoop3++) {
        document.getElementById('myDiv5').innerHTML += 
      `myArrayManual[${myLoop2}][${myLoop3}] = ${myArrayManual[myLoop2][myLoop3]}<br>`;
     }
