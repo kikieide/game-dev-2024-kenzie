@@ -5,7 +5,7 @@
             padding: 20px;
             background-color: white;
             width: fit-content;
-            margin: 20px auto;
+            margin: 500px auto;
         }
 </style>
 <script>
@@ -51,7 +51,7 @@ clearInterval(myClock02)
       parseInt(document.getElementById('myImage01').style.top) - 10 + 'px'
   }"><br><br>
    <input type=button value="Auto Move Up" onclick="{
-    document.getElementById('myImage01').style.top = 0
+    document.getElementById('myImage01').style.top = 0;
 clearInterval(myClock02)
     myClock02 = setInterval(function(){
     document.getElementById('myButton4').click()
@@ -59,11 +59,11 @@ clearInterval(myClock02)
     }"><br><br>
 
   <input type=button id="myButton5" value="Image Down" onclick="{
-    document.getElementById('myImage01').style.right =
-      parseInt(document.getElementById('myImage01').style.down) + 10 + 'px'
+    document.getElementById('myImage01').style.top =
+      parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
   }"><br><br>
    <input type=button value="Auto Move Down" onclick="{
-    document.getElementById('myImage01').style.down = 0
+    document.getElementById('myImage01').style.top = 0;
 clearInterval(myClock02)
     myClock02 = setInterval(function(){
     document.getElementById('myButton5').click()
