@@ -26,48 +26,47 @@ clearInterval(myClock02)
     }"><br><br>
     <img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 <br><br>
-  <input type=button id="myButton3" value="Image Left" onclick="{
-    document.getElementById('myImage2').style.right =
-      parseInt(document.getElementById('myImage2').style.right) + 10 + 'px'
-  }"><br><br>
-   <input type=button value="Auto Move Left" onclick="{
-    document.getElementById('myImage2').style.left = 0
-clearInterval(myClock02)
-    myClock02 = setInterval(function(){
-    document.getElementById('myButton3').click()
-    }, 30) 
-    }"><br><br>
-  <img id="myImage2" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
+  <input type="button" id="myButton3" value="Image Left" onclick="{
+  document.getElementById('myImage01').style.left = 
+  parseInt(document.getElementById('myImage01').style.left) - 10 + 'px';
+}"><br><br>
+
+<input type="button" value="Auto Move Left" onclick="{
+  document.getElementById('myImage01').style.left = 0;
+  clearInterval(myClock02);
+  myClock02 = setInterval(function(){
+    document.getElementById('myButton03').click();
+  }, 30);
+}"><br><br>
 <br><br>
+  
   <input type=button id="myButton4" value="Rotate left" onclick="{
-     document.getElementById('myImage2').style.right =
-      parseInt(document.getElementById('myImage2').style.right) + 10 + 'px'
-    parseInt(document.getElementById('myImage2').style.transform.right) + 10 + 'px'
+     document.getElementById('myImage01').style.left =
+      parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
+    parseInt(document.getElementById('myImage01').style.transform.left) + 10 + 'px'
   }"><br><br>
+  
   <input type=button id="myButton4" value="Image Up" onclick="{
-    document.getElementById('myImage3').style.right =
-      parseInt(document.getElementById('myImage3').style.right) + 10 + 'px'
+    document.getElementById('myImage01').style.top =
+      parseInt(document.getElementById('myImage01').style.top) - 10 + 'px'
   }"><br><br>
    <input type=button value="Auto Move Up" onclick="{
-    document.getElementById('myImage2').style.left = 0
+    document.getElementById('myImage01').style.top = 0
 clearInterval(myClock02)
     myClock02 = setInterval(function(){
     document.getElementById('myButton4').click()
     }, 30) 
     }"><br><br>
-  <img id="myImage3" style="position:relative; width:100px; height:80px; top:-100px; left:100px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
-<br><br>
+
   <input type=button id="myButton5" value="Image Down" onclick="{
-    document.getElementById('myImage4').style.right =
-      parseInt(document.getElementById('myImage4').style.right) + 10 + 'px'
+    document.getElementById('myImage01').style.right =
+      parseInt(document.getElementById('myImage01').style.down) + 10 + 'px'
   }"><br><br>
    <input type=button value="Auto Move Down" onclick="{
-    document.getElementById('myImage2').style.left = 0
+    document.getElementById('myImage01').style.down = 0
 clearInterval(myClock02)
     myClock02 = setInterval(function(){
     document.getElementById('myButton5').click()
     }, 30) 
     }"><br><br>
-  <img id="myImage4" style="position:relative; width:100px; height:80px; top:0px; left:0px; right:100px" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
-<br><br>
 </div>
