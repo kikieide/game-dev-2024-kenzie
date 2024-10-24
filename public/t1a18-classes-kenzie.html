@@ -123,15 +123,19 @@ class Rectangle {
     }
 
     myShow() {
-      document.getElementById('myDiv4').innerHTML = `Rectangle: ${this.width}<br> ${this.height}<br>`;
+      document.getElementById('myDiv4').innerHTML = `Rectangle Width: ${this.width}<br> Height: ${this.height}<br>`;
     }
+ calculateArea() {
+  
  return this.width * this.height;
     }
 }
 </script>
 
 <input type=button value="Rectangle Class" onclick="{
- const wandh = new rectangle(25, 12)
- wandh.myShow()
+ const wandh = new Rectangle(25, 12)
+ const area = wandh.calculateArea() 
+ wandh.myShow() {
+document.getElementById('myDiv4').innerHTML = (`Area: ${area}<br>`;
 }">
  
