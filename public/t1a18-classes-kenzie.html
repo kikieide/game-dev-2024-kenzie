@@ -190,16 +190,8 @@ document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
  let counting = new Counter();
 let oddCounting = new Odd();
 </script>
-
-<input type=button value="Count Class" onclick="{
-  counting.increment();
-  counting.getCount();
- }">
-
-<input type=button value="Extended Count Class" onclick="{
-  oddCounting.increment();
-  oddCounting.getCount();
- }">
+<input type="button" value="Count Class" onclick="{ counting.increment(); counting.myShow(); }">
+<input type="button" value="Extended Count Class" onclick="{ oddCounting.increment(); oddCounting.myShow(); }">
 <div id="myDiv5">...</div>
 <br><br>
  
