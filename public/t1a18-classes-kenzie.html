@@ -50,7 +50,7 @@ class Product {
   document.getElementById('myDiv2').innerHTML = `Sale: ${this.name}<br>Price: $${this.price.toFixed(2)}<br>`;
   }
    calculateTotal(saleDiscount) {
-    const discount = this.price *(saleDiscount * 100);
+    const discount = this.price /(saleDiscount * 100);
     return discount.toFixed(2);
    }
  }
