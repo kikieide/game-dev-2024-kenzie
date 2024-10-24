@@ -45,6 +45,14 @@ class Product {
   return this.price + (this.price * salesTax);
  }
 }
+ class mySale extends Product {
+  myShow() {
+  document.getElementById('myDiv2').innerHTML = `Product: ${this.name}<br>Price: $${this.price.toFixed(2)}<br>`;
+  }
+   calculateTotal(saleDiscount) {
+    return this.price + (this.price *(1 + discount));
+   }
+ }
  </script>
 <input type=button value="Product class" onclick="{
  const salesTax = 0.05;
@@ -53,4 +61,12 @@ class Product {
  const total = product1.calculateTotal(salesTax);
  document.getElementById('myDiv2').innerHTML += (`Total Price (with tax): $${total.toFixed(2)}`)
  }">
+
+<input type=button value="Extend Product Class" onclick="{
+ const saleDiscount = -0.10
+ const saleProduct = new myProduct('Shirt', 10.99)
+  const total = myProduct.calculateTotal(saleDiscount);
+  myProduct.myShow();
+ document.getElementById('myDiv2').innerHTML += (`Total Price (with discount): $${total}`)
+}">
  <div id="myDiv2">...</div>
