@@ -156,3 +156,49 @@ document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
 }">
  <div id="myDiv4">...</div>
 <br><br>
+
+<script>
+ class Counter {
+    constructor() {
+        this.count = 0;
+    }
+    increment() {
+        this.count++;
+    }
+    getCount() {
+        return this.count;
+    }
+  myShow() {
+  document.getElementById('myDiv5').innerHTML = `Count: ${this.count}`;
+ }
+}
+ class Odd extends Counter {
+  constructor() {
+   this.count = 1;
+  }
+  increment() {
+   this.count = 2;
+  }
+  getCount() {
+   return this.count;
+  }
+  myShow() {
+   document.getElementById('myDiv5').innerHTML = `Odd Count: ${this.count)`;
+  }
+ }
+</script>
+
+<input type=button value="Count Class" onclick="{
+ let counting = new Counter() {
+  counting.increment()
+  counting.getCount()
+ }">
+
+<input type=button value="Extended Count Class" onclick="{
+ let oddCounting = new Odd() {
+  oddCounting.increment()
+  oddCounting.getCount()
+ }">
+<div id="myDiv5">...</div>
+<br><br>
+ 
