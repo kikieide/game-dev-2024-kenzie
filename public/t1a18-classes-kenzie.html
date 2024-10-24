@@ -130,6 +130,15 @@ class Rectangle {
  return this.width * this.height;
     }
 }
+ class Bigger extends Rectangle {
+  myShow() {
+   document.getElementById('myDiv4').innerHTML = this.wdidth + this.height + 'is now bigger'
+  }
+  calculateArea() {
+  
+ return this.width * this.height;
+ }
+ }
 </script>
 
 <input type=button value="Rectangle Class" onclick="{
@@ -138,4 +147,12 @@ class Rectangle {
  wandh.myShow() 
 document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
 }">
+
+<input type=button value="Extended Rectangele Class" onclick="{
+ const big = new Bigger(125, 20)
+  const area = big.calculateArea()
+   big.myShow()
+    document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
+}">
  <div id="myDiv4">...</div>
+<br><br>
