@@ -62,19 +62,19 @@ clearInterval(myClock02)
 
   
 <input type="button" id="myButton6" value="right and down" onclick="{
- clearInterval(myClock02);
+  clearInterval(myClock02);
   let image = document.getElementById('myImage2');
   let myTop = parseInt(image.style.top) || 0;
   let myLeft = parseInt(image.style.left) || 0;
 
   myClock02 = setInterval(function() {
-    if (myTop < 20) { 
+    if (myTop < 100) {
       myTop += 10;
       image.style.top = myTop + 'px';
     } else {
       clearInterval(myClock02);
       myClock02 = setInterval(function() {
-        if (myLeft < 20) { 
+        if (myLeft < 100) {
           myLeft += 10;
           image.style.left = myLeft + 'px';
         } else {
