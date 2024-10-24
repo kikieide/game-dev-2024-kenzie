@@ -56,15 +56,18 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
       const data = await response.json();
       document.getElementById('myDiv2').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
     } catch (error) {
-      document.getElementById('myDiv2').innerHTML = Error: ${error.message};
+      document.getElementById('myDiv2').innerHTML = `Error: ${error.message}`;
     }
   }
-  function myShowJSON(myIn, 'myDiv2') {
+
+  function myShowJSON(myIn) {
     fetchData(myIn, 'myDiv2');
   }
-  function myShowDeckJSON(myIn, 'myDiv2') {
+
+  function myShowDeckJSON(myIn) {
     fetchData(myIn, 'myDiv2');
   }
 </script>
-<div id="myDiv2">...</div>
+
+<div id="myDiv2">
 
