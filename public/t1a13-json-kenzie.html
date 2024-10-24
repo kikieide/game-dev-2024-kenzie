@@ -53,30 +53,22 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
 </select>
   <div id="myDiv01">...</div>
 <script>
-  function myShowJSON(myIn) {
-    document.getElementById('myDiv1').innerHTML = `Selected URL: ${myIn}`;
-    fetchData(myIn, 'myDiv1');
-  }
-  function myShowDeckJSON(myIn) {
-        document.getElementById('myDiv01').innerHTML = `Selected URL: ${myIn}';
-    fetchData(myIn, 'myDiv01');
-  }
   async function fetchData(url, outputDiv) {
     document.getElementById(outputDiv).innerHTML = 'Loading...';
     try {
       const response = await fetch(url);
-      const contentType = response.headers.get("content-type");
-      if (contentType && contentType.indexOf("application/json") !== -1) {
-        const data = await response.json();
-        displayData(data, outputDiv);
+      const data = await response.json();
+      document.getElementById(outputDiv).innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
     } catch (error) {
       document.getElementById(outputDiv).innerHTML = `Error: ${error.message}`;
     }
   }
-  function displayData(data, displayDiv) {
-    document.getElementById(displayDiv).innerHTML = `<h3>Response:</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+  function myShowJSON(myIn) {
+    fetchData(myIn, 'myDiv1');
+  }
+  function myShowDeckJSON(myIn) {
+    fetchData(myIn, 'myDiv01');
   }
 </script>
-
 <div id="myDiv2">...</div>
 
