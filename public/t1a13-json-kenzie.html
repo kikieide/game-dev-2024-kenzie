@@ -44,7 +44,7 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
 
 <input type="text" id="myText01" value="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6" size="80">
 <input type="button" value="show JSON" onclick="
-  fetchData(document.getElementById('myText01').value)"><br><br>
+  fetchData1(document.getElementById('myText01').value)"><br><br>
 
 <select size="1" onchange="myShowJSON(this.value)">
   <option value="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6">Shuffle Deck</option>
@@ -53,10 +53,10 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
 </select>
   <div id="myDiv01">...</div>
 <script>
-  async function fetchData(url, outputDiv) {
+  async function fetchData1(url, outputDiv) {
     document.getElementById(outputDiv).innerHTML = 'Loading...';
     try {
-      const response = await fetch(url);
+      const response = await fetch1(url);
       const data = await response.json();
       document.getElementById(outputDiv).innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
     } catch (error) {
@@ -64,10 +64,10 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
     }
   }
   function myShowJSON(myIn) {
-    fetchData(myIn, 'myDiv1');
+    fetchData1(myIn, 'myDiv1');
   }
   function myShowDeckJSON(myIn) {
-    fetchData(myIn, 'myDiv01');
+    fetchData1(myIn, 'myDiv01');
   }
 </script>
 <div id="myDiv2">...</div>
