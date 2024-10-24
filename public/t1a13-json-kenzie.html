@@ -49,9 +49,22 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
 </select>
   <div id="myDiv01">...</div>
 <script>
- function myShowDeckJSON(myIn) {
-        fetchData(myIn, 'myDiv01'); 
+  async function fetchData(url, outputDiv) {
+    document.getElementById(outputDiv).innerHTML = 'Loading...';
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      document.getElementById(outputDiv).innerHTML = <pre>${JSON.stringify(data, null, 2)}</pre>;
+    } catch (error) {
+      document.getElementById(outputDiv).innerHTML = Error: ${error.message};
     }
+  }
+  function myShowJSON(myIn) {
+    fetchData(myIn, 'myDiv1');
+  }
+  function myShowDeckJSON(myIn) {
+    fetchData(myIn, 'myDiv01');
+  }
 </script>
 <div id="myDiv2">...</div>
 
