@@ -5,12 +5,12 @@
       this.myName = passName;
       this.myAge = passAge;
     }
-    myShow()
+    myShow() {
     document.getElementById('myDiv01').innerHTML = 'Hello '+ this.myName+'<br>'
   }
   }// end class myAnimal
   class myCat extends myAnimal {
-  myShow(){
+  myShow() {
     document.getElementById('myDiv01').innerHTML = this.myName + ' is a great cat<br>'
   }
   } // end extended class myCat
