@@ -25,6 +25,7 @@ clearInterval(myClock02)
     }"><br><br>
     <img id="myImage01" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 <br><br>
+
   <input type="button" id="myButton3" value="Image Left" onclick="{
   document.getElementById('myImage01').style.left = 
   parseInt(document.getElementById('myImage01').style.left) - 10 + 'px';
@@ -55,6 +56,7 @@ clearInterval(myClock02)
     document.getElementById('myImage01').style.top =
       parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
   }"><br><br>
+
    <input type=button value="Auto Move Down" onclick="{
     document.getElementById('myImage01').style.top = 0;
 clearInterval(myClock02)
@@ -63,19 +65,22 @@ clearInterval(myClock02)
     }, 30) 
     }"><br><br>
 <div class="text-box">
+  
 <input type="button" id="myButton6" value="right and down" onclick="{
-  document.getElementById('myImage2').style.top = 0; 
-  let myTop = (parseInt(document.getElementById('myImage2').style.top) + 10) + 'px'; 
-  let myLeft = (parseInt(document.getElementById('myImage2').style.left) + 10) + 'px';
-  clearInterval(myClock02);
+ clearInterval(myClock02);
+  let image = document.getElementById('myImage2');
+  let myTop = parseInt(document.getElementById('myImage2').style.top) || 0;
+  let myLeft = parseInt(document.getElementById('myImage2').style.left) || 0;
   myClock02 = setInterval(function() {
-    if (parseInt(myTop) < 100) {
-      document.getElementById('myImage2').style.top = (parseInt(myTop) + 10) + 'px';
+    if (myTop < 100) {
+      myTop += 10;
+      document.getElementById('myImage2').style.top = myTop + 'px';
     } else {
       clearInterval(myClock02);
       myClock02 = setInterval(function() {
-        if (parseInt(myLeft) < 100) {
-          document.getElementById('myImage2').style.left = (parseInt(myLeft) + 10) + 'px';
+        if (myTop < 100) {
+          myLeft += 10;
+          document.getElementById('myImage2').style.left = myLeft + 'px';
         } else {
           clearInterval(myClock02);
         }
@@ -83,6 +88,7 @@ clearInterval(myClock02)
     }
   }, 30);
 }">
+
       <img id="myImage2" style="position:relative; width:100px; height:80px; top:0px; left:0px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 </div>
       
