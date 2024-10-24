@@ -1,5 +1,8 @@
 <h1 align=center>t1a17-move-kenzie</h1>
-
+<style>
+      body {
+         background-color: hsl(0, 0%, 80%);
+            </style>
 <script>
   //global variables
   let myClock02
@@ -64,13 +67,13 @@ clearInterval(myClock02)
   let myTop = parseInt(document.getElementById('myImage2').style.top) || 0;
   let myLeft = parseInt(document.getElementById('myImage2').style.left) || 0;
   myClock02 = setInterval(function() {
-    if (myTop < 100) {
+    if (myTop < 10) {
       myTop += 10;
       document.getElementById('myImage2').style.top = myTop + 'px';
     } else {
       clearInterval(myClock02);
       myClock02 = setInterval(function() {
-        if (myTop < 100) {
+        if (myTop < 10) {
           myLeft += 10;
           document.getElementById('myImage2').style.left = myLeft + 'px';
         } else {
