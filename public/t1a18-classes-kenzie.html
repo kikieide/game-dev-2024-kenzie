@@ -4,7 +4,7 @@
          background-color: hsl(0, 0%, 80%);
             </style>
 <script>
-  class myAnimal {
+  class Animal {
     constructor(passName, passAge) {
       this.myName = passName;
       this.myAge = passAge;
@@ -13,7 +13,7 @@
     document.getElementById('myDiv01').innerHTML = 'Hello '+ this.myName+'<br>'
   }
   }// end class myAnimal
-  class myCat extends myAnimal {
+  class Cat extends Animal {
   myShow() {
     document.getElementById('myDiv01').innerHTML = this.myName + ' is a great cat<br>'
   }
@@ -21,13 +21,13 @@
 </script>
 
 <input type=button value="Example Class set and Show Class Animal" onclick="{
-  myDog = new myAnimal('Snickers', 5)
+  myDog = new Animal('Snickers', 5)
   myDog.myShow()
   }"><br><br>
 
   <input type=text id="myText01" value="may be useful later"><br>
   <input type=button value="Example Extend Class Animal as Cat" onclick="{
-    myPet = new myCat('Fluffy', 14)
+    myPet = new Cat('Fluffy', 14)
     myPet.myShow()
     }"><br><br>
     <div id="myDiv01">...</div>
