@@ -177,7 +177,7 @@ document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
    this.count = 1;
   }
   increment() {
-   this.count = 2;
+   this.count += 2;
   }
   getCount() {
    return this.count;
@@ -189,15 +189,15 @@ document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
 </script>
 
 <input type=button value="Count Class" onclick="{
- let counting = new Counter() {
-  counting.increment()
-  counting.getCount()
+ let counting = new Counter();
+  counting.increment();
+  counting.getCount();
  }">
 
 <input type=button value="Extended Count Class" onclick="{
- let oddCounting = new Odd() {
-  oddCounting.increment()
-  oddCounting.getCount()
+ let oddCounting = new Odd();
+  oddCounting.increment();
+  oddCounting.getCount();
  }">
 <div id="myDiv5">...</div>
 <br><br>
