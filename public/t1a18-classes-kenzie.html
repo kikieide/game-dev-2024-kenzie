@@ -1,4 +1,4 @@
-<h1 align=center>t1a18-extend-class-by-kenzie-html</h1>
+<h2 align=center>t1a18-extend-class-by-kenzie-html</h2>
 <script>
   class myAnimal {
     constructor(passName, passAge) {
@@ -6,5 +6,24 @@
       this.myAge = passAge;
     }
     myShow()
-    document.getElementById('myDiv01')
+    document.getElementById('myDiv01').innerHTML = 'Hello '+ this.myName+'<br>'
+  }
+  }// end class myAnimal
+  class myCat extends myAnimal {
+  myShow(){
+    document.getElementById('myDiv01').innerHTML = this.myName + ' is a great cat<br>'
+  }
+  } // end extended class myCat
 </script>
+
+<input type=button value="Example Class set and Show Class Animal" onclick="{
+  myDog = new myAnimal('Snickers', 5)
+  myDog.myShow()
+  }"><br><br>
+
+  <input type=text id="myText01" value="may be useful later"><br>
+  <input type=button value="Example Extend Class Animal as Cat" onclick="{
+    myPet = new myCat('Fluffy', 14)
+    myPet.myShow()
+    }"><br><br>
+    <div id="myDiv01">...</div>
