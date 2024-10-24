@@ -15,7 +15,7 @@
         const data = await response.json();
         console.log(data);
         const myJson = JSON.stringify(data, null, 2);
-        document.getElementById(outputDiv).innerHTML = `<pre>${myJson}</pre>`; 
+        document.getElementById('myDiv1').innerHTML = `<pre>${myJson}</pre>`; 
     }
 </script>
 
@@ -49,12 +49,12 @@ JSON returning URL: <input type="text" id="myText1" value="clear JSON" size="80"
 </select>
   <div id="myDiv01">...</div>
 <script>
-  async function fetchData(url, 'myDiv2') {
+  async function fetchData(url, outputDiv = 'myDiv2') {
     document.getElementById('myDiv2').innerHTML = 'Loading...';
     try {
       const response = await fetch(url);
       const data = await response.json();
-      document.getElementById('myDiv2').innerHTML = `<pre>${myJson}</pre>`; ;
+      document.getElementById('myDiv2').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
     } catch (error) {
       document.getElementById('myDiv2').innerHTML = Error: ${error.message};
     }
