@@ -31,3 +31,23 @@
     myPet.myShow()
     }"><br><br>
     <div id="myDiv01">...</div>
+<script>
+class Product {
+ constructor(name, price){
+  this.name = name;
+  this.price = price;
+ }
+ myShow() {
+ document.getElementById('myDiv2').innerHTML = `Product: ${this.name}<br>Price: $${this.price.toFixed(2)}<br>`;
+ }
+ calculateTotal(salesTax) {
+  return this.price + (this.price * salesTax);
+ }
+}
+ const salesTax = 0.05;
+ const product1 = new Product('Shirt', 10.99)
+ product1.myShow();
+ const total = product1.calculateTotal(salesTax);
+ document.getElementById('myDiv2').innerHTML += (`Total Price (with tax): $${total.toFixed(2)}`);
+ </script>
+<input type=button value="Product class" onclick="showProduct()">
