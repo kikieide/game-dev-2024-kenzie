@@ -45,12 +45,13 @@ class Product {
   return this.price + (this.price * salesTax);
  }
 }
- class mySale extends Product {
+ class Sale extends Product {
   myShow() {
-  document.getElementById('myDiv2').innerHTML = `Product: ${this.name}<br>Price: $${this.price.toFixed(2)}<br>`;
+  document.getElementById('myDiv2').innerHTML = `Sale: ${this.name}<br>Price: $${this.price.toFixed(2)}<br>`;
   }
    calculateTotal(saleDiscount) {
-    return this.price + (this.price *(1 + discount));
+    const discount = this.price *(saleDiscount / 100);
+    return discount.toFixed(2);
    }
  }
  </script>
@@ -63,10 +64,53 @@ class Product {
  }">
 
 <input type=button value="Extend Product Class" onclick="{
- const saleDiscount = -0.10
- const saleProduct = new myProduct('Shirt', 10.99)
-  const total = myProduct.calculateTotal(saleDiscount);
-  myProduct.myShow();
+ const saleDiscount = 0.10
+ const saleProduct = new Sale('Shirt', 10.99)
+  const total = saleProduct.calculateTotal(saleDiscount);
+  saleProduct.myShow();
  document.getElementById('myDiv2').innerHTML += (`Total Price (with discount): $${total}`)
 }">
  <div id="myDiv2">...</div>
+<br><br>
+
+<script>
+ class Book {
+    constructor(title, author, price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    myShow() {
+        document.getElementById('myDiv3').innerHTML =
+            `Title: ${this.title}<br>
+            Author: ${this.author}<br>
+            Price: $${this.price.toFixed(2)}<br>`;
+    }
+}
+ class Genre extends Book {
+  constructor(title, author, price, genre) {
+   super(title, author, price, genre);
+   this.genre = genre;
+  }
+  myShow() {
+    document.getElementById('myDiv3').innerHTML =
+     `Title: ${this.title}<br>
+     Author: ${this.author}<br>
+     Price: $${this.price.toFixed(2)}<br>
+     Genre: ${this.genre}<br>`;
+  }
+ }
+</script>
+
+<input type=button value="Book Class" onclick="{
+ const myBook = new Book('The Way of the Wind', 'Patrick Rothfuss', 12.00)
+myBook.myShow()
+ }">
+
+ <input type=button value="Extended Book Class" onclick="{
+  const myGenre = new Genre('The Way of the Wind', 'Patrick Rothfuss', 12.00, 'Fantasy')
+  myGenre.myShow()
+ }">
+<div id="myDiv3">...</div>
+  
