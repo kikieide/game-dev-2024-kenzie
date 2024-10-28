@@ -75,7 +75,7 @@ clearInterval(myClock02)
   let image = document.getElementById('myImage2');
   let myTop = parseInt(image.style.top) || 0;
   let myLeft = parseInt(image.style.left) || 0;
-
+ document.getElementById('myButton06').click();
   myClock02 = setInterval(function() {
     if (myTop < 100) {
       myTop += 10;
@@ -94,6 +94,6 @@ clearInterval(myClock02)
   }, 30);
 }">
 </div>
-      <img id="myImage2" style="position:relative; width:200px; height:150px; top:0px; left:150px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
+      <img id="myImage2" style="position:relative; width:200px; height:150px; top:100px; left:150px;" src="https://i.imgflip.com/5vwjhm.jpg?text=Image+2">
 
       
