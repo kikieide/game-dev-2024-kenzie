@@ -3,6 +3,26 @@
       body {
          background-color: hsl(0, 0%, 80%);
             </style>
+ <style>
+        myOne {border: 10px double #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        myTwo {border: 10px double #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        myThree {border: 10px double #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        myFour {border: 10px double #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+  
+  
+    </style>
 <script>
   class Animal {
     constructor(passName, passAge) {
@@ -20,13 +40,13 @@
   } // end extended class myCat
 </script>
 
-<input type=button value="Example Class set and Show Class Animal" onclick="{
+<input type=button id="myOne" value="Example Class set and Show Class Animal" onclick="{
   myDog = new Animal('Snickers', 5)
   myDog.myShow()
   }"><br><br>
 
 
-  <input type=button value="Example Extend Class Animal as Cat" onclick="{
+  <input type=button id="myTwo" value="Example Extend Class Animal as Cat" onclick="{
     myPet = new Cat('Fluffy', 14)
     myPet.myShow()
     }"><br><br>
@@ -55,7 +75,7 @@ class Product {
    }
  }
  </script>
-<input type=button value="Product class" onclick="{
+<input type=button id="myThree" value="Product class" onclick="{
  const salesTax = 0.05;
  const product1 = new Product('Shirt', 10.99)
  product1.myShow();
@@ -63,7 +83,7 @@ class Product {
  document.getElementById('myDiv2').innerHTML += (`Total Price (with tax): $${total.toFixed(2)}`)
  }">
 
-<input type=button value="Extend Product Class" onclick="{
+<input type=button id="myFour" value="Extend Product Class" onclick="{
  const saleDiscount = 0.10
  const saleProduct = new Sale('Shirt', 10.99)
   const total = saleProduct.calculateTotal(saleDiscount);
