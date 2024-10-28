@@ -4,21 +4,40 @@
          background-color: hsl(0, 0%, 80%);
             </style>
  <style>
-        #myOne {border: 10px double #ff9999;
+        #myOne {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
   
-        #myTwo {border: 10px double #ff9999;
+        #myTwo {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
   
-        #myThree {border: 10px double #ff9999;
+        #myThree {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
   
-        #myFour {border: 10px double #ff9999;
+        #myFour {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
+   #myFive {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #mySix {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #mySeven {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #myEight {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #myNine {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #myTen {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
   
   
   
@@ -123,12 +142,12 @@ class Product {
  }
 </script>
 
-<input type=button value="Book Class" onclick="{
+<input type=button id="myFive" value="Book Class" onclick="{
  const myBook = new Book('The Way of the Wind', 'Patrick Rothfuss', 12.00)
 myBook.myShow()
  }">
 
- <input type=button value="Extended Book Class" onclick="{
+ <input type=button id="mySix" value="Extended Book Class" onclick="{
   const myGenre = new Genre('The Way of the Wind', 'Patrick Rothfuss', 12.00, 'Fantasy')
   myGenre.myShow()
  }">
@@ -161,14 +180,14 @@ class Rectangle {
  }
 </script>
 
-<input type=button value="Rectangle Class" onclick="{
+<input type=button id="myEight" value="Rectangle Class" onclick="{
  const wandh = new Rectangle(25, 12)
  const area = wandh.calculateArea() 
  wandh.myShow() 
 document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
 }">
 
-<input type=button value="Extended Rectangele Class" onclick="{
+<input type=button id="mySeven" value="Extended Rectangele Class" onclick="{
  const big = new Bigger(125, 20)
   const area = big.calculateArea()
    big.myShow()
@@ -210,8 +229,8 @@ document.getElementById('myDiv4').innerHTML += `Area: ${area}<br>`;
  let counting = new Counter();
 let oddCounting = new Odd();
 </script>
-<input type="button" value="Count Class" onclick="{ counting.increment(); counting.myShow(); }">
-<input type="button" value="Extended Count Class" onclick="{ oddCounting.increment(); oddCounting.myShow(); }">
+<input type="button" id="myNine" value="Count Class" onclick="{ counting.increment(); counting.myShow(); }">
+<input type="button" id="myTen" value="Extended Count Class" onclick="{ oddCounting.increment(); oddCounting.myShow(); }">
 <div id="myDiv5">...</div>
 <br><br>
  
