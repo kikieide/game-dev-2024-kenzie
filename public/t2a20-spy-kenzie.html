@@ -30,13 +30,9 @@ Base64 <br>
 <textarea id="myArea04" rows=4 cols=70>Hello how are you</textarea><br>
 
 <input type=button value="encrypt" onclick="{
-  let myTemp2 = ''
-  btoa = document.getElementById('myArea04').value.split('')
-  for (let myLoop2=0; myLoop2 < btoa.length; myLoop1++){
-  myTemp2 = btoa[myLoop2]
-    btoa[myLoop2] = myTemp2
-  }
-  document.getElementById('myArea05').value = btoa.join('')
+  let myString3 = document.getElementById('myArea04').value;
+  let myBtoa = btoa(myString3);
+  document.getElementById('myArea05').value = 
 }"><br><br>
 <textarea id="myArea05" rows=4 cols=70></textarea><br><br>
   
