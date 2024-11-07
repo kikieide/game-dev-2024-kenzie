@@ -26,12 +26,17 @@
     document.getElementById('myArea03').value = myString1.join('')
     }"><br><br>
     <textarea id="myArea03" rows=4 cols=70></textarea><br><br>
-
-<textarea id="myArea03" rows=4 cols=70>Hello how are you</textarea><br>
+Base64 <br>
+<textarea id="myArea04" rows=4 cols=70>Hello how are you</textarea><br>
 
 <input type=button value="encrypt" onclick="{
-  let myTemp1 = ''
-  myString = document.getElementById('myArea1').value('')
-  for (let myLoop1=0; myLoop1 < myString.length; myLoop1++){
-  myTemp1 = myString[myLoop]
-  }">
+  let myTemp2 = ''
+  btoa = document.getElementById('myArea04').value.split('')
+  for (let myLoop2=0; myLoop2 < myString2.length; myLoop1++){
+  myTemp2 = btoa[myLoop2]
+    btoa[myLoop2] = myTemp2
+  }
+  document.getElementById('myArea05').value = btoa.join('')
+}"><br><br>
+<textarea id="myArea05" rows=4 cols=70></textarea><br><br>
+  
