@@ -46,3 +46,14 @@ Substitution <br>
 <textarea id="myArea07" rows=4 cols=70>Hello how are you</textarea><br>
 
 <input type=button value="encrypt" onclick="{
+   let myTemp2 = ''
+  myString5 = document.getElementById('myArea07').value.toLowerCase().split('')
+  for (let myLoop2=0; myLoop2 < myString.length; myLoop2++){
+  myTemp2 = myString5[myLoop2]
+  if (myString5[myLoop2] == 'e') {myTemp2 = 'f'}
+  if (myString5[myLoop2] == 'h') {myTemp2 = 'i'}
+  myString5[myLoop2] = myTemp2;
+  }
+  document.getElementById('myArea02').value = myString.join('')
+  }"><br><br>
+
