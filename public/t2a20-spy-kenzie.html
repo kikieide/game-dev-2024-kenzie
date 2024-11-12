@@ -72,14 +72,19 @@ Substitution <br>
 <textarea id="myArea07" rows=4 cols=70>Hello how are you</textarea><br>
 
 <input type=button id="mySix" value="encrypt" onclick="{
-   let myTemp2 = ''
-  myString5 = document.getElementById('myArea07').value.toLowerCase().split('')
-  for (let myLoop2=0; myLoop2 < myString.length; myLoop2++){
+  let myTemp2 = '';
+  let key = 'QAZWSXEDCRFVTGBYHNUJMIKOLP';  
+  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  myString5 = document.getElementById('myArea07').value;
+  for (let myLoop2=0; myLoop2 < myString5.length; myLoop2++){
   myTemp2 = myString5[myLoop2]
-  if (myString5[myLoop2] == 'e') {myTemp2 = 'f'}
-  if (myString5[myLoop2] == 'h') {myTemp2 = 'i'}
+    if (myString5[myLoop2] >= 'A') {myTemp2 = key}
+      if (myString5[myLoop2] <= 'Z') {myTemp2 = key}
   myString5[myLoop2] = myTemp2;
   }
-  document.getElementById('myArea02').value = myString.join('')
+  document.getElementById('myArea08').value = myString5
   }"><br><br>
+<textarea id="myArea08" rows=4 cols=70></textarea><br><br>
+ <input type=button id="mySeven" value="decrypt" onclick="{
+  
 
