@@ -73,6 +73,7 @@ Substitution <br>
 
 <input type=button id="mySix" value="encrypt" onclick="{
   let myTemp2 = '';
+ let myNewCode = '';
   let key = 'QAZWSXEDCRFVTGBYHNUJMIKOLP';  
   let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   myString5 = document.getElementById('myArea07').value;
@@ -80,9 +81,9 @@ Substitution <br>
   myTemp2 = myString5[myLoop2]
     if (myString5[myLoop2] >= 'A') {myTemp2[myAlphabet] = key}
       if (myString5[myLoop2] <= 'Z') {myTemp2[myAlphabet] = key}
-  myString5[myLoop2] = myTemp2;
+  myNewCode += myTemp2;
   }
-  document.getElementById('myArea08').value = myString5
+  document.getElementById('myArea08').value = myNewcode
   }"><br><br>
 <textarea id="myArea08" rows=4 cols=70></textarea><br><br>
  <input type=button id="mySeven" value="decrypt" onclick="{
