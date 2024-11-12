@@ -1,7 +1,35 @@
 <h1 align=center>t2a20-spy-kenzie.html</h1>
+ <style>
+      body {
+         background-color: hsl(0, 0%, 80%);
+            </style>
+ <style>
+        #myOne {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        #myTwo {border: 10px solid #ff9999;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        #myThree {border: 10px solid #b3d9ff;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+        #myFour {border: 10px solid #b3d9ff;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #myFive {border: 10px solid #b3b3cc;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+   #mySix {border: 10px solid #b3b3cc;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
+  
+    </style>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br>
 
-<input type=button value="encrypt" onclick="{
+<input type=button id="myOne" value="encrypt" onclick="{
   let myTemp = ''
   myString = document.getElementById('myArea01').value.toLowerCase().split('')
   for (let myLoop=0; myLoop < myString.length; myLoop++){
@@ -14,7 +42,7 @@
   }"><br><br>
 
   <textarea id="myArea02" rows=4 cols=70></textarea><br>
-  <input type=button value="decrypt" onclick="{
+  <input type=button id="myTwo" value="decrypt" onclick="{
     let myTemp1 = ''
     myString1 = document.getElementById('myArea02').value.toLowerCase().split('')
     for (let myLoop1=0; myLoop1 < myString1.length; myLoop1++){
@@ -29,13 +57,13 @@
 Base64 <br>
 <textarea id="myArea04" rows=4 cols=70>Hello how are you</textarea><br>
 
-<input type=button value="encrypt" onclick="{
+<input type=button id="myFour" value="encrypt" onclick="{
   let myString3 = document.getElementById('myArea04').value;
   let myBtoa = btoa(myString3);
   document.getElementById('myArea05').value = myBtoa;
 }"><br><br>
 <textarea id="myArea05" rows=4 cols=70></textarea><br><br>
-  <input type=button value="decrypt" onclick="{
+  <input type=button id="myFive" value="decrypt" onclick="{
     let myString4 = document.getElementById('myArea05').value;
     let myBtoa1 = atob(myString4);
     document.getElementById('myArea06').value = myBtoa1;
@@ -45,7 +73,7 @@ Base64 <br>
 Substitution <br>
 <textarea id="myArea07" rows=4 cols=70>Hello how are you</textarea><br>
 
-<input type=button value="encrypt" onclick="{
+<input type=button id="mySix" value="encrypt" onclick="{
    let myTemp2 = ''
   myString5 = document.getElementById('myArea07').value.toLowerCase().split('')
   for (let myLoop2=0; myLoop2 < myString.length; myLoop2++){
