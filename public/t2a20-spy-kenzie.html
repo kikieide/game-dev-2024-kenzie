@@ -78,8 +78,8 @@ Substitution <br>
   myString5 = document.getElementById('myArea07').value;
   for (let myLoop2=0; myLoop2 < myString5.length; myLoop2++){
   myTemp2 = myString5[myLoop2]
-    if (myString5[myLoop2] >= 'A') {myTemp2 = key}
-      if (myString5[myLoop2] <= 'Z') {myTemp2 = key}
+    if (myString5[myLoop2] >= 'A') {myTemp2[myAlphabet] = key}
+      if (myString5[myLoop2] <= 'Z') {myTemp2[myAlphabet] = key}
   myString5[myLoop2] = myTemp2;
   }
   document.getElementById('myArea08').value = myString5
