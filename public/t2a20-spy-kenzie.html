@@ -108,3 +108,10 @@ URI encoding <br>
   document.getElementById('myArea11').value = encoded;
    }"><br><br>
  <textarea id="myArea11" rows=4 cols=70></textarea><br><br>
+<input type=button id="myNine" value="decrypt" onclick="{
+ let uri1= document.getElementById('myArea11').value;
+  let decoded = decodeURI(uri);
+  document.getElementById('myArea12').value = decoded;
+   }"><br><br>
+ <textarea id="myArea12" rows=4 cols=70></textarea><br><br>
+
