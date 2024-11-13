@@ -91,10 +91,16 @@ Substitution <br>
   myString6 = document.getElementById('myArea08').value.toUpperCase().split('');
   for (let myLoop3=0; myLoop3 < myString6.length; myLoop3++){
   myTemp3 = myString6[myLoop3]
-   if (myTemp3 >= 'A' && myTemp3 <= 'Z') {myTemp3 = key1[alphabet1.indexOf(myTemp3)]; 
-   } myString6[myLoop3] = myTemp3
+   if (myTemp3 >= 'A' && myTemp3 <= 'Z') {myTemp3 = alphabet1[key1.indexOf(myTemp3)]; 
+   } myNewCode1 += myTemp3; 
   }
   document.getElementById('myArea09').value = myTemp3;
   }"><br><br>
   <textarea id="myArea09" rows=4 cols=70></textarea><br><br>
+
+ROT13 <br>
+<textarea id="myArea10" rows=4 cols=70>Hello how are you</textarea><br>
+
+<input type=button id="myEight" value="encrypt" onclick="{
+ 
 
