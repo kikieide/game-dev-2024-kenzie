@@ -103,5 +103,11 @@ URL encoding <br>
 <textarea id="myArea10" rows=4 cols=70>Hello how are you</textarea><br>
 
 <input type=button id="myEight" value="encrypt" onclick="{
- 
-
+ let myTemp4= '';
+ let uri= document.getElementById('myArea10').value;
+ for (let myLoop4=0; myLoop4 < uri.length; myLoop4++){
+myTemp4 = urimyLoop4]
+  let encoded = encodeURI(uri);
+  document.getElementById('myArea11').value = encoded;
+   }"><br><br>
+ <textarea id="myArea11" rows=4 cols=70></textarea><br><br>
