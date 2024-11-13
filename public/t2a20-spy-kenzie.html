@@ -91,8 +91,8 @@ Substitution <br>
   myString6 = document.getElementById('myArea08').value.toUpperCase().split('');
   for (let myLoop3=0; myLoop3 < myString6.length; myLoop3++){
   myTemp3 = myString6[myLoop3]
-   if (myTemp3 <= 'A' && myTemp3 >= 'Z') {myTemp3 = key1[alphabet1.indexOf(myTemp3)]; 
-   } myNewCode1 += myTemp3;
+   if (myTemp3 >= 'A' && myTemp3 <= 'Z') {myTemp3 = key1[alphabet1.indexOf(myTemp3)]; 
+   } myString6[myLoop3] = myTemp3
   }
   document.getElementById('myArea09').value = myTemp3;
   }"><br><br>
