@@ -7,23 +7,21 @@
         #myOne {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
-  
         #myTwo {border: 10px solid #ff9999;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
-  
         #myFive {border: 10px solid #b3d9ff;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
-  
         #myFour {border: 10px solid #b3d9ff;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
-              }
-  
+            }
    #mySix {border: 10px solid #b3b3cc;
             box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
               }
-  
+  #mySeven {border: 10px solid #b3b3cc;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+              }
     </style>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br>
 
@@ -86,5 +84,17 @@ Substitution <br>
   }"><br><br>
 <textarea id="myArea08" rows=4 cols=70></textarea><br><br>
  <input type=button id="mySeven" value="decrypt" onclick="{
-  
+   let myTemp3 = '';
+ let myNewCode1 = '';
+  let key1 = 'QAZWSXEDCRFVTGBYHNUJMIKOLP';  
+  let alphabet1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  myString6 = document.getElementById('myArea08').value.toUpperCase().split('');
+  for (let myLoop3=0; myLoop3 < myString6.length; myLoop3++){
+  myTemp3 = myString6[myLoop3]
+   if (myTemp3 <= 'A' && myTemp3 >= 'Z') {myTemp3 = key1[alphabet1.indexOf(myTemp3)]; 
+   } myNewCode1 += myTemp3;
+  }
+  document.getElementById('myArea09').value = myNewCode1;
+  }"><br><br>
+  <textarea id="myArea09" rows=4 cols=70></textarea><br><br>
 
