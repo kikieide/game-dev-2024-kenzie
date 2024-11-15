@@ -61,6 +61,59 @@ Use loops and variables to make fast fancy drawings<br><br>
   //set up global variables
   let myCanvas=document.getElementById('myCoolTag');
   let myContext=myCanvas.getContext('2d');
-</script>
+
+    // Function to continuously call drawing functions
+    function drawLoop() {
+      // Example: Calling your drawing functions continuously
+      myContext.clearRect(0, 0, myCanvas.width, myCanvas.height);  // Optional, to clear the canvas on each frame
+
+      // Call your drawing functions here to loop them
+      myContext.beginPath();
+      myContext.moveTo(20, 10);
+      myContext.lineTo(30, 200);
+      myContext.stroke();
+
+      myContext.beginPath();
+      myContext.lineWidth = 3;
+      myContext.strokeStyle = 'black';
+      myContext.arc(170, 282, 40, 0, 2 * Math.PI);
+      myContext.stroke();
+
+      myContext.font = '20px Arial';
+      myContext.fillText('Hello World', 400, 100);
+      myContext.translate(400, 100);
+      myContext.rotate(60 * Math.PI / 180);
+      myContext.fillText('Hello World', 10, 10);
+      myContext.stroke();
+      myContext.resetTransform();
+
+      myContext.beginPath();
+      myContext.moveTo(300, 100);
+      myContext.quadraticCurveTo(100, 220, 240, 110);
+      myContext.stroke();
+
+      let myGradient = myContext.createLinearGradient(100, 300, 200, 400);
+      myGradient.addColorStop(0, 'red');
+      myGradient.addColorStop(0.5, 'blue');
+      myGradient.addColorStop(1, 'yellow');
+      myContext.fillStyle = myGradient;
+      myContext.fillRect(100, 300, 200, 400);
+      myContext.fillStyle = 'black'; // reset fillstyle
+
+      // Request the next frame to continue the loop
+      requestAnimationFrame(drawLoop);
+    }
+
+    // Start the loop when the page loads
+    window.onload = function() {
+      drawLoop();  // Start drawing loop
+    };
+
+    // Mouse position tracking
+    document.onmousemove = function(event) {
+      document.getElementById('myDiv5').innerHTML = `x: ${event.clientX}, y: ${event.clientY}`;
+    };
+  </script>
+
 </body>
 <div id="myDiv5"></div>
