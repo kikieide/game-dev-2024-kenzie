@@ -25,6 +25,12 @@
       myTemp = myGlobalX + '0px px'
         document.getElementById('myBody').style.backgroundPosition =myTemp
 }">
+  <input type=button value="auto background right" onclick="{
+    clearInerval(myClock)
+      myClock = setInterval(function(){
+        document.getElementById('myButton02').click()
+      }100, )
+        }">
 <input type=button value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
 }"><br><br>
