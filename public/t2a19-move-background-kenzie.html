@@ -62,9 +62,16 @@
   }">
 
   <input type=button value="background down fast" onclick="{
-    let myClock01 = 10
+    let myClock01 = document.getElementById('myFast').value;
      clearInterval(myClock01);
       myClock01 = setInterval(function(){
         document.getElementById('myButton02').click()
       }, 100)
         }">
+
+  <select id="myFast">
+    <option value="10">10%</option>
+    <option value="30">30%</option>
+    <option value="50">50%</option>
+    <option value="70">70%</option>
+  </select>
