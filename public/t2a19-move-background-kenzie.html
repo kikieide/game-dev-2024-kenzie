@@ -25,10 +25,9 @@
   }, 100)
     
 }">
- <input id="myButton02" type="button" value="button move down" onclick="{
+  <input id="myButton02" type="button" value="button move down" onclick="{
     myGlobalX += 10;
-    myTemp = 'px ' + myGlobalX + 'px';
-    document.getElementById('myBody').style.backgroundPosition = myTemp;
+    document.getElementById('myBody').style.backgroundPosition = '0px ' + myGlobalX + 'px';
   }">
   
   <input type=button value="auto background right" onclick="{
