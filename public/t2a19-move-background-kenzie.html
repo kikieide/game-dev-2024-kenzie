@@ -26,13 +26,11 @@
     
 }">
   <input id="myButton02" type="button" value="button move down" onclick="{
-    myTemp = '0px';
     myGlobalX += 10;
-    myTemp = myGlobalX + '0px' 'px';
-    document.getElementById('myBody').style.backgroundPosition = myTemp;
+      document.getElementById('myBody').style.backgroundPosition = '0px ' + myGlobalX + 'px';
   }">
   
-  <input type=button value="auto background right" onclick="{
+  <input type=button value="auto background down" onclick="{
     clearInerval(myClock)
       myClock = setInterval(function(){
         document.getElementById('myButton02').click()
