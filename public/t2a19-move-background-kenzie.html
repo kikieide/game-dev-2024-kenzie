@@ -36,6 +36,12 @@
         document.getElementById('myButton02').click()
       }, 100)
         }">
+
+  <input type=button id="myButton03" value="background move up" onclick="{
+    myGlobalX -= 10;
+    document.getElementById('myBody').style.backgroundPosition = 'px' + myGlobalX + '0px ';
+  }">
+    
 <input type=button value="Image Right" onclick="{
   document.getElementById('myImage01').style.left = parseInt(document.getElementById('myImage01').style.left) + 10 + 'px'
 }"><br><br>
