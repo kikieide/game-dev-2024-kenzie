@@ -8,6 +8,7 @@
   <script>
    let myGlobalX = 0
    let myClock
+    
 </script>
   
 <input id="myButton01" type=button value="background move left" onclick="{
@@ -58,4 +59,12 @@
   <input type=button value="Image down" onclick="{
     document.getElementById('myImage01').style.top =
       parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
-  }"><br><br>
+  }">
+
+  <input type=button value="background down fast" onclick="{
+    let myClock01 = 10
+     clearInterval(myClock01);
+      myClock01 = setInterval(function(){
+        document.getElementById('myButton02').click()
+      }, 100)
+        }">
