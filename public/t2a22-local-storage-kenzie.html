@@ -6,14 +6,26 @@
       document.getElementById('myText1').value = myStorage 
     }
 }">
+   <body onload="{
+   myStorage1 = localStorage.getItem('myStoredPrefrence')
+   if(myStorage1  != null){
+      document.getElementById('mySelect01').value = myStorage1 
+       document.getElementById('mySelect01').value = localStorage.getItem('mySavedPrefrence')
+    }
+}">
 
+<body onunload="{
+   localstorage.setItem('myStoredPrefrence',document.getElementById('mySelect01').value)
+}">   
+
+   
 <body onunload="{
    localstorage.setItem('myStoredText',document.getElementById('myText1').value)
 }">   
 
 Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
 
-<input type="button" value="Store Text" onClick="{
+<input type="button" id="colorButton" value="Store Text" onClick="{
    localStorage.setItem('myStoredText', document.getElementById('myText1').value)
    alert(document.getElementById('myText1').value + ' \nHas been stored')
    document.getElementById('myText1').value = ''
@@ -22,8 +34,18 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 <input type="button" value="Retrieve Text" onClick="{
    document.getElementById('myText1').value = localStorage.getItem('myStoredText')
 }"> 
+
+   <input type=button value="Save Prefrences" onClick="{
+      localStorage.setItem('myStoredPrefrence', document.getElementById('mySelect01').value)
+         alert(document.getElementById('mySelect01').value + ' \nHas been saved')
+            document.getElementById('mySelect01').value = ''
+   }">
+   
    
 
-ex. saving user prefrences
+   <select id="mySelect01">
+   <option value="document.getElementById('colorButton').addEventListener('click', function() {
+            document.body.style.backgroundColor = 'black';   });">dark mode</option>
+   </select>
    game progrress/achievements exconst gameState = { level: 3, score: 1200 };
 localStorage.setItem('gameState', JSON.stringify(gameState));
