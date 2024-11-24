@@ -162,7 +162,42 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
   interesting information from your present web browser. Note: The results may be different on
   Chrome, Safari, IE or phonegap. Those differences may be useful when programming. Also note: 
   Objects will not work until a real instance of the object is on the web page!
+<form name="myForm">
 
+
+
+
+<bgsound id="myFred3" src="">
+<input type="text" name="myText1" size="50" value=""><br>
+
+
+<input type="button" value="1 window" onclick="{myObjectData(window)}">
+<input type="button" value="2 document" onclick="{myObjectData(document)}">
+<input type="button" value="3 document.myForm2" onclick="{myObjectData(document.myForm2)}">
+<input type="button" value="4 document.myForm2.myTextarea" onclick="{myObjectData(document.myForm2.myTextarea)}">
+
+
+<input type="button" value="5 window.location" onclick="{myObjectData(window.location)}">
+<input type="button" value="6 window.parent" onclick="{myObjectData(window.parent)}">
+<input type="button" value="7 window.chrome" onclick="{myObjectData(window.chrome)}">
+<input type="button" value="8 document.all.move1.style" onclick="{myObjectData(document.all.move1.style)}">
+<input type="button" value="9 style" onclick="{myObjectData(style)}">
+<input type="button" value="10 document.all.move1" onclick="{myObjectData(document.all.move1)}">
+<input type="button" value="11 window.localStorage" onclick="{myObjectData(window.localStorage)}">
+<input type="button" value="12 document.getElementById('move1').style" onclick="{myObjectData(document.getElementById('move1').style)}">
+<input type="button" id="my10" value="13 document.myForm2.myText1" onclick="{myObjectData(document.myForm2.myText1)}">
+<input type="button" value="14 document.getElementById('myText2')" onclick="{myObjectData(document.getElementById('myText2'))}">
+<input type="button" value="15 " onclick="{myObjectData()}">
+<input type="button" value="16 " onclick="{myObjectData()}">
+<input type="button" value="17 " onclick="{myObjectData()}">
+<input type="button" value="18 " onclick="{myObjectData()}">
+<input type="button" value="19 " onclick="{myObjectData()}">
+<input type="button" value="20 " onclick="{myObjectData()}">
+<br>
+
+
+<textarea name="myTextarea" rows="20" cols="70" wrap=""></textarea>
+</form>
 
 
 <br><br>
