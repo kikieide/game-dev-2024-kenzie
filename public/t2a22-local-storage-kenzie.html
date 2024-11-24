@@ -13,6 +13,7 @@
    myStorage1 = localStorage.getItem('myStoredPrefrence')
    if(myStorage1  != null){
       document.getElementById('mySelect01').value = myStorage1 
+       if (myStorage1 === 'dark mode') {
        document.getElementById('mySelect01').value = localStorage.getItem('mySavedPrefrence')
     }
 }">
