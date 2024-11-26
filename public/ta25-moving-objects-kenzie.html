@@ -138,9 +138,13 @@ function moreAnimations(){
 
 }
 
-
-
-
+	document.getElementById('myB').name = 'myBtag';
+	document.getElementById('myList').name = 'myListTag';
+	}
+	}
+document.getElementById('mySelect01').value = '1';
+	}
+	}
 
 
 
@@ -200,8 +204,8 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 <input type="button" id="my10" value="13 document.myForm2.myText1" onclick="{myObjectData(document.myForm2.myText1)}">
 <input type="button" value="14 document.getElementById('myText2')" onclick="{myObjectData(document.getElementById('myText2'))}">
 <input type="button" value="15 document.getElementById('myButton')" onclick="{myObjectData(document.getElementById('myButton'))}">
-<input type="button" value="16 " onclick="{myObjectData()}">
-<input type="button" value="17 " onclick="{myObjectData()}">
+<input type="button" value="16 document.getElementById('myB')" onclick="{myObjectData(docment.getElementById('myB'))}">
+<input type="button" value="17 document.getElementById('mySelect01')" onclick="{myObjectData(document.getElementById('mySelect01'))}">
 <input type="button" value="18 " onclick="{myObjectData()}">
 <input type="button" value="19 " onclick="{myObjectData()}">
 <input type="button" value="20 " onclick="{myObjectData()}">
@@ -210,6 +214,14 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 
 <textarea name="myTextarea" rows="20" cols="70" wrap=""></textarea>
 <button type="button" id="myButton">Click Me</button>
+	<select id="mySelect01">
+		<option value="1">1</option>
+		<option value="2">2</option>
+	</select>
+	<ol id = "myList">
+<li > cool
+	<li> more cool
+	</ol>
 </form>
 <input type="button" value="Back" style="font-size:25px" onclick="{window.history.back()}">
 
