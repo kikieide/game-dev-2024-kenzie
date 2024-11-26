@@ -2,8 +2,9 @@
    <style>
       body {
          background-color: hsl(0, 0%, 80%);
+         color: black;
             </style>
-<body onload="{
+<body onload ="{
    myStorage = localStorage.getItem('myStoredText')
    if(myStorage  != null){
       document.getElementById('myText1').value = myStorage 
@@ -38,8 +39,14 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
       localStorage.setItem('myStoredPrefrence', document.getElementById('mySelect01').value)
          alert(document.getElementById('mySelect01').value + ' \nHas been saved')
             document.getElementById('mySelect01').value = ''
+      
    }">
-   
+
+   <script>
+      let storedPrefrences = document.getElementById('mySelect01').value;
+      storedPrefrences = localStorage.getItem('myStoredPrefrences')
+      
+   </script>
    
 
    <select id="mySelect01">
