@@ -105,6 +105,8 @@ function myObjectData(myObject){
  window.status = 'Please Wait'
  document.myForm.myText1.value = ''
  document.myForm.myTextarea.value = ''
+document.myForm.myButton.disabled = true;
+	document.myForm.myButton.enabled = "processing..";
  myLoop = 0
  for (var prop in myObject){
     myLoop+=1
@@ -116,6 +118,8 @@ function myObjectData(myObject){
  window.status += 'Loaded '  
   sorttext() 
  window.status += 'Sorted.'  
+	document.myForm.myButton.disabled = false;
+	document.myForm.myButton.enabled = "process done";
 }
 
 
@@ -195,7 +199,7 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 <input type="button" value="12 document.getElementById('move1').style" onclick="{myObjectData(document.getElementById('move1').style)}">
 <input type="button" id="my10" value="13 document.myForm2.myText1" onclick="{myObjectData(document.myForm2.myText1)}">
 <input type="button" value="14 document.getElementById('myText2')" onclick="{myObjectData(document.getElementById('myText2'))}">
-<input type="button" value="15 " onclick="{myObjectData()}">
+<input type="button" value="15 document.getElementById('myButton')" onclick="{myObjectData(document.getElementById('myButton'))}">
 <input type="button" value="16 " onclick="{myObjectData()}">
 <input type="button" value="17 " onclick="{myObjectData()}">
 <input type="button" value="18 " onclick="{myObjectData()}">
@@ -205,11 +209,12 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 
 
 <textarea name="myTextarea" rows="20" cols="70" wrap=""></textarea>
+<button type="button" id="myButton">Click Me</button>
 </form>
 <input type="button" value="Back" style="font-size:25px" onclick="{window.history.back()}">
 
 <br><br>
-  
+</BODY>
   
   
   
