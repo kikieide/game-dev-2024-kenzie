@@ -10,15 +10,14 @@
       document.getElementById('myText1').value = myStorage 
          myStorage1 = localStorage.getItem('myStoredPrefrence')
    if(myStorage1 === dark){
-      document.getElementById('myStorage1').value = mySelect01
-       if (myStorage1 === 'dark mode') {
-       document.getElementById('myStorage1').value = mySelect01
-    }
+     document.body.classList.add('dark-mode');
+    document.getElementById('mySelect01').value = 'dark mode';
+   }
 }">
 
 <body onunload="{
-   localStorage.setItem('myStoredPrefrence',document.getElementById('mySelect01').value)
-  localStorage.setItem('myStoredText',document.getElementById('myText1').value)
+  localStorage.setItem('myStoredPrefrence', document.getElementById('mySelect01').value);
+localStorage.setItem('myStoredText', document.getElementById('myText1').value);
 }">   
 
    
@@ -45,14 +44,13 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
    
 
    <select id="mySelect01">
-   <option value="document.getElementById('colorButton').addEventListener('click', function() {
-            document.body.style.backgroundColor = 'black';   });">dark mode</option>
+   <option value="dark">dark mode</option>
    </select><br><br>
    <input id="myText2" type=text size=40 value="" placeholder="Username"><br>
    
    <input type=button id="userName" value="Submit username" onclick="{
-      localStorage.setItem('myUsername', document.getElementById('myText2').value)
-      alert(document.getElementById('myText2').vakue + ' \nHas been saved')
+      localStorage.setItem('myUsername', document.getElementById('myText2').value);
+      alert(document.getElementById('myText2').value + ' \nHas been saved')
       document.getElementById('myText2').value = ''
    }">
 
