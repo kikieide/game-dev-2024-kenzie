@@ -1,18 +1,32 @@
 <h2>t2a09-local-storage-name by kenzie. Instructions:</h2>
    <style>
       body {
-        .light-mode { hsl(0, 0%, 80%);
-         .dark-mode { color: black;
+    background-color: hsl(0, 0%, 80%);
+    color: black;
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+.light {
+    background-color: hsl(0, 0%, 80%);
+    color: black;
+}
             </style>
+
 <body onload ="{
    myStorage = localStorage.getItem('myStoredText')
    if(myStorage  != null){
       document.getElementById('myText1').value = myStorage 
          myStorage1 = localStorage.getItem('myStoredPrefrence')
-   if(myStorage1 === dark){
-     document.body.classList.add('dark-mode');
-    document.getElementById('mySelect01').value = 'dark mode';
-   }
+  myStorage1 = localStorage.getItem('myStoredPrefrence');
+    if (myStorage1 === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('mySelect01').value = 'dark mode';
+    } else {
+        document.body.classList.add('light');
+        document.getElementById('mySelect01').value = 'light mode';
+    }
 }">
 
 <body onunload="{
@@ -37,14 +51,21 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
 
    <input type=button value="Save Prefrences" onclick="{
       const prefTheme = document.getElementById('mySelect01').value;
-      localStorage.setItem('myStoredPrefrence', prefTheme)
-         alert(prefTheme + ' \nHas been saved')
-   }">
-
+    localStorage.setItem('myStoredPrefrence', prefTheme);
+    alert(prefTheme + ' \nHas been saved');
+    if (prefTheme === 'dark mode') {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+    } else {
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+    }
+}">
    
 
    <select id="mySelect01">
    <option value="dark">dark mode</option>
+      <option value="light">light mode</option>
    </select><br><br>
    <input id="myText2" type=text size=40 value="" placeholder="Username"><br>
    
@@ -53,7 +74,9 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
       alert(document.getElementById('myText2').value + ' \nHas been saved')
       document.getElementById('myText2').value = ''
    }">
-
+<input type=button id="retrieveUser" value="retrieve username" onclick="{
+   document.getElementById('myText2'.value = localStorage.getItem('myStoredText')
+                           }">
    game progrress/achievements exconst gameState = { level: 3, score: 1200 };
 localStorage.setItem('gameState', JSON.stringify(gameState));
    website counter, increment whenever site is opened
