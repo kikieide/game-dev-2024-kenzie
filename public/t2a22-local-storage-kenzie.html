@@ -1,9 +1,7 @@
 <h2>t2a09-local-storage-name by kenzie. Instructions:</h2>
    <style>
     body {
-        background-color: hsl(0, 0%, 80%);
-        color: black;
-    }
+   
     .dark {
         background-color: black;
         color: white;
@@ -80,10 +78,37 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
    }">
 <input type=button id="retrieveUser" value="retrieve username" onclick="{
  document.getElementById('myText2').value = localStorage.getItem('myUsername');
-                           }">
-   
-   game progrress/achievements exconst gameState = { level: 3, score: 1200 };
-localStorage.setItem('gameState', JSON.stringify(gameState));
+                           }"><br><br>
+   Save game progress example code
+   <input type=button id="myProgress" value="example save progress" onclick="{
+    let gameProgress = { myScore : score, myLevel : level 
+                       };
+      localStorage.setItem('gameProgress' JSON.stringify(gameProgress));
+    alert('Game progress saved!');
+}
+      }">
+   <input type=button id="myLoad" value="example load progress" onclick="{
+      let saveProgress = localStorage.getItem('gameProgress');
+        if (savedProgress) {
+        const progress = JSON.parse(savedProgress);
+        score = progress.score;
+        level = progress.level;
+        document.getElementById('score').textContent = score;
+        document.getElementById('level').textContent = level;
+        alert('Game progress loaded!');
+    } else {
+        alert('No saved progress found!');
+    }
+}
+      }">
+   <input type=button id="myReset" value="example reset progress" onclick="{
+    score = 0;
+    level = 1;
+    document.getElementById('score').textContent = score;
+    document.getElementById('level').textContent = level;
+    alert('Game progress reset!');
+}
+      }"><br><br>
    website counter, increment whenever site is opened
    remember checkbox state
    
