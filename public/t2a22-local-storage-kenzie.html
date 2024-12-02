@@ -1,37 +1,36 @@
 <h2>t2a09-local-storage-name by kenzie. Instructions:</h2>
    <style>
-      body {
-    background-color: hsl(0, 0%, 80%);
-    color: black;
-}
-.dark {
-    background-color: black;
-    color: white;
-}
-.light {
-    background-color: hsl(0, 0%, 80%);
-    color: black;
-}
-            </style>
-
-<body onload ="{
-   myStorage = localStorage.getItem('myStoredText')
-   if(myStorage  != null){
-      document.getElementById('myText1').value = myStorage 
-         myStorage1 = localStorage.getItem('myStoredPrefrence')
-   }
+    body {
+        background-color: hsl(0, 0%, 80%);
+        color: black;
+    }
+    .dark {
+        background-color: black;
+        color: white;
+    }
+    .light {
+        background-color: hsl(0, 0%, 80%);
+        color: black;
+    }
+</style>
+<body onload="{
+    myStorage = localStorage.getItem('myStoredText');
+    if(myStorage != null) {
+        document.getElementById('myText1').value = myStorage;
+    }
+    
     let myStorage1 = localStorage.getItem('myStoredPrefrence');
     if (myStorage1 === 'dark mode') {
-      document.body.classList.add('dark');
-      document.body.classList.remove('light');
-      document.getElementById('mySelect01').value = 'dark mode';
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+        document.getElementById('mySelect01').value = 'dark mode';
     } else {
-      document.body.classList.add('light');
-      document.body.classList.remove('dark');
-      document.getElementById('mySelect01').value = 'light mode';
+        document.body.classList.add('light');
+        document.body.classList.remove('dark');
+        document.getElementById('mySelect01').value = 'light mode';
     }
 }">
-
+   
 <body onunload="{
   localStorage.setItem('myStoredPrefrence', document.getElementById('mySelect01').value);
 localStorage.setItem('myStoredText', document.getElementById('myText1').value);
@@ -52,7 +51,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
    document.getElementById('myText1').value = localStorage.getItem('myStoredText')
 }"> 
 
- <input type="button" value="Save Preferences" onclick="{
+<input type="button" value="Save Preferences" onclick="{
     const prefTheme = document.getElementById('mySelect01').value;
     localStorage.setItem('myStoredPrefrence', prefTheme);
     alert(prefTheme + ' \nHas been saved');
@@ -65,7 +64,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
         document.body.classList.remove('dark');
     }
 }">
-
+   
    <select id="mySelect01">
    <option value="dark">dark mode</option>
       <option value="light">light mode</option>
@@ -78,7 +77,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
       document.getElementById('myText2').value = ''
    }">
 <input type=button id="retrieveUser" value="retrieve username" onclick="{
-   document.getElementById('myText2'.value = localStorage.getItem('myUsername')
+ document.getElementById('myText2').value = localStorage.getItem('myUsername');
                            }">
    game progrress/achievements exconst gameState = { level: 3, score: 1200 };
 localStorage.setItem('gameState', JSON.stringify(gameState));
