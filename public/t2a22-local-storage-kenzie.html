@@ -1,7 +1,8 @@
 <h2>t2a09-local-storage-name by kenzie. Instructions:</h2>
    <style>
-    body {
-   
+     body {
+        font-family: Arial, sans-serif;
+    }
     .dark {
         background-color: black;
         color: white;
@@ -19,14 +20,14 @@
     }
     
     let myStorage1 = localStorage.getItem('myStoredPrefrence');
-    if (myStorage1 === 'dark mode') {
+    if (myStorage1 === 'dark') {
         document.body.classList.add('dark');
         document.body.classList.remove('light');
-        document.getElementById('mySelect01').value = 'dark mode';
+        document.getElementById('mySelect01').value = 'dark';
     } else {
         document.body.classList.add('light');
         document.body.classList.remove('dark');
-        document.getElementById('mySelect01').value = 'light mode';
+        document.getElementById('mySelect01').value = 'light';
     }
 }">
    
@@ -56,7 +57,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
     localStorage.setItem('myStoredPrefrence', prefTheme);
     alert(prefTheme + ' \nHas been saved');
 
-    if (prefTheme === 'dark mode') {
+    if (prefTheme === 'dark') {
         document.body.classList.add('dark');
         document.body.classList.remove('light');
     } else {
@@ -64,11 +65,11 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
         document.body.classList.remove('dark');
     }
 }">
-   
-   <select id="mySelect01">
-   <option value="dark">dark mode</option>
-      <option value="light">light mode</option>
-   </select><br><br>
+<select id="mySelect01">
+    <option value="dark">dark mode</option>
+    <option value="light">light mode</option>
+</select><br><br>
+
    <input id="myText2" type=text size=40 value="" placeholder="Username"><br>
    
    <input type=button id="userName" value="Submit username" onclick="{
@@ -80,14 +81,14 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
  document.getElementById('myText2').value = localStorage.getItem('myUsername');
                            }"><br><br>
    Save game progress example code
-   <input type=button id="myProgress" value="example save progress" onclick="{
+   <input type=button id="myProgress" value="example save progress code" onclick="{
     let gameProgress = { myScore : score, myLevel : level 
                        };
       localStorage.setItem('gameProgress' JSON.stringify(gameProgress));
     alert('Game progress saved!');
 }
       }">
-   <input type=button id="myLoad" value="example load progress" onclick="{
+   <input type=button id="myLoad" value="example load progress code" onclick="{
       let saveProgress = localStorage.getItem('gameProgress');
         if (savedProgress) {
         const progress = JSON.parse(savedProgress);
@@ -101,7 +102,7 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
     }
 }
       }">
-   <input type=button id="myReset" value="example reset progress" onclick="{
+   <input type=button id="myReset" value="example reset progress code" onclick="{
     score = 0;
     level = 1;
     document.getElementById('score').textContent = score;
@@ -109,6 +110,5 @@ Text example: <input id="myText1" type=text size=70 value="" placeholder="Write 
     alert('Game progress reset!');
 }
       }"><br><br>
-   website counter, increment whenever site is opened
    remember checkbox state
    
