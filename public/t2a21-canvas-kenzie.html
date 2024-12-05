@@ -1,40 +1,38 @@
 <h2 align=center>t2a21-canvas-kenzie.html</h2>
 Use loops and variables to make fast fancy drawings<br><br>
 
-<input type=button value="Draw Sun" onclick="{
-     
-    let sunX = 500; 
-    let sunY = 300; 
-    let sunRadius = 80; 
-    
+<input type="button" value="Draw Sun" onclick="{
+    let sunX = 500;
+    let sunY = 300;
+    let sunRadius = 80;
+
     myContext.beginPath();
     myContext.arc(sunX, sunY, sunRadius, 0, 2 * Math.PI);
     myContext.fillStyle = 'yellow';
     myContext.fill();
-    myContext.stroke(); 
-    
-    let numRays = 12; 
-    let rayLength = 150; 
-    let rayAngle = Math.PI / 6; 
+    myContext.stroke();
 
-    myContext.strokeStyle = 'orange'; 
-    myContext.lineWidth = 3; 
-  for (let i = 0; i < numRays; i++) {
-      let angle = i * (2 * Math.PI / numRays);  
+    let numRays = 12;
+    let rayLength = 150;
+    let rayAngle = Math.PI / 6;
 
-      
-      let startX = sunX + Math.cos(angle) * sunRadius; 
-      let startY = sunY + Math.sin(angle) * sunRadius;
-      let endX = sunX + Math.cos(angle) * (sunRadius + rayLength); 
-      let endY = sunY + Math.sin(angle) * (sunRadius + rayLength);
+    myContext.strokeStyle = 'orange';
+    myContext.lineWidth = 3;
+    for (let i = 0; i < numRays; i++) {
+        let angle = i * (2 * Math.PI / numRays);
 
-      myContext.beginPath();
-      myContext.moveTo(startX, startY);
-      myContext.lineTo(endX, endY);
-      myContext.stroke();
+        let startX = sunX + Math.cos(angle) * sunRadius;
+        let startY = sunY + Math.sin(angle) * sunRadius;
+        let endX = sunX + Math.cos(angle) * (sunRadius + rayLength);
+        let endY = sunY + Math.sin(angle) * (sunRadius + rayLength);
+
+        myContext.beginPath();
+        myContext.moveTo(startX, startY);
+        myContext.lineTo(endX, endY);
+        myContext.stroke();
     }
-  }
-  }"><br><br>
+}"><br><br>
+
 <input type=button value=".lineTo(30,200)" onclick="{
   myContext.beginPath();
   myContext.lineWidth = 1;
