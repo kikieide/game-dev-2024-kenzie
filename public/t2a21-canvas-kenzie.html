@@ -11,14 +11,14 @@ Use loops and variables to make fast fancy drawings<br><br>
     myContext.fill();
     myContext.stroke();
 
-    let numRays = 12;
+    let myRays = 12;
     let rayLength = 150;
     let rayAngle = Math.PI / 6;
 
     myContext.strokeStyle = 'orange';
     myContext.lineWidth = 3;
-    for (let i = 0; i < numRays; i++) {
-        let angle = i * (2 * Math.PI / numRays);
+    for (let i = 0; i < myRays; i++) {
+        let angle = i * (2 * Math.PI / myRays);
 
         let startX = sunX + Math.cos(angle) * sunRadius;
         let startY = sunY + Math.sin(angle) * sunRadius;
