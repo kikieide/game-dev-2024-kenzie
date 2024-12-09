@@ -1,6 +1,13 @@
 <body id="myBody" style="background-repeat:repeat; background-size: 80%"
   background="https://cdn.gamedevmarket.net/wp-content/uploads/20191203165317/8657cfcd9a0aa1149a40988c4686478c.png">
   <h1 align=center>t2a23 game template by kenzie</h1>
+  <style>
+     #myImg01 {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+  </style>
   <script>
     //global variables
     let myGlobalX = 0
@@ -56,26 +63,33 @@ function myCheckHit(){
   }, 100)
     
 }">
-<tr><th>Header 1</th><th>Header 2</th></tr>
+  <table align="center">
+<tr>
+  <th>Header 1</th>
+  <th>Header 2</th>
+</tr>
   <tr><td><input type=button value="Image Right Fast Button" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
-}"><br><br></td><td> <input type=button id="myButton5" value="Image Down" onclick="{
+}"></td><td> <input type=button id="myButton5" value="Image Down" onclick="{
     document.getElementById('myImage01').style.top =
       parseInt(document.getElementById('myImage01').style.top) + 10 + 'px'
-  }"><br><br></td><td>  <input type="button" id="myButton3" value="Image Left" onclick="{
+  }"><br><br></td>
+    <td>  <input type="button" id="myButton3" value="Image Left" onclick="{
   document.getElementById('myImg01').style.left = 
   parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
 }"><br><br></td><td>   <input type=button id="myButton4" value="Image Up" onclick="{
     document.getElementById('myImg01').style.top =
       parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
-  }"><br><br></td><td>   <input type=button value="Auto Move Up" onclick="{
+  }"></td>
+    <td>   <input type=button value="Auto Move Up" onclick="{
     document.getElementById('myImg01').style.top = 0;
 clearInterval(myClock)
     myClock = setInterval(function(){
     document.getElementById('myButton4').click()
     }, 30) 
-    }"><br><br></td></tr>
+    }"></td></tr>
+  </table>
 
 
 
