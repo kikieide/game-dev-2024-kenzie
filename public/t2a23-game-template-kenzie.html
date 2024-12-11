@@ -64,17 +64,16 @@ function myCheckHit(){
 
   <input type=button value="start movement" onclick="{
     clearInterval(myClock)
-    let myTemp1 = '100px 0px';
+    myImg02.style.position = 'absolute';
     myClock = setInterval(function(){
-      myGlobalX1 -= 5;
-      myTemp1 = myGlobalX1 + 'px 0px'
+      myGlobalX -= 5;
     let myMove = Math.floor(Math.random() * 20) - 10;
-    let posTop = parseInt(myImg02.style.top);
-        let posLeft = parseInt(myImg02.style.left);
+     let posTop = parseInt(myImg02.style.top || '0');   
+      let posLeft = parseInt(myImg02.style.left || '0'); 
     myImg02.style.top = (posTop + myMove) + 'px';
         myImg02.style.left = (posLeft + myMove1) + 'px';
-    for (let myLoop = 0; myLoop < myMove; myLoop++) {
-    }
+     }, 50);
+  }
        }">
 
     
