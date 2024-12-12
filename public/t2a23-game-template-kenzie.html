@@ -63,17 +63,16 @@ function myCheckHit(){
   <img id="myImg02" style="position:absolute; width:100px; height:80px; top:59px; left:250px;" src="https://th.bing.com/th/id/OIP.dUpbJIAh64eywhxyddJRiwHaFf?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7">
 
   <input type=button value="start movement" onclick="{
-    clearInterval(myClock)
+   clearInterval(myClock);
     myImg02.style.position = 'absolute';
     myClock = setInterval(function(){
-      myGlobalX -= 5;
-    let myMove = Math.floor(Math.random() * 20) - 10;
-     let posTop = parseInt(myImg02.style.top || '0');   
-      let posLeft = parseInt(myImg02.style.left || '0'); 
-    myImg02.style.top = (posTop + myMove) + 'px';
-        myImg02.style.left = (posLeft + myMove1) + 'px';
-     }, 50);
-       }">
+        myGlobalX -= 5;
+        let myMove = Math.floor(Math.random() * 20) - 10;
+        let posTop = parseInt(myImg02.style.top);
+        let posLeft = parseInt(myImg02.style.left);
+        myImg02.style.top = (posTop + myMove) + 'px';
+        myImg02.style.left = (posLeft + myMove) + 'px';
+    }, 50);
 
     
 <input type=button value="Auto Background Left" onclick="{
@@ -102,13 +101,7 @@ function myCheckHit(){
     document.getElementById('myImg01').style.top =
       parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
   }"></td>
-    <td>   <input type=button value="Auto Move Up" onclick="{
-    document.getElementById('myImg01').style.top = 0;
-clearInterval(myClock)
-    myClock = setInterval(function(){
-    document.getElementById('myButton4').click()
-    }, 30) 
-    }"></td></tr>
+</tr>
   </table>
   </div>
 
