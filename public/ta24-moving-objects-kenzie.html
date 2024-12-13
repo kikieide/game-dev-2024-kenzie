@@ -93,53 +93,59 @@ function split(string,text) {
     splitIndex = splitArray.length;
 }
 
-function myObjectData(myObject) {
-    window.status = 'Please Wait'; 
-    document.myForm.myText1.value = ''; 
-    document.myForm.myTextarea.value = ''; 
-    
-    let myButton = document.myForm.myButton;
-    if (myButton) {
-        myButton.disabled = true; 
-    }
 
-    let myLoop = 0;
-    let output = '';  
-    
-    if (myObject && typeof myObject === 'object') {
-        for (let prop in myObject) {
-            if (myObject.hasOwnProperty(prop)) {  
-                myLoop += 1;
-                output += `${prop} = ${myObject[prop]}\n`;  
-                if (myLoop % 3 === 1) {
-                    window.status += '.';  
-                }
-            }
-        }
-    } )
-    else if (myObject && myObject.nodeType === 1) {
-        output = `Properties of HTML Element (ID: ${myObject.id}):\n`;
-        for (let prop in myObject) {
-            if (myObject.hasOwnProperty(prop)) {
-                output += `${prop} = ${myObject[prop]}\n`;
-            }
-        }
-    }
-    else {
-        output = 'Invalid object or undefined properties.'; 
-    }
 
-    document.myForm.myTextarea.value = output;
-    document.myForm.myText1.value = myObject && myObject.name ? myObject.name : 'No object name';
-    
-    window.status += ' Loaded.';
-    sorttext(); 
-    window.status += ' Sorted.'; 
 
-    if (myButton) {
-        myButton.disabled = false;  
-    }
+
+
+
+
+
+function myObjectData(myObject){
+ window.status = 'Please Wait'
+ document.myForm.myText1.value = ''
+ document.myForm.myTextarea.value = ''
+ myLoop = 0
+ for (var prop in myObject){
+    myLoop+=1
+    document.myForm.myTextarea.value+=myObject.name+'.'+prop+'='+myObject[prop]+ '\n'
+    if (myLoop % 3 == 1){
+ window.status += '.'}   
+ }
+ document.myForm.myText1.value =this.parent.name + '.'+myObject.name
+ window.status += 'Loaded '  
+  sorttext() 
+ window.status += 'Sorted.'  
 }
+
+
+
+
+
+
+document.counter=0   // one time set counter = 0
+function moreAnimations(){
+  document.counter+=1
+  document.all.myPic1.style.pixelLeft+=2
+  document.all.myPic1.style.pixelTop+=1
+  if ((document.counter>10) && (document.counter<20)){
+      document.all.myPic1.style.height=parseInt(document.all.myPic1.style.height)+10
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script></head>
 
