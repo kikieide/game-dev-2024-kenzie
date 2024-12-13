@@ -94,9 +94,9 @@ function split(string,text) {
 }
 
 function myObjectData(myObject) {
-    window.status = 'Please Wait';
-    document.myForm.myText1.value = '';
-    document.myForm.myTextarea.value = '';
+    window.status = 'Please Wait'; 
+    document.myForm.myText1.value = ''; 
+    document.myForm.myTextarea.value = ''; 
     let myButton = document.myForm.myButton;
     if (myButton) {
         myButton.disabled = true;
@@ -104,26 +104,26 @@ function myObjectData(myObject) {
     }
 
     let myLoop = 0;
-    let output = '';
+    let output = '';  
     if (myObject && typeof myObject === 'object') {
         for (let prop in myObject) {
-            if (myObject.hasOwnProperty(prop)) {
+            if (myObject.hasOwnProperty(prop)) {  
                 myLoop += 1;
-        
-                output += `${prop} = ${myObject[prop]}\n`;
-
+                output += `${prop} = ${myObject[prop]}\n`;  
                 if (myLoop % 3 === 1) {
-                    window.status += '.';
+                    window.status += '.';  
                 }
             }
         }
     } else {
-        output = 'Invalid object or undefined properties.';
+        output = 'Invalid object or undefined properties.'; 
     }
+
     document.myForm.myTextarea.value = output;
-    document.myForm.myText1.value = myObject && myObject.name ? this.parent.name + '.' + myObject.name : 'No object name';
-    window.status += ' Loaded ';
-    sorttext();
+    document.myForm.myText1.value = myObject && myObject.name ? myObject.name : 'No object name';
+    
+    window.status += ' Loaded.';
+    sorttext(); 
     window.status += ' Sorted.';
 
     if (myButton) {
@@ -131,30 +131,6 @@ function myObjectData(myObject) {
         myButton.enabled = "process done";
     }
 }
-
-
-
-
-
-document.counter=0   // one time set counter = 0
-function moreAnimations(){
-  document.counter+=1
-  document.all.myPic1.style.pixelLeft+=2
-  document.all.myPic1.style.pixelTop+=1
-  if ((document.counter>10) && (document.counter<20)){
-      document.all.myPic1.style.height=parseInt(document.all.myPic1.style.height)+10
-  }
-
-}
-
- let option = document.createElement('option');
-            option.value = prop;
-            option.textContent = `${prop}: ${propValue}`;
-            objectSelect.appendChild(option);
-
-            if (myLoop % 3 == 1) {
-                output += '.';
-            }
 
 </script></head>
 
