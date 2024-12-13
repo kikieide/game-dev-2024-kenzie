@@ -97,6 +97,7 @@ function myObjectData(myObject) {
     window.status = 'Please Wait'; 
     document.myForm.myText1.value = ''; 
     document.myForm.myTextarea.value = ''; 
+    
     let myButton = document.myForm.myButton;
     if (myButton) {
         myButton.disabled = true; 
@@ -104,6 +105,7 @@ function myObjectData(myObject) {
 
     let myLoop = 0;
     let output = '';  
+    
     if (myObject && typeof myObject === 'object') {
         for (let prop in myObject) {
             if (myObject.hasOwnProperty(prop)) {  
@@ -114,9 +116,16 @@ function myObjectData(myObject) {
                 }
             }
         }
-    } else if (myObject && typeof myObject === 'function') {
-        output = 'This is a function, not a standard object.';
-    } else {
+    } )
+    else if (myObject && myObject.nodeType === 1) {
+        output = `Properties of HTML Element (ID: ${myObject.id}):\n`;
+        for (let prop in myObject) {
+            if (myObject.hasOwnProperty(prop)) {
+                output += `${prop} = ${myObject[prop]}\n`;
+            }
+        }
+    }
+    else {
         output = 'Invalid object or undefined properties.'; 
     }
 
@@ -125,7 +134,7 @@ function myObjectData(myObject) {
     
     window.status += ' Loaded.';
     sorttext(); 
-    window.status += ' Sorted.';  
+    window.status += ' Sorted.'; 
 
     if (myButton) {
         myButton.disabled = false;  
