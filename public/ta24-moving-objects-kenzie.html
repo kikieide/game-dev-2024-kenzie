@@ -85,7 +85,7 @@ function sorttext() {
     sort(splitArray);
     document.myForm.myTextarea.value = join(splitArray);
 }
-//--></script>
+</script>
 
 <script language="JavaScript1.1"><!--
 function split(string,text) {
@@ -98,8 +98,8 @@ function myObjectData(myObject) {
     document.myForm.myText1.value = ''; 
     document.myForm.myTextarea.value = ''; 
     let myButton = document.myForm.myButton;
-if (myButton) {
-    myButton.disabled = true; 
+    if (myButton) {
+        myButton.disabled = true; 
     }
 
     let myLoop = 0;
@@ -114,6 +114,8 @@ if (myButton) {
                 }
             }
         }
+    } else if (myObject && typeof myObject === 'function') {
+        output = 'This is a function, not a standard object.';
     } else {
         output = 'Invalid object or undefined properties.'; 
     }
@@ -123,13 +125,11 @@ if (myButton) {
     
     window.status += ' Loaded.';
     sorttext(); 
-    window.status += ' Sorted.';
-	document.myForm.myTextarea.value = output; 
+    window.status += ' Sorted.';  
 
     if (myButton) {
         myButton.disabled = false;  
     }
-
 }
 
 </script></head>
