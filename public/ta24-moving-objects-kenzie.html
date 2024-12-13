@@ -98,9 +98,8 @@ function myObjectData(myObject) {
     document.myForm.myText1.value = ''; 
     document.myForm.myTextarea.value = ''; 
     let myButton = document.myForm.myButton;
-    if (myButton) {
-        myButton.disabled = true;
-        myButton.enabled = "processing..";
+if (myButton) {
+    myButton.disabled = true; 
     }
 
     let myLoop = 0;
@@ -125,11 +124,12 @@ function myObjectData(myObject) {
     window.status += ' Loaded.';
     sorttext(); 
     window.status += ' Sorted.';
+	document.myForm.myTextarea.value = output; 
 
     if (myButton) {
-        myButton.disabled = false;
-        myButton.enabled = "process done";
+        myButton.disabled = false;  
     }
+
 }
 
 </script></head>
