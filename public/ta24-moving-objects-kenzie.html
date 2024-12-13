@@ -101,13 +101,14 @@ function split(string,text) {
 
 
 
-function myObjectData(myObject){
- window.status = 'Please Wait'
- document.myForm.myText1.value = ''
- document.myForm.myTextarea.value = ''
-document.myForm.myButton.disabled = true;
-	document.myForm.myButton.enabled = "processing..";
- myLoop = 0
+function myObjectData(myObject) {
+    window.status = 'Please Wait';
+    document.myForm.myText1.value = '';
+    document.myForm.myTextarea.value = '';
+    document.myForm.myButton.disabled = true;
+    document.myForm.myButton.enabled = "processing..";
+let myLoop = 0
+	let output = '';
  for (var prop in myObject){
     myLoop+=1
     document.myForm.myTextarea.value+=myObject.name+'.'+prop+'='+myObject[prop]+ '\n'
@@ -146,7 +147,6 @@ function moreAnimations(){
             if (myLoop % 3 == 1) {
                 output += '.';
             }
-        }
 
 </script></head>
 
