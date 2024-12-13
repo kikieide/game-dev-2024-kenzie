@@ -111,7 +111,7 @@ let myLoop = 0;
 	let output = '';
 	  if (myObject && typeof myObject === 'object') {
         for (let prop in myObject) {
-            if (myObject.hasOwnProperty(prop)) {  =
+            if (myObject.hasOwnProperty(prop)) {  
                 myLoop += 1;
                 output += myObject.name + '.' + prop + '=' + myObject[prop] + '\n';
                 if (myLoop % 3 === 1) {
