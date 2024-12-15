@@ -117,6 +117,9 @@ function myObjectData(myObject){
   sorttext() 
  window.status += 'Sorted.'  
 }
+window.onload = function() {
+   myObjectData(window.location);
+}
 
 
 
@@ -126,10 +129,10 @@ function myObjectData(myObject){
 document.counter=0   // one time set counter = 0
 function moreAnimations(){
   document.counter+=1
-  document.all.myPic1.style.pixelLeft+=2
-  document.all.myPic1.style.pixelTop+=1
+  document.all.move1.style.pixelLeft+=2
+  document.all.move1.style.pixelTop+=1
   if ((document.counter>10) && (document.counter<20)){
-      document.all.myPic1.style.height=parseInt(document.all.myPic1.style.height)+10
+      document.all.move1.style.height=parseInt(document.all.move1.style.height)+10
   }
 
 }
@@ -157,6 +160,7 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 	
 	<form name="myForm2">
   <textarea name="myTextarea">wow</textarea>
+		</form>
 	<select id="mySelect01">
 		<option value="1">1</option>
 		<option value="2">2</option>
@@ -170,7 +174,6 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
   <input type="text" name="myText1" id="myText2" size="50" value="sfhsenhsjk"><br>
 
 
-</form>
 <form name="myForm">
 
 
