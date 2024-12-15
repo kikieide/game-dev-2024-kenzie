@@ -156,6 +156,8 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
   Chrome, Safari, IE or phonegap. Those differences may be useful when programming. Also note: 
   Objects will not work until a real instance of the object is on the web page!
 	
+	<img id="move1" style="position:absolute;left:600px;top:560px" src="image.jpg" width="400" height="200">
+	
 	<form name="myForm2">
   <textarea name="myTextarea">wow</textarea>
 		</form>
@@ -167,14 +169,6 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 <option value="1" id="myOption">Option 1</option>
 	
 	<table id="myTable">
-    <tr>
-        <th>Header 1</th>
-        <th>Header 2</th>
-    </tr>
-    <tr>
-        <td>Data 1</td>
-        <td>Data 2</td>
-    </tr>
 </table>
 		
 	<ol id ="myList">
@@ -185,7 +179,6 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 
 
 <form name="myForm">
-<img id="move1" style="position:absolute;left:600px;top:560px" src="image.jpg" width="400" height="200">
   <input type="text" name="myText1" id="myText2" size="50" value="sfhsenhsjk"><br>
 
 
@@ -203,7 +196,7 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 <input type="button" value="10 document.all.move1" onclick="myObjectData(document.all.move1)">
 <input type="button" value="11 window.localStorage" onclick="myObjectData(window.localStorage)">
 <input type="button" value="12 document.getElementById('move1').style" onclick="myObjectData(document.getElementById('move1').style)">
-<input type="button" id="my10" value="13 document.myForm2.myText1" onclick="}myObjectData(document.myForm2.myText1)}">
+<input type="button" id="my10" value="13 document.myForm2.myText1" onclick="{myObjectData(document.myForm2.myText1)}">
 <input type="button" value="14 document.getElementById('myText2')" onclick="myObjectData(document.getElementById('myText2'))">
 <input type="button" value="15 document.getElementById('myButton')" onclick="myObjectData(document.getElementById('myButton'))">
 <input type="button" value="16 document.getElementById('myB')" onclick="myObjectData(document.getElementById('myB'))">
