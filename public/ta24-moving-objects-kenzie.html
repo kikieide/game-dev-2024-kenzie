@@ -104,11 +104,13 @@ function myObjectData(myObject){
  window.status = 'Please Wait'
  document.myForm.myText1.value = ''
  document.myForm.myTextarea.value = ''
+	document.getElementById('myList') = ''
  myLoop = 0
  for (var prop in myObject){
     myLoop+=1
     document.myForm.myTextarea.value+=myObject.name+'.'+prop+'='+myObject[prop]+ '\n'
     if (myLoop % 3 == 1){
+	     document.myForm.myText1.value =this.parent.name + '.'+myObject.name;
  window.status += '.'}   
  }
  window.status += 'Loaded '  
@@ -164,17 +166,16 @@ Use the first 15 buttons to decide on what words to enter for the last 5 buttons
 		<option value="2">2</option>
 	</select>
 		
-	<ol id = "myList">
+	<ol id ="myList">
 <li>cool</li>
 	<li>more cool</li>
 	</ol>
 
-  <input type="text" name="myText1" id="myText2" size="50" value="sfhsenhsjk"><br>
 
 
 <form name="myForm">
 
-
+  <input type="text" name="myText1" id="myText2" size="50" value="sfhsenhsjk"><br>
 
 
 <bgsound id="myFred3" src="https://www.youtube.com/embed/hbcEvz0SXgQ?autoplay=1&loop=1&playlist=hbcEvz0SXgQ">
