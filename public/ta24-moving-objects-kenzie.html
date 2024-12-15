@@ -135,17 +135,6 @@ function moreAnimations(){
   }
 
 }
-var listItems = document.getElementById('myList').getElementsByTagName('li');
-    for (var i = 0; i < listItems.length; i++) {
-        document.myForm.myTextarea.value += listItems[i].textContent + '\n';
-    }
-	 var rows = document.getElementById('myTable').getElementsByTagName('tr');
-    for (var i = 0; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName('td');
-        for (var j = 0; j < cells.length; j++) {
-            document.myForm.myTextarea.value += cells[j].textContent + '\n';
-	}
-    }
 		 for (var prop in myObject) {
         document.myForm.myTextarea.value += prop + ': ' + myObject[prop] + '\n';
     }
