@@ -88,28 +88,30 @@ function myCheckHit(){
     padding: 0;
     box-sizing: border-box;
 }
-   .title-card {
+  .title-card {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; 
-    background-color: #2d3e50; 
+    height: 100vh; /* Full viewport height */
+    background-color: #2d3e50; /* Dark background */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 1000; 
+    z-index: 1000; /* Ensure it's on top */
     opacity: 1;
-    transition: opacity 1s ease, visibility 0.5s ease;
+    transition: opacity 1s ease, transform 1s ease; /* Added transform transition for smooth effect */
 }
 
 .main-content {
     display: none;
     padding: 20px;
 }
-    #enter-btn {
+
+/* Button Styling */
+#enter-btn {
     background-color: #f4a261;
     border: none;
     padding: 15px 30px;
@@ -130,15 +132,16 @@ function myCheckHit(){
 const mainContent = document.getElementById('main-content');
 const enterBtn = document.getElementById('enter-btn');
 
+
 enterBtn.addEventListener('click', function () {
-    
-    titleCard.style.opacity = '0';
-    titleCard.style.visibility = 'hidden';
+
+    titleCard.style.transform = 'translateY(-100%)'; 
+    titleCard.style.opacity = '0'; 
 
 
     setTimeout(function () {
-        titleCard.style.display = 'none';
-        mainContent.style.display = 'block';
+        titleCard.style.display = 'none'; 
+        mainContent.style.display = 'block'; 
     }, 1000); 
 });
     </script>
