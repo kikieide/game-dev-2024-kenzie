@@ -89,7 +89,6 @@ function myCheckHit(){
     box-sizing: border-box;
 }
 
-/* Full-screen background */
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
@@ -107,7 +106,7 @@ body, html {
     padding: 20px;
 }
 
-/* Header styles */
+
 h1 {
     font-size: 3em;
     margin-bottom: 10px;
@@ -118,7 +117,6 @@ p {
     margin-bottom: 20px;
 }
 
-/* Button styles */
 .enter-button {
     text-decoration: none;
     padding: 15px 30px;
@@ -132,21 +130,23 @@ p {
 .enter-button:hover {
     background-color: #ff4500;
 }
+
+.main-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
    </style>
 
 <script>
-    window.onload = function() {
-        setTimeout(function() {
-            alert("Welcome! Let's get started!");
-        }, 2000);
-    };
+  document.getElementById("enter-button").addEventListener("click", function() {
+            document.getElementById("title-page").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        });
 </script>
 
    <div class="title-page">
-        <header>
-            <h1>Welcome to My Website</h1>
-            <p>Your one-stop destination for all things amazing!</p>
-        </header>
         <div class="buttons">
             <a href="main.html" class="enter-button">Enter the Website</a>
         </div>
@@ -175,7 +175,7 @@ p {
 
 
 
-
+<div id="main-content" class="main-content" style="display: none;">
 
 <h1 align=center><font color=Yellow>T4A06 Bullet by Fred</font></h1>
 
@@ -256,4 +256,4 @@ if (myShooting == 1){
 <img id="myBullet02" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 
 
-
+</div>
