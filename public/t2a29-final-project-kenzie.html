@@ -14,17 +14,25 @@ html, body {
     background-repeat: repeat;
     background-size: 80%;
 }
-
+.myUi {
+    display: inline-table;
+    height: 20%;
+    background: url('my.jpg') no-repeat;
+    text-align: right;
+    padding: 15px 30px;
+    border-radius: 10px; 
+}
+    
 .title-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: url('background-image.jpg') no-repeat center center/cover;
+    background: url('background-image.jpg') no-repeat;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 5px;
 }
 
 
@@ -151,6 +159,7 @@ function myCheckHit(){
         }
       </script>
 
+
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"  onkeydown="{
    document.all.myText01.value = event.key
 
@@ -175,9 +184,9 @@ function myCheckHit(){
     
 <h1 align=center><font color=Yellow>T4A06 Bullet by Fred</font></h1>
 
-<input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>
-
-<input type=button value="Auto Background Left" onclick="{
+<div id="myUi" class="myUi">
+  <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
+    <input type=button value="Auto Background Left" onclick="{
   clearInterval(myClock)
   let myTemp = '100px 0px'
   myClock = setInterval(function(){
@@ -187,9 +196,7 @@ function myCheckHit(){
   }, 100)
     
 }">
-
-
-<input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+    <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
 }">
@@ -198,12 +205,8 @@ function myCheckHit(){
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
 }">
-
-
-
 <input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
-
-if (myShooting > 2 ){myShooting = 1}
+    if (myShooting > 2 ){myShooting = 1}
 
 
 
@@ -237,9 +240,7 @@ if (myShooting == 1){
 
 
 }"><br><br>
-
-
-
+</div>
 
 
 <img id="myImg01" src="myImgNew.jpg"  style="position:absolute; width:100px; height:80px; left: 10px; top:190px;">
