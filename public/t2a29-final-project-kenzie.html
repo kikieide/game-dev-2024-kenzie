@@ -203,7 +203,7 @@ function myCheckHit(){
   myCheckHit()     // checks for all collisions
  let img = document.getElementById('myImg01');
         let myImg = img.src;
-     img.src = 'https://piskel-imgstore-b.appspot.com/img/605194e3-c8c0-11ef-92fe-b92f8635db06.gif';
+     img.src = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
           setTimeout(function() {
             img.src = myImg;
           }, 1000);
@@ -216,7 +216,16 @@ function myCheckHit(){
 <input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
+    let img1 = document.getElementById('myImg01');
+        let myImg2 = img.src;
+     img.src1 = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
+          setTimeout(function() {
+            img.src1 = myImg2;
+          }, 1000);
+    }">
 }">
+
+    
 <input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
     if (myShooting > 2 ){myShooting = 1}
 
