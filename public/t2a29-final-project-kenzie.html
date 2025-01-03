@@ -42,9 +42,6 @@ html, body {
 h1 {
     font-size: 3em;
     margin-bottom: 10px;
-}
-canvas {
-display: block;
     
 }
 
@@ -65,6 +62,10 @@ p {
 .main-content {
     text-align: center;
     padding: 20px;
+}
+    
+canvas {
+display: block;
 }
 
    </style>
@@ -167,10 +168,11 @@ canvas.height = window.innerHeight;
         constructor(x, y, width, height) {
             this.x = x;
             this.y = y;
-            this.wdith = width;
+            this.width = width;
             this.height = height;
         }
-        let walls = document.getElementById('myWallImg');
+       let walls = document.getElementById('myWallImg');
+        
 </script>
 
      <div id="title-page" class="title-page">
@@ -197,11 +199,10 @@ canvas.height = window.innerHeight;
 
   myCheckHit()     // checks for all collisions
 }">
-<canvas id="myCanvas"></canvas>
 
 
 <div id="main-content" class="main-content" style="display: none;">
-    
+    <canvas id="myCanvas"></canvas
 <div id="myUi" class="myUi">
   <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
     <input type=button value="Auto Background Left" onclick="{
