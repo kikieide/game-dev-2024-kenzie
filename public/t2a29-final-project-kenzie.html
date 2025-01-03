@@ -43,6 +43,10 @@ h1 {
     font-size: 3em;
     margin-bottom: 10px;
 }
+canvas {
+display: block;
+    
+}
 
 p {
     font-size: 1.5em;
@@ -142,12 +146,31 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '20px'
       location = 'https://www.google.ca'
    }
+    if ( myHitOther('myWallImg') ){
+        document.all.myText01.value = 'Out of bounds'
+        alert('You lose')
+        location.reload()
+    }
 
-   // more if statements here
 
 }
-
-
+ function showMainContent() {
+            document.getElementById('title-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+    let canvas = document.getElementById('myCanvas');
+    let myContext = canvas.getContext('2d');
+    canvas.width = window.innerWidth;  
+canvas.height = window.innerHeight;
+    }
+    class myWall {
+        constructor(x, y, width, height) {
+            this.x = x;
+            this.y = y;
+            this.wdith = width;
+            this.height = height;
+        }
+        let walls = document.getElementById('myWallImg');
 </script>
 
      <div id="title-page" class="title-page">
@@ -155,12 +178,6 @@ function myCheckHit(){
            <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
         </div>
     </div>
-      <script>
-          function showMainContent() {
-            document.getElementById('title-page').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }
-      </script>
 
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
@@ -180,7 +197,7 @@ function myCheckHit(){
 
   myCheckHit()     // checks for all collisions
 }">
-
+<canvas id="myCanvas"></canvas>
 
 
 <div id="main-content" class="main-content" style="display: none;">
@@ -270,5 +287,5 @@ if (myShooting == 1){
 <img id="myBullet01" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 130px; top:190px;">
 <img id="myBullet02" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 
-
+<img id="myWallImg" src="my.jpg" style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 </div>
