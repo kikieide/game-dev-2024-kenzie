@@ -147,7 +147,7 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '20px'
       location = 'https://www.google.ca'
    }
-    if ( myHitOther('myWallImg') ){
+    if ( myHitOther('myWall') ){
         document.all.myText01.value = 'Out of bounds'
         alert('You lose')
         location.reload()
@@ -166,9 +166,18 @@ canvas.height = window.innerHeight;
             this.myY = 200;
             this.myWidth = 590;
             this.myHeight = 350;
+            this.element.src =
+            this.element.style.position = 'absolute';
+        this.element.style.left = `${this.myX}px`;
+        this.element.style.top = `${this.myY}px`;
+        this.element.style.width = `${this.myWidth}px`;
+        this.element.style.height = `${this.myHeight}px`;
+            document.body.appendChild(this.element);
         }
-       let walls = document.getElementById('myWallImg');
-        
+    }
+          let walls = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+    }
+        myCheckHit()
 </script>
 
      <div id="title-page" class="title-page">
@@ -193,8 +202,12 @@ canvas.height = window.innerHeight;
    if (event.key == 's') {   // s = go down
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
    }  
-
-   // put more here
+     if (event.key == 'w') {  
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 - 'px'
+   }  
+    if (event.key == 'a') {   // s = go down
+      document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) - 10 - 'px'
+   }  
 
 
 
@@ -289,5 +302,4 @@ if (myShooting == 1){
 <img id="myBullet01" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 130px; top:190px;">
 <img id="myBullet02" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 
-<img id="myWallImg" src="https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif" style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 </div>
