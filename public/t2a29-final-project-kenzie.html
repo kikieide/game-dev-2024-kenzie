@@ -155,30 +155,24 @@ function myCheckHit(){
 
 
 }
-   let canvas = document.getElementById('myCanvas');
-let myContext = canvas.getContext('2d');
-canvas.width = window.innerWidth;  
-canvas.height = window.innerHeight;
-
-    class myWall {
-        constructor(200, 200, 590, 350) {
-            this.myX = 200;
-            this.myY = 200;
-            this.myWidth = 590;
-            this.myHeight = 350;
-            this.element = document.createElement('img');
-            this.element.src = 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif'
-            this.element.style.position = 'absolute';
+  class myWall {
+    constructor(x, y, width, height, src) {
+        this.myX = x;
+        this.myY = y;
+        this.myWidth = width;
+        this.myHeight = height;
+        this.element = document.createElement('img');
+        this.element.src = src;
+        this.element.style.position = 'absolute';
         this.element.style.left = `${this.myX}px`;
         this.element.style.top = `${this.myY}px`;
         this.element.style.width = `${this.myWidth}px`;
         this.element.style.height = `${this.myHeight}px`;
-            document.body.appendChild(this.element);
-        }
+        document.body.appendChild(this.element);
     }
-          let walls = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-    }
-        myCheckHit()
+}
+
+let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 </script>
 
      <div id="title-page" class="title-page">
