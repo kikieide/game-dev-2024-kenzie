@@ -155,10 +155,6 @@ function myCheckHit(){
 
 
 }
- function showMainContent() {
-            document.getElementById('title-page').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-        }
    let canvas = document.getElementById('myCanvas');
 let myContext = canvas.getContext('2d');
 canvas.width = window.innerWidth;  
@@ -182,7 +178,12 @@ canvas.height = window.innerHeight;
         </div>
     </div>
 
-
+<script>
+     function showMainContent() {
+            document.getElementById('title-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }
+</script>
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
    document.all.myText01.value = event.key
 
