@@ -147,7 +147,7 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '20px'
       location = 'https://www.google.ca'
    }
-    if ( myHitOther('myWall') ){
+    if ( myHitOther('myImg01','myWall') ){
         document.all.myText01.value = 'Out of bounds'
         alert('You lose')
         location.reload()
@@ -166,7 +166,8 @@ canvas.height = window.innerHeight;
             this.myY = 200;
             this.myWidth = 590;
             this.myHeight = 350;
-            this.element.src =
+            this.element = document.createElement('img');
+            this.element.src = 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif'
             this.element.style.position = 'absolute';
         this.element.style.left = `${this.myX}px`;
         this.element.style.top = `${this.myY}px`;
@@ -203,10 +204,10 @@ canvas.height = window.innerHeight;
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
    }  
      if (event.key == 'w') {  
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 - 'px'
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
    }  
     if (event.key == 'a') {   // s = go down
-      document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) - 10 - 'px'
+      document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
    }  
 
 
