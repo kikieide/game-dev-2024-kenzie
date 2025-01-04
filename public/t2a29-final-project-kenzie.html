@@ -161,14 +161,14 @@ function myCheckHit(){
         this.myY = y;
         this.myWidth = width;
         this.myHeight = height;
-        this.element = document.createElement('img');
+        this.element = document.createElement('wall');
         this.element.src = src;
         this.element.style.position = 'absolute';
         this.element.style.left = `${this.myX}px`;
         this.element.style.top = `${this.myY}px`;
         this.element.style.width = `${this.myWidth}px`;
         this.element.style.height = `${this.myHeight}px`;
-        document.body.appendChild(this.element);
+        document.body.appendChild(wall);
     }
 }
 
