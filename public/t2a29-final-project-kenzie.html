@@ -242,7 +242,7 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
     let img1 = document.getElementById('myImg01');
-        let myImg2 = img.src;
+        let myImg2 = img.src1;
      img.src1 = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
           setTimeout(function() {
             img.src1 = myImg2;
@@ -250,7 +250,7 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
     }">
 
     
-<input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
     if (myShooting > 2 ){myShooting = 1}
 
 
@@ -283,7 +283,16 @@ if (myShooting == 1){
   }, 20)   // speed of bullet faster lower number
 }
 
-
+if(myShooting ==1) {
+    myShooting +=0
+    document.all.myText01.value = 'Reloading..';
+    document.getElementById('myShoot01').disabled = true;
+    clearInterval(myGun01)
+    setTimeout(function() {
+    document.getElementById('myShoot01').disabled = false;
+        document.all.myText01.value = 'Ready';
+        myShooting = 1;
+    }, 3000);
 }"><br><br>
 </div>
 
