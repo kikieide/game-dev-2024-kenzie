@@ -26,11 +26,6 @@ html, body {
     width: fit-content;
 }
     
-    
-canvas {
-display: block;
-}
-
    </style>
    
 <script>
@@ -44,6 +39,7 @@ display: block;
    let myEnemies = [];
    let myWave = 1;
    let myHits = 0;
+   let bulletLeft = 0;
    let enemyImages = [
        'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
        'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
@@ -198,11 +194,10 @@ display: block;
 }
 
 new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-new myWall(500, 390, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
     </script>
   
     
-    <canvas id="myCanvas"></canvas>
 <div id="myUi" class="myUi">
     <b>Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
   <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
