@@ -147,12 +147,8 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '20px'
       location = 'https://www.google.ca'
    }
-    if ( myHitOther('myImg01','myWall') ){
-        document.all.myText01.value = 'Out of bounds'
-        alert('You lose')
-        location.reload()
-    }
 
+}
 
 </script>
 
@@ -188,7 +184,41 @@ function myCheckHit(){
 }
 
 let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+    }
+    let myEnemies = [];
+    let myWave = 1;
+    let myHits = 3;
+    let myHits01 = 0;
+    function myEnemySpawn() {
+        let myEnemyID = 'myImg02' + 'myImg03' + 'myImg01' + (myEnemies.length + 5);
+    myEnemies.style.left = `${xPosition}px`;
+    myEnemies.style.top = `${yPosition}px`;
+    myEnemies.id = myEnemyID;   
+    }
+    function myWaveStart() {
+        myHits = 0
+        myRequiredHits = myWave * 3
+        for (let i = 0; i < myWave * 3; i++) {
+        spawnEnemy();
+        }
+     function myNewWave01() {  
+    if (myHits >= myHits01) {
+        alert(`You completed Wave ${myWave}!`);
+       myWave += 1;  
+    }
+    myEnemyReset(); 
+    }
+        function myEnemyReset() {
+    myEnemies.forEach(myEnemies => {
+        myEnemies.style.display = 'none';
+    });
+    myEnemies = [];  
+        }
+    }
+    myWaveStart();
 </script>
+
+
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
    document.all.myText01.value = event.key
