@@ -162,8 +162,10 @@ function myCheckHit(){
      function showMainContent() {
             document.getElementById('title-page').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
-        }
-    class myWall {
+     }
+    }
+
+   class myWall {
     constructor(x, y, width, height, src) {
         this.myX = x;
         this.myY = y;
@@ -171,7 +173,6 @@ function myCheckHit(){
         this.myHeight = height;
 
         this.element = document.createElement('img');
-        
         this.element.src = src;
         this.element.style.position = 'absolute';
         this.element.style.left = `${this.myX}px`;
@@ -194,6 +195,7 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
     'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',  
     'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'   
        ];
+    
    function myEnemySpawn(xPosition, yPosition) {
     let newEnemy = document.createElement('img');
     newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];  
@@ -202,30 +204,51 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
     newEnemy.style.top = `${yPosition}px`;
     newEnemy.style.width = '100px';
     newEnemy.style.height = '80px';
+    
+    myEnemies.push(newEnemy);
     document.body.appendChild(newEnemy);
-}
-    function myWaveStart() {
-    myHits = 0;
-    let myRequiredHits = myWave * 3;  
+   }
     for (let i = 0; i < myWave * 3; i++) {
         let myXPosition = Math.random() * window.innerWidth;
         let myYPosition = Math.random() * window.innerHeight;
         myEnemySpawn(myXPosition, myYPosition);
     }
 }
-     function myNewWave01() {  
+
+function myNewWave01() {
     if (myHits >= myRequiredHits) {
         alert(`You completed Wave ${myWave}!`);
         myWave++;  
         myEnemyReset();  
         myWaveStart();
     }
-     }
-    function myEnemyReset() {
+}
+
+function myWaveStart() {
+    myHits = 0; 
+    let myRequiredHits = myWave * 3;
+    for (let i = 0; i < myWave * 3; i++) {
+        let myXPosition = Math.random() * window.innerWidth;
+        let myYPosition = Math.random() * window.innerHeight;
+        myEnemySpawn(myXPosition, myYPosition);
+    }
+}
+
+function myNewWave01() {
+    if (myHits >= myRequiredHits) {
+        alert(`You completed Wave ${myWave}!`);
+        myWave++;  
+        myEnemyReset();  
+        myWaveStart();
+    }
+}
+
+function myEnemyReset() {
     myEnemies.forEach(enemy => {
-    enemy.style.display = 'none';  
+        enemy.style.display = 'none';
     });
-    myEnemies = [];
+    myEnemies = []; 
+}
 </script>
 
 
