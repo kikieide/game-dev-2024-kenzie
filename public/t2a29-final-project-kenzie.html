@@ -26,42 +26,6 @@ html, body {
     width: fit-content;
 }
     
-.title-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background: url('my.jpg') no-repeat center center; 
-    color: white;
-    text-align: center;
-}
-
-
-h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    
-}
-
-p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.enter-button {
-    text-decoration: none;
-    padding: 15px 30px;
-    background-color: #ff6347;
-    color: white;
-    font-size: 1.2em;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.main-content {
-    display: none;
-    padding: 20px;
-    text-align: center;
-}
     
 canvas {
 display: block;
@@ -167,11 +131,6 @@ display: block;
    }
 }
 
-  function showMainContent() {
-     document.getElementById('title-page').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-   }
-
    
    function myEnemySpawn(xPosition, yPosition) {
       let newEnemy = document.createElement('img');
@@ -213,11 +172,6 @@ display: block;
     
 </script>
 
-    <div id="title-page" class="title-page">
-  <div class="buttons">
-    <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
-  </div>
-</div>
 
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
@@ -259,7 +213,6 @@ display: block;
 new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 new myWall(500, 390, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
     </script>
-<div id="main-content" class="main-content" style="display: none;">
   
     
     <canvas id="myCanvas"></canvas>
@@ -345,7 +298,7 @@ if (myShooting == 1) {
    }, 3000);
 }
 }"><br><br>
-</div>
+
 
 
 <img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
