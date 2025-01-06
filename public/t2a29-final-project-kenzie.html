@@ -20,7 +20,7 @@ html, body {
     left: 50%; 
     display: inline-table;
     text-align: right;
-    border: 5px solid #9494b8
+    border: 5px solid #9494b8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -28,7 +28,9 @@ html, body {
 }
 canvas {
       border: 1px solid black;
-      background-color: #f0f0f0;
+    background-color: #f0f0f0;
+    width: 100%; 
+    height: 500px;
     }
    </style>
    
@@ -162,39 +164,39 @@ canvas {
     }
    }
 
-   function myNewWave01() {
-     if (myWave < 4) {
-         switch (myWave) {
+ function myNewWave01() {
+    if (myWave < 4) {  // Limit the waves to 3
+        switch (myWave) {
             case 1: 
-             myEnemyReset();
-             setInterval(() => myEnemySpawn(100, 100), 2000);
-             document.all.myText01.value = 'Wave ' + myWave + ": Easy enemies!";
+                myEnemyReset();
+                setInterval(() => myEnemySpawn(100, 100), 2000);
+                document.all.myText01.value = 'Wave ' + myWave + ": Easy enemies!";
                 break;
-             case 2:
-                  myEnemyReset();
+            case 2:
+                myEnemyReset();
                 setInterval(() => myEnemySpawn(150, 150), 1500); 
                 document.all.myText01.value = 'Wave ' + myWave + ": Faster enemies!";
                 break;
-             case 3:
-                  myEnemyReset();
+            case 3:
+                myEnemyReset();
                 setInterval(() => myEnemySpawn(200, 200), 1000);
                 document.all.myText01.value = 'Wave ' + myWave + ": Very fast enemies!";
                 break;
-            default:
-                document.all.myText01.value = 'Maximum waves reached! You won the game!';
-                alert('Maximum waves reached! You win!');
-            break;
-         }
+        }
+        myWave++;
+    } else {
+        document.all.myText01.value = 'Maximum waves reached! You won the game!';
+        alert('Maximum waves reached! You win!');
     }
-    
+}
    }
    function myEnemyReset() {
-  for (let i = 0; i < myEnemies.length; i++) {
+    for (let i = 0; i < myEnemies.length; i++) {
         let enemy = myEnemies[i];
         enemy.style.display = 'none';
     }
-  myEnemies [];
-   }
+    myEnemies = []; 
+}
 </script>
 
 <canvas id="myCanvas"></canvas>
@@ -207,18 +209,25 @@ canvas {
     let playerLeft = parseInt(player.style.left);
     let playerTop = parseInt(player.style.top);
 
+document.onkeydown = function(event) {
+    let player = document.getElementById('myImg01');
+    let playerLeft = parseInt(player.style.left);
+    let playerTop = parseInt(player.style.top);
+
+ 
     if (event.key === 'd') {
-      player.style.left = playerLeft + 10 + 'px';
+        player.style.left = playerLeft + 10 + 'px';
     }
     if (event.key === 's') {
-      player.style.top = playerTop + 10 + 'px';
+        player.style.top = playerTop + 10 + 'px';
     }
     if (event.key === 'w') {
-      player.style.top = playerTop - 10 + 'px';
+        player.style.top = playerTop - 10 + 'px';
     }
     if (event.key === 'a') {
-      player.style.left = playerLeft - 10 + 'px';
+        player.style.left = playerLeft - 10 + 'px';
     }
+
 
   myCheckHit()   
 }">
@@ -304,56 +313,45 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
 
     
 <input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
-    function shootBullet() {
-function checkBulletWallCollisions() {
+    function shootBullet() 
+  function checkBulletWallCollisions() {
     let bullet1 = document.getElementById('myBullet01');
     let bullet2 = document.getElementById('myBullet02');
 
- 
+    // Checking collision for Bullet 1
     if (wall1.isCollidingWith(bullet1) || wall2.isCollidingWith(bullet1)) {
-      // If there's a collision, remove bullet and display a message
-      bullet1.style.left = '-200px'; // Move bullet out of view
-      document.all.myText01.value = 'Bullet collided with a wall!';
+        bullet1.style.left = '-200px'; // Move bullet out of view
+        document.all.myText01.value = 'Bullet collided with a wall!';
     }
     
+    // Checking collision for Bullet 2
     if (wall1.isCollidingWith(bullet2) || wall2.isCollidingWith(bullet2)) {
-      bullet2.style.left = '-200px'; // Move bullet out of view
-      document.all.myText01.value = 'Bullet collided with a wall!';
+        bullet2.style.left = '-200px'; // Move bullet out of view
+        document.all.myText01.value = 'Bullet collided with a wall!';
     }
   }
   function moveBullets() {
-   
     let bullet1 = document.getElementById('myBullet01');
-    if (parseInt(bullet1.style.left) < window.innerWidth) {
-      bullet1.style.left = parseInt(bullet1.style.left) + 10 + 'px';
-    } else {
-      bullet1.style.left = '-200px'; 
-    }
-
     let bullet2 = document.getElementById('myBullet02');
-    if (parseInt(bullet2.style.left) < window.innerWidth) {
-      bullet2.style.left = parseInt(bullet2.style.left) + 10 + 'px'; 
+    
+    // Move bullets to the right
+    if (parseInt(bullet1.style.left) < window.innerWidth) {
+        bullet1.style.left = parseInt(bullet1.style.left) + 10 + 'px';
     } else {
-      bullet2.style.left = '-200px'; 
+        bullet1.style.left = '-200px'; // Reset position when it goes off-screen
     }
 
-    checkBulletWallCollisions();
-  }
+    if (parseInt(bullet2.style.left) < window.innerWidth) {
+        bullet2.style.left = parseInt(bullet2.style.left) + 10 + 'px'; 
+    } else {
+        bullet2.style.left = '-200px'; // Reset position when it goes off-screen
+    }
 
-  setInterval(moveBullets, 20); 
-   }
-
-   document.getElementById('myText01').value = 'Reloading...';
-   document.getElementById('myShoot01').disabled = true;
-
-   setTimeout(function() {
-      document.getElementById('myText01').value = 'Ready';
-      document.getElementById('myShoot01').disabled = false;
-      myShooting = 1;
-   }, 3000);
+    checkBulletWallCollisions(); // Check for collisions with walls
 }
 
-document.getElementById('myShoot01').addEventListener('click', shootBullet);
+// Call moveBullets in an interval to update bullet positions
+setInterval(moveBullets, 20);
 }"><br><br>
 </div>
 
