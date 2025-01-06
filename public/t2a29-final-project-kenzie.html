@@ -130,8 +130,9 @@ html, body {
     newEnemy.style.position = 'absolute';
     newEnemy.style.left = `${xPosition}px`;
     newEnemy.style.top = `${yPosition}px`;
-    newEnemy.style.width = '100px';
-    newEnemy.style.height = '80px';
+    newEnemy.style.width = '140px';
+    newEnemy.style.height = '130px';
+    newEnemy.id = `myImg0${myEnemies.length + 2}`;
 
     myEnemies.push(newEnemy);
     document.body.appendChild(newEnemy);
@@ -304,10 +305,10 @@ if (myShooting == 1) {
 </div>
 
 
-<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
-<img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="position:absolute; width:130px; height:140px; left:350px; top:190px;">
-<img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="position:absolute; width:130px; height:140px; left:500px; top:190px;">
-<img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="position:absolute; width:130px; height:140px; left:500px; top:400px;">
+<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:130px; height:140px; left:350px; top:190px;">
+<img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
+<img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
+<img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
 
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
