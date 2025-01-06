@@ -43,6 +43,7 @@ html, body {
    let myEnemies = [];
    let myWave = 1;
    let myHits = 0;
+   let enemyCount = 2;
    let enemyImages = [
        'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
        'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
@@ -136,7 +137,8 @@ html, body {
     newEnemy.style.top = `${yPosition}px`;
     newEnemy.style.width = '140px';
     newEnemy.style.height = '130px';
-    newEnemy.id = `myImg0${myEnemies.length + 2}`;
+    newEnemy.id = `myImg0${enemyCount}`;
+           enemyCount++;
 
     myEnemies.push(newEnemy);
     document.body.appendChild(newEnemy);
@@ -228,7 +230,7 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
     <h2>Wave 1: <span id="waveEnemiesLeft">5</span> Left</h2>
     <progress id="waveBar" value="0" max="5"></progress>
     <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
-<input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
+<input id="myText01" type=text style="font-atyle: bold" value="" size=50 placeholder="Feedback here"><br>  
     
     <input type=button value="Auto Background Left" onclick="{
   clearInterval(myClock)
@@ -280,9 +282,7 @@ if (myShooting == 2){
   }, 20)   // speed of bullet faster lower number
 }
 
-
-
-
+}
   // Bullet Number 1
 if (myShooting == 1){
   myShooting += 1
@@ -293,18 +293,17 @@ if (myShooting == 1){
     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
-}
 
-if (myShooting == 1) {
-   document.all.myText01.value = 'Reloading..';
-   document.getElementById('myShoot01').disabled = true;
-   clearInterval(myGun01);
-   setTimeout(function() {
-      document.getElementById('myShoot01').disabled = false;
-      document.all.myText01.value = 'Ready';
-      myShooting = 1;
-   }, 3000);
 }
+  document.getElementById('myText01').value = 'Reloading...';
+    document.getElementById('myShoot01').disabled = true;
+
+    setTimeout(function() {
+      document.getElementById('myText01').value = 'Ready';
+      document.getElementById('myShoot01').disabled = false;
+      myShooting = 1;
+    }, 3000); // Reload time: 3 seconds
+  }
 }"><br><br>
 </div>
 
