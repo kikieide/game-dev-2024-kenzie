@@ -117,14 +117,21 @@ display: block;
          myScore -= 1;
       }
 
-      if (myHitOther('myBullet01', 'myImg03')) {
+     
+        if (myHitOther('myBullet01', 'myImg04')) {
          clearInterval(myGun01);
          document.getElementById('myBullet01').style.left = '-200px';
-         document.all.myText01.value = 'You shot myImg03';
+         document.all.myText01.value = 'You shot myImg04';
          myScore += 1;
           myHits += 1;
       }
-
+ if (myHitOther('myBullet01', 'myImg02')) {
+         clearInterval(myGun01);
+         document.getElementById('myBullet01').style.left = '-200px';
+         document.all.myText01.value = 'You shot myImg02';
+         myScore += 1;
+          myHits += 1;
+ }
       if (myHitOther('myBullet02', 'myImg03')) {
          clearInterval(myGun02);
          document.getElementById('myBullet02').style.left = '-200px';
@@ -329,16 +336,16 @@ if (myShooting == 1){
   }, 20)   // speed of bullet faster lower number
 }
 
-if(myShooting ==1) {
-    myShooting +=0
-    document.all.myText01.value = 'Reloading..';
-    document.getElementById('myShoot01').disabled = true;
-    clearInterval(myGun01)
-    setTimeout(function() {
-    document.getElementById('myShoot01').disabled = false;
-        document.all.myText01.value = 'Ready';
-        myShooting = 1;
-    }, 3000);
+if (myShooting == 1) {
+   document.all.myText01.value = 'Reloading..';
+   document.getElementById('myShoot01').disabled = true;
+   clearInterval(myGun01);
+   setTimeout(function() {
+      document.getElementById('myShoot01').disabled = false;
+      document.all.myText01.value = 'Ready';
+      myShooting = 1;
+   }, 3000);
+}
 }"><br><br>
 </div>
 
