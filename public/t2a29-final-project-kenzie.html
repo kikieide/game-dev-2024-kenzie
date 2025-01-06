@@ -21,7 +21,9 @@ html, body {
     display: inline-table;
     background: url('my.jpg') no-repeat;
     text-align: right;
-    border: 2px solid black;
+    border: 5px solid #ff5733
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 20px;
     width: fit-content;
 }
@@ -39,7 +41,6 @@ html, body {
    let myEnemies = [];
    let myWave = 1;
    let myHits = 0;
-   let bulletLeft = 0;
    let enemyImages = [
        'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
        'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
@@ -200,7 +201,8 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
     
 <div id="myUi" class="myUi">
     <b>Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
-  <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
+     <table>
+  <tr><td><input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
     <input type=button value="Auto Background Left" onclick="{
   clearInterval(myClock)
   let myTemp = '100px 0px'
@@ -208,9 +210,8 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
       myGlobalX -= 5
       myTemp =  myGlobalX + 'px 0px'
       document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)}">
-    
-    <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+  }, 100)}"></td><td>
+      <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
  let img = document.getElementById('myImg01');
@@ -219,13 +220,13 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
           setTimeout(function() {
             img.src = myImg; 
           }, 100);
-    }">
+    }"></td>
 
 
 
 
                 
-<input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<td><input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
     let img1 = document.getElementById('myImg01');
@@ -234,10 +235,10 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
           setTimeout(function() {
             img.src1 = myImg2;
           }, 100);
-    }">
+    }"></td>
 
     
-<input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<td><input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
     if (myShooting > 2 ){myShooting = 1}
 
 
@@ -251,10 +252,6 @@ if (myShooting == 2){
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-       if (bulletLeft > window.innerWidth) {
-      clearInterval(myGun01);
-      bullet.style.left = '-200px'; 
-    }
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
@@ -270,10 +267,6 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px
-         if (bulletLeft > window.innerWidth) {
-      clearInterval(myGun01);
-      bullet.style.left = '-200px'; 
-    }
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
@@ -288,8 +281,9 @@ if (myShooting == 1) {
       myShooting = 1;
    }, 3000);
 }
-}"><br><br>
-
+}"><br><br></td></tr>
+     </table>
+</div>
 
 
 <img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
@@ -301,4 +295,4 @@ if (myShooting == 1) {
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:50px; height:30px; left: 130px; top:190px;">
 <img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:50px; height:30px; left: 150px; top:190px;">
 
-</div>
+
