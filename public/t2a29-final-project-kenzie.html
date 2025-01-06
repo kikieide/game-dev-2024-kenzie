@@ -232,18 +232,19 @@ html, body {
 
             return objRight > wallLeft && objLeft < wallRight && objBottom > wallTop && objTop < wallBottom;
         }
-    }
+         }
+      
+let walls = [
+        new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif'),
+        new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif')
+    ];
 
-new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-        }
-        
-   function checkHits() {
+    function checkHits() {
         walls.forEach(wall => {
             ['myImg01', 'myImg02', 'myImg03', 'myImg04'].forEach(imgId => {
                 let img = document.getElementById(imgId);
-                if (wall.checkWallCollision(img)) {
-                    document.all.myText01.value = imgId + ' collided with wall!';
+                if (img && wall.checkCollision(img)) {
+                    alert(imgId + ' collided with wall!');
                     location.reload();
                 }
             });
