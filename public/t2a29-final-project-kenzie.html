@@ -121,8 +121,6 @@ html, body {
    }
 }
 
-   
-   function myEnemySpawn(xPosition, yPosition) {
        function myEnemySpawn(xPosition, yPosition) {
     if (myEnemies.length >= 3) {
         let oldestEnemy = myEnemies.shift();
@@ -138,9 +136,8 @@ html, body {
 
     myEnemies.push(newEnemy);
     document.body.appendChild(newEnemy);
-   }
-
-   function myWaveStart() {
+       }
+    function myWaveStart() {
     let myRequiredHits = myWave * 3;
     for (let i = 0; i < myRequiredHits; i++) {
         let myXPosition = Math.random() * window.innerWidth;
@@ -148,11 +145,31 @@ html, body {
         myEnemySpawn(myXPosition, myYPosition);
     }
    }
-    
+
    function myNewWave01() {
-        myWave++; 
-        myEnemyReset(); 
-        myWaveStart();  
+     if (myWave < 4) {
+         switch (myWave) {
+            case 1: 
+             myEnemyReset();
+             setInterval(() => myEnemySpawn(100, 100), 2000);
+             document.all.myText01.value = 'Wave ' + myWave + ": Easy enemies!";
+                break;
+             case 2:
+                  myEnemyReset();
+                setInterval(() => myEnemySpawn(150, 150), 1500); 
+                document.all.myText01.value = 'Wave ' + myWave + ": Faster enemies!";
+                break;
+             case 3:
+                  myEnemyReset();
+                setInterval(() => myEnemySpawn(200, 200), 1000);
+                document.all.myText01.value = 'Wave ' + myWave + ": Very fast enemies!";
+                break;
+            default:
+                document.all.myText01.value = 'Maximum waves reached! You won the game!';
+                alert('Maximum waves reached! You win!');
+            break;
+         }
+    }
     
    }
    function myEnemyReset() {
