@@ -122,6 +122,7 @@ display: block;
          document.getElementById('myBullet01').style.left = '-200px';
          document.all.myText01.value = 'You shot myImg03';
          myScore += 1;
+          myHits += 1;
       }
 
       if (myHitOther('myBullet02', 'myImg03')) {
@@ -129,6 +130,7 @@ display: block;
          document.getElementById('myBullet02').style.left = '-200px';
          document.all.myText01.value = 'You shot myImg03';
          myScore += 1;
+          myHits += 1;
       }
 
       // End the game if score is zero
@@ -145,7 +147,10 @@ display: block;
          document.getElementById('myImg01').style.left = '20px';
          location = 'https://www.google.ca';
       }
+   if (myHits >= myWave * 3) {
+      myNewWave01();
    }
+}
 
   function showMainContent() {
      document.getElementById('title-page').style.display = 'none';
@@ -168,21 +173,21 @@ display: block;
 
 
    function myWaveStart() {
-      myHits = 0;
       let myRequiredHits = myWave * 3;
-      for (let i = 0; i < myRequiredHits; i++) {
-         let myXPosition = Math.random() * window.innerWidth;
-         let myYPosition = Math.random() * window.innerHeight;
-         myEnemySpawn(myXPosition, myYPosition);
+        for (let i = 0; i < myRequiredHits; i++) {
+      let myXPosition = Math.random() * window.innerWidth;
+      let myYPosition = Math.random() * window.innerHeight;
+      myEnemySpawn(myXPosition, myYPosition);
       }
    }
-
-   function myNewWave01() {
-      if (myHits >= myWave * 3) {
-         alert(`You completed Wave ${myWave}!`);
-         myWave++;
+    
+    function myNewWave01() {
+   if (myHits >= myWave * 3) {
+      alert(`You completed Wave ${myWave}!`);
+      myWave++;
+       myHits = 0
          myEnemyReset();
-         myWaveStart();
+      myWaveStart();
       }
    }
 
