@@ -26,7 +26,7 @@ html, body {
     padding: 20px;
     width: fit-content;
 }
-    
+
    </style>
    
 <script>
@@ -219,10 +219,13 @@ new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f8
 new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
     </script>
   
-    
+        
 <div id="myUi" class="myUi">
+    <h2>Wave 1: <span id="waveEnemiesLeft">5</span> Left</h2>
+    <progress id="waveBar" value="0" max="5"></progress>
     <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
 <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
+    
     <input type=button value="Auto Background Left" onclick="{
   clearInterval(myClock)
   let myTemp = '100px 0px'
@@ -231,6 +234,7 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
       myTemp =  myGlobalX + 'px 0px'
       document.getElementById('myBody').style.backgroundPosition = myTemp
   }, 100)}">
+        
       <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
@@ -241,10 +245,6 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
             img.src = myImg; 
           }, 100);
     }">
-
-
-
-
                 
 <input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
