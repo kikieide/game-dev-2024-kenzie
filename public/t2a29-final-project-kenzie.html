@@ -59,84 +59,89 @@ canvas {
    ];
 
    // Helper function to detect hit
-   function myHitOther(my1, my2) {
-    let obj1 = document.getElementById(my1);
-    let obj2 = document.getElementById(my2);
+  <script>
+
+  function myHitOther(obj1Id, obj2Id) {
+    let obj1 = document.getElementById(obj1Id);
+    let obj2 = document.getElementById(obj2Id);
+
     let left1 = parseInt(obj1.style.left);
-   let right1 = left1 + parseInt(obj1.style.width);
-   let top1 = parseInt(obj1.style.top);
-   let bottom1 = top1 + parseInt(obj1.style.height);
-   
-   let left2 = parseInt(obj2.style.left);
-   let right2 = left2 + parseInt(obj2.style.width);
-   let top2 = parseInt(obj2.style.top);
-   let bottom2 = top2 + parseInt(obj2.style.height);
+    let right1 = left1 + parseInt(obj1.style.width);
+    let top1 = parseInt(obj1.style.top);
+    let bottom1 = top1 + parseInt(obj1.style.height);
 
-   return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
-}
-   
+    let left2 = parseInt(obj2.style.left);
+    let right2 = left2 + parseInt(obj2.style.width);
+    let top2 = parseInt(obj2.style.top);
+    let bottom2 = top2 + parseInt(obj2.style.height);
 
-   
+    return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
+  }
 
-   // Check hits function
- function myCheckHit() {
-    document.all.myText01.value = myScore; // show the current score
+  if (myHitOther('player', 'enemy')) {
+    alert("Collision detected!");
+  }
 
+  function myCheckHit() {
+    document.all.myText01.value = myScore; // Display the score
+
+   s
     if (myHitOther('myImg01', 'myImg02')) {
-        document.getElementById('myImg01').style.left = '20px';
-        document.all.myText01.value = 'You hit myImg02';
-        myScore -= 1;
+      document.getElementById('myImg01').style.left = '20px';
+      document.all.myText01.value = 'You hit myImg02';
+      myScore -= 1; 
     }
 
     if (myHitOther('myImg01', 'myImg03')) {
-        document.getElementById('myImg01').style.left = '20px';
-        document.all.myText01.value = 'You hit myImg03';
-        myScore -= 1;
+      document.getElementById('myImg01').style.left = '20px';
+      document.all.myText01.value = 'You hit myImg03';
+      myScore -= 1;
     }
 
     if (myHitOther('myBullet01', 'myImg04')) {
-        clearInterval(myGun01);
-        document.getElementById('myBullet01').style.left = '-200px';
-        document.all.myText01.value = 'You shot myImg04';
-        myScore += 1;
-        myHits += 1;
+      clearInterval(myGun01); 
+      document.getElementById('myBullet01').style.left = '-200px';
+      document.all.myText01.value = 'You shot myImg04';
+      myScore += 1; 
+      myHits += 1; 
     }
 
     if (myHitOther('myBullet01', 'myImg02')) {
-        clearInterval(myGun01);
-        document.getElementById('myBullet01').style.left = '-200px';
-        document.all.myText01.value = 'You shot myImg02';
-        myScore += 1;
-        myHits += 1;
+      clearInterval(myGun01);
+      document.getElementById('myBullet01').style.left = '-200px';
+      document.all.myText01.value = 'You shot myImg02';
+      myScore += 1;
+      myHits += 1;
     }
 
     if (myHitOther('myBullet02', 'myImg03')) {
-        clearInterval(myGun02);
-        document.getElementById('myBullet02').style.left = '-200px';
-        document.all.myText01.value = 'You shot myImg03';
-        myScore += 1;
-        myHits += 1;
+      clearInterval(myGun02);
+      document.getElementById('myBullet02').style.left = '-200px';
+      document.all.myText01.value = 'You shot myImg03';
+      myScore += 1;
+      myHits += 1;
     }
 
     // End the game if score is zero
     if (myScore <= 0) {
-        document.all.myText01.value = 'You Lose, score at zero!';
-        alert('Sorry, you lose');
-        location.reload();
+      document.all.myText01.value = 'You Lose, score at zero!';
+      alert('Sorry, you lose');
+      location.reload(); // Restart the game
     }
 
-    // Move to next level
-    if (myHitOther('myImg01', 'myImg04')) {
-        document.all.myText01.value = 'You hit myImg04 and you win the game!';
-        alert('You Win, now go to the next level');
-        document.getElementById('myImg01').style.left = '20px';
-        location = 'https://www.google.ca';
+   
+   if (myHitOther('myImg01', 'myImg04')) {
+      document.all.myText01.value = 'You hit myImg04 and you win the game!';
+      alert('You Win, now go to the next level');
+      document.getElementById('myImg01').style.left = '20px'; // Reset player position
+      location = 'https://www.google.ca'; 
     }
 
+  
     if (myHits >= myWave * 3) {
-        myNewWave01();
+      myNewWave01(); // Start new wave
     }
-}
+  }
 
        function myEnemySpawn(xPosition, yPosition) {
     if (myEnemies.length >= 3) {
