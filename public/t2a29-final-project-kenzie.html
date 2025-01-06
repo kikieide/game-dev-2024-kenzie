@@ -223,7 +223,14 @@ display: block;
         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
    }  
 
-class myWall {
+
+  myCheckHit()     // checks for all collisions
+}">
+
+
+<div id="main-content" class="main-content" style="display: none;">
+    <script>
+        class myWall {
       constructor(x, y, width, height, src) {
          this.myX = x;
          this.myY = y;
@@ -243,14 +250,8 @@ class myWall {
 
 
    let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-}
-
-
-  myCheckHit()     // checks for all collisions
-}">
-
-
-<div id="main-content" class="main-content" style="display: none;">
+    </script>
+    
     <canvas id="myCanvas"></canvas>
 <div id="myUi" class="myUi">
   <input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
@@ -267,10 +268,10 @@ class myWall {
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
  let img = document.getElementById('myImg01');
-        let myImg = img.src;
-     img.src = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
+       let myImg = img.src;
+    img.src = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
           setTimeout(function() {
-            img.src = myImg;
+            img.src = myImg; 
           }, 100);
     }">
 
