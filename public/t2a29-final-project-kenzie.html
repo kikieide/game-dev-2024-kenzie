@@ -212,38 +212,45 @@ html, body {
 }">
     
   <script>
-        class myWall {
-    constructor(x, y, width, height, src) {
-        this.element = document.createElement('img');
-        this.element.src = src;
-        this.element.style = `position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px`;
-        document.body.appendChild(this.element);
-        checkWallCollision(myWall) {
-         let myWallLeft = parseInt(myWall.style.left);
-   let myWallLeft = parseInt(this.element.style.left);
- let myWallTop = parseInt(this.element.style.top);
- let myWallRight = myWallLeft + parseInt(this.element.style.width);
-   let myWallBottom = myWallTop + parseInt(this.element.style.height);
-    let objLeft = parseInt(obj.style.left);
-        let objTop = parseInt(obj.style.top);
-        let objRight = objLeft + parseInt(obj.style.width);
-        let objBottom = objTop + parseInt(obj.style.height);
-      return objRight > wallLeft && objLeft < wallRight && objBottom > wallTop && objTop < wallBottom;
+         class myWall {
+        constructor(x, y, width, height, src) {
+            this.element = document.createElement('img');
+            this.element.src = src;
+            this.element.style = `position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px`;
+            document.body.appendChild(this.element);
         }
-}
+        checkWallCollision(obj) {
+            let wallLeft = parseInt(this.element.style.left);
+            let wallTop = parseInt(this.element.style.top);
+            let wallRight = wallLeft + parseInt(this.element.style.width);
+            let wallBottom = wallTop + parseInt(this.element.style.height);
+
+            let objLeft = parseInt(obj.style.left);
+            let objTop = parseInt(obj.style.top);
+            let objRight = objLeft + parseInt(obj.style.width);
+            let objBottom = objTop + parseInt(obj.style.height);
+
+            return objRight > wallLeft && objLeft < wallRight && objBottom > wallTop && objTop < wallBottom;
+        }
+    }
 
 new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
         }
         
-    walls.forEach(wall => {
-        ['myImg01', 'myImg02', 'myImg03', 'myImg04'].forEach(imgId => {
-            let img = document.getElementById(imgId);
-            if (wall.checkWallCollision(img)) {
-         document.all.myText01.value = imgId + ' collided with wall!';
-                location.reload();
-            }
-        }
+   function checkHits() {
+        walls.forEach(wall => {
+            ['myImg01', 'myImg02', 'myImg03', 'myImg04'].forEach(imgId => {
+                let img = document.getElementById(imgId);
+                if (wall.checkWallCollision(img)) {
+                    document.all.myText01.value = imgId + ' collided with wall!';
+                    location.reload();
+                }
+            });
+        });
+    }
+
+    checkHits();
           
     </script>
   
