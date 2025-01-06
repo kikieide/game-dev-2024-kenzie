@@ -153,25 +153,6 @@ display: block;
    }
 
    
-   class myWall {
-      constructor(x, y, width, height, src) {
-         this.myX = x;
-         this.myY = y;
-         this.myWidth = width;
-         this.myHeight = height;
-         this.element = document.createElement('img');
-         this.element.src = src;
-         this.element.style.position = 'absolute';
-         this.element.style.left = `${this.myX}px`;
-         this.element.style.top = `${this.myY}px`;
-         this.element.style.width = `${this.myWidth}px`;
-         this.element.style.height = `${this.myHeight}px`;
-
-         document.body.appendChild(this.element);
-      }
-   }
-
-
    function myEnemySpawn(xPosition, yPosition) {
       let newEnemy = document.createElement('img');
       newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
@@ -211,8 +192,8 @@ display: block;
       });
       myEnemies = [];
    }
+    
 
-   let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 </script>
 
      <div id="title-page" class="title-page">
@@ -242,6 +223,27 @@ display: block;
         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
    }  
 
+class myWall {
+      constructor(x, y, width, height, src) {
+         this.myX = x;
+         this.myY = y;
+         this.myWidth = width;
+         this.myHeight = height;
+         this.element = document.createElement('img');
+         this.element.src = src;
+         this.element.style.position = 'absolute';
+         this.element.style.left = `${this.myX}px`;
+         this.element.style.top = `${this.myY}px`;
+         this.element.style.width = `${this.myWidth}px`;
+         this.element.style.height = `${this.myHeight}px`;
+
+         document.body.appendChild(this.element);
+      }
+   }
+
+
+   let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+}
 
 
   myCheckHit()     // checks for all collisions
