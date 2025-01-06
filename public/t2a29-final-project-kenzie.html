@@ -137,7 +137,7 @@ html, body {
     newEnemy.style.top = `${yPosition}px`;
     newEnemy.style.width = '140px';
     newEnemy.style.height = '130px';
-    newEnemy.id = `myImg0${enemyCount}`;
+   newEnemy.id = `myImg0${enemyCount}_${randomIndex + 1}`;
            enemyCount++;
 
     myEnemies.push(newEnemy);
@@ -280,7 +280,15 @@ if (myShooting == 2){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
+    
+document.getElementById('myText01').value = 'Reloading...';
+    document.getElementById('myShoot01').disabled = true;
 
+    setTimeout(function() {
+      document.getElementById('myText01').value = 'Ready';
+      document.getElementById('myShoot01').disabled = false;
+      myShooting = 1;
+    }, 3000); 
 }
   // Bullet Number 1
 if (myShooting == 1){
@@ -293,14 +301,6 @@ if (myShooting == 1){
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
     
-  document.getElementById('myText01').value = 'Reloading...';
-    document.getElementById('myShoot01').disabled = true;
-
-    setTimeout(function() {
-      document.getElementById('myText01').value = 'Ready';
-      document.getElementById('myShoot01').disabled = false;
-      myShooting = 1;
-    }, 3000); // Reload time: 3 seconds
   }
 }"><br><br>
 </div>
