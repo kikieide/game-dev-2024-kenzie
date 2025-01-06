@@ -189,11 +189,12 @@ canvas {
     
    }
    function myEnemyReset() {
-    for (let i = 0; i < myEnemies.length; i++) {
+  for (let i = 0; i < myEnemies.length; i++) {
         let enemy = myEnemies[i];
-        enemy.style.display = 'none'; 
+        enemy.style.display = 'none';
     }
   myEnemies [];
+   }
 </script>
 
 <canvas id="myCanvas"></canvas>
@@ -241,12 +242,14 @@ canvas {
 
     isCollidingWith(other) {
 
- let otherX = parseInt(other.style.left);
-      let otherY = parseInt(other.style.top);
-      let otherWidth = parseInt(other.style.width);
-      let otherHeight = parseInt(other.style.height);
- return !(this.x + this.width < otherX || this.x > otherX + otherWidth ||
-        this.y + this.height < otherY || this.y > otherY + otherHeight);
+  let otherX = parseInt(other.style.left, 10) || 0;  
+    let otherY = parseInt(other.style.top, 10) || 0;
+    let otherWidth = parseInt(other.style.width, 10) || 0;
+    let otherHeight = parseInt(other.style.height, 10) || 0;
+         return !(this.x + this.width < otherX || 
+             this.x > otherX + otherWidth ||
+             this.y + this.height < otherY || 
+             this.y > otherY + otherHeight);
     }
   }
 
