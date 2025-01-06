@@ -100,6 +100,14 @@ display: block;
 
       return (right1 >= left2 && bottom1 >= top2 && left1 <= right2 && top1 <= bottom2);
    }
+    function myWallCollision() {
+       let walls = document.querySelectorAll('.wall');
+        for (let wall of walls) {
+        if (myHitOther('myImg01', wall.id)) {
+            return true;
+              }
+    }
+    return false;
 
    // Check hits function
    function myCheckHit() {
@@ -219,45 +227,41 @@ display: block;
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
    document.all.myText01.value = event.key
 
-   if (event.key == 'd') {  // d = go right
+   if (event.key == 'd' && !myCheckWallCollision()) {  // d = go right
      document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
    }   
 
-   if (event.key == 's') {   // s = go down
+   if (event.key == 's' && !myCheckWallCollision()) {   // s = go down
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
    }  
-     if (event.key == 'w') {  
+     if (event.key == 'w' && !myCheckWallCollision()) {  
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
    }  
-    if (event.key == 'a') {
+    if (event.key == 'a' && !myCheckWallCollision()) {
         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
    }  
 
 
   myCheckHit()     // checks for all collisions
 }">
-
+    
+<img class="wall" id="wall1" src="https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif">
+<img class="wall" id="wall2" src="https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif">
+<img class="enemy" id="enemy1" src="https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif">
+<img class="enemy" id="enemy2" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif">
+    
   <script>
         class myWall {
-      constructor(x, y, width, height, src) {
-         this.myX = x;
-         this.myY = y;
-         this.myWidth = width;
-         this.myHeight = height;
-         this.element = document.createElement('img');
-         this.element.src = src;
-         this.element.style.position = 'absolute';
-         this.element.style.left = `${this.myX}px`;
-         this.element.style.top = `${this.myY}px`;
-         this.element.style.width = `${this.myWidth}px`;
-         this.element.style.height = `${this.myHeight}px`;
+    constructor(x, y, width, height, src) {
+        this.element = document.createElement('img');
+        this.element.src = src;
+        this.element.style = `position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px`;
+        document.body.appendChild(this.element);
+    }
+}
 
-         document.body.appendChild(this.element);
-      }
-   }
-
-
-   let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+new myWall(500, 390, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
     </script>
 <div id="main-content" class="main-content" style="display: none;">
   
