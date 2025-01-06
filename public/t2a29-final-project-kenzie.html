@@ -69,92 +69,150 @@ display: block;
 }
 
    </style>
+   
 <script>
-   
+   // global variables
+   let myGlobalX = 0;
+   let myClock;
+   let myScore = 10;
+   let myGun01;
+   let myGun02;
+   let myShooting = 1;
+   let myEnemies = [];
+   let myWave = 1;
+   let myHits = 0;
+   let enemyImages = [
+       'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
+       'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
+       'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
+   ];
 
-   // global variables here
+   // Helper function to detect hit
+   function myHitOther(my1, my2) {
+      let left1 = parseInt(document.getElementById(my1).style.left);
+      let right1 = left1 + parseInt(document.getElementById(my1).style.width);
+      let top1 = parseInt(document.getElementById(my1).style.top);
+      let bottom1 = top1 + parseInt(document.getElementById(my1).style.height);
+      let left2 = parseInt(document.getElementById(my2).style.left);
+      let right2 = left2 + parseInt(document.getElementById(my2).style.width);
+      let top2 = parseInt(document.getElementById(my2).style.top);
+      let bottom2 = top2 + parseInt(document.getElementById(my2).style.height);
 
-   let myGlobalX = 0
-   let myClock
-   let myScore = 10
-   let myGun01
-   let myGun02
-   let myShooting = 1
-
-   // global functions here
-function myHitOther(my1,my2){
-   left1   = parseInt(document.getElementById(my1).style.left)
-   right1  = left1 + parseInt(document.getElementById(my1).style.width)
-   top1    = parseInt(document.getElementById(my1).style.top)   
-   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
-   left2   = parseInt(document.getElementById(my2).style.left)
-   right2  = left2 + parseInt(document.getElementById(my2).style.width)
-   top2    = parseInt(document.getElementById(my2).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
-   if ((right1  >=  left2  ) &&      	   
-       (bottom1 >=  top2   ) &&
-       (left1   <=  right2 ) &&
-       (top1    <=  bottom2) ){
-       return true
-   }
-}
-
-
-function myCheckHit(){
-   document.all.myText01.value = myScore  // show the present score
-
-   if ( myHitOther('myImg01','myImg02') ){
-      document.getElementById('myImg01').style.left = '20px'
-      document.all.myText01.value = 'You hit myImg02'  
-      myScore -= 1
-   }   
-   
-   if ( myHitOther('myImg01','myImg03') ){
-       //alert('you lose')
-      document.getElementById('myImg01').style.left = '20px'
-      document.all.myText01.value = 'You hit myImg03'  
-      myScore -= 1
-   }   
-
-   if ( myHitOther('myBullet01','myImg03') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg03'  
-      myScore += 1
-   }   
-   
-   if ( myHitOther('myBullet02','myImg03') ){
-      clearInterval(myGun02)
-      document.getElementById('myBullet02').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg03'  
-      myScore += 1
-   }   
-   
-
-   
-  // you LOSE refresh the page
-   if (myScore <= 0){
-    document.all.myText01.value = 'You Lose scrore at zero!'  
-    alert('Sorry you lose')
-    location.reload()
+      return (right1 >= left2 && bottom1 >= top2 && left1 <= right2 && top1 <= bottom2);
    }
 
-   // YOU WIN and go to next level!
+   // Check hits function
+   function myCheckHit() {
+      document.all.myText01.value = myScore; // show the current score
 
-   if ( myHitOther('myImg01','myImg04') ){
-      document.all.myText01.value = 'You hit myImg04 and you win the game!'  
-       alert('You Win, now go to the next level')
-      document.getElementById('myImg01').style.left = '20px'
-      location = 'https://www.google.ca'
+      if (myHitOther('myImg01', 'myImg02')) {
+         document.getElementById('myImg01').style.left = '20px';
+         document.all.myText01.value = 'You hit myImg02';
+         myScore -= 1;
+      }
+
+      if (myHitOther('myImg01', 'myImg03')) {
+         document.getElementById('myImg01').style.left = '20px';
+         document.all.myText01.value = 'You hit myImg03';
+         myScore -= 1;
+      }
+
+      if (myHitOther('myBullet01', 'myImg03')) {
+         clearInterval(myGun01);
+         document.getElementById('myBullet01').style.left = '-200px';
+         document.all.myText01.value = 'You shot myImg03';
+         myScore += 1;
+      }
+
+      if (myHitOther('myBullet02', 'myImg03')) {
+         clearInterval(myGun02);
+         document.getElementById('myBullet02').style.left = '-200px';
+         document.all.myText01.value = 'You shot myImg03';
+         myScore += 1;
+      }
+
+      // End the game if score is zero
+      if (myScore <= 0) {
+         document.all.myText01.value = 'You Lose, score at zero!';
+         alert('Sorry, you lose');
+         location.reload();
+      }
+
+      // Move to next level
+      if (myHitOther('myImg01', 'myImg04')) {
+         document.all.myText01.value = 'You hit myImg04 and you win the game!';
+         alert('You Win, now go to the next level');
+         document.getElementById('myImg01').style.left = '20px';
+         location = 'https://www.google.ca';
+      }
    }
 
-}
-    function showMainContent() {
-    document.getElementById('title-page').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-}
+   function showMainContent() {
+      document.getElementById('title-page').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+   }
+
+   
+   class myWall {
+      constructor(x, y, width, height, src) {
+         this.myX = x;
+         this.myY = y;
+         this.myWidth = width;
+         this.myHeight = height;
+         this.element = document.createElement('img');
+         this.element.src = src;
+         this.element.style.position = 'absolute';
+         this.element.style.left = `${this.myX}px`;
+         this.element.style.top = `${this.myY}px`;
+         this.element.style.width = `${this.myWidth}px`;
+         this.element.style.height = `${this.myHeight}px`;
+
+         document.body.appendChild(this.element);
+      }
+   }
 
 
+   function myEnemySpawn(xPosition, yPosition) {
+      let newEnemy = document.createElement('img');
+      newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+      newEnemy.style.position = 'absolute';
+      newEnemy.style.left = `${xPosition}px`;
+      newEnemy.style.top = `${yPosition}px`;
+      newEnemy.style.width = '100px';
+      newEnemy.style.height = '80px';
+
+      myEnemies.push(newEnemy);
+      document.body.appendChild(newEnemy);
+   }
+
+
+   function myWaveStart() {
+      myHits = 0;
+      let myRequiredHits = myWave * 3;
+      for (let i = 0; i < myRequiredHits; i++) {
+         let myXPosition = Math.random() * window.innerWidth;
+         let myYPosition = Math.random() * window.innerHeight;
+         myEnemySpawn(myXPosition, myYPosition);
+      }
+   }
+
+   function myNewWave01() {
+      if (myHits >= myWave * 3) {
+         alert(`You completed Wave ${myWave}!`);
+         myWave++;
+         myEnemyReset();
+         myWaveStart();
+      }
+   }
+
+   function myEnemyReset() {
+      myEnemies.forEach(enemy => {
+         enemy.style.display = 'none';
+      });
+      myEnemies = [];
+   }
+
+   let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 </script>
 
      <div id="title-page" class="title-page">
@@ -163,92 +221,7 @@ function myCheckHit(){
         </div>
     </div>
 
-<script>
-   class myWall {
-    constructor(x, y, width, height, src) {
-        this.myX = x;
-        this.myY = y;
-        this.myWidth = width;
-        this.myHeight = height;
 
-        this.element = document.createElement('img');
-        this.element.src = src;
-        this.element.style.position = 'absolute';
-        this.element.style.left = `${this.myX}px`;
-        this.element.style.top = `${this.myY}px`;
-        this.element.style.width = `${this.myWidth}px`;
-        this.element.style.height = `${this.myHeight}px`;
-
-        document.body.appendChild(this.element);
-    }
-}
-
-let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-    }
-    let myEnemies = [];
-    let myWave = 1;
-    let myHits = 3;
-    let myHits01 = 0;
-    let enemyImages = [
-    'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
-    'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',  
-    'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'   
-       ];
-    
-   function myEnemySpawn(xPosition, yPosition) {
-    let newEnemy = document.createElement('img');
-    newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];  
-    newEnemy.style.position = 'absolute';
-    newEnemy.style.left = `${xPosition}px`;
-    newEnemy.style.top = `${yPosition}px`;
-    newEnemy.style.width = '100px';
-    newEnemy.style.height = '80px';
-    
-    myEnemies.push(newEnemy);
-    document.body.appendChild(newEnemy);
-   }
-    for (let i = 0; i < myWave * 3; i++) {
-        let myXPosition = Math.random() * window.innerWidth;
-        let myYPosition = Math.random() * window.innerHeight;
-        myEnemySpawn(myXPosition, myYPosition);
-    }
-}
-
-function myNewWave01() {
-    if (myHits >= myRequiredHits) {
-        alert(`You completed Wave ${myWave}!`);
-        myWave++;  
-        myEnemyReset();  
-        myWaveStart();
-    }
-}
-
-function myWaveStart() {
-    myHits = 0; 
-    let myRequiredHits = myWave * 3;
-    for (let i = 0; i < myWave * 3; i++) {
-        let myXPosition = Math.random() * window.innerWidth;
-        let myYPosition = Math.random() * window.innerHeight;
-        myEnemySpawn(myXPosition, myYPosition);
-    }
-}
-
-function myNewWave01() {
-    if (myHits >= myRequiredHits) {
-        alert(`You completed Wave ${myWave}!`);
-        myWave++;  
-        myEnemyReset();  
-        myWaveStart();
-    }
-}
-
-function myEnemyReset() {
-    myEnemies.forEach(enemy => {
-        enemy.style.display = 'none';
-    });
-    myEnemies = []; 
-}
-</script>
 
 
 
