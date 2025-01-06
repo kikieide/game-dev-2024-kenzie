@@ -189,33 +189,43 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
     let myWave = 1;
     let myHits = 3;
     let myHits01 = 0;
-    function myEnemySpawn() {
-        let myEnemyID = 'myImg02' + 'myImg03' + 'myImg01' + (myEnemies.length + 5);
-    myEnemies.style.left = `${xPosition}px`;
-    myEnemies.style.top = `${yPosition}px`;
-    myEnemies.id = myEnemyID;   
-    }
+    let enemyImages = [
+    'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
+    'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',  
+    'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'   
+       ];
+   function myEnemySpawn(xPosition, yPosition) {
+    let newEnemy = document.createElement('img');
+    newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];  
+    newEnemy.style.position = 'absolute';
+    newEnemy.style.left = `${xPosition}px`;
+    newEnemy.style.top = `${yPosition}px`;
+    newEnemy.style.width = '100px';
+    newEnemy.style.height = '80px';
+    document.body.appendChild(newEnemy);
+}
     function myWaveStart() {
-        myHits = 0
-        myRequiredHits = myWave * 3
-        for (let i = 0; i < myWave * 3; i++) {
-        spawnEnemy();
-        }
+    myHits = 0;
+    let myRequiredHits = myWave * 3;  
+    for (let i = 0; i < myWave * 3; i++) {
+        let myXPosition = Math.random() * window.innerWidth;
+        let myYPosition = Math.random() * window.innerHeight;
+        myEnemySpawn(myXPosition, myYPosition);
+    }
+}
      function myNewWave01() {  
-    if (myHits >= myHits01) {
+    if (myHits >= myRequiredHits) {
         alert(`You completed Wave ${myWave}!`);
-       myWave += 1;  
+        myWave++;  
+        myEnemyReset();  
+        myWaveStart();
     }
-    myEnemyReset(); 
-    }
-        function myEnemyReset() {
-    myEnemies.forEach(myEnemies => {
-        myEnemies.style.display = 'none';
+     }
+    function myEnemyReset() {
+    myEnemies.forEach(enemy => {
+    enemy.style.display = 'none';  
     });
-    myEnemies = [];  
-        }
-    }
-    myWaveStart();
+    myEnemies = [];
 </script>
 
 
@@ -233,8 +243,8 @@ let wall = new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com
      if (event.key == 'w') {  
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
    }  
-    if (event.key == 'a') {   // s = go down
-      document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
+    if (event.key == 'a') {
+        document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
    }  
 
 
@@ -331,7 +341,7 @@ if(myShooting ==1) {
 
 
 <img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
-<img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif"  style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
+<img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left:350px; top:190px;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="position:absolute; width:100px; height:80px; left:500px; top:190px;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="position:absolute; width:100px; height:80px; left:500px; top:400px;">
 
