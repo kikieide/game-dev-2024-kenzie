@@ -167,20 +167,23 @@ function myCheckHit(){
             document.getElementById('title-page').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
         }
-     class myWall {
+    class myWall {
     constructor(x, y, width, height, src) {
         this.myX = x;
         this.myY = y;
         this.myWidth = width;
         this.myHeight = height;
-        this.element = document.createElement('wall');
+
+        this.element = document.createElement('img');
+        
         this.element.src = src;
         this.element.style.position = 'absolute';
         this.element.style.left = `${this.myX}px`;
         this.element.style.top = `${this.myY}px`;
         this.element.style.width = `${this.myWidth}px`;
         this.element.style.height = `${this.myHeight}px`;
-        document.body.appendChild(wall);
+
+        document.body.appendChild(this.element);
     }
 }
 
@@ -303,7 +306,7 @@ if(myShooting ==1) {
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="position:absolute; width:100px; height:80px; left:500px; top:400px;">
 
 
-<img id="myBullet01" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 130px; top:190px;">
-<img id="myBullet02" src="myImgNew.jpg"  style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
+<img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:10px; height:10px; left: 130px; top:190px;">
+<img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:10px; height:10px; left: 150px; top:190px;">
 
 </div>
