@@ -123,26 +123,30 @@ html, body {
 
    
    function myEnemySpawn(xPosition, yPosition) {
+       function myEnemySpawn(xPosition, yPosition) {
+    if (myEnemies.length >= 3) {
+        let oldestEnemy = myEnemies.shift();
+        document.body.removeChild(oldestEnemy);
+    }
       let newEnemy = document.createElement('img');
-      newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
-      newEnemy.style.position = 'absolute';
-      newEnemy.style.left = `${xPosition}px`;
-      newEnemy.style.top = `${yPosition}px`;
-      newEnemy.style.width = '100px';
-      newEnemy.style.height = '80px';
+    newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+    newEnemy.style.position = 'absolute';
+    newEnemy.style.left = `${xPosition}px`;
+    newEnemy.style.top = `${yPosition}px`;
+    newEnemy.style.width = '100px';
+    newEnemy.style.height = '80px';
 
-      myEnemies.push(newEnemy);
-      document.body.appendChild(newEnemy);
+    myEnemies.push(newEnemy);
+    document.body.appendChild(newEnemy);
    }
 
-
    function myWaveStart() {
-     let myRequiredHits = myWave * 3;
+    let myRequiredHits = myWave * 3;
     for (let i = 0; i < myRequiredHits; i++) {
         let myXPosition = Math.random() * window.innerWidth;
         let myYPosition = Math.random() * window.innerHeight;
         myEnemySpawn(myXPosition, myYPosition);
-      }
+    }
    }
     
    function myNewWave01() {
