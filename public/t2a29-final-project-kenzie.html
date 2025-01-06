@@ -28,14 +28,12 @@ html, body {
     
 .title-page {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: url('my.jpg') no-repeat;
+    background: url('my.jpg') no-repeat center center; 
     color: white;
     text-align: center;
-    padding: 5px;
 }
 
 
@@ -60,8 +58,9 @@ p {
     transition: background-color 0.3s ease;
 }
 .main-content {
-    text-align: center;
+    display: none;
     padding: 20px;
+    text-align: center;
 }
     
 canvas {
@@ -214,14 +213,11 @@ display: block;
     
 </script>
 
-     <div id="title-page" class="title-page">
-    <div class="buttons">
-          <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
-    </div>
-    </div>
-
-
-
+    <div id="title-page" class="title-page">
+  <div class="buttons">
+    <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
+  </div>
+</div>
 
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
