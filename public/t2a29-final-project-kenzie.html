@@ -149,21 +149,21 @@ function myCheckHit(){
    }
 
 }
+    function showMainContent() {
+    document.getElementById('title-page').style.display = 'none';
+    document.getElementById('main-content').style.display = 'block';
+}
+
 
 </script>
 
      <div id="title-page" class="title-page">
         <div class="buttons">
-           <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
+            <input type="button" id="enter-button" value="Begin" onclick="showMainContent()">
         </div>
     </div>
 
 <script>
-   function showMainContent() {
-    document.getElementById('title-page').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
-}
-
    class myWall {
     constructor(x, y, width, height, src) {
         this.myX = x;
