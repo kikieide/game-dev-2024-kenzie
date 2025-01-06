@@ -256,6 +256,10 @@ if (myShooting == 2){
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+       if (bulletLeft > window.innerWidth) {
+      clearInterval(myGun01);
+      bullet.style.left = '-200px'; 
+    }
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
@@ -270,7 +274,11 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px
+         if (bulletLeft > window.innerWidth) {
+      clearInterval(myGun01);
+      bullet.style.left = '-200px'; 
+    }
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
