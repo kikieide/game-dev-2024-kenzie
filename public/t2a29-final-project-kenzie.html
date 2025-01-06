@@ -79,62 +79,63 @@ canvas {
    
 
    // Check hits function
-   function myCheckHit() {
-      document.all.myText01.value = myScore; // show the current score
- 
-    
-      if (myHitOther('myImg01', 'myImg02')) {
-         document.getElementById('myImg01').style.left = '20px';
-         document.all.myText01.value = 'You hit myImg02';
-         myScore -= 1;
-      }
+ function myCheckHit() {
+    document.all.myText01.value = myScore; // show the current score
 
-      if (myHitOther('myImg01', 'myImg03')) {
-         document.getElementById('myImg01').style.left = '20px';
-         document.all.myText01.value = 'You hit myImg03';
-         myScore -= 1;
-      }
+    if (myHitOther('myImg01', 'myImg02')) {
+        document.getElementById('myImg01').style.left = '20px';
+        document.all.myText01.value = 'You hit myImg02';
+        myScore -= 1;
+    }
 
-     
-        if (myHitOther('myBullet01', 'myImg04')) {
-         clearInterval(myGun01);
-         document.getElementById('myBullet01').style.left = '-200px';
-         document.all.myText01.value = 'You shot myImg04';
-         myScore += 1;
-          myHits += 1;
-      }
- if (myHitOther('myBullet01', 'myImg02')) {
-         clearInterval(myGun01);
-         document.getElementById('myBullet01').style.left = '-200px';
-         document.all.myText01.value = 'You shot myImg02';
-         myScore += 1;
-          myHits += 1;
- }
-      if (myHitOther('myBullet02', 'myImg03')) {
-         clearInterval(myGun02);
-         document.getElementById('myBullet02').style.left = '-200px';
-         document.all.myText01.value = 'You shot myImg03';
-         myScore += 1;
-          myHits += 1;
-      }
+    if (myHitOther('myImg01', 'myImg03')) {
+        document.getElementById('myImg01').style.left = '20px';
+        document.all.myText01.value = 'You hit myImg03';
+        myScore -= 1;
+    }
 
-      // End the game if score is zero
-      if (myScore <= 0) {
-         document.all.myText01.value = 'You Lose, score at zero!';
-         alert('Sorry, you lose');
-         location.reload();
-      }
+    if (myHitOther('myBullet01', 'myImg04')) {
+        clearInterval(myGun01);
+        document.getElementById('myBullet01').style.left = '-200px';
+        document.all.myText01.value = 'You shot myImg04';
+        myScore += 1;
+        myHits += 1;
+    }
 
-      // Move to next level
-      if (myHitOther('myImg01', 'myImg04')) {
-         document.all.myText01.value = 'You hit myImg04 and you win the game!';
-         alert('You Win, now go to the next level');
-         document.getElementById('myImg01').style.left = '20px';
-         location = 'https://www.google.ca';
-      }
-   if (myHits >= myWave * 3) {
-      myNewWave01();
-   }
+    if (myHitOther('myBullet01', 'myImg02')) {
+        clearInterval(myGun01);
+        document.getElementById('myBullet01').style.left = '-200px';
+        document.all.myText01.value = 'You shot myImg02';
+        myScore += 1;
+        myHits += 1;
+    }
+
+    if (myHitOther('myBullet02', 'myImg03')) {
+        clearInterval(myGun02);
+        document.getElementById('myBullet02').style.left = '-200px';
+        document.all.myText01.value = 'You shot myImg03';
+        myScore += 1;
+        myHits += 1;
+    }
+
+    // End the game if score is zero
+    if (myScore <= 0) {
+        document.all.myText01.value = 'You Lose, score at zero!';
+        alert('Sorry, you lose');
+        location.reload();
+    }
+
+    // Move to next level
+    if (myHitOther('myImg01', 'myImg04')) {
+        document.all.myText01.value = 'You hit myImg04 and you win the game!';
+        alert('You Win, now go to the next level');
+        document.getElementById('myImg01').style.left = '20px';
+        location = 'https://www.google.ca';
+    }
+
+    if (myHits >= myWave * 3) {
+        myNewWave01();
+    }
 }
 
        function myEnemySpawn(xPosition, yPosition) {
@@ -210,11 +211,10 @@ canvas {
     let playerTop = parseInt(player.style.top);
 
 document.onkeydown = function(event) {
-    let player = document.getElementById('myImg01');
+     let player = document.getElementById('myImg01');
     let playerLeft = parseInt(player.style.left);
     let playerTop = parseInt(player.style.top);
 
- 
     if (event.key === 'd') {
         player.style.left = playerLeft + 10 + 'px';
     }
@@ -228,8 +228,8 @@ document.onkeydown = function(event) {
         player.style.left = playerLeft - 10 + 'px';
     }
 
-
-  myCheckHit()   
+    myCheckHit(); 
+};
 }">
     
     <script>
@@ -312,9 +312,16 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
     }">
 
     
-<input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
-    function shootBullet() 
-  function checkBulletWallCollisions() {
+<input type="button" id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+    shootBullet();
+    moveBullets();
+}">
+    <script>
+  function shootBullet() {
+    // Function body for shooting bullet logic.
+}
+
+function checkBulletWallCollisions() {
     let bullet1 = document.getElementById('myBullet01');
     let bullet2 = document.getElementById('myBullet02');
 
@@ -323,14 +330,15 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
         bullet1.style.left = '-200px'; // Move bullet out of view
         document.all.myText01.value = 'Bullet collided with a wall!';
     }
-    
+
     // Checking collision for Bullet 2
     if (wall1.isCollidingWith(bullet2) || wall2.isCollidingWith(bullet2)) {
         bullet2.style.left = '-200px'; // Move bullet out of view
         document.all.myText01.value = 'Bullet collided with a wall!';
     }
-  }
-  function moveBullets() {
+}
+
+function moveBullets() {
     let bullet1 = document.getElementById('myBullet01');
     let bullet2 = document.getElementById('myBullet02');
     
@@ -353,6 +361,7 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
 // Call moveBullets in an interval to update bullet positions
 setInterval(moveBullets, 20);
 }"><br><br>
+    </script>
 </div>
 
 
