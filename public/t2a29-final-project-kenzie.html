@@ -212,15 +212,19 @@ html, body {
 }">
     
  <script>
-    class myWall {
-        constructor(x, y, width, height, src) {
-            this.element = document.createElement('img'); 
-            this.element.src = src; 
-            this.element.style = `position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px`; 
-            document.body.appendChild(this.element); 
-        }
-        new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif'),
-        new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif')
+    <script>
+        class myWall {
+    constructor(x, y, width, height, src) {
+        this.element = document.createElement('img');
+        this.element.src = src;
+        this.element.style = position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px;
+        document.body.appendChild(this.element);
+    }
+}
+
+new myWall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+    </script>
 
 </script>
   
