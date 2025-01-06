@@ -61,15 +61,16 @@ canvas {
     let obj1 = document.getElementById(my1);
     let obj2 = document.getElementById(my2);
     let left1 = parseInt(obj1.style.left);
-    let right1 = left1 + parseInt(obj1.style.width);
-    let top1 = parseInt(obj1.style.top);
-    let bottom1 = top1 + parseInt(obj1.style.height);
-    let left2 = parseInt(obj2.style.left);
-    let right2 = left2 + parseInt(obj2.style.width);
-    let top2 = parseInt(obj2.style.top);
-    let bottom2 = top2 + parseInt(obj2.style.height);
+   let right1 = left1 + parseInt(obj1.style.width);
+   let top1 = parseInt(obj1.style.top);
+   let bottom1 = top1 + parseInt(obj1.style.height);
+   
+   let left2 = parseInt(obj2.style.left);
+   let right2 = left2 + parseInt(obj2.style.width);
+   let top2 = parseInt(obj2.style.top);
+   let bottom2 = top2 + parseInt(obj2.style.height);
 
-    return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
+   return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
 }
    
 
@@ -224,18 +225,22 @@ canvas {
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
    document.all.myText01.value = event.key
 
+     let player = document.getElementById('myImg01');
+   let playerLeft = parseInt(player.style.left);
+   let playerTop = parseInt(player.style.top);
+    
    if (event.key == 'd' ) {  // d = go right
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
+           player.style.left = playerLeft + 10 + 'px';
    }   
 
    if (event.key == 's' ) {   // s = go down
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
+      player.style.left = playerTop + 10 + 'px';
    }  
      if (event.key == 'w') {  
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
+      player.style.left = playerTop - 10 + 'px';
    }  
     if (event.key == 'a') {
-        document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
+      player.style.left = playerLeft - 10 + 'px';
    }  
 
 
@@ -243,22 +248,30 @@ canvas {
 }">
     
     <script>
-        class myWall {
-    constructor(x, y, width, height, src) {
-        this.element = document.createElement('img');
-        this.element.src = src;
-        this.element.style = position: absolute; left: ${x}px; top: ${y}px; width: ${width}px; height: ${height}px;
-        document.body.appendChild(this.element);
-    }
-}
-          isCollidingWith(other) {
-        return (
-            this.x < other.x + other.width &&
-            this.x + this.width > other.x &&
-            this.y < other.y + other.height &&
-            this.y + this.height > other.y
-        );
-    }
+      class Wall {
+   constructor(x, y, width, height, src) {
+       this.x = x;
+       this.y = y;
+       this.width = width;
+       this.height = height;
+       this.element = document.createElement('img');
+       this.element.src = src;
+       this.element.style.position = 'absolute';
+       this.element.style.left = `${x}px`;
+       this.element.style.top = `${y}px`;
+       this.element.style.width = `${width}px`;
+       this.element.style.height = `${height}px`;
+       document.body.appendChild(this.element);
+   }
+
+   isCollidingWith(other) {
+       let otherX = parseInt(other.style.left);
+       let otherY = parseInt(other.style.top);
+       let otherWidth = parseInt(other.style.width);
+       let otherHeight = parseInt(other.style.height);
+
+       return !(this.x + this.width < otherX || this.x > otherX + otherWidth ||
+                this.y + this.height < otherY || this.y > otherY + otherHeight);
 }
            if (box.isCollidingWith(myImg01, myImg02, myImg03, myImg04)) {
           document.all.myText01.value('collision');
@@ -321,43 +334,42 @@ let wall2 = new MyWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.c
 
     
 <input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
-    if (myShooting > 2 ){myShooting = 1}
+    function shootBullet() {
+   if (myShooting > 2) { myShooting = 1; }
 
+   if (myShooting == 1) {
+      myShooting += 1;
+      let bullet = document.getElementById('myBullet01');
+      bullet.style.left = document.getElementById('myImg01').style.left;
+      bullet.style.top = document.getElementById('myImg01').style.top;
+      clearInterval(myGun01);
+      myGun01 = setInterval(function() {
+         bullet.style.left = parseInt(bullet.style.left) + 10 + 'px';
+         myCheckHit();  
+      }, 20);  // Speed of bullet
+   } else if (myShooting == 2) {
+      myShooting += 1;
+      let bullet = document.getElementById('myBullet02');
+      bullet.style.left = document.getElementById('myImg01').style.left;
+      bullet.style.top = document.getElementById('myImg01').style.top;
+      clearInterval(myGun02);
+      myGun02 = setInterval(function() {
+         bullet.style.left = parseInt(bullet.style.left) + 10 + 'px';
+         myCheckHit(); 
+      }, 20);  // Speed of bullet
+   }
 
+   document.getElementById('myText01').value = 'Reloading...';
+   document.getElementById('myShoot01').disabled = true;
 
-
-  // Bullet Number 2
-if (myShooting == 2){
-  myShooting += 1
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
-     myCheckHit() 
-  }, 20)   // speed of bullet faster lower number
-    
-document.getElementById('myText01').value = 'Reloading...';
-    document.getElementById('myShoot01').disabled = true;
-
-    setTimeout(function() {
+   setTimeout(function() {
       document.getElementById('myText01').value = 'Ready';
       document.getElementById('myShoot01').disabled = false;
       myShooting = 1;
-    }, 3000); 
+   }, 3000);
 }
-  // Bullet Number 1
-if (myShooting == 1){
-  myShooting += 1
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
-  clearInterval(myGun01)
-  myGun01 = setInterval(function(){
-    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
-     myCheckHit() 
-  }, 20)   // speed of bullet faster lower number
-    
-  }
+
+document.getElementById('myShoot01').addEventListener('click', shootBullet);
 }"><br><br>
 </div>
 
