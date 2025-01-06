@@ -201,8 +201,7 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
     
 <div id="myUi" class="myUi">
     <b>Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
-     <table>
-  <tr><td><input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
+<input id="myText01" type=text value="" size=50 placeholder="Feedback here"><br>  
     <input type=button value="Auto Background Left" onclick="{
   clearInterval(myClock)
   let myTemp = '100px 0px'
@@ -210,7 +209,7 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
       myGlobalX -= 5
       myTemp =  myGlobalX + 'px 0px'
       document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)}"></td><td>
+  }, 100)}">
       <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
@@ -220,13 +219,13 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
           setTimeout(function() {
             img.src = myImg; 
           }, 100);
-    }"></td>
+    }">
 
 
 
 
                 
-<td><input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
     let img1 = document.getElementById('myImg01');
@@ -235,10 +234,10 @@ new myWall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f
           setTimeout(function() {
             img.src1 = myImg2;
           }, 100);
-    }"></td>
+    }">
 
     
-<td><input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<input type=button id="myShoot01" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
     if (myShooting > 2 ){myShooting = 1}
 
 
@@ -251,7 +250,7 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
@@ -266,7 +265,7 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px
+    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
      myCheckHit() 
   }, 20)   // speed of bullet faster lower number
 }
@@ -281,8 +280,7 @@ if (myShooting == 1) {
       myShooting = 1;
    }, 3000);
 }
-}"><br><br></td></tr>
-     </table>
+}"><br><br>
 </div>
 
 
