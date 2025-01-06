@@ -30,6 +30,9 @@ html, body {
    </style>
    
 <script>
+     window.onload = function() {
+        myWaveStart();
+     }
    // global variables
    let myGlobalX = 0;
    let myClock;
@@ -65,7 +68,8 @@ html, body {
    // Check hits function
    function myCheckHit() {
       document.all.myText01.value = myScore; // show the current score
-
+ 
+    
       if (myHitOther('myImg01', 'myImg02')) {
          document.getElementById('myImg01').style.left = '20px';
          document.all.myText01.value = 'You hit myImg02';
@@ -179,8 +183,7 @@ html, body {
     }
   myEnemies = [];
    }
-    window.onload = function() {
-        myWaveStart();
+
 </script>
 
 
