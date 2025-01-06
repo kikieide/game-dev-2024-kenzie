@@ -140,27 +140,26 @@ display: block;
 
 
    function myWaveStart() {
-      let myRequiredHits = myWave * 3;
-        for (let i = 0; i < myRequiredHits; i++) {
-      let myXPosition = Math.random() * window.innerWidth;
-      let myYPosition = Math.random() * window.innerHeight;
-      myEnemySpawn(myXPosition, myYPosition);
+     let myRequiredHits = myWave * 3;
+    for (let i = 0; i < myRequiredHits; i++) {
+        let myXPosition = Math.random() * window.innerWidth;
+        let myYPosition = Math.random() * window.innerHeight;
+        myEnemySpawn(myXPosition, myYPosition);
       }
    }
     
    function myNewWave01() {
-    if (myHits >= myWave * 3) {
-        alert(`You completed Wave ${myWave}!`);
         myWave++; 
         myEnemyReset(); 
         myWaveStart();  
-    }
+    
    }
    function myEnemyReset() {
-      myEnemies.forEach(enemy => {
-        enemy.style.display = 'none';
-      });
-       myEnemies = [];
+    for (let i = 0; i < myEnemies.length; i++) {
+        let enemy = myEnemies[i];
+        enemy.style.display = 'none'; 
+    }
+  myEnemies = [];
    }
     
 </script>
