@@ -117,13 +117,6 @@ html, body {
       location.reload(); // Restart the game
     }
 
-    // Check if player wins the game
-    if (myHitOther('myImg01', 'myImg04')) {
-      document.all.myText01.value = 'You hit myImg04 and you win the game!';
-      alert('You Win, now go to the next level');
-      document.getElementById('myImg01').style.left = '20px'; // Reset player position
-      location = 'https://www.google.ca';
-    }
 
     // Start a new wave if the required hits are reached
     if (myHits >= myWave * 3) {
