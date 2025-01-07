@@ -67,7 +67,7 @@ html, body {
     return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
   }
 
- function myCheckHit() {
+function myCheckHit() {
   // Update the score display
   document.all.myText01.value = myScore;
 
@@ -111,20 +111,21 @@ html, body {
     myHits += 1;  // Increase hit counter
   }
 
-  // Check if the wave should progress after hitting enough enemies
-  if (myHits >= myWave * 3) {
-    myNewWave01();  // Start a new wave when enough enemies are hit
-  }
 
-  // End the game if the score is zero
   if (myScore <= 0) {
     document.all.myText01.value = 'You Lose, score at zero!';
     alert('Sorry, you lose');
-    location.reload();  // Restart the game
+    location.reload();  
   }
 }
 
-// Function to spawn a new enemy at random positions
+
+function checkWaveProgression() {
+  if (myHits >= myWave * 3) {
+    myNewWave01();  
+  }
+}
+
 function myEnemySpawn(xPosition, yPosition) {
   if (myEnemies.length >= 3) {
     let oldestEnemy = myEnemies.shift();
