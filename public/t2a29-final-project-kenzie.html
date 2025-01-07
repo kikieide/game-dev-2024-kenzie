@@ -68,8 +68,10 @@ html, body {
   }
 
 function myCheckHit() {
+  // Update the score display
   document.all.myText01.value = myScore;
 
+  // Check if the player hits any enemies
   if (myHitOther('myImg01', 'myImg02')) {
     document.getElementById('myImg01').style.left = '20px';
     document.all.myText01.value = 'You hit myImg02';
@@ -84,13 +86,13 @@ function myCheckHit() {
     myHits += 1;  // Increase hit counter
   }
 
-  
+  // Check if the player's bullets hit any enemies
   if (myHitOther('myBullet01', 'myImg04')) {
     clearInterval(myGun01);
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg04';
     myScore += 1;
-    myHits += 1;  
+    myHits += 1;  // Increase hit counter
   }
 
   if (myHitOther('myBullet01', 'myImg02')) {
@@ -98,7 +100,7 @@ function myCheckHit() {
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg02';
     myScore += 1;
-    myHits += 1;  
+    myHits += 1;  // Increase hit counter
   }
 
   if (myHitOther('myBullet02', 'myImg03')) {
@@ -106,7 +108,7 @@ function myCheckHit() {
     document.getElementById('myBullet02').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg03';
     myScore += 1;
-    myHits += 1;  
+    myHits += 1;  // Increase hit counter
   }
 
 
@@ -127,15 +129,15 @@ function checkWaveProgression() {
 function myEnemySpawn(xPosition, yPosition) {
   if (myEnemies.length >= 3) {
     let oldestEnemy = myEnemies.shift();
-    document.body.removeChild(oldestEnemy);  
+    document.body.removeChild(oldestEnemy);  // Remove the oldest enemy from the screen
   }
 
   // Create a new enemy and set its properties
   let newEnemy = document.createElement('img');
   newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
   newEnemy.style.position = 'absolute';
-  newEnemy.style.left = `${xPosition}px`;
-  newEnemy.style.top = `${yPosition}px`;
+  newEnemy.style.left = ${xPosition}px;
+  newEnemy.style.top = ${yPosition}px;
   newEnemy.style.width = '140px';
   newEnemy.style.height = '130px';
   newEnemy.id = myImg0${enemyCount}_${randomIndex + 1};
@@ -145,9 +147,9 @@ function myEnemySpawn(xPosition, yPosition) {
   document.body.appendChild(newEnemy);
 }
 
-
+// Function to start a new wave of enemies
 function myWaveStart() {
-  let myRequiredHits = myWave * 3; 
+  let myRequiredHits = myWave * 3;  // The number of enemies to spawn based on the current wave
   for (let i = 0; i < myRequiredHits; i++) {
     let myXPosition = Math.random() * window.innerWidth;
     let myYPosition = Math.random() * window.innerHeight;
@@ -155,13 +157,14 @@ function myWaveStart() {
   }
 }
 
+// Function to progress to the next wave
 function myNewWave01() {
-  if (myHits >= myWave * 3) {  
-    if (myWave < 4) {  
+  if (myHits >= myWave * 3) {  // Ensure that 3 enemies are hit before progressing
+    if (myWave < 4) {  // Limit the waves to 3
       switch (myWave) {
         case 1:
           myEnemyReset();
-          setInterval(() => myEnemySpawn(100, 100), 2000);  
+          setInterval(() => myEnemySpawn(100, 100), 2000);  // Spawn enemies with different speeds
           document.all.myText01.value = Wave ${myWave}: Easy enemies!;
           break;
         case 2:
@@ -175,7 +178,7 @@ function myNewWave01() {
           document.all.myText01.value = Wave ${myWave}: Very fast enemies!;
           break;
       }
-      myWave++;  
+      myWave++;  // Increase the wave count after it progresses
     } else {
       document.all.myText01.value = 'Maximum waves reached! You won the game!';
       alert('Maximum waves reached! You win!');
@@ -183,55 +186,37 @@ function myNewWave01() {
   }
 }
 
-
+// Function to reset the enemies when a new wave starts
 function myEnemyReset() {
   for (let i = 0; i < myEnemies.length; i++) {
     let enemy = myEnemies[i];
-    document.body.removeChild(enemy); 
+    document.body.removeChild(enemy);  // Remove enemies from the screen
   }
-  myEnemies = [];  
+  myEnemies = [];  // Clear the array of enemies
 }
 </script>
 
 
 
-<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;" onkeydown="{
-    myPlayer.element = document.getElementById('myImg01');
+<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"  onkeydown="{
 
-      // Handle key press to move player
-      if (event.key === 'd') {
-        leftPosition += myPlayer.speed;  // Move right
-      } else if (event.key === 'a') {
-        leftPosition -= myPlayer.speed;  // Move left
-      } else if (event.key === 's') {
-        topPosition += myPlayer.speed;  // Move down
-      } else if (event.key === 'w') {
-        topPosition -= myPlayer.speed;  // Move up
-      }
+   document.all.myText01.value = event.key
 
-      // Check for collisions with walls
-      if (!isColliding(leftPosition, topPosition, myPlayer.width, myPlayer.height, wall1) &&
-          !isColliding(leftPosition, topPosition, myPlayer.width, myPlayer.height, wall2)) {
-        // If no collision, update player's position
-        myPlayer.element.style.left = leftPosition + 'px';
-        myPlayer.element.style.top = topPosition + 'px';
-      }
-    });
+   if (event.key == 'd') {  // d = go right
+     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
+   }   
 
-    // Function to check if the player collides with any walls
-    function isColliding(playerX, playerY, playerWidth, playerHeight, wall) {
-      let wallX = parseInt(wall.style.left, 10);
-      let wallY = parseInt(wall.style.top, 10);
-      let wallWidth = wall.offsetWidth;
-      let wallHeight = wall.offsetHeight;
+   if (event.key == 's') {   // s = go down
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
+   }  
 
-      // Check if the player intersects with the wall
-      return playerX < wallX + wallWidth &&
-             playerX + playerWidth > wallX &&
-             playerY < wallY + wallHeight &&
-             playerY + playerHeight > wallY;
-    }
+ 
+
+
+
+  myCheckHit()     
 }">
+    
     <script>
   class Wall {
   constructor(x, y, width, height, src) {
@@ -248,33 +233,32 @@ function myEnemyReset() {
     this.element.style.height = ${height}px; 
     document.body.appendChild(this.element); 
   }
-  }
-let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
- let myPlayer = {
-  x: 50, 
-  y: 50, 
-  width: 100, 
-  height: 90, 
-  speed: 5,
-  element: document.getElementById('myImg01') 
-};
-  isCollidingWith(myPlayer) {
-   
-    myCheckHit(myPlayer, wall1, wall2) {
-            return player.x < wall.x + wall.width &&
-                player.x + player.width > wall.x &&
-                player.y < wall.y + wall.height &&
-                player.y + player.height > wall.y;
-        }
+
+  // Function to check if the wall is colliding with the player
+  isCollidingWith(player) {
+    // Get the player's position and size
+    let playerX = parseInt(player.style.left, 10);
+    let playerY = parseInt(player.style.top, 10);
+    let playerWidth = parseInt(player.style.width, 10);
+    let playerHeight = parseInt(player.style.height, 10);
+
+    // Check if the player and the wall overlap (collision check)
+    return !(this.x + this.width < playerX || 
+             this.x > playerX + playerWidth ||
+             this.y + this.height < playerY || 
+             this.y > playerY + playerHeight);
   }
 }
 
+let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 </script>
   
         
 <div id="myUi" class="myUi">
-    <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies to clear the waves.</b>
+    <h2>Wave 1: <span id="waveEnemiesLeft">5</span> Left</h2>
+    <progress id="waveBar" value="0" max="5"></progress>
+    <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
 <input id="myText01" type=text style="font-atyle: bold" value="" size=50 placeholder="Feedback here"><br>  
     
     <input type=button value="Auto Background Left" onclick="{
@@ -288,49 +272,56 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
         
       <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-  myCheckHit();    // checks for all collisions
+  myCheckHit()     // checks for all collisions
+ let img = document.getElementById('myImg01');
+       let myImg = img.src;
+    img.src = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
+          setTimeout(function() {
+            img.src = myImg; 
+          }, 100);
     }">
                 
 <input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
-  myCheckHit();  // checks for all collisions
+  myCheckHit()     // checks for all collisions
+    let img1 = document.getElementById('myImg01');
+        let myImg2 = img.src1;
+     img.src1 = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
+          setTimeout(function() {
+            img.src1 = myImg2;
+          }, 100);
     }">
 
     
 <input type="button" value="shoot" onclick="{
- if (myShooting == 1) {
+  if (myShooting > 2) { myShooting = 1; }
+
+  if (myShooting == 2) {
     myShooting += 1;
-
-    // Set bullet starting position based on player position without affecting the player
-    document.getElementById('myBullet01').style.left = (playerLeft + 10) + 'px';  
-    document.getElementById('myBullet01').style.top = playerTop + 'px'; 
-
-    // Stop any previous intervals and move the bullet
-    clearInterval(myGun01);  
-    myGun01 = setInterval(function() {
-        // Move bullet to the right
-        document.getElementById('myBullet01').style.left = (parseInt(document.getElementById('myBullet01').style.left) + 10) + 'px';
-        myCheckHit();  // Check for hits
-    }, 20);  // Bullet speed
-}
-
-if (myShooting == 2) {
-    myShooting += 1;
-
-    document.getElementById('myBullet02').style.left = (playerLeft + 10) + 'px'; 
-    document.getElementById('myBullet02').style.top = playerTop + 'px';  
-
+    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
+    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
     clearInterval(myGun02);
     myGun02 = setInterval(function() {
-        document.getElementById('myBullet02').style.left = (parseInt(document.getElementById('myBullet02').style.left) + 10) + 'px';
-        myCheckHit();  // Check for hits
-    }, 20);
-}
+      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
+      myCheckHit(); // Check hits after shooting
+    }, 20);  // Bullet speed (lower is faster)
+  }
+
+  if (myShooting == 1) {
+    myShooting += 1;
+    document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
+    document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
+    clearInterval(myGun01);
+    myGun01 = setInterval(function() {
+      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
+      myCheckHit(); // Check hits after shooting
+    }, 20);  // Bullet speed (lower is faster)
+  }
 }">
 </div>
 
 
-<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; left:350px; top:190px;">
+<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:90px; left:350px; top:190px;">
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
