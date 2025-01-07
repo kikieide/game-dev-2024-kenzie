@@ -26,9 +26,6 @@ html, body {
     padding: 20px;
     width: fit-content;
 }
-    body { margin: 0; }
-        canvas { display: block; background-color: #fff; }
-    }
    </style>
    
 <script>
@@ -201,106 +198,48 @@ function myEnemyReset() {
 
 
 
-<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat: repeat;">
+<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"  onkeydown="{
 
-     <canvas id="gameCanvas" width="800" height="600"></canvas>
+   document.all.myText01.value = event.key
+
+   if (event.key == 'd') {  // d = go right
+     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
+   }   
+
+   if (event.key == 's') {   // s = go down
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
+   }  
+
+   // put more here
+
+
+
+  myCheckHit()     // checks for all collisions
+}">
     
     <script>
-  // Get the canvas and context (2D drawing)
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas.getContext('2d');
-
-  // Player class: defines the player with position and image
-  class Player {
-    constructor(x, y, width, height, image) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-      this.image = image;  // Image for the player
-    }
-
-    move(dx, dy) {
-      this.x += dx;  // Move player left/right or up/down
-      this.y += dy;
-    }
-
-    draw() {
-      ctx.drawImage(this.image, this.x, this.y, this.width, this.height);  // Draw player on canvas
-    }
-
-    // Check if the player is touching any walls
-    checkCollision(walls) {
-      for (let wall of walls) {
-        if (this.x < wall.x + wall.width &&
-            this.x + this.width > wall.x &&
-            this.y < wall.y + wall.height &&
-            this.y + this.height > wall.y) {
-          return true; // Collision detected
-        }
-      }
-      return false; // No collision
-    }
-  }
-
-  // Wall class: defines the walls with position and size
   class Wall {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, imageSrc) {
       this.x = x;
       this.y = y;
       this.width = width;
       this.height = height;
-      this.color = 'blue';  // Color of the wall
+      this.imageSrc = imageSrc;
+
+      
+      this.element = document.createElement('img');
+      this.element.src = this.imageSrc;
+      this.element.style.position = 'absolute';
+      this.element.style.left = `${this.x}px`;
+      this.element.style.top = `${this.y}px`;
+      this.element.style.width = `${this.width}px`;
+      this.element.style.height = `${this.height}px`;
+
+      document.body.appendChild(this.element);
     }
-
-    draw() {
-      ctx.fillStyle = this.color;  // Set color
-      ctx.fillRect(this.x, this.y, this.width, this.height);  // Draw wall
-    }
-  }
-
-  // Create player and walls
-  const playerImage = new Image();
-  playerImage.src = 'https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif';
-  const player = new Player(100, 100, 50, 50, playerImage);
-
-  // Walls in the game
-  const walls = [
-    new Wall(300, 200, 100, 20),
-    new Wall(500, 400, 100, 20)
-  ];
-
-  const speed = 5;  // Speed of the player movement
-
-  // Main game loop
-  function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
-
-    // Draw walls and player on the canvas
-    walls.forEach(wall => wall.draw());
-    player.draw();
-
-    // Keep the game loop running
-    requestAnimationFrame(gameLoop);
-  }
-
-  // Handle key press and movement
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'a') {
-      player.move(-speed, 0);  // Move left
-    } else if (e.key === 'd') {
-      player.move(speed, 0);   // Move right
-    } else if (e.key === 'w') {
-      player.move(0, -speed);  // Move up
-    } else if (e.key === 's') {
-      player.move(0, speed);   // Move down
-    }
-  });
-
-  // Start the game when the player image is loaded
-  playerImage.onload = () => {
-    gameLoop();  // Start the game loop
-  };
+    } 
+        const wall1 = new Wall(200, 200, 200, 100, 'https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png');
+  const wall2 = new Wall(500, 300, 150, 150, 'https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png');
 </script>
   
         
@@ -370,7 +309,7 @@ function myEnemyReset() {
 </div>
 
 
-<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif">
+<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
