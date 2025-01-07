@@ -277,23 +277,11 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
       <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
   myCheckHit()     // checks for all collisions
- let img = document.getElementById('myImg01');
-       let myImg = img.src;
-    img.src = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
-          setTimeout(function() {
-            img.src = myImg; 
-          }, 100);
     }">
                 
 <input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
   myCheckHit()     // checks for all collisions
-    let img1 = document.getElementById('myImg01');
-        let myImg2 = img.src1;
-     img.src1 = 'https://piskel-imgstore-b.appspot.com/img/e802140c-c8c0-11ef-83a5-b92f8635db06.gif';
-          setTimeout(function() {
-            img.src1 = myImg2;
-          }, 100);
     }">
 
     
