@@ -28,9 +28,7 @@ html, body {
 }
    </style>
 
-
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"  onkeydown="{
-
+<body id="myBody" onkeydown="{
   document.onkeydown = function(event) {
     event.preventDefault();  
 
@@ -56,6 +54,7 @@ html, body {
 
     myCheckHit(); 
 };
+}
 }">
     
 
@@ -194,14 +193,14 @@ if (myShooting == 1){
 function myCheckHit() {
     document.all.myText01.value = myScore;
     
-    if (myHitOther(document.getElementById('myImg01' , 'myWall01')) {
+    if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall01'))) {
         document.getElementById('myImg01').style.left = '20px';
         document.all.myText01.value = 'You hit wall1';
         myScore -= 1;
         myHits += 1;
     }
 
-    if (myHitOther(document.getElementById('myImg01' , 'myWall02')) {
+    if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall02'))) {
         document.getElementById('myImg01').style.left = '20px';
         document.all.myText01.value = 'You hit wall2';
         myScore -= 1;
