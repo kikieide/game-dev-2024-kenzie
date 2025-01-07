@@ -273,15 +273,14 @@ function checkWaveProgression() {
   }
 }
 
-function myEnemySpawn(xPosition, yPosition) {
+function myEnemySpawn(xPosition, yPosition, enemyImage) {
     if (myEnemies.length >= 3) {
         let oldestEnemy = myEnemies.shift();
-        document.body.removeChild(oldestEnemy);  // Remove the oldest enemy
+        document.body.removeChild(oldestEnemy);
     }
 
-    // Create a new enemy
-    let newEnemy = document.createElement('img');
-    newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+ let newEnemy = document.createElement('img');
+    newEnemy.src = enemyImage;
     newEnemy.style.position = 'absolute';
     newEnemy.style.left = `${xPosition}px`;
     newEnemy.style.top = `${yPosition}px`;
@@ -289,16 +288,21 @@ function myEnemySpawn(xPosition, yPosition) {
     newEnemy.style.height = '130px';
     newEnemy.id = `myImg0${enemyCount + 1}`;
     enemyCount++;
-
     myEnemies.push(newEnemy);
-    document.body.appendChild(newEnemy);  // Add the new enemy to the screen
+    document.body.appendChild(newEnemy);  
 }
 function myWaveStart() {
-    let myRequiredHits = myWave * 3;  // Number of enemies based on wave
+    let enemyImages = [
+            'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
+            'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
+            'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
+        ];
     for (let i = 0; i < myRequiredHits; i++) {
+        let randomIndex = Math.floor(Math.random() * enemyImages.length);  // Randomly choose an enemy image
+        let enemyImage = enemyImages[randomIndex]; // Select the random image
         let myXPosition = Math.random() * window.innerWidth;
         let myYPosition = Math.random() * window.innerHeight;
-        myEnemySpawn(myXPosition, myYPosition);
+        myEnemySpawn(myXPosition, myYPosition, enemyImage);
     }
 }
 
