@@ -125,8 +125,8 @@ if (myShooting == 1){
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
-    <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 100px; height: 80px; left: 130px; top: 200px;">
-        <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 500px; height: 500px; left: 350px; top: 400px;">
+    <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 400px; height: 250px; left: 230px; top: 200px;">
+        <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 600px; height: 450px; left: 500px; top: 400px;">
 
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
@@ -247,7 +247,7 @@ function myEnemySpawn(xPosition, yPosition) {
   newEnemy.style.top = `${yPosition}px`;
   newEnemy.style.width = '140px';
   newEnemy.style.height = '130px';
-  newEnemy.id = `myImg0${enemyCount}_${randomIndex + 1}`;
+  newEnemy.id = `myImg0${enemyCount + 1}`;
   enemyCount++;
 
   myEnemies.push(newEnemy);
