@@ -286,31 +286,38 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 
     
 <input type="button" value="shoot" onclick="{
-  if (myShooting > 2) { myShooting = 1; }
+ if (myShooting > 2) { 
+    myShooting = 1; 
+}
 
-  if (myShooting == 1) {
+if (myShooting == 1) {
     myShooting += 1;
-    document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
+    let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
+    let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
+    
+    document.getElementById('myBullet01').style.left = (playerLeft + 10) + 'px';  
+    document.getElementById('myBullet01').style.top = playerTop + 'px'; 
 
     clearInterval(myGun01);  // Stop any previous intervals
     myGun01 = setInterval(function() {
-      document.getElementById('myBullet01').style.left = (parseInt(document.getElementById('myBullet01').style.left) + 10) + 'px';
-      myCheckHit();  // Check for hits
+        document.getElementById('myBullet01').style.left = (parseInt(document.getElementById('myBullet01').style.left) + 10) + 'px';
+        myCheckHit();  // Check for hits
     }, 20);  // Bullet speed
-  }
+}
 
-  if (myShooting == 2) {
+if (myShooting == 2) {
     myShooting += 1;
-    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
+    let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
+    let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
+    
+    document.getElementById('myBullet02').style.left = (playerLeft + 10) + 'px'; 
+    document.getElementById('myBullet02').style.top = playerTop + 'px';  
 
     clearInterval(myGun02);  // Stop any previous intervals
     myGun02 = setInterval(function() {
-      document.getElementById('myBullet02').style.left = (parseInt(document.getElementById('myBullet02').style.left) + 10) + 'px';
-      myCheckHit();  // Check for hits
+        document.getElementById('myBullet02').style.left = (parseInt(document.getElementById('myBullet02').style.left) + 10) + 'px';
+        myCheckHit();  // Check for hits
     }, 20);  // Bullet speed
-  }
 }">
 </div>
 
