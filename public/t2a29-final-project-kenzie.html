@@ -69,61 +69,61 @@ html, body {
   }
 
   // Function to check if the player or bullets hit enemies or obstacles
-  function myCheckHit() {
-    document.all.myText01.value = myScore;
+ function myCheckHit() {
+  document.all.myText01.value = myScore;
 
-    // Check if player hits any enemies
-    if (myHitOther('myImg01', 'myImg02')) {
-      document.getElementById('myImg01').style.left = '20px';
-      document.all.myText01.value = 'You hit myImg02';
-      myScore -= 1;
-    }
-
-    if (myHitOther('myImg01', 'myImg03')) {
-      document.getElementById('myImg01').style.left = '20px';
-      document.all.myText01.value = 'You hit myImg03';
-      myScore -= 1;
-    }
-
-    // Check if bullets hit any enemies
-    if (myHitOther('myBullet01', 'myImg04')) {
-      clearInterval(myGun01);
-      document.getElementById('myBullet01').style.left = '-200px';
-      document.all.myText01.value = 'You shot myImg04';
-      myScore += 1;
-      myHits += 1;
-    }
-
-    if (myHitOther('myBullet01', 'myImg02')) {
-      clearInterval(myGun01);
-      document.getElementById('myBullet01').style.left = '-200px';
-      document.all.myText01.value = 'You shot myImg02';
-      myScore += 1;
-      myHits += 1;
-    }
-
-    if (myHitOther('myBullet02', 'myImg03')) {
-      clearInterval(myGun02);
-      document.getElementById('myBullet02').style.left = '-200px';
-      document.all.myText01.value = 'You shot myImg03';
-      myScore += 1;
-      myHits += 1;
-    }
-
-    // End the game if score is zero
-    if (myScore <= 0) {
-      document.all.myText01.value = 'You Lose, score at zero!';
-      alert('Sorry, you lose');
-      location.reload(); // Restart the game
-    }
-
-
-    // Start a new wave if the required hits are reached
-    if (myHits >= myWave * 3) {
-      myNewWave01(); // Start new wave
-    }
+  // Check if player hits any enemies
+  if (myHitOther('myImg01', 'myImg02')) {
+    document.getElementById('myImg01').style.left = '20px';
+    document.all.myText01.value = 'You hit myImg02';
+    myScore -= 1;
+    myHits += 1;  // Increment hits
   }
 
+  if (myHitOther('myImg01', 'myImg03')) {
+    document.getElementById('myImg01').style.left = '20px';
+    document.all.myText01.value = 'You hit myImg03';
+    myScore -= 1;
+    myHits += 1;  // Increment hits
+  }
+
+  // Check if bullets hit any enemies
+  if (myHitOther('myBullet01', 'myImg04')) {
+    clearInterval(myGun01);
+    document.getElementById('myBullet01').style.left = '-200px';
+    document.all.myText01.value = 'You shot myImg04';
+    myScore += 1;
+    myHits += 1;  // Increment hits
+  }
+
+  if (myHitOther('myBullet01', 'myImg02')) {
+    clearInterval(myGun01);
+    document.getElementById('myBullet01').style.left = '-200px';
+    document.all.myText01.value = 'You shot myImg02';
+    myScore += 1;
+    myHits += 1;  // Increment hits
+  }
+
+  if (myHitOther('myBullet02', 'myImg03')) {
+    clearInterval(myGun02);
+    document.getElementById('myBullet02').style.left = '-200px';
+    document.all.myText01.value = 'You shot myImg03';
+    myScore += 1;
+    myHits += 1;  // Increment hits
+  }
+
+  // Only progress the wave after 3 enemies are hit
+  if (myHits >= myWave * 3) {
+    myNewWave01(); // Start a new wave when enough enemies are hit
+  }
+
+  // End the game if score is zero
+  if (myScore <= 0) {
+    document.all.myText01.value = 'You Lose, score at zero!';
+    alert('Sorry, you lose');
+    location.reload(); // Restart the game
+  }
+}
   // Function to spawn a new enemy
    function myEnemySpawn(xPosition, yPosition) {
     if (myEnemies.length >= 3) {
@@ -293,34 +293,28 @@ if (myShooting > 2 ){myShooting = 1}
 
 
 
-  // Bullet Number 2
-if (myShooting == 2){
-  myShooting += 1
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-     myCheckHit() 
-  }, 20)   // speed of bullet faster lower number
-}
-
-
-
+ if (myShooting == 2){
+    myShooting += 1;
+    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
+    document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top;
+    clearInterval(myGun02);
+    myGun02 = setInterval(function(){
+      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
+      myCheckHit(); // Check hits after shooting
+    }, 20);  // Bullet speed (lower is faster)
+  }
 
   // Bullet Number 1
-if (myShooting == 1){
-  myShooting += 1
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
-  clearInterval(myGun01)
-  myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
-     myCheckHit() 
-  }, 20)   // speed of bullet faster lower number
-}
-
-
+  if (myShooting == 1){
+    myShooting += 1;
+    document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
+    document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top;
+    clearInterval(myGun01);
+    myGun01 = setInterval(function(){
+      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
+      myCheckHit(); // Check hits after shooting
+    }, 20);  // Bullet speed (lower is faster)
+  }
 }"><br><br>
 </div>
 
