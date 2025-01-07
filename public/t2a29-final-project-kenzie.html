@@ -34,6 +34,7 @@ html, body {
   }
 
   // Global variables
+  let myPlayer = document.getElementById('myImg01');
   let randomIndex = Math.floor(Math.random() * 10);
   let myGlobalX = 0;
   let myClock;
@@ -134,11 +135,11 @@ function myEnemySpawn(xPosition, yPosition) {
   let newEnemy = document.createElement('img');
   newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
   newEnemy.style.position = 'absolute';
-  newEnemy.style.left = `${xPosition}px`;
-  newEnemy.style.top = `${yPosition}px`;
+  newEnemy.style.left = ${xPosition}px;
+  newEnemy.style.top = ${yPosition}px;
   newEnemy.style.width = '140px';
   newEnemy.style.height = '130px';
-  newEnemy.id = `myImg0${enemyCount}_${randomIndex + 1}`;
+  newEnemy.id = myImg0${enemyCount}_${randomIndex + 1};
   enemyCount++;
 
   myEnemies.push(newEnemy);
@@ -162,17 +163,17 @@ function myNewWave01() {
         case 1:
           myEnemyReset();
           setInterval(() => myEnemySpawn(100, 100), 2000);  
-          document.all.myText01.value = `Wave ${myWave}: Easy enemies!`;
+          document.all.myText01.value = Wave ${myWave}: Easy enemies!;
           break;
         case 2:
           myEnemyReset();
           setInterval(() => myEnemySpawn(150, 150), 1500);
-          document.all.myText01.value = `Wave ${myWave}: Faster enemies!`;
+          document.all.myText01.value = Wave ${myWave}: Faster enemies!;
           break;
         case 3:
           myEnemyReset();
           setInterval(() => myEnemySpawn(200, 200), 1000);
-          document.all.myText01.value = `Wave ${myWave}: Very fast enemies!`;
+          document.all.myText01.value = Wave ${myWave}: Very fast enemies!;
           break;
       }
       myWave++;  
@@ -196,74 +197,59 @@ function myEnemyReset() {
 
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;" onkeydown="{
- document.onkeydown = function(event) {
-  document.all.myText01.value = event.key;
+   document.all.myText01.value = event.key;
 
-  let player = document.getElementById('myImg01');
-  let playerLeft = parseInt(player.style.left);
-  let playerTop = parseInt(player.style.top);
-  let moveAmount = 10;
-     )
-  if (event.key == 'd') {
-    player.style.left = playerLeft + moveAmount + 'px'; 
-    if (isCollidingWithWall(player)) {
-      player.style.left = playerLeft + 'px'; 
-    }
-  }
+ if (event.key == 'd') { 
+  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
+  document.getElementById('myImg01').style.left = (leftPosition + 10) + 'px';
+}
 
- 
-  if (event.key == 's') {
-    player.style.top = playerTop + moveAmount + 'px';  
-    if (isCollidingWithWall(player)) {
-      player.style.top = playerTop + 'px';  
-    }
-  }
+if (event.key == 's') {   
+  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
+  document.getElementById('myImg01').style.top = (topPosition + 10) + 'px';
+}
 
-  // Handle 'w' key (up)
-  if (event.key == 'w') {
-    player.style.top = playerTop - moveAmount + 'px';  // Move up
-    if (isCollidingWithWall(player)) {
-      player.style.top = playerTop + 'px';  // Undo the move if there's a collision
-    }
-  }
+if (event.key == 'w') {  
+  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
+  document.getElementById('myImg01').style.top = (topPosition - 10) + 'px';
+}
 
-  // Handle 'a' key (left)
-  if (event.key == 'a') {
-    player.style.left = playerLeft - moveAmount + 'px';  // Move left
-    if (isCollidingWithWall(player)) {
-      player.style.left = playerLeft + 'px';  // Undo the move if there's a collision
-    }
-  }
-
-  myCheckHit();  // Check for other collisions (if any)
-};
+if (event.key == 'a') {   
+  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
+  document.getElementById('myImg01').style.left = (leftPosition - 10) + 'px';
+}
+    myCheckHit();
+}">
     
     <script>
   class Wall {
   constructor(x, y, width, height, src) {
     this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
+    this.y = y; 
+    this.width = width; 
+    this.height = height; 
     this.element = document.createElement('img');
-    this.element.src = src;
-    this.element.style.position = 'absolute';
-    this.element.style.left = `${x}px`;
-    this.element.style.top = `${y}px`;
-    this.element.style.width = `${width}px`;
-    this.element.style.height = `${height}px`;
-    document.body.appendChild(this.element);
+    this.element.src = src; 
+    this.element.style.position = 'absolute'; 
+    this.element.style.left = ${x}px; 
+    this.element.style.top = ${y}px;
+    this.element.style.width = ${width}px; 
+    this.element.style.height = ${height}px; 
+    document.body.appendChild(this.element); 
   }
 
-  isCollidingWith(player) {
-    let playerX = parseInt(player.style.left, 10);
-    let playerY = parseInt(player.style.top, 10);
-    let playerWidth = parseInt(player.style.width, 10);
-    let playerHeight = parseInt(player.style.height, 10);
 
-    return !(this.x + this.width < playerX ||
+  isCollidingWith(myPlayer) {
+   
+    let myPlayerX = parseInt(player.style.left, 10);
+    let myPlayerY = parseInt(player.style.top, 10);
+    let myPlayerWidth = parseInt(player.style.width, 10);
+    let myPlayerHeight = parseInt(player.style.height, 10);
+
+    
+    return !(this.x + this.width < playerX || 
              this.x > playerX + playerWidth ||
-             this.y + this.height < playerY ||
+             this.y + this.height < playerY || 
              this.y > playerY + playerHeight);
   }
 }
@@ -342,5 +328,3 @@ if (myShooting == 2) {
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
 <img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 150px; top:190px;">
-
-
