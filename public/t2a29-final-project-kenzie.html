@@ -134,228 +134,139 @@ if (myShooting == 1){
 <img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 150px; top:190px;">
     
     <script>
-        window.onload = function() {
-            myWaveStart();
-        }
-
-        // Global variables
-        let randomIndex = Math.floor(Math.random() * 10);
-        let myGlobalX = 0;
-        let myClock; 0
-        let myScore = 10;
-        let myGun01;
-        let myGun02;
-        let myShooting = 1;
-        let myEnemies = [];
-        let myWave = 1;
-        let myHits = 0;
-        let enemyCount = 2;
-        let enemyImages = [
-            'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
-            'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
-            'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
-        ];
-
-    
-      function myHitOther(obj1, obj2) {
-            let left1 = parseInt(obj1.style.left);
-            let right1 = left1 + parseInt(obj1.style.width);
-            let top1 = parseInt(obj1.style.top);
-            let bottom1 = top1 + parseInt(obj1.style.height);
-
-            let left2 = parseInt(obj2.style.left);
-            let right2 = left2 + parseInt(obj2.style.width);
-            let top2 = parseInt(obj2.style.top);
-            let bottom2 = top2 + parseInt(obj2.style.height);
-
-           if ((right1  >=  left2  ) &&      	   
-       (bottom1 >=  top2   ) &&
-       (left1   <=  right2 ) &&
-       (top1    <=  bottom2) ){
-       return true
-   }
-}
-
-
-function myCheckHit() {
-    document.all.myText01.value = myScore;
-
-    if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall01'))) {
-        document.getElementById('myImg01').style.left = '20px';
-        document.all.myText01.value = 'You hit wall1';
-        myScore -= 1;
-        myHits += 1;
+    window.onload = function() {
+        myWaveStart();
     }
 
-    if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall02'))) {
-        document.getElementById('myImg01').style.left = '20px';
-        document.all.myText01.value = 'You hit wall2';
-        myScore -= 1;
-        myHits += 1;
-    }
-
-     if ( myHitOther('myBullet01','myImg02') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg02'  
-      myScore += 1
-   }   
-    if ( myHitOther('myBullet02','myImg02') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg02'  
-      myScore += 1
-   }   
-     if ( myHitOther('myBullet01','myImg03') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg03'  
-      myScore += 1
-   }   
-     if ( myHitOther('myBullet02','myImg03') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg03'  
-      myScore += 1
-   }   
-     if ( myHitOther('myBullet01','myImg04') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg04'  
-      myScore += 1
-   }   
-     if ( myHitOther('myBullet02','myImg04') ){
-      clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'
-      document.all.myText01.value = 'You shot myImg04'  
-      myScore += 1
-   }   
-
-    let bullet1 = document.getElementById('myBullet01');
-    let bullet2 = document.getElementById('myBullet02');
-
-   
-   for (let i = 0; i < myEnemies.length; i++) {
-    let enemy = myEnemies[i];
-    if (myHitOther(bullet1, enemy)) {
-        clearInterval(myGun01);
-        bullet1.style.left = '-200px'; 
-        document.all.myText01.value = 'You shot ' + enemy.id;
-        myScore += 1;
-        myHits += 1;
-        checkWaveProgression();  // Call to check if the wave should progress
-        break; 
-    }
-}
-
-    // Check if bullet2 hits any enemy
-    for (let i = 0; i < myEnemies.length; i++) {
-        let enemy = myEnemies[i];
-        if (myHitOther(bullet2, enemy)) {
-            clearInterval(myGun02);
-            bullet2.style.left = '-200px';
-            document.all.myText01.value = 'You shot ' + enemy.id;
-            myScore += 1;
-            myHits += 1;
-            checkWaveProgression();
-            break; 
-        }
-    }
-    if (myScore <= 0) {
-        document.all.myText01.value = 'You Lose, score at zero!';
-        alert('Sorry, you lose');
-        location.reload();
-    }
-}
-function checkWaveProgression() {
-  if (myHits >= myWave * 3) {
-    myNewWave01();  
-  }
-}
-
-function myEnemySpawn(xPosition, yPosition, enemyImage) {
-    if (myEnemies.length >= 3) {
-        let oldestEnemy = myEnemies.shift();
-        document.body.removeChild(oldestEnemy);
-    }
-
- let newEnemy = document.createElement('img');
-    newEnemy.src = enemyImage;
-    newEnemy.style.position = 'absolute';
-    newEnemy.style.left = ${xPosition}px;
-    newEnemy.style.top = ${yPosition}px;
-    newEnemy.style.width = '140px';
-    newEnemy.style.height = '130px';
-    newEnemy.id = myImg0${enemyCount + 1};
-    enemyCount++;
-    myEnemies.push(newEnemy);
-    document.body.appendChild(newEnemy);  
-}
-function myWaveStart() {
+    // Global variables
+    let randomIndex = Math.floor(Math.random() * 10);
+    let myGlobalX = 0;
+    let myClock;
+    let myScore = 10;
+    let myGun01;
+    let myGun02;
+    let myShooting = 1;
+    let myEnemies = [];
+    let myWave = 0;
+    let myHits = 0;
+    let enemyElements = [];
     let enemyImages = [
-            'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
-            'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
-            'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
-        ];
-    for (let i = 0; i < myRequiredHits; i++) {
-        let randomIndex = Math.floor(Math.random() * enemyImages.length);  // Randomly choose an enemy image
-        let enemyImage = enemyImages[randomIndex]; // Select the random image
-        let myXPosition = Math.random() * window.innerWidth;
-        let myYPosition = Math.random() * window.innerHeight;
-        myEnemySpawn(myXPosition, myYPosition, enemyImage);
-    }
-}
+        document.getElementById('myImg02'),
+        document.getElementById('myImg03'),
+        document.getElementById('myImg04')
+    ];
 
-function myNewWave01() {
-    // Check if you've hit enough enemies to move to the next wave
-    if (myHits >= myWave * 3) {
-        // Only go to the next wave if we are not at the maximum wave yet
-        if (myWave < 4) {
-            // For wave 1 (easy enemies)
-            if (myWave === 1) {
-                setInterval(() => {
-                    let xPosition = Math.random() * window.innerWidth;  
-                    let yPosition = Math.random() * window.innerHeight;  
-                    myEnemySpawn(xPosition, yPosition); 
-                }, 2000);  
-                document.all.myText01.value = Wave ${myWave}: Easy enemies!;  
+    // Collision Detection Function
+    function myHitOther(obj1, obj2) {
+        let left1 = parseInt(obj1.style.left);
+        let right1 = left1 + parseInt(obj1.style.width);
+        let top1 = parseInt(obj1.style.top);
+        let bottom1 = top1 + parseInt(obj1.style.height);
+
+        let left2 = parseInt(obj2.style.left);
+        let right2 = left2 + parseInt(obj2.style.width);
+        let top2 = parseInt(obj2.style.top);
+        let bottom2 = top2 + parseInt(obj2.style.height);
+
+        return (right1 >= left2) && (bottom1 >= top2) && (left1 <= right2) && (top1 <= bottom2);
+    }
+
+    // Function to check for hits (bullets colliding with enemies)
+    function myCheckHit() {
+        document.all.myText01.value = myScore;
+
+        // Check collisions with walls
+        if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall01'))) {
+            document.getElementById('myImg01').style.left = '20px';
+            document.all.myText01.value = 'You hit wall1';
+            myScore -= 1;
+            myHits += 1;
+        }
+
+        if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall02'))) {
+            document.getElementById('myImg01').style.left = '20px';
+            document.all.myText01.value = 'You hit wall2';
+            myScore -= 1;
+            myHits += 1;
+        }
+
+        // Check for bullets hitting enemies
+        let bullet1 = document.getElementById('myBullet01');
+        let bullet2 = document.getElementById('myBullet02');
+
+        for (let i = 0; i < myEnemies.length; i++) {
+            let enemy = myEnemies[i];
+            if (myHitOther(bullet1, enemy)) {
+                clearInterval(myGun01);
+                bullet1.style.left = '-200px'; // Hide bullet after hit
+                myScore += 1;
+                myHits += 1;
+                checkWaveProgression();  // Check if the wave should progress
+                break;
             }
-            // For wave 2 (faster enemies)
-            else if (myWave === 2) {
-                myEnemyReset();
-                setInterval(() => {
-                    let xPosition = Math.random() * window.innerWidth;  
-                    let yPosition = Math.random() * window.innerHeight;  
-                    myEnemySpawn(xPosition, yPosition); 
-                }, 1500); 
-                document.all.myText01.value = Wave ${myWave}: Faster enemies!;
+            if (myHitOther(bullet2, enemy)) {
+                clearInterval(myGun02);
+                bullet2.style.left = '-200px'; // Hide bullet after hit
+                myScore += 1;
+                myHits += 1;
+                checkWaveProgression();  // Check if the wave should progress
+                break;
             }
-               else if (myWave === 3) {
-                myEnemyReset();
-                setInterval(() => {
-                    let xPosition = Math.random() * window.innerWidth;  
-                    let yPosition = Math.random() * window.innerHeight;  
-                    myEnemySpawn(xPosition, yPosition);  
-                }, 1000);  
-                document.all.myText01.value = Wave ${myWave}: Very fast enemies!;
-            }
-            myWave++; 
-            
-        } else {
-            document.all.myText01.value = 'Maximum waves reached! You won the game!';
-            alert('Maximum waves reached! You win!');
+        }
+
+        if (myScore <= 0) {
+            document.all.myText01.value = 'You Lose, score at zero!';
+            alert('Sorry, you lose');
+            location.reload();
         }
     }
-}
 
-// Function to reset the enemies when a new wave starts
-function myEnemyReset() {
-  for (let i = 0; i < myEnemies.length; i++) {
-    let enemy = myEnemies[i];
-    document.body.removeChild(enemy);  // Remove enemies from the screen
-  }
-  myEnemies = [];  // Clear the array of enemies
-}
+    // Check if it's time to progress to the next wave
+    function checkWaveProgression() {
+        if (myHits >= myWave * 3) {
+            myNewWave01();
+        }
+    }
+
+    // Start a new wave
+    function myNewWave01() {
+        myHits = 0;
+        myWaveStart(); // Start next wave
+    }
+
+    // Function to spawn an enemy
+    function myEnemySpawn(enemyImage) {
+        const enemy = enemyImage.cloneNode(true);  // Clone the enemy image
+        const randomTop = Math.random() * 100;  // Random position on screen
+        const randomLeft = Math.random() * 100;
+        enemy.style.display = 'block';
+        enemy.style.position = 'absolute';
+        enemy.style.top = `${randomTop}%`;
+        enemy.style.left = `${randomLeft}%`;
+
+        document.body.appendChild(enemy);
+        myEnemies.push(enemy);  // Add to the enemies array
+    }
+
+    // Start the current wave
+    function myWaveStart() {
+        myWave++;
+        document.all.myText01.value = `Wave ${myWave} starting!`;
+        const numEnemies = Math.floor(Math.random() * 4) + 2;
+
+        // Hide previous enemies
+        myEnemies.forEach(enemy => {
+            enemy.style.display = 'none';
+        });
+        myEnemies.length = 0;  // Reset the array of active enemies
+
+        // Spawn new enemies for the wave
+        for (let i = 0; i < numEnemies; i++) {
+            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+            myEnemySpawn(randomEnemy);
+        }
+    }
 </script>
+
 
 </body>
