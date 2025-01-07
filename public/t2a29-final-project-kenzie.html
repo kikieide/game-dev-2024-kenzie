@@ -74,17 +74,15 @@ html, body {
 
 function myCheckHit() {
     document.all.myText01.value = myScore;
-    let wall1Element = document.getElementById('wall1');
-    let wall2Element = document.getElementById('wall2');
     
-    if (myHitOther(document.getElementById('myImg01'), wall1Element)) {
+    if (myHitOther(document.getElementById('myImg01' , 'myWall01') {
         document.getElementById('myImg01').style.left = '20px';
         document.all.myText01.value = 'You hit wall1';
         myScore -= 1;
         myHits += 1;
     }
 
-    if (myHitOther(document.getElementById('myImg01'), wall2Element)) {
+    if (myHitOther(document.getElementById('myImg01' , 'myWall02') {
         document.getElementById('myImg01').style.left = '20px';
         document.all.myText01.value = 'You hit wall2';
         myScore -= 1;
@@ -232,31 +230,7 @@ function myEnemyReset() {
 };
 }">
     
-     <script>
-  class Wall {
-      constructor(x, y, width, height, imageSrc) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.imageSrc = imageSrc;
 
-        this.element = document.createElement('img');
-        this.element.src = this.imageSrc;
-        this.element.style.position = 'absolute';
-        this.element.style.left = `${this.x}px`;
-        this.element.style.top = `${this.y}px`;
-        this.element.style.width = `${this.width}px`;
-        this.element.style.height = `${this.height}px`;
-
-        document.body.appendChild(this.element);
-      }
-    }
-
-
-    let wall1 = new Wall(200, 200, 200, 100, 'https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true');  
-    let wall2 = new Wall(500, 300, 150, 150, 'https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true');  
-  </script>
    
         
 <div id="myUi" class="myUi">
@@ -339,6 +313,8 @@ if (myShooting == 1){
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
+    <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; left: 200px; height: 80px; width: 100px;">
+        <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; left: 400px; height: 130px; width: 100px;">
 
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
