@@ -29,31 +29,17 @@ html, body {
    </style>
 
 <body id="myBody" onkeydown="{
-  document.onkeydown = function(event) {
     event.preventDefault();  
 
-    if (event.key === 'd') {  // Move right
-        let currentLeft = parseInt(document.getElementById('myImg01').style.left);
-        document.getElementById('myImg01').style.left = currentLeft + 10 + 'px';
-    }
+    let currentLeft = parseInt(myImg01.style.left);
+        let currentTop = parseInt(myImg01.style.top);
 
-    if (event.key === 's') {  // Move down
-        let currentTop = parseInt(document.getElementById('myImg01').style.top);
-        document.getElementById('myImg01').style.top = currentTop + 10 + 'px';
-    }
+        if (event.key === 'd') myImg01.style.left = (currentLeft + 10) + 'px';  // Move right
+        if (event.key === 's') myImg01.style.top = (currentTop + 10) + 'px';    // Move down
+        if (event.key === 'a') myImg01.style.left = (currentLeft - 10) + 'px';  // Move left
+        if (event.key === 'w') myImg01.style.top = (currentTop - 10) + 'px';    // Move up
 
-    if (event.key === 'a') {  // Move left
-        let currentLeft = parseInt(document.getElementById('myImg01').style.left);
-        document.getElementById('myImg01').style.left = currentLeft - 10 + 'px';
-    }
-
-    if (event.key === 'w') {  // Move up
-        let currentTop = parseInt(document.getElementById('myImg01').style.top);
-        document.getElementById('myImg01').style.top = currentTop - 10 + 'px';
-    }
-
-    myCheckHit(); 
-};
+        myCheckHit(); 
 }
 }">
     
