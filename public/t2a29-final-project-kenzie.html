@@ -198,27 +198,26 @@ function myEnemyReset() {
 
 
 
-<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"  onkeydown="{
+<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;" onkeydown="{
+   document.all.myText01.value = event.key;
 
-   document.all.myText01.value = event.key
+   if (event.key == 'd') { 
+     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px';
+   }
 
-   if (event.key == 'd') {  // d = go right
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-   }   
+   if (event.key == 's') {   
+     document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px';
+   }
 
-   if (event.key == 's') {   // s = go down
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
-   }  
+   if (event.key == 'w') {  
+     document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px';
+   }
 
-   if (event.key == 'w') {  // d = go right
-     document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px'
-   }   
+   if (event.key == 'a') {   
+     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
+   }
 
-   if (event.key == 'a') {   // s = go down
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px'
-   }  
-
-  myCheckHit()     
+   myCheckHit();  // Check for collisions
 }">
     
     <script>
