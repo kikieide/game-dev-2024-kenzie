@@ -220,8 +220,7 @@ if (event.key == 'a') {
   let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
   document.getElementById('myImg01').style.left = (leftPosition - 10) + 'px';
 }
-}
-    myCheckHt()
+    myCheckHt();
 }">
     
     <script>
@@ -277,12 +276,12 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
         
       <input type=button value="Right" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-  myCheckHit()     // checks for all collisions
+  myCheckHit();    // checks for all collisions
     }">
                 
 <input type=button value="Down" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
   document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
-  myCheckHit()     // checks for all collisions
+  myCheckHit();  // checks for all collisions
     }">
 
     
