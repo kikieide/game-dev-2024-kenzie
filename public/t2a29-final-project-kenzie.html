@@ -197,45 +197,41 @@ function myEnemyReset() {
 </script>
 
 
-<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
+
+<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"  onkeydown="{
+
    document.all.myText01.value = event.key
 
- document.onkeydown = function(event) {
-  let player = document.getElementById('myImg01');
-  let playerLeft = parseInt(player.style.left);
-  let playerTop = parseInt(player.style.top);
+   if (event.key == 'd') {  // d = go right
+     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
+   }   
 
-  let newLeft = playerLeft;
-  let newTop = playerTop;
+   if (event.key == 's') {   // s = go down
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
+   }  
 
-  if (event.key === 'd') newLeft = playerLeft + 10;  // Move right
-  if (event.key === 's') newTop = playerTop + 10;  // Move down
-  if (event.key === 'w') newTop = playerTop - 10;  // Move up
-  if (event.key === 'a') newLeft = playerLeft - 10;  // Move left
+ 
 
-  if (!wall1.isCollidingWith(player) && !wall2.isCollidingWith(player)) {
-    player.style.left = newLeft + 'px';
-    player.style.top = newTop + 'px';
-    myCheckHit();  // Check for collisions
-  }
-};
+
+
+  myCheckHit()     
 }">
     
     <script>
   class Wall {
   constructor(x, y, width, height, src) {
-    this.x = x; // The x position of the wall
-    this.y = y; // The y position of the wall
-    this.width = width; // The width of the wall
-    this.height = height; // The height of the wall
-    this.element = document.createElement('img'); // Create an image element
-    this.element.src = src; // Set the source (image) for the wall
-    this.element.style.position = 'absolute'; // Position the wall in the game
-    this.element.style.left = `${x}px`; // Set the left position (horizontal)
-    this.element.style.top = `${y}px`; // Set the top position (vertical)
-    this.element.style.width = `${width}px`; // Set the width of the wall
-    this.element.style.height = `${height}px`; // Set the height of the wall
-    document.body.appendChild(this.element); // Add the wall to the game screen
+    this.x = x;
+    this.y = y; 
+    this.width = width; 
+    this.height = height; 
+    this.element = document.createElement('img');
+    this.element.src = src; 
+    this.element.style.position = 'absolute'; 
+    this.element.style.left = `${x}px`; 
+    this.element.style.top = `${y}px`;
+    this.element.style.width = `${width}px`; 
+    this.element.style.height = `${height}px`; 
+    document.body.appendChild(this.element); 
   }
 
   // Function to check if the wall is colliding with the player
