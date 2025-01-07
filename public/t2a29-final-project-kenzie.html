@@ -49,8 +49,8 @@ html, body {
    
         
 <div id="myUi" class="myUi">
-    <img id="myBag01" src="https://piskel-imgstore-b.appspot.com/img/de13a7ab-ccba-11ef-92a1-b904fd9b30f0.gif" style="position:absolute; width: 120px; height:100px; top: 0px;">
-    <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
+    <img id="myBag01" src="https://piskel-imgstore-b.appspot.com/img/de13a7ab-ccba-11ef-92a1-b904fd9b30f0.gif" style="position:absolute; width: 120px; height:80px; top: 0px;">
+    <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies to clear the waves.</b>
 <input id="myText01" type=text style="font-atyle: bold" value="" size=50 placeholder="Feedback here"><br>  
     
     <input type=button value="Auto Background Left" onclick="{
@@ -243,6 +243,8 @@ if (myShooting == 1){
         enemy.style.position = 'absolute';
         enemy.style.top = `${randomTop}%`;
         enemy.style.left = `${randomLeft}%`;
+        enemy.style.width = '150px';  
+        enemy.style.height = '150px';
 
         document.body.appendChild(enemy);
         myEnemies.push(enemy);  // Add to the enemies array
