@@ -205,21 +205,31 @@ function myEnemyReset() {
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"  onkeydown="{
 
-   document.all.myText01.value = event.key
+  document.onkeydown = function(event) {
+    event.preventDefault();  
 
-   if (event.key == 'd') {  // d = go right
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-   }   
+    if (event.key === 'd') {  // Move right
+        let currentLeft = parseInt(document.getElementById('myImg01').style.left);
+        document.getElementById('myImg01').style.left = currentLeft + 10 + 'px';
+    }
 
-   if (event.key == 's') {   // s = go down
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
-   }  
+    if (event.key === 's') {  // Move down
+        let currentTop = parseInt(document.getElementById('myImg01').style.top);
+        document.getElementById('myImg01').style.top = currentTop + 10 + 'px';
+    }
 
-   // put more here
+    if (event.key === 'a') {  // Move left
+        let currentLeft = parseInt(document.getElementById('myImg01').style.left);
+        document.getElementById('myImg01').style.left = currentLeft - 10 + 'px';
+    }
 
+    if (event.key === 'w') {  // Move up
+        let currentTop = parseInt(document.getElementById('myImg01').style.top);
+        document.getElementById('myImg01').style.top = currentTop - 10 + 'px';
+    }
 
-
-  myCheckHit()     // checks for all collisions
+    myCheckHit(); 
+};
 }">
     
      <script>
@@ -288,31 +298,38 @@ function myEnemyReset() {
 
 <input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
 
-let myShooting = 1;
+if (myShooting > 2 ){myShooting = 1}
 
-if (myShooting > 2) { 
-    myShooting = 1;
+
+
+
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+     myCheckHit() 
+  }, 20)   // speed of bullet faster lower number
 }
 
-if (myShooting == 1) {
-    myShooting += 1;
-    document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top;
-    clearInterval(myGun01);
-    myGun01 = setInterval(function() {
-        document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
-        myCheckHit();
-    }, 20);
-} else if (myShooting == 2) {
-    myShooting += 1;
-    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top;
-    clearInterval(myGun02);
-    myGun02 = setInterval(function() {
-        document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
-        myCheckHit();
-    }, 20); 
+
+
+
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
+     myCheckHit() 
+  }, 20)   // speed of bullet faster lower number
 }
+
 
 }"><br><br>
 </div>
