@@ -198,61 +198,121 @@ function myEnemyReset() {
 
 
 
-<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"  onkeydown="{
+<body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat: repeat;">
 
-   document.all.myText01.value = event.key
-
-   if (event.key == 'd') {  // d = go right
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px'
-   }   
-
-   if (event.key == 's') {   // s = go down
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px'
-   }  
-
- 
-
-
-
-  myCheckHit()     
-}">
+     <canvas id="gameCanvas" width="800" height="600"></canvas>
     
     <script>
-  class Wall {
-  constructor(x, y, width, height, src) {
-    this.x = x;
-    this.y = y; 
-    this.width = width; 
-    this.height = height; 
-    this.element = document.createElement('img');
-    this.element.src = src; 
-    this.element.style.position = 'absolute'; 
-    this.element.style.left = ${x}px; 
-    this.element.style.top = ${y}px;
-    this.element.style.width = ${width}px; 
-    this.element.style.height = ${height}px; 
-    document.body.appendChild(this.element); 
-  }
+         const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const playerImage = document.getElementById("myImg01"); // The image for the player
 
-  // Function to check if the wall is colliding with the player
-  isCollidingWith(player) {
-    // Get the player's position and size
-    let playerX = parseInt(player.style.left, 10);
-    let playerY = parseInt(player.style.top, 10);
-    let playerWidth = parseInt(player.style.width, 10);
-    let playerHeight = parseInt(player.style.height, 10);
+        // Player class (image-based)
+        class Player {
+            constructor(x, y, width, height, image) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.image = image;
+            }
 
-    // Check if the player and the wall overlap (collision check)
-    return !(this.x + this.width < playerX || 
-             this.x > playerX + playerWidth ||
-             this.y + this.height < playerY || 
-             this.y > playerY + playerHeight);
-  }
-}
+            move(dx, dy) {
+                this.x += dx;
+                this.y += dy;
+            }
 
-let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-</script>
+            draw() {
+                ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+            }
+
+            // Collision detection with walls
+            checkCollision(walls) {
+                for (let i = 0; i < walls.length; i++) {
+                    let wall = walls[i];
+                    if (this.x < wall.x + wall.width &&
+                        this.x + this.width > wall.x &&
+                        this.y < wall.y + wall.height &&
+                        this.y + this.height > wall.y) {
+                        return true; // Collision detected
+                    }
+                }
+                return false; // No collision
+            }
+        }
+
+        // Wall class (simple rect)
+        class Wall {
+            constructor(x, y, width, height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = 'blue';
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+
+        // Global keys object for key events
+        const keys = {};
+        const speed = 5;
+
+        // Create player and walls
+        const player = new Player(100, 100, 50, 50, playerImage);
+        const walls = [
+            new Wall(300, 200, 100, 20),
+            new Wall(500, 400, 100, 20)
+        ];
+
+        // Game loop function
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+            // Move player based on keys
+            if (keys['a']) player.move(-speed, 0);  // Left (A)
+            if (keys['d']) player.move(speed, 0);   // Right (D)
+            if (keys['w']) player.move(0, -speed);  // Up (W)
+            if (keys['s']) player.move(0, speed);   // Down (S)
+
+            // Check for collisions
+            if (player.checkCollision(walls)) {
+                console.log('Collision detected!');
+            }
+
+            // Draw walls
+            for (let i = 0; i < walls.length; i++) {
+                walls[i].draw();
+            }
+
+            // Draw player (image)
+            player.draw();
+
+            // Request next frame
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Handle key events (WASD keys)
+        window.addEventListener('keydown', (e) => {
+            if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
+                keys[e.key.toLowerCase()] = true;
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
+                keys[e.key.toLowerCase()] = false;
+            }
+        });
+
+        // Start the game loop when the image is loaded
+        playerImage.onload = () => {
+            gameLoop(); // Start the game loop after the image is loaded
+        };
+    </script>
   
         
 <div id="myUi" class="myUi">
@@ -321,7 +381,7 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 </div>
 
 
-<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="position:absolute; width:100px; height:90px; left:350px; top:190px;">
+<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="display: none;">
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
