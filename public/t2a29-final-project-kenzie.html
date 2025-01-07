@@ -254,7 +254,7 @@ if (myShooting == 1){
     function myWaveStart() {
         myWave++;
         document.all.myText01.value = `Wave ${myWave} starting!`;
-        const numEnemies = Math.floor(Math.random() * 4) + 2;
+        const numEnemies = Math.floor(Math.random() * 4) + 1;
 
         // Hide previous enemies
         myEnemies.forEach(enemy => {
