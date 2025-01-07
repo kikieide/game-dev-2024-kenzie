@@ -69,7 +69,7 @@ html, body {
   }
 
   // Function to check if the player or bullets hit enemies or obstacles
- function myCheckHit() {
+ unction myCheckHit() {
   document.all.myText01.value = myScore;
 
   // Check if player hits any enemies
@@ -152,8 +152,8 @@ html, body {
       myEnemySpawn(myXPosition, myYPosition);
     }
   }
-  // Function to move to the next wave
   function myNewWave01() {
+  if (myHits >= myWave * 3) {  // Ensure that the wave progresses only after 3 enemies are hit
     if (myWave < 4) {  // Limit the waves to 3
       switch (myWave) {
         case 1:
@@ -172,12 +172,13 @@ html, body {
           document.all.myText01.value = 'Wave ' + myWave + ": Very fast enemies!";
           break;
       }
-      myWave++;
+      myWave++;  // Increment the wave after it progresses
     } else {
       document.all.myText01.value = 'Maximum waves reached! You won the game!';
       alert('Maximum waves reached! You win!');
     }
   }
+}
 
   function myEnemyReset() {
     for (let i = 0; i < myEnemies.length; i++) {
@@ -286,36 +287,32 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
     }">
 
     
-<input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+<input type="button" value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
+  if (myShooting > 2) { myShooting = 1; }
 
-if (myShooting > 2 ){myShooting = 1}
-
-
-
-
- if (myShooting == 2){
+  if (myShooting == 2) {
     myShooting += 1;
     document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top;
+    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
     clearInterval(myGun02);
-    myGun02 = setInterval(function(){
+    myGun02 = setInterval(function() {
       document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
       myCheckHit(); // Check hits after shooting
     }, 20);  // Bullet speed (lower is faster)
   }
 
   // Bullet Number 1
-  if (myShooting == 1){
+  if (myShooting == 1) {
     myShooting += 1;
     document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top;
+    document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
     clearInterval(myGun01);
-    myGun01 = setInterval(function(){
+    myGun01 = setInterval(function() {
       document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
       myCheckHit(); // Check hits after shooting
     }, 20);  // Bullet speed (lower is faster)
   }
-}"><br><br>
+}">
 </div>
 
 
