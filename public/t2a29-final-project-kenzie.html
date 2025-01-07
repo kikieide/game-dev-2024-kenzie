@@ -194,7 +194,43 @@ function myCheckHit() {
         myHits += 1;
     }
 
-   
+     if ( myHitOther('myBullet01','myImg02') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg02'  
+      myScore += 1
+   }   
+    if ( myHitOther('myBullet02','myImg02') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg02'  
+      myScore += 1
+   }   
+     if ( myHitOther('myBullet01','myImg03') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg03'  
+      myScore += 1
+   }   
+     if ( myHitOther('myBullet02','myImg03') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg03'  
+      myScore += 1
+   }   
+     if ( myHitOther('myBullet01','myImg04') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg04'  
+      myScore += 1
+   }   
+     if ( myHitOther('myBullet02','myImg04') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-200px'
+      document.all.myText01.value = 'You shot myImg04'  
+      myScore += 1
+   }   
+
     let bullet1 = document.getElementById('myBullet01');
     let bullet2 = document.getElementById('myBullet02');
 
