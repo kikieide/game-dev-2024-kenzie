@@ -132,10 +132,10 @@ html, body {
   }
 
   // Function to spawn a new enemy
-  function myEnemySpawn(xPosition, yPosition) {
+   function myEnemySpawn(xPosition, yPosition) {
     if (myEnemies.length >= 3) {
       let oldestEnemy = myEnemies.shift();
-      document.body.removeChild(oldestEnemy);
+      document.body.removeChild(oldestEnemy); // Properly remove old enemies from DOM
     }
     let newEnemy = document.createElement('img');
     newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
@@ -150,9 +150,8 @@ html, body {
     myEnemies.push(newEnemy);
     document.body.appendChild(newEnemy);
   }
-
   // Start the wave with enemies
-  function myWaveStart() {
+ function myWaveStart() {
     let myRequiredHits = myWave * 3;
     for (let i = 0; i < myRequiredHits; i++) {
       let myXPosition = Math.random() * window.innerWidth;
@@ -160,7 +159,6 @@ html, body {
       myEnemySpawn(myXPosition, myYPosition);
     }
   }
-
   // Function to move to the next wave
   function myNewWave01() {
     if (myWave < 4) {  // Limit the waves to 3
@@ -188,11 +186,10 @@ html, body {
     }
   }
 
-  // Function to reset enemies for a new wave
   function myEnemyReset() {
     for (let i = 0; i < myEnemies.length; i++) {
       let enemy = myEnemies[i];
-      enemy.style.display = 'none';
+      document.body.removeChild(enemy); 
     }
     myEnemies = [];
   }
