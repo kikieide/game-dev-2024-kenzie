@@ -34,7 +34,6 @@ html, body {
   }
 
   // Global variables
-  let myPlayer = document.getElementById('myImg01');
   let randomIndex = Math.floor(Math.random() * 10);
   let myGlobalX = 0;
   let myClock;
@@ -197,30 +196,44 @@ function myEnemyReset() {
 
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;" onkeydown="{
-   document.all.myText01.value = event.key;
+    document.body.addEventListener('keydown', function(event) {
+      let leftPosition = parseInt(myPlayer.element.style.left, 10);
+      let topPosition = parseInt(myPlayer.element.style.top, 10);
 
- if (event.key == 'd') { 
-  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
-  document.getElementById('myImg01').style.left = (leftPosition + 10) + 'px';
-}
+      // Handle key press to move player
+      if (event.key === 'd') {
+        leftPosition += myPlayer.speed;  // Move right
+      } else if (event.key === 'a') {
+        leftPosition -= myPlayer.speed;  // Move left
+      } else if (event.key === 's') {
+        topPosition += myPlayer.speed;  // Move down
+      } else if (event.key === 'w') {
+        topPosition -= myPlayer.speed;  // Move up
+      }
 
-if (event.key == 's') {   
-  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
-  document.getElementById('myImg01').style.top = (topPosition + 10) + 'px';
-}
+      // Check for collisions with walls
+      if (!isColliding(leftPosition, topPosition, myPlayer.width, myPlayer.height, wall1) &&
+          !isColliding(leftPosition, topPosition, myPlayer.width, myPlayer.height, wall2)) {
+        // If no collision, update player's position
+        myPlayer.element.style.left = leftPosition + 'px';
+        myPlayer.element.style.top = topPosition + 'px';
+      }
+    });
 
-if (event.key == 'w') {  
-  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
-  document.getElementById('myImg01').style.top = (topPosition - 10) + 'px';
-}
+    // Function to check if the player collides with any walls
+    function isColliding(playerX, playerY, playerWidth, playerHeight, wall) {
+      let wallX = parseInt(wall.style.left, 10);
+      let wallY = parseInt(wall.style.top, 10);
+      let wallWidth = wall.offsetWidth;
+      let wallHeight = wall.offsetHeight;
 
-if (event.key == 'a') {   
-  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
-  document.getElementById('myImg01').style.left = (leftPosition - 10) + 'px';
-}
-    myCheckHit();
+      // Check if the player intersects with the wall
+      return playerX < wallX + wallWidth &&
+             playerX + playerWidth > wallX &&
+             playerY < wallY + wallHeight &&
+             playerY + playerHeight > wallY;
+    }
 }">
-    
     <script>
   class Wall {
   constructor(x, y, width, height, src) {
@@ -237,25 +250,21 @@ if (event.key == 'a') {
     this.element.style.height = ${height}px; 
     document.body.appendChild(this.element); 
   }
-
-
+  }
+let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
+ let myPlayer = { x: 50, y: 50, width: 50, height: 50, speed: 5 }{document.getElememtById('myImg01') }
   isCollidingWith(myPlayer) {
    
-    let myPlayerX = parseInt(player.style.left, 10);
-    let myPlayerY = parseInt(player.style.top, 10);
-    let myPlayerWidth = parseInt(player.style.width, 10);
-    let myPlayerHeight = parseInt(player.style.height, 10);
-
-    
-    return !(this.x + this.width < playerX || 
-             this.x > playerX + playerWidth ||
-             this.y + this.height < playerY || 
-             this.y > playerY + playerHeight);
+    myCheckHit(myPlayer, wall1, wall2) {
+            return player.x < wall.x + wall.width &&
+                player.x + player.width > wall.x &&
+                player.y < wall.y + wall.height &&
+                player.y + player.height > wall.y;
+        }
   }
 }
 
-let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
 </script>
   
         
@@ -286,8 +295,6 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 <input type="button" value="shoot" onclick="{
  if (myShooting == 1) {
     myShooting += 1;
-    let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
-    let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
 
     // Set bullet starting position based on player position without affecting the player
     document.getElementById('myBullet01').style.left = (playerLeft + 10) + 'px';  
@@ -304,8 +311,6 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 
 if (myShooting == 2) {
     myShooting += 1;
-    let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
-    let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
 
     document.getElementById('myBullet02').style.left = (playerLeft + 10) + 'px'; 
     document.getElementById('myBullet02').style.top = playerTop + 'px';  
