@@ -26,6 +26,9 @@ html, body {
     padding: 20px;
     width: fit-content;
 }
+    body { margin: 0; }
+        canvas { display: block; background-color: #fff; }
+    }
    </style>
    
 <script>
@@ -203,11 +206,7 @@ function myEnemyReset() {
      <canvas id="gameCanvas" width="800" height="600"></canvas>
     
     <script>
-         const canvas = document.getElementById("gameCanvas");
-        const ctx = canvas.getContext("2d");
-        const playerImage = document.getElementById("myImg01"); // The image for the player
-
-        // Player class (image-based)
+         // Player class (image-based)
         class Player {
             constructor(x, y, width, height, image) {
                 this.x = x;
@@ -241,7 +240,7 @@ function myEnemyReset() {
             }
         }
 
-        // Wall class (simple rect)
+        // Wall class
         class Wall {
             constructor(x, y, width, height) {
                 this.x = x;
@@ -257,22 +256,26 @@ function myEnemyReset() {
             }
         }
 
-        // Global keys object for key events
-        const keys = {};
-        const speed = 5;
-
         // Create player and walls
-        const player = new Player(100, 100, 50, 50, playerImage);
+        const player = new Player(100, 100, 50, 50, playerImage); // Pass the image to the player
         const walls = [
             new Wall(300, 200, 100, 20),
             new Wall(500, 400, 100, 20)
         ];
 
-        // Game loop function
-        function gameLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+        // Movement speed
+        const speed = 5;
 
-            // Move player based on keys
+        // Main game loop
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear screen
+
+            // Draw walls
+            for (let i = 0; i < walls.length; i++) {
+                walls[i].draw();
+            }
+
+            // Handle movement using WASD keys
             if (keys['a']) player.move(-speed, 0);  // Left (A)
             if (keys['d']) player.move(speed, 0);   // Right (D)
             if (keys['w']) player.move(0, -speed);  // Up (W)
@@ -283,11 +286,6 @@ function myEnemyReset() {
                 console.log('Collision detected!');
             }
 
-            // Draw walls
-            for (let i = 0; i < walls.length; i++) {
-                walls[i].draw();
-            }
-
             // Draw player (image)
             player.draw();
 
@@ -296,12 +294,12 @@ function myEnemyReset() {
         }
 
         // Handle key events (WASD keys)
+        const keys = {};
         window.addEventListener('keydown', (e) => {
             if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
                 keys[e.key.toLowerCase()] = true;
             }
         });
-
         window.addEventListener('keyup', (e) => {
             if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
                 keys[e.key.toLowerCase()] = false;
@@ -312,6 +310,7 @@ function myEnemyReset() {
         playerImage.onload = () => {
             gameLoop(); // Start the game loop after the image is loaded
         };
+    
     </script>
   
         
