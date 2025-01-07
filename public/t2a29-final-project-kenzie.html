@@ -34,6 +34,7 @@ html, body {
   }
 
   // Global variables
+  let myPlayer = document.getElementById('myImg01');
   let randomIndex = Math.floor(Math.random() * 10);
   let myGlobalX = 0;
   let myClock;
@@ -68,10 +69,8 @@ html, body {
   }
 
 function myCheckHit() {
-  // Update the score display
   document.all.myText01.value = myScore;
 
-  // Check if the player hits any enemies
   if (myHitOther('myImg01', 'myImg02')) {
     document.getElementById('myImg01').style.left = '20px';
     document.all.myText01.value = 'You hit myImg02';
@@ -86,13 +85,13 @@ function myCheckHit() {
     myHits += 1;  // Increase hit counter
   }
 
-  // Check if the player's bullets hit any enemies
+  
   if (myHitOther('myBullet01', 'myImg04')) {
     clearInterval(myGun01);
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg04';
     myScore += 1;
-    myHits += 1;  // Increase hit counter
+    myHits += 1;  
   }
 
   if (myHitOther('myBullet01', 'myImg02')) {
@@ -100,7 +99,7 @@ function myCheckHit() {
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg02';
     myScore += 1;
-    myHits += 1;  // Increase hit counter
+    myHits += 1;  
   }
 
   if (myHitOther('myBullet02', 'myImg03')) {
@@ -108,7 +107,7 @@ function myCheckHit() {
     document.getElementById('myBullet02').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg03';
     myScore += 1;
-    myHits += 1;  // Increase hit counter
+    myHits += 1;  
   }
 
 
@@ -129,7 +128,7 @@ function checkWaveProgression() {
 function myEnemySpawn(xPosition, yPosition) {
   if (myEnemies.length >= 3) {
     let oldestEnemy = myEnemies.shift();
-    document.body.removeChild(oldestEnemy);  // Remove the oldest enemy from the screen
+    document.body.removeChild(oldestEnemy);  
   }
 
   // Create a new enemy and set its properties
@@ -147,9 +146,9 @@ function myEnemySpawn(xPosition, yPosition) {
   document.body.appendChild(newEnemy);
 }
 
-// Function to start a new wave of enemies
+
 function myWaveStart() {
-  let myRequiredHits = myWave * 3;  // The number of enemies to spawn based on the current wave
+  let myRequiredHits = myWave * 3; 
   for (let i = 0; i < myRequiredHits; i++) {
     let myXPosition = Math.random() * window.innerWidth;
     let myYPosition = Math.random() * window.innerHeight;
@@ -157,14 +156,13 @@ function myWaveStart() {
   }
 }
 
-// Function to progress to the next wave
 function myNewWave01() {
-  if (myHits >= myWave * 3) {  // Ensure that 3 enemies are hit before progressing
-    if (myWave < 4) {  // Limit the waves to 3
+  if (myHits >= myWave * 3) {  
+    if (myWave < 4) {  
       switch (myWave) {
         case 1:
           myEnemyReset();
-          setInterval(() => myEnemySpawn(100, 100), 2000);  // Spawn enemies with different speeds
+          setInterval(() => myEnemySpawn(100, 100), 2000);  
           document.all.myText01.value = `Wave ${myWave}: Easy enemies!`;
           break;
         case 2:
@@ -178,7 +176,7 @@ function myNewWave01() {
           document.all.myText01.value = `Wave ${myWave}: Very fast enemies!`;
           break;
       }
-      myWave++;  // Increase the wave count after it progresses
+      myWave++;  
     } else {
       document.all.myText01.value = 'Maximum waves reached! You won the game!';
       alert('Maximum waves reached! You win!');
@@ -186,13 +184,13 @@ function myNewWave01() {
   }
 }
 
-// Function to reset the enemies when a new wave starts
+
 function myEnemyReset() {
   for (let i = 0; i < myEnemies.length; i++) {
     let enemy = myEnemies[i];
-    document.body.removeChild(enemy);  // Remove enemies from the screen
+    document.body.removeChild(enemy); 
   }
-  myEnemies = [];  // Clear the array of enemies
+  myEnemies = [];  
 }
 </script>
 
@@ -240,15 +238,15 @@ if (event.key == 'a') {
     document.body.appendChild(this.element); 
   }
 
-  // Function to check if the wall is colliding with the player
-  isCollidingWith(player) {
-    // Get the player's position and size
-    let playerX = parseInt(player.style.left, 10);
-    let playerY = parseInt(player.style.top, 10);
-    let playerWidth = parseInt(player.style.width, 10);
-    let playerHeight = parseInt(player.style.height, 10);
 
-    // Check if the player and the wall overlap (collision check)
+  isCollidingWith(myPlayer) {
+   
+    let myPlayerX = parseInt(player.style.left, 10);
+    let myPlayerY = parseInt(player.style.top, 10);
+    let myPlayerWidth = parseInt(player.style.width, 10);
+    let myPlayerHeight = parseInt(player.style.height, 10);
+
+    
     return !(this.x + this.width < playerX || 
              this.x > playerX + playerWidth ||
              this.y + this.height < playerY || 
