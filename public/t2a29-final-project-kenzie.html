@@ -201,23 +201,27 @@ function myEnemyReset() {
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;" onkeydown="{
    document.all.myText01.value = event.key;
 
-   if (event.key == 'd') { 
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 10 + 'px';
-   }
+ if (event.key == 'd') { 
+  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
+  document.getElementById('myImg01').style.left = (leftPosition + 10) + 'px';
+}
 
-   if (event.key == 's') {   
-     document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 10 + 'px';
-   }
+if (event.key == 's') {   
+  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
+  document.getElementById('myImg01').style.top = (topPosition + 10) + 'px';
+}
 
-   if (event.key == 'w') {  
-     document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 10 + 'px';
-   }
+if (event.key == 'w') {  
+  let topPosition = parseInt(document.getElementById('myImg01').style.top, 10);
+  document.getElementById('myImg01').style.top = (topPosition - 10) + 'px';
+}
 
-   if (event.key == 'a') {   
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 10 + 'px';
-   }
-
-   myCheckHit();  // Check for collisions
+if (event.key == 'a') {   
+  let leftPosition = parseInt(document.getElementById('myImg01').style.left, 10);
+  document.getElementById('myImg01').style.left = (leftPosition - 10) + 'px';
+}
+}
+    myCheckHt()
 }">
     
     <script>
