@@ -28,95 +28,96 @@ html, body {
 }
    </style>
    
-<script>
-  window.onload = function() {
-    myWaveStart();
-  }
+ <script>
+        window.onload = function() {
+            myWaveStart();
+        }
 
-  // Global variables
-  let randomIndex = Math.floor(Math.random() * 10);
-  let myGlobalX = 0;
-  let myClock;
-  let myScore = 10;
-  let myGun01;
-  let myGun02;
-  let myShooting = 1;
-  let myEnemies = [];
-  let myWave = 1;
-  let myHits = 0;
-  let enemyCount = 2;
-  let enemyImages = [
-    'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
-    'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
-    'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
-  ];
- function myHitOther(obj1Id, obj2Id) {
-    let obj1 = document.getElementById(obj1Id);
-    let obj2 = document.getElementById(obj2Id);
+        // Global variables
+        let randomIndex = Math.floor(Math.random() * 10);
+        let myGlobalX = 0;
+        let myClock;
+        let myScore = 10;
+        let myGun01;
+        let myGun02;
+        let myShooting = 1;
+        let myEnemies = [];
+        let myWave = 1;
+        let myHits = 0;
+        let enemyCount = 2;
+        let enemyImages = [
+            'https://piskel-imgstore-b.appspot.com/img/4a9339b0-c8c2-11ef-9a62-b92f8635db06.gif',
+            'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
+            'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
+        ];
 
-    let left1 = parseInt(obj1.style.left);
-    let right1 = left1 + parseInt(obj1.style.width);
-    let top1 = parseInt(obj1.style.top);
-    let bottom1 = top1 + parseInt(obj1.style.height);
+    
+      function myHitOther(obj1Id, obj2Id) {
+            let obj1 = document.getElementById(obj1Id);
+            let obj2 = document.getElementById(obj2Id);
 
-    let left2 = parseInt(obj2.style.left);
-    let right2 = left2 + parseInt(obj2.style.width);
-    let top2 = parseInt(obj2.style.top);
-    let bottom2 = top2 + parseInt(obj2.style.height);
+            let left1 = parseInt(obj1.style.left);
+            let right1 = left1 + parseInt(obj1.style.width);
+            let top1 = parseInt(obj1.style.top);
+            let bottom1 = top1 + parseInt(obj1.style.height);
 
-    return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
-  }
+            let left2 = parseInt(obj2.style.left);
+            let right2 = left2 + parseInt(obj2.style.width);
+            let top2 = parseInt(obj2.style.top);
+            let bottom2 = top2 + parseInt(obj2.style.height);
+
+            return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
+        }
+
 
 function myCheckHit() {
-  // Update the score display
   document.all.myText01.value = myScore;
-
   // Check if the player hits any enemies
-  if (myHitOther('myImg01', 'myImg02')) {
-    document.getElementById('myImg01').style.left = '20px';
-    document.all.myText01.value = 'You hit myImg02';
-    myScore -= 1;
-    myHits += 1;  // Increase hit counter
-  }
+    if (myHitOther('myImg01', 'myImg02')) {
+                document.getElementById('myImg01').style.left = '20px';
+                document.all.myText01.value = 'You hit myImg02';
+                myScore -= 1;
+                myHits += 1;
+            }
 
-  if (myHitOther('myImg01', 'myImg03')) {
-    document.getElementById('myImg01').style.left = '20px';
-    document.all.myText01.value = 'You hit myImg03';
-    myScore -= 1;
-    myHits += 1;  // Increase hit counter
-  }
+            if (myHitOther('myImg01', 'myImg03')) {
+                document.getElementById('myImg01').style.left = '20px';
+                document.all.myText01.value = 'You hit myImg03';
+                myScore -= 1;
+                myHits += 1;
+            }
 
-  // Check if the player's bullets hit any enemies
-  if (myHitOther('myBullet01', 'myImg04')) {
-    clearInterval(myGun01);
-    document.getElementById('myBullet01').style.left = '-200px';
-    document.all.myText01.value = 'You shot myImg04';
-    myScore += 1;
-    myHits += 1;  // Increase hit counter
-  }
+            // Check if the player's bullets hit any enemies
+            if (myHitOther('myBullet01', 'myImg04')) {
+                clearInterval(myGun01);
+                document.getElementById('myBullet01').style.left = '-200px';
+                document.all.myText01.value = 'You shot myImg04';
+                myScore += 1;
+                myHits += 1;
+            }
 
-  if (myHitOther('myBullet01', 'myImg02')) {
-    clearInterval(myGun01);
-    document.getElementById('myBullet01').style.left = '-200px';
-    document.all.myText01.value = 'You shot myImg02';
-    myScore += 1;
-    myHits += 1;  // Increase hit counter
-  }
+            if (myHitOther('myBullet01', 'myImg02')) {
+                clearInterval(myGun01);
+                document.getElementById('myBullet01').style.left = '-200px';
+                document.all.myText01.value = 'You shot myImg02';
+                myScore += 1;
+                myHits += 1;
+            }
 
-  if (myHitOther('myBullet02', 'myImg03')) {
-    clearInterval(myGun02);
-    document.getElementById('myBullet02').style.left = '-200px';
-    document.all.myText01.value = 'You shot myImg03';
-    myScore += 1;
-    myHits += 1;  // Increase hit counter
-  }
+            if (myHitOther('myBullet02', 'myImg03')) {
+                clearInterval(myGun02);
+                document.getElementById('myBullet02').style.left = '-200px';
+                document.all.myText01.value = 'You shot myImg03';
+                myScore += 1;
+                myHits += 1;
+            }
 
-  if (myScore <= 0) {
-    document.all.myText01.value = 'You Lose, score at zero!';
-    alert('Sorry, you lose');
-    location.reload();  
-  }
-}
+            if (myScore <= 0) {
+                document.all.myText01.value = 'You Lose, score at zero!';
+                alert('Sorry, you lose');
+                location.reload();
+            }
+        }
 
 function checkWaveProgression() {
   if (myHits >= myWave * 3) {
@@ -138,13 +139,45 @@ function myEnemySpawn(xPosition, yPosition) {
   newEnemy.style.top = `${yPosition}px`;
   newEnemy.style.width = '140px';
   newEnemy.style.height = '130px';
-  newEnemy.id = myImg0${enemyCount}_${randomIndex + 1};
+  newEnemy.id = `myImg0${enemyCount}_${randomIndex + 1}`;
   enemyCount++;
 
   myEnemies.push(newEnemy);
   document.body.appendChild(newEnemy);
 }
+ function movePlayer(dx, dy) {
+            let player = document.getElementById('myImg01');
+            let currentX = parseInt(player.style.left);
+            let currentY = parseInt(player.style.top);
 
+            player.style.left = `${currentX + dx}px`;
+            player.style.top = `${currentY + dy}px`;
+
+            myCheckHit();
+        }
+     function shoot() {
+            if (myShooting > 2) { myShooting = 1; }
+
+            if (myShooting === 1) {
+                myShooting += 1;
+                document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
+                document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
+                clearInterval(myGun01);
+                myGun01 = setInterval(function() {
+                    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
+                    myCheckHit();
+                }, 20);
+            } else if (myShooting === 2) {
+                myShooting += 1;
+                document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
+                document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
+                clearInterval(myGun02);
+                myGun02 = setInterval(function() {
+                    document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
+                    myCheckHit();
+                }, 20);
+            }
+        }
 // Function to start a new wave of enemies
 function myWaveStart() {
   let myRequiredHits = myWave * 3;  // The number of enemies to spawn based on the current wave
@@ -333,31 +366,7 @@ function myEnemyReset() {
     }">
 
     
-<input type="button" value="shoot" onclick="{
-  if (myShooting > 2) { myShooting = 1; }
-
-  if (myShooting == 2) {
-    myShooting += 1;
-    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
-    clearInterval(myGun02);
-    myGun02 = setInterval(function() {
-      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
-      myCheckHit(); // Check hits after shooting
-    }, 20);  // Bullet speed (lower is faster)
-  }
-
-  if (myShooting == 1) {
-    myShooting += 1;
-    document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
-    clearInterval(myGun01);
-    myGun01 = setInterval(function() {
-      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
-      myCheckHit(); // Check hits after shooting
-    }, 20);  // Bullet speed (lower is faster)
-  }
-}">
+<input type="button" value="shoot" onclick="shoot()">
 </div>
 
 
