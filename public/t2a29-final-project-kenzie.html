@@ -284,20 +284,19 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 
     
 <input type="button" value="shoot" onclick="{
- if (myShooting > 2) { 
-    myShooting = 1; 
-}
-
-if (myShooting == 1) {
+ if (myShooting == 1) {
     myShooting += 1;
     let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
     let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
-    
+
+    // Set bullet starting position based on player position without affecting the player
     document.getElementById('myBullet01').style.left = (playerLeft + 10) + 'px';  
     document.getElementById('myBullet01').style.top = playerTop + 'px'; 
 
-    clearInterval(myGun01);  // Stop any previous intervals
+    // Stop any previous intervals and move the bullet
+    clearInterval(myGun01);  
     myGun01 = setInterval(function() {
+        // Move bullet to the right
         document.getElementById('myBullet01').style.left = (parseInt(document.getElementById('myBullet01').style.left) + 10) + 'px';
         myCheckHit();  // Check for hits
     }, 20);  // Bullet speed
@@ -307,15 +306,16 @@ if (myShooting == 2) {
     myShooting += 1;
     let playerLeft = parseInt(document.getElementById('myImg01').style.left, 10);
     let playerTop = parseInt(document.getElementById('myImg01').style.top, 10);
-    
+
     document.getElementById('myBullet02').style.left = (playerLeft + 10) + 'px'; 
     document.getElementById('myBullet02').style.top = playerTop + 'px';  
 
-    clearInterval(myGun02);  // Stop any previous intervals
+    clearInterval(myGun02);
     myGun02 = setInterval(function() {
         document.getElementById('myBullet02').style.left = (parseInt(document.getElementById('myBullet02').style.left) + 10) + 'px';
         myCheckHit();  // Check for hits
-    }, 20);  // Bullet speed
+    }, 20);
+}
 }">
 </div>
 
