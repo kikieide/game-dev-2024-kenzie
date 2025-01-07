@@ -136,8 +136,8 @@ function myEnemySpawn(xPosition, yPosition) {
   let newEnemy = document.createElement('img');
   newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
   newEnemy.style.position = 'absolute';
-  newEnemy.style.left = ${xPosition}px;
-  newEnemy.style.top = ${yPosition}px;
+  newEnemy.style.left = `${xPosition}px`;
+  newEnemy.style.top = `${yPosition}px`;
   newEnemy.style.width = '140px';
   newEnemy.style.height = '130px';
   newEnemy.id = myImg0${enemyCount}_${randomIndex + 1};
