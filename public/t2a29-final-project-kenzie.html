@@ -33,8 +33,6 @@ html, body {
         myWaveStart();
      }
    // global variables
-    let myCanvas = document.getElementById('myCoolTag');
-  let myContext = myCanvas.getContext('2d');
    let randomIndex = Math.floor(Math.random() * 10);
    let myGlobalX = 0;
    let myClock;
@@ -75,11 +73,11 @@ html, body {
   if (myHitOther('player', 'enemy')) {
     alert("Collision detected!");
   }
+    }
 
   function myCheckHit() {
-    document.all.myText01.value = myScore; // Display the score
+    document.all.myText01.value = myScore;
 
-  }
     if (myHitOther('myImg01', 'myImg02')) {
       document.getElementById('myImg01').style.left = '20px';
       document.all.myText01.value = 'You hit myImg02';
