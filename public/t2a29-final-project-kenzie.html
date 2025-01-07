@@ -29,18 +29,19 @@ html, body {
    </style>
 
 <body id="myBody" onkeydown="{
-    event.preventDefault();  
+  event.preventDefault();  
 
-    let currentLeft = parseInt(myImg01.style.left);
-        let currentTop = parseInt(myImg01.style.top);
+    let myImg01 = document.getElementById('myImg01');
+  let currentLeft = parseInt(myImg01.style.left || 0); 
+  let currentTop = parseInt(myImg01.style.top || 0);  
 
-        if (event.key === 'd') myImg01.style.left = (currentLeft + 10) + 'px';  // Move right
-        if (event.key === 's') myImg01.style.top = (currentTop + 10) + 'px';    // Move down
-        if (event.key === 'a') myImg01.style.left = (currentLeft - 10) + 'px';  // Move left
-        if (event.key === 'w') myImg01.style.top = (currentTop - 10) + 'px';    // Move up
-
-        myCheckHit(); 
-}
+ 
+  if (event.key === 'd') myImg01.style.left = (currentLeft + 10) + 'px';  
+  if (event.key === 's') myImg01.style.top = (currentTop + 10) + 'px';   
+  if (event.key === 'a') myImg01.style.left = (currentLeft - 10) + 'px';  
+  if (event.key === 'w') myImg01.style.top = (currentTop - 10) + 'px';    
+  
+  myCheckHit();
 }">
     
 
@@ -126,8 +127,8 @@ if (myShooting == 1){
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
-    <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; left: 200px; height: 80px; width: 100px;">
-        <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; left: 400px; height: 130px; width: 100px;">
+    <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; height: 80px; width: 100px;">
+        <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; top: 200px; height: 130px; width: 100px;">
 
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
