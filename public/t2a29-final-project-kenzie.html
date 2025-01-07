@@ -26,12 +26,6 @@ html, body {
     padding: 20px;
     width: fit-content;
 }
-canvas {
-      border: 1px solid black;
-    background-color: #f0f0f0;
-    width: 100%; 
-    height: 500px;
-    }
    </style>
    
 <script>
@@ -211,65 +205,58 @@ canvas {
    document.all.myText01.value = event.key
 
     document.onkeydown = function(event) {
-    let player = document.getElementById('myImg01');
-    let playerLeft = parseInt(player.style.left);
-    let playerTop = parseInt(player.style.top);
+  let player = document.getElementById('myImg01');
+  let playerLeft = parseInt(player.style.left);
+  let playerTop = parseInt(player.style.top);
 
-    if (event.key === 'd') {
-        player.style.left = playerLeft + 10 + 'px';
-    }
-    if (event.key === 's') {
-        player.style.top = playerTop + 10 + 'px';
-    }
-    if (event.key === 'w') {
-        player.style.top = playerTop - 10 + 'px';
-    }
-    if (event.key === 'a') {
-        player.style.left = playerLeft - 10 + 'px';
-    }
+  let newLeft = playerLeft;
+  let newTop = playerTop;
 
-    myCheckHit(); 
+  if (event.key === 'd') newLeft = playerLeft + 10;  // Move right
+  if (event.key === 's') newTop = playerTop + 10;  // Move down
+  if (event.key === 'w') newTop = playerTop - 10;  // Move up
+  if (event.key === 'a') newLeft = playerLeft - 10;  // Move left
+
+  if (!wall1.isCollidingWith(player) && !wall2.isCollidingWith(player)) {
+    player.style.left = newLeft + 'px';
+    player.style.top = newTop + 'px';
+  }
+
+  myCheckHit();
 };
 }">
     
     <script>
-      class Wall {
-    constructor(x, y, width, height, src) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
-      this.element = document.createElement('img');
-      this.element.src = src;
-      this.element.style.position = 'absolute';
-      this.element.style.left = `${x}px`;
-      this.element.style.top = `${y}px`;
-      this.element.style.width = `${width}px`;
-      this.element.style.height = `${height}px`;
-      document.body.appendChild(this.element);
-    }
+     class Wall {
+  constructor(x, y, width, height, src) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.element = document.createElement('img');
+    this.element.src = src;
+    this.element.style.position = 'absolute';
+    this.element.style.left = `${x}px`;
+    this.element.style.top = `${y}px`;
+    this.element.style.width = `${width}px`;
+    this.element.style.height = `${height}px`;
+    document.body.appendChild(this.element);
+  }
+  isCollidingWith(player) {
+    let playerX = parseInt(player.style.left, 10);
+    let playerY = parseInt(player.style.top, 10);
+    let playerWidth = parseInt(player.style.width, 10);
+    let playerHeight = parseInt(player.style.height, 10);
 
-    isCollidingWith(other) {
-
-  let otherX = parseInt(other.style.left, 10) || 0;  
-    let otherY = parseInt(other.style.top, 10) || 0;
-    let otherWidth = parseInt(other.style.width, 10) || 0;
-    let otherHeight = parseInt(other.style.height, 10) || 0;
-         return !(this.x + this.width < otherX || 
-             this.x > otherX + otherWidth ||
-             this.y + this.height < otherY || 
-             this.y > otherY + otherHeight);
+    return !(this.x + this.width < playerX || 
+             this.x > playerX + playerWidth ||
+             this.y + this.height < playerY || 
+             this.y > playerY + playerHeight);
     }
   }
 
 let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
   let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com/img/2421f817-ca66-11ef-8399-919e8c66eff8.gif');
-
-
-
-
-
-    </script>
 
 </script>
   
@@ -312,50 +299,42 @@ let wall1 = new Wall(200, 200, 590, 350, 'https://piskel-imgstore-b.appspot.com/
     }">
 
     
-<input type="button" id="myShoot01" value="shoot" onclick="shootBullet(); moveBullets();">
+<input type=button value="shoot" onTouchStart="{this.click(); event.preventDefault();}" onclick="{
 
-<script>
-  function shootBullet() {
-    // Code to shoot a bullet (e.g., create bullet, set initial position, etc.)
-  }
+if (myShooting > 2 ){myShooting = 1}
 
-  function checkBulletWallCollisions(bullet) {
-    // Check if the bullet hits the wall
-    if (wall1.isCollidingWith(bullet) || wall2.isCollidingWith(bullet)) {
-      bullet.style.left = '-200px'; // Move bullet out of view
-      document.getElementById('myText01').value = 'Bullet hit the wall!';
-    }
-  }
 
-  function moveBullets() {
-    // Get the bullets
-    let bullet1 = document.getElementById('myBullet01');
-    let bullet2 = document.getElementById('myBullet02');
 
-    // Move bullet1
-    let bullet1Pos = parseInt(bullet1.style.left) || 0;
-    if (bullet1Pos < window.innerWidth) {
-      bullet1.style.left = bullet1Pos + 10 + 'px'; // Move bullet to the right
-    } else {
-      bullet1.style.left = '-200px'; // Reset bullet position
-    }
 
-    // Move bullet2
-    let bullet2Pos = parseInt(bullet2.style.left) || 0;
-    if (bullet2Pos < window.innerWidth) {
-      bullet2.style.left = bullet2Pos + 10 + 'px'; // Move bullet to the right
-    } else {
-      bullet2.style.left = '-200px'; // Reset bullet position
-    }
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+     myCheckHit() 
+  }, 20)   // speed of bullet faster lower number
+}
 
-    // Check for collisions for both bullets
-    checkBulletWallCollisions(bullet1);
-    checkBulletWallCollisions(bullet2);
-  }
 
-  // Update bullet positions every 20 milliseconds
-  setInterval(moveBullets, 20);
-</script>
+
+
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
+     myCheckHit() 
+  }, 20)   // speed of bullet faster lower number
+}
+
+
+}"><br><br>
 </div>
 
 
