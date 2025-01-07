@@ -170,17 +170,17 @@ function myNewWave01() {
         case 1:
           myEnemyReset();
           setInterval(() => myEnemySpawn(100, 100), 2000);  // Spawn enemies with different speeds
-          document.all.myText01.value = Wave ${myWave}: Easy enemies!;
+        document.all.myText01.value = `Wave ${myWave}: Easy enemies!`;
           break;
         case 2:
           myEnemyReset();
           setInterval(() => myEnemySpawn(150, 150), 1500);
-          document.all.myText01.value = Wave ${myWave}: Faster enemies!;
+          document.all.myText01.value = `Wave ${myWave}: Faster enemies!`;
           break;
         case 3:
           myEnemyReset();
           setInterval(() => myEnemySpawn(200, 200), 1000);
-          document.all.myText01.value = Wave ${myWave}: Very fast enemies!;
+          document.all.myText01.value = `Wave ${myWave}: Very fast enemies!`;
           break;
       }
       myWave++;  // Increase the wave count after it progresses
