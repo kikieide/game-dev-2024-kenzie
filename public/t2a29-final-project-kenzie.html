@@ -273,25 +273,35 @@ function myNewWave01() {
         if (myWave < 4) {
             // For wave 1 (easy enemies)
             if (myWave === 1) {
-                myEnemyReset(); // Reset enemies from the previous wave
-                setInterval(() => myEnemySpawn(100, 100), 2000);  // Spawn enemies every 2 seconds
-                document.all.myText01.value = `Wave ${myWave}: Easy enemies!`;  // Update the text to show wave info
+                setInterval(() => {
+                    let xPosition = Math.random() * window.innerWidth;  
+                    let yPosition = Math.random() * window.innerHeight;  
+                    myEnemySpawn(xPosition, yPosition); 
+                }, 2000);  
+                document.all.myText01.value = `Wave ${myWave}: Easy enemies!`;  
             }
             // For wave 2 (faster enemies)
             else if (myWave === 2) {
                 myEnemyReset();
-                setInterval(() => myEnemySpawn(150, 150), 1500);  // Spawn enemies every 1.5 seconds
+                setInterval(() => {
+                    let xPosition = Math.random() * window.innerWidth;  
+                    let yPosition = Math.random() * window.innerHeight;  
+                    myEnemySpawn(xPosition, yPosition); 
+                }, 1500); 
                 document.all.myText01.value = `Wave ${myWave}: Faster enemies!`;
             }
-            // For wave 3 (very fast enemies)
-            else if (myWave === 3) {
+               else if (myWave === 3) {
                 myEnemyReset();
-                setInterval(() => myEnemySpawn(200, 200), 1000);  // Spawn enemies every second
+                setInterval(() => {
+                    let xPosition = Math.random() * window.innerWidth;  
+                    let yPosition = Math.random() * window.innerHeight;  
+                    myEnemySpawn(xPosition, yPosition);  
+                }, 1000);  
                 document.all.myText01.value = `Wave ${myWave}: Very fast enemies!`;
             }
-            myWave++;  // Move to the next wave
+            myWave++; 
+            
         } else {
-            // If you've reached the maximum wave, end the game
             document.all.myText01.value = 'Maximum waves reached! You won the game!';
             alert('Maximum waves reached! You win!');
         }
