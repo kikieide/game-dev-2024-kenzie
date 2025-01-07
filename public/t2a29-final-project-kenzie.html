@@ -49,6 +49,7 @@ html, body {
    
         
 <div id="myUi" class="myUi">
+    <img id="myBag01" src="https://piskel-imgstore-b.appspot.com/img/de13a7ab-ccba-11ef-92a1-b904fd9b30f0.gif" style="position:absolute; width: 120px; height:100px; left: 40%; top: 0px;">
     <b style= "color: white">Level 1 based on the template. Use buttons or WASD to move. Shoot 3 enemies before to clear the waves.</b>
 <input id="myText01" type=text style="font-atyle: bold" value="" size=50 placeholder="Feedback here"><br>  
     
@@ -128,7 +129,6 @@ if (myShooting == 1){
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
     <img id="myWall01" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 400px; height: 250px; left: 230px; top: 200px;">
         <img id="myWall02" src="https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/download%20(2).png?raw=true" style="position:absolute; width: 600px; height: 450px; left: 1000px; top: 400px;">
-<img id="myBag01" src="https://piskel-imgstore-b.appspot.com/img/de13a7ab-ccba-11ef-92a1-b904fd9b30f0.gif" style="position:absolute; width: 100px; height:80px; left: 40%; top: 0px;">
 
 <img id="myBullet01" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 130px; top:190px;">
 <img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 150px; top:190px;">
@@ -177,9 +177,9 @@ if (myShooting == 1){
 }
 
 
-function myCheckHit() {
+unction myCheckHit() {
     document.all.myText01.value = myScore;
-    
+
     if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall01'))) {
         document.getElementById('myImg01').style.left = '20px';
         document.all.myText01.value = 'You hit wall1';
@@ -194,40 +194,41 @@ function myCheckHit() {
         myHits += 1;
     }
 
+   
+    let bullet1 = document.getElementById('myBullet01');
+    let bullet2 = document.getElementById('myBullet02');
 
-
-            // Check if the player's bullets hit any enemies
-            if (myHitOther('myBullet01', 'myImg04')) {
-                clearInterval(myGun01);
-                document.getElementById('myBullet01').style.left = '-200px';
-                document.all.myText01.value = 'You shot myImg04';
-                myScore += 1;
-                myHits += 1;
-            }
-
-            if (myHitOther('myBullet01', 'myImg02')) {
-                clearInterval(myGun01);
-                document.getElementById('myBullet01').style.left = '-200px';
-                document.all.myText01.value = 'You shot myImg02';
-                myScore += 1;
-                myHits += 1;
-            }
-
-            if (myHitOther('myBullet02', 'myImg03')) {
-                clearInterval(myGun02);
-                document.getElementById('myBullet02').style.left = '-200px';
-                document.all.myText01.value = 'You shot myImg03';
-                myScore += 1;
-                myHits += 1;
-            }
-
-            if (myScore <= 0) {
-                document.all.myText01.value = 'You Lose, score at zero!';
-                alert('Sorry, you lose');
-                location.reload();
-            }
+   
+    for (let i = 0; i < myEnemies.length; i++) {
+        let enemy = myEnemies[i];
+        if (myHitOther(bullet1, enemy)) {
+            clearInterval(myGun01);
+            bullet1.style.left = '-200px'; 
+            document.all.myText01.value = 'You shot ' + enemy.id;
+            myScore += 1;
+            myHits += 1;
+            break; 
         }
+    }
 
+    // Check if bullet2 hits any enemy
+    for (let i = 0; i < myEnemies.length; i++) {
+        let enemy = myEnemies[i];
+        if (myHitOther(bullet2, enemy)) {
+            clearInterval(myGun02);
+            bullet2.style.left = '-200px';
+            document.all.myText01.value = 'You shot ' + enemy.id;
+            myScore += 1;
+            myHits += 1;
+            break; 
+        }
+    }
+    if (myScore <= 0) {
+        document.all.myText01.value = 'You Lose, score at zero!';
+        alert('Sorry, you lose');
+        location.reload();
+    }
+}
 function checkWaveProgression() {
   if (myHits >= myWave * 3) {
     myNewWave01();  
