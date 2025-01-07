@@ -50,7 +50,25 @@ html, body {
     'https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif',
     'https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif'
   ];
-function myCheckHit() {
+ function myHitOther(obj1Id, obj2Id) {
+    let obj1 = document.getElementById(obj1Id);
+    let obj2 = document.getElementById(obj2Id);
+
+    let left1 = parseInt(obj1.style.left);
+    let right1 = left1 + parseInt(obj1.style.width);
+    let top1 = parseInt(obj1.style.top);
+    let bottom1 = top1 + parseInt(obj1.style.height);
+
+    let left2 = parseInt(obj2.style.left);
+    let right2 = left2 + parseInt(obj2.style.width);
+    let top2 = parseInt(obj2.style.top);
+    let bottom2 = top2 + parseInt(obj2.style.height);
+
+    return !(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2);
+  }
+
+  // Function to check if the player or bullets hit enemies or obstacles
+ function myCheckHit() {
   document.all.myText01.value = myScore;
 
   // Check if player hits any enemies
@@ -58,14 +76,14 @@ function myCheckHit() {
     document.getElementById('myImg01').style.left = '20px';
     document.all.myText01.value = 'You hit myImg02';
     myScore -= 1;
-    enemiesHit++; // Increment enemy hit counter
+    myHits += 1;  // Increment hits
   }
 
   if (myHitOther('myImg01', 'myImg03')) {
     document.getElementById('myImg01').style.left = '20px';
     document.all.myText01.value = 'You hit myImg03';
     myScore -= 1;
-    enemiesHit++; // Increment enemy hit counter
+    myHits += 1;  // Increment hits
   }
 
   // Check if bullets hit any enemies
@@ -74,7 +92,7 @@ function myCheckHit() {
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg04';
     myScore += 1;
-    enemiesHit++; // Increment enemy hit counter
+    myHits += 1;  // Increment hits
   }
 
   if (myHitOther('myBullet01', 'myImg02')) {
@@ -82,7 +100,7 @@ function myCheckHit() {
     document.getElementById('myBullet01').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg02';
     myScore += 1;
-    enemiesHit++; // Increment enemy hit counter
+    myHits += 1;  // Increment hits
   }
 
   if (myHitOther('myBullet02', 'myImg03')) {
@@ -90,7 +108,12 @@ function myCheckHit() {
     document.getElementById('myBullet02').style.left = '-200px';
     document.all.myText01.value = 'You shot myImg03';
     myScore += 1;
-    enemiesHit++; // Increment enemy hit counter
+    myHits += 1;  // Increment hits
+  }
+
+  // Only progress the wave after 3 enemies are hit
+  if (myHits >= myWave * 3) {
+    myNewWave01(); // Start a new wave when enough enemies are hit
   }
 
   // End the game if score is zero
@@ -98,12 +121,6 @@ function myCheckHit() {
     document.all.myText01.value = 'You Lose, score at zero!';
     alert('Sorry, you lose');
     location.reload(); // Restart the game
-  }
-
-  // Check if we hit 3 enemies to progress the wave
-  if (enemiesHit >= 3) {
-    myNewWave01(); // Trigger wave progression when 3 enemies are hit
-    enemiesHit = 0; // Reset the counter after progressing the wave
   }
 }
   // Function to spawn a new enemy
@@ -115,11 +132,11 @@ function myCheckHit() {
     let newEnemy = document.createElement('img');
     newEnemy.src = enemyImages[Math.floor(Math.random() * enemyImages.length)];
     newEnemy.style.position = 'absolute';
-    newEnemy.style.left = `${xPosition}px`;
-    newEnemy.style.top = `${yPosition}px`;
+    newEnemy.style.left = ${xPosition}px;
+    newEnemy.style.top = ${yPosition}px;
     newEnemy.style.width = '140px';
     newEnemy.style.height = '130px';
-    newEnemy.id = `myImg0${enemyCount}_${randomIndex + 1}`;
+    newEnemy.id = myImg0${enemyCount}_${randomIndex + 1};
     enemyCount++;
 
     myEnemies.push(newEnemy);
@@ -134,31 +151,31 @@ function myCheckHit() {
       myEnemySpawn(myXPosition, myYPosition);
     }
   }
- let myWave = 1; // Variable to track the current wave
-
-function myNewWave01() {
-  if (myWave < 4) {  // Limit the waves to 3
-    switch (myWave) {
-      case 1:
-        myEnemyReset();
-        setInterval(() => myEnemySpawn(100, 100), 2000);
-        document.all.myText01.value = 'Wave ' + myWave + ": Easy enemies!";
-        break;
-      case 2:
-        myEnemyReset();
-        setInterval(() => myEnemySpawn(150, 150), 1500);
-        document.all.myText01.value = 'Wave ' + myWave + ": Faster enemies!";
-        break;
-      case 3:
-        myEnemyReset();
-        setInterval(() => myEnemySpawn(200, 200), 1000);
-        document.all.myText01.value = 'Wave ' + myWave + ": Very fast enemies!";
-        break;
+  function myNewWave01() {
+  if (myHits >= myWave * 3) {  // Ensure that the wave progresses only after 3 enemies are hit
+    if (myWave < 4) {  // Limit the waves to 3
+      switch (myWave) {
+        case 1:
+          myEnemyReset();
+          setInterval(() => myEnemySpawn(100, 100), 2000);
+          document.all.myText01.value = 'Wave ' + myWave + ": Easy enemies!";
+          break;
+        case 2:
+          myEnemyReset();
+          setInterval(() => myEnemySpawn(150, 150), 1500);
+          document.all.myText01.value = 'Wave ' + myWave + ": Faster enemies!";
+          break;
+        case 3:
+          myEnemyReset();
+          setInterval(() => myEnemySpawn(200, 200), 1000);
+          document.all.myText01.value = 'Wave ' + myWave + ": Very fast enemies!";
+          break;
+      }
+      myWave++;  // Increment the wave after it progresses
+    } else {
+      document.all.myText01.value = 'Maximum waves reached! You won the game!';
+      alert('Maximum waves reached! You win!');
     }
-    myWave++;  // Increment the wave after it progresses
-  } else {
-    document.all.myText01.value = 'Maximum waves reached! You won the game!';
-    alert('Maximum waves reached! You win!');
   }
 }
 
@@ -170,6 +187,7 @@ function myNewWave01() {
     myEnemies = [];
   }
 </script>
+
 
 <body id="myBody" style="background-image: url('https://github.com/kikieide/game-dev-2024-kenzie/blob/main/public/Screenshot%202025-01-02%20193735.png?raw=true'); background-repeat:repeat;"   onkeydown="{
    document.all.myText01.value = event.key
