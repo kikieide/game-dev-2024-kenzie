@@ -206,112 +206,102 @@ function myEnemyReset() {
      <canvas id="gameCanvas" width="800" height="600"></canvas>
     
     <script>
-         // Player class (image-based)
-        class Player {
-            constructor(x, y, width, height, image) {
-                this.x = x;
-                this.y = y;
-                this.width = width;
-                this.height = height;
-                this.image = image;
-            }
+  // Get the canvas and context (2D drawing)
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
 
-            move(dx, dy) {
-                this.x += dx;
-                this.y += dy;
-            }
+  // Player class: defines the player with position and image
+  class Player {
+    constructor(x, y, width, height, image) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.image = image;  // Image for the player
+    }
 
-            draw() {
-                ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-            }
+    move(dx, dy) {
+      this.x += dx;  // Move player left/right or up/down
+      this.y += dy;
+    }
 
-            // Collision detection with walls
-            checkCollision(walls) {
-                for (let i = 0; i < walls.length; i++) {
-                    let wall = walls[i];
-                    if (this.x < wall.x + wall.width &&
-                        this.x + this.width > wall.x &&
-                        this.y < wall.y + wall.height &&
-                        this.y + this.height > wall.y) {
-                        return true; // Collision detected
-                    }
-                }
-                return false; // No collision
-            }
+    draw() {
+      ctx.drawImage(this.image, this.x, this.y, this.width, this.height);  // Draw player on canvas
+    }
+
+    // Check if the player is touching any walls
+    checkCollision(walls) {
+      for (let wall of walls) {
+        if (this.x < wall.x + wall.width &&
+            this.x + this.width > wall.x &&
+            this.y < wall.y + wall.height &&
+            this.y + this.height > wall.y) {
+          return true; // Collision detected
         }
+      }
+      return false; // No collision
+    }
+  }
 
-        // Wall class
-        class Wall {
-            constructor(x, y, width, height) {
-                this.x = x;
-                this.y = y;
-                this.width = width;
-                this.height = height;
-                this.color = 'blue';
-            }
+  // Wall class: defines the walls with position and size
+  class Wall {
+    constructor(x, y, width, height) {
+      this.x = x;
+      this.y = y;
+      this.width = width;
+      this.height = height;
+      this.color = 'blue';  // Color of the wall
+    }
 
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.fillRect(this.x, this.y, this.width, this.height);
-            }
-        }
+    draw() {
+      ctx.fillStyle = this.color;  // Set color
+      ctx.fillRect(this.x, this.y, this.width, this.height);  // Draw wall
+    }
+  }
 
-        // Create player and walls
-        const player = new Player(100, 100, 50, 50, playerImage); // Pass the image to the player
-        const walls = [
-            new Wall(300, 200, 100, 20),
-            new Wall(500, 400, 100, 20)
-        ];
+  // Create player and walls
+  const playerImage = new Image();
+  playerImage.src = 'https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif';
+  const player = new Player(100, 100, 50, 50, playerImage);
 
-        // Movement speed
-        const speed = 5;
+  // Walls in the game
+  const walls = [
+    new Wall(300, 200, 100, 20),
+    new Wall(500, 400, 100, 20)
+  ];
 
-        // Main game loop
-        function gameLoop() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear screen
+  const speed = 5;  // Speed of the player movement
 
-            // Draw walls
-            for (let i = 0; i < walls.length; i++) {
-                walls[i].draw();
-            }
+  // Main game loop
+  function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear canvas
 
-            // Handle movement using WASD keys
-            if (keys['a']) player.move(-speed, 0);  // Left (A)
-            if (keys['d']) player.move(speed, 0);   // Right (D)
-            if (keys['w']) player.move(0, -speed);  // Up (W)
-            if (keys['s']) player.move(0, speed);   // Down (S)
+    // Draw walls and player on the canvas
+    walls.forEach(wall => wall.draw());
+    player.draw();
 
-            // Check for collisions
-            if (player.checkCollision(walls)) {
-                console.log('Collision detected!');
-            }
+    // Keep the game loop running
+    requestAnimationFrame(gameLoop);
+  }
 
-            // Draw player (image)
-            player.draw();
+  // Handle key press and movement
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'a') {
+      player.move(-speed, 0);  // Move left
+    } else if (e.key === 'd') {
+      player.move(speed, 0);   // Move right
+    } else if (e.key === 'w') {
+      player.move(0, -speed);  // Move up
+    } else if (e.key === 's') {
+      player.move(0, speed);   // Move down
+    }
+  });
 
-            // Request next frame
-            requestAnimationFrame(gameLoop);
-        }
-
-        // Handle key events (WASD keys)
-        const keys = {};
-        window.addEventListener('keydown', (e) => {
-            if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
-                keys[e.key.toLowerCase()] = true;
-            }
-        });
-        window.addEventListener('keyup', (e) => {
-            if (['w', 'a', 's', 'd'].includes(e.key.toLowerCase())) {
-                keys[e.key.toLowerCase()] = false;
-            }
-        });
-
-        // Start the game loop when the image is loaded
-        playerImage.onload = () => {
-            gameLoop(); // Start the game loop after the image is loaded
-        };
-    
-    </script>
+  // Start the game when the player image is loaded
+  playerImage.onload = () => {
+    gameLoop();  // Start the game loop
+  };
+</script>
   
         
 <div id="myUi" class="myUi">
@@ -380,7 +370,7 @@ function myEnemyReset() {
 </div>
 
 
-<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif" style="display: none;">
+<img id="myImg01" src="https://piskel-imgstore-b.appspot.com/img/02210e61-c8be-11ef-a8ff-b92f8635db06.gif">
 <img id="myImg02" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif" style="display: none;">
 <img id="myImg03" src="https://piskel-imgstore-b.appspot.com/img/0310e9a8-c8c3-11ef-8588-b92f8635db06.gif"  style="display: none;">
 <img id="myImg04" src="https://piskel-imgstore-b.appspot.com/img/e8a98414-c8c3-11ef-8f6f-b92f8635db06.gif"  style="display: none;">
