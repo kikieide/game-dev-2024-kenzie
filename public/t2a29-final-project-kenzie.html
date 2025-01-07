@@ -296,26 +296,28 @@ let wall2 = new Wall(1500, 500, 590, 350, 'https://piskel-imgstore-b.appspot.com
 <input type="button" value="shoot" onclick="{
   if (myShooting > 2) { myShooting = 1; }
 
-  if (myShooting == 2) {
-    myShooting += 1;
-    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
-    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
-    clearInterval(myGun02);
-    myGun02 = setInterval(function() {
-      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px';
-      myCheckHit(); // Check hits after shooting
-    }, 20);  // Bullet speed (lower is faster)
-  }
-
   if (myShooting == 1) {
     myShooting += 1;
     document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left;
     document.getElementById('myBullet01').style.top = document.getElementById('myImg01').style.top;
-    clearInterval(myGun01);
+
+    clearInterval(myGun01);  // Stop any previous intervals
     myGun01 = setInterval(function() {
-      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px';
-      myCheckHit(); // Check hits after shooting
-    }, 20);  // Bullet speed (lower is faster)
+      document.getElementById('myBullet01').style.left = (parseInt(document.getElementById('myBullet01').style.left) + 10) + 'px';
+      myCheckHit();  // Check for hits
+    }, 20);  // Bullet speed
+  }
+
+  if (myShooting == 2) {
+    myShooting += 1;
+    document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left;
+    document.getElementById('myBullet02').style.top = document.getElementById('myImg01').style.top;
+
+    clearInterval(myGun02);  // Stop any previous intervals
+    myGun02 = setInterval(function() {
+      document.getElementById('myBullet02').style.left = (parseInt(document.getElementById('myBullet02').style.left) + 10) + 'px';
+      myCheckHit();  // Check for hits
+    }, 20);  // Bullet speed
   }
 }">
 </div>
