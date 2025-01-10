@@ -1,0 +1,84 @@
+{
+	"name": "Sprite5",
+	"plugin-id": "Sprite",
+	"sid": 838432811081646,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "health",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 958892201230982
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 739536134856934
+		},
+		{
+			"behaviorId": "Pathfinding",
+			"name": "Pathfinding",
+			"sid": 799598813464704
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 25,
+						"height": 20,
+						"originX": 0.45999999999999996,
+						"originY": 0.42500000000000004,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"fileType": "image/png",
+						"imageSpriteId": 7042696,
+						"collisionPoly": {
+							"points": [
+								0.52,
+								0.050000000000000044,
+								0.76,
+								0.050000000000000044,
+								0.88,
+								0.19999999999999996,
+								0.96,
+								0.75,
+								0.96,
+								0.85,
+								0.92,
+								0.9,
+								0.84,
+								0.95,
+								0.43999999999999995,
+								0.95,
+								0.040000000000000036,
+								0.9,
+								0.040000000000000036,
+								0.5,
+								0.12,
+								0.4
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 775908342673445,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
