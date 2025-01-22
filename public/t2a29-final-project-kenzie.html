@@ -234,21 +234,35 @@ if (myShooting == 1){
         myWaveStart(); // Start next wave
     }
 
-    // Function to spawn an enemy
-    function myEnemySpawn(enemyImage) {
-        const enemy = enemyImage.cloneNode(true);  // Clone the enemy image
-        const randomTop = Math.random() * 100;  // Random position on screen
-        const randomLeft = Math.random() * 100;
-        enemy.style.display = 'block';
-        enemy.style.position = 'absolute';
-        enemy.style.top = `${randomTop}%`;
-        enemy.style.left = `${randomLeft}%`;
-        enemy.style.width = '150px';  
-        enemy.style.height = '150px';
+function myEnemySpawn() {
+    const randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
+    const enemy = enemyImages[randomEnemyIndex];
+    
+    const randomTop = Math.random() * 100;  
+    const randomLeft = Math.random() * 100;
 
-        document.body.appendChild(enemy);
-        myEnemies.push(enemy);  // Add to the enemies array
+
+    enemy.style.display = 'block';
+    enemy.style.position = 'absolute';
+    enemy.style.top = `${randomTop}%`;
+    enemy.style.left = `${randomLeft}%`;
+}
+function myWaveStart() {
+    myWave++;
+    document.all.myText01.value = `Wave ${myWave} starting!`;
+    const numEnemies = Math.floor(Math.random() * 4) + 1;
+
+    // Hide previous enemies
+    myEnemies.forEach(enemy => {
+        enemy.style.display = 'none';
+    });
+    myEnemies.length = 0;  // Reset the array of active enemies
+
+    // Spawn new enemies for the wave
+    for (let i = 0; i < numEnemies; i++) {
+        myEnemySpawn();  // Spawn a new enemy
     }
+}
 
     // Start the current wave
     function myWaveStart() {
