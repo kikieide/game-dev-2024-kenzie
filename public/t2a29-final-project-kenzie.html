@@ -92,11 +92,10 @@ if (myShooting > 2 ){myShooting = 1}
 
 
   // Bullet Number 2
-if (myShooting > 2) {
-    myShooting = 1;
-}
-  document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 'px';
-document.getElementById('myBullet02').style.top = parseInt(document.getElementById('myImg01').style.top) + 'px';
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
@@ -108,11 +107,10 @@ document.getElementById('myBullet02').style.top = parseInt(document.getElementBy
 
 
   // Bullet Number 1
-if (myShooting > 2) {
-    myShooting = 1;
-}
-  document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg02').style.left) + 'px';
-document.getElementById('myBullet01').style.top = parseInt(document.getElementById('myImg02').style.top) + 'px';
+if (myShooting == 1){
+  myShooting += 1
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
@@ -243,11 +241,11 @@ document.getElementById('myBullet01').style.top = parseInt(document.getElementBy
         const randomLeft = Math.random() * 100;
         enemy.style.display = 'block';
         enemy.style.position = 'absolute';
-        enemy.style.top = `${randomTop}%`;
-        enemy.style.left = `${randomLeft}%`;
+        enemy.style.top = ${randomTop}%;
+        enemy.style.left = ${randomLeft}%;
         enemy.style.width = '150px';  
         enemy.style.height = '150px';
-        const randomEnemyID = `myImg${Math.floor(Math.random() * 1000)}`; 
+         const randomEnemyID = myImg0${Math.floor(Math.random() * 3) + 2}; 
          enemy.id = randomEnemyID;
 
         document.body.appendChild(enemy);
@@ -257,7 +255,7 @@ document.getElementById('myBullet01').style.top = parseInt(document.getElementBy
    
     function myWaveStart() {
         myWave++;
-        document.all.myText01.value = `Wave ${myWave} starting!`;
+        document.all.myText01.value = Wave ${myWave} starting!;
         const numEnemies = Math.floor(Math.random() * 4) + 1;
 
     
