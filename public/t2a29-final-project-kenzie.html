@@ -92,10 +92,11 @@ if (myShooting > 2 ){myShooting = 1}
 
 
   // Bullet Number 2
-if (myShooting == 2){
-  myShooting += 1
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
+if (myShooting > 2) {
+    myShooting = 1;
+}
+  document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 'px';
+document.getElementById('myBullet02').style.top = parseInt(document.getElementById('myImg01').style.top) + 'px';
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
@@ -107,10 +108,11 @@ if (myShooting == 2){
 
 
   // Bullet Number 1
-if (myShooting == 1){
-  myShooting += 1
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
+if (myShooting > 2) {
+    myShooting = 1;
+}
+  document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg02').style.left) + 'px';
+document.getElementById('myBullet01').style.top = parseInt(document.getElementById('myImg02').style.top) + 'px';
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
@@ -245,7 +247,7 @@ if (myShooting == 1){
         enemy.style.left = `${randomLeft}%`;
         enemy.style.width = '150px';  
         enemy.style.height = '150px';
-         const randomEnemyID = `myImg0${Math.floor(Math.random() * 3) + 2}`; 
+        const randomEnemyID = `myImg${Math.floor(Math.random() * 1000)}`; 
          enemy.id = randomEnemyID;
 
         document.body.appendChild(enemy);
