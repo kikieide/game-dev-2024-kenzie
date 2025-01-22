@@ -134,8 +134,8 @@ if (myShooting == 1){
 <img id="myBullet02" src="https://piskel-imgstore-b.appspot.com/img/7abcb900-cbcf-11ef-ae87-250a234cd9b6.gif"  style="position:absolute; width:100px; height:80px; left: 150px; top:190px;">
     
     <script>
-  window.onload = function() {
-    myWaveStart();
+    window.onload = function() {
+        myWaveStart();
     }
 
     // Global variables
@@ -181,8 +181,6 @@ if (myShooting == 1){
             document.all.myText01.value = 'You hit wall1';
             myScore -= 1;
             myHits += 1;
-            checkWaveProgression();
-            break;
         }
 
         if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall02'))) {
@@ -190,8 +188,6 @@ if (myShooting == 1){
             document.all.myText01.value = 'You hit wall2';
             myScore -= 1;
             myHits += 1;
-            checkWaveProgression();
-            break;
         }
 
         
@@ -227,8 +223,8 @@ if (myShooting == 1){
 
     
     function checkWaveProgression() {
-      if (myHits >= myWave * 3) {
-           myNewWave01();
+        if (myHits >= myWave * 3) {
+            myNewWave01();
         }
     }
 
@@ -238,34 +234,40 @@ if (myShooting == 1){
         myWaveStart();
     }
 
-   
-   function myWaveStart() {
-    const numEnemies = 3;
-    document.all.myText01.value = `Wave ${myWave} starting!`;
-    myEnemies.forEach(enemy => enemy.style.display = 'none');
-    myEnemies.length = 0;
-       
-     for (let i = 0; i < numEnemies; i++) {
-        const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
-        myEnemySpawn(randomEnemy);
-    }
-}
-
   
-function myEnemySpawn(enemyImage) {
-    const enemy = enemyImage.cloneNode(true); 
-    const randomTop = Math.random() * 80 + 10; 
-    const randomLeft = Math.random() * 80 + 10; 
-       enemy.style.display = 'block';
-    enemy.style.position = 'absolute';
-    enemy.style.top = `${randomTop}%`;
-    enemy.style.left = `${randomLeft}%`;
-    enemy.style.width = '150px';
-    enemy.style.height = '150px';
+    function myEnemySpawn(enemyImage) {
+        const enemy = enemyImage.cloneNode(true);  
+        const randomTop = Math.random() * 100; 
+        const randomLeft = Math.random() * 100;
+        enemy.style.display = 'block';
+        enemy.style.position = 'absolute';
+        enemy.style.top = ${randomTop}%;
+        enemy.style.left = ${randomLeft}%;
+        enemy.style.width = '150px';  
+        enemy.style.height = '150px';
 
-     document.body.appendChild(enemy);
-    myEnemies.push(enemy);
-}
+        document.body.appendChild(enemy);
+        myEnemies.push(enemy);  
+    }
+
+   
+    function myWaveStart() {
+        myWave++;
+        document.all.myText01.value = Wave ${myWave} starting!;
+        const numEnemies = Math.floor(Math.random() * 4) + 1;
+
+        
+        myEnemies.forEach(enemy => {
+            enemy.style.display = 'none';
+        });
+        myEnemies.length = 0;  
+
+       
+        for (let i = 0; i < numEnemies; i++) {
+            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+            myEnemySpawn(randomEnemy);
+        }
+    }
 </script>
 
 
