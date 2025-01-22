@@ -238,7 +238,23 @@ if (myShooting == 1){
         myWaveStart();
     }
 
-  
+   
+   function myWaveStart() {
+    myWave++;
+    document.all.myText01.value = `Wave ${myWave} starting!`;
+     const numEnemies = 3;
+     myEnemies.forEach(enemy => {
+        enemy.style.display = 'none';
+    });
+    myEnemies.length = 0;
+
+       
+        for (let i = 0; i < numEnemies; i++) {
+        const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+        myEnemySpawn(randomEnemy);
+    }
+}
+
     function myEnemySpawn(enemyImage) {
         const enemy = enemyImage.cloneNode(true);  
         const randomTop = Math.random() * 100; 
@@ -254,23 +270,6 @@ if (myShooting == 1){
         myEnemies.push(enemy);  
     }
 
-   
-    function myWaveStart() {
-        myWave++;
-        document.all.myText01.value = `Wave ${myWave} starting!`;
-         const numEnemies = 3;
-         myEnemies.forEach(enemy => {
-        enemy.style.display = 'none';
-    });
-    myEnemies.length = 0;
-        
-
-       
-        for (let i = 0; i < numEnemies; i++) {
-            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
-            myEnemySpawn(randomEnemy);
-        }
-    }
 </script>
 
 
