@@ -181,6 +181,8 @@ if (myShooting == 1){
             document.all.myText01.value = 'You hit wall1';
             myScore -= 1;
             myHits += 1;
+            checkWaveProgression();
+            break;
         }
 
         if (myHitOther(document.getElementById('myImg01'), document.getElementById('myWall02'))) {
@@ -188,6 +190,8 @@ if (myShooting == 1){
             document.all.myText01.value = 'You hit wall2';
             myScore -= 1;
             myHits += 1;
+            checkWaveProgression();
+            break;
         }
 
         
@@ -223,8 +227,8 @@ if (myShooting == 1){
 
     
     function checkWaveProgression() {
-        if (myHits >= myWave * 3) {
-            myNewWave01();
+      if (myHits >= myWave * 3) {
+           myNewWave01();
         }
     }
 
@@ -254,13 +258,12 @@ if (myShooting == 1){
     function myWaveStart() {
         myWave++;
         document.all.myText01.value = `Wave ${myWave} starting!`;
-        const numEnemies = Math.floor(Math.random() * 4) + 1;
-
+         const numEnemies = 3;
+         myEnemies.forEach(enemy => {
+        enemy.style.display = 'none';
+    });
+    myEnemies.length = 0;
         
-        myEnemies.forEach(enemy => {
-            enemy.style.display = 'none';
-        });
-        myEnemies.length = 0;  
 
        
         for (let i = 0; i < numEnemies; i++) {
