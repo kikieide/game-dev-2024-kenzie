@@ -236,7 +236,7 @@ if (myShooting == 1){
 
  
     function myEnemySpawn(enemyImage) {
-        const enemy = enemyImage.cloneNode(true);  
+        const enemy = enemyImage  
         const randomTop = Math.random() * 100;  
         const randomLeft = Math.random() * 100;
         enemy.style.display = 'block';
@@ -245,8 +245,6 @@ if (myShooting == 1){
         enemy.style.left = ${randomLeft}%;
         enemy.style.width = '150px';  
         enemy.style.height = '150px';
-         const randomEnemyID = myImg0${Math.floor(Math.random() * 3) + 2}; 
-         enemy.id = randomEnemyID;
 
         document.body.appendChild(enemy);
         myEnemies.push(enemy);  
