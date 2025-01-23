@@ -263,6 +263,25 @@ function myWaveStart() {
         myEnemySpawn(); 
     }
 }
+
+
+    function myWaveStart() {
+        myWave++;
+        document.all.myText01.value = Wave ${myWave} starting!;
+        const numEnemies = Math.floor(Math.random() * 4) + 1;
+
+    
+        myEnemies.forEach(enemy => {
+            enemy.style.display = 'none';
+        });
+        myEnemies.length = 0; 
+
+
+        for (let i = 0; i < numEnemies; i++) {
+            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+            myEnemySpawn(randomEnemy);
+        }
+    }
 </script>
 
 
