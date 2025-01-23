@@ -267,6 +267,10 @@ if (myShooting == 1){
             const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
             myEnemySpawn(randomEnemy);
         }
+         setTimeout(function() {
+        document.all.myText01.value = 'Wave ended, you win!';
+    }, 5000); 
+        
     }
 </script>
 
