@@ -192,6 +192,9 @@ if (myShooting == 1){
         let bullet1 = document.getElementById('myBullet01');
         let bullet2 = document.getElementById('myBullet02');
 
+        for (let i = 0; i < myEnemies.length; i++) {
+            let enemy = myEnemies[i];
+            
             if (myHitOther(bullet1, enemy)) {
                 clearInterval(myGun01);
                 bullet1.style.left = '-200px'; 
@@ -231,8 +234,8 @@ if (myShooting == 1){
     }
 
 function myEnemySpawn() {
-    let randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
-    let enemy = enemyImages[randomEnemyIndex];
+    const randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
+    const enemy = enemyImages[randomEnemyIndex];
     
     const randomTop = Math.random() * 100;  
     const randomLeft = Math.random() * 100;
