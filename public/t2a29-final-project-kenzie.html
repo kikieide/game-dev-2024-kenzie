@@ -146,14 +146,12 @@ if (myShooting == 1){
     let myGun01;
     let myGun02;
     let myShooting = 1;
-    let myEnemies = [];
+    let myEnemies = [ document.getElementById('myImg02'),
+        document.getElementById('myImg03'),
+        document.getElementById('myImg04')];
     let myWave = 0;
     let myHits = 0;
     let enemyElements = [];
-    let enemyImages = [
-        document.getElementById('myImg02'),
-        document.getElementById('myImg03'),
-        document.getElementById('myImg04')
     ];
 
 
@@ -234,8 +232,7 @@ if (myShooting == 1){
     }
 
 function myEnemySpawn() {
-    const randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
-    const enemy = enemyImages[randomEnemyIndex];
+    const randomEnemyIndex = Math.floor(Math.random() * myEnemies.length); 
     
     const randomTop = Math.random() * 100;  
     const randomLeft = Math.random() * 100;
@@ -278,7 +275,7 @@ function myWaveStart() {
 
 
         for (let i = 0; i < numEnemies; i++) {
-            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
+            const randomEnemy = myEnemies[Math.floor(Math.random() * myEnemies.length)];
             myEnemySpawn(randomEnemy);
         }
     }
