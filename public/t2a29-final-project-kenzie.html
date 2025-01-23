@@ -231,8 +231,8 @@ if (myShooting == 1){
     }
 
 function myEnemySpawn() {
-    const randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
-    const enemy = enemyImages[randomEnemyIndex];
+    let randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
+    let enemy = enemyImages[randomEnemyIndex];
     
     const randomTop = Math.random() * 100;  
     const randomLeft = Math.random() * 100;
