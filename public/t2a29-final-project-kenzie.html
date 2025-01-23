@@ -146,12 +146,14 @@ if (myShooting == 1){
     let myGun01;
     let myGun02;
     let myShooting = 1;
-    let myEnemies = [ document.getElementById('myImg02'),
-        document.getElementById('myImg03'),
-        document.getElementById('myImg04')];
+    let myEnemies = [];
     let myWave = 0;
     let myHits = 0;
     let enemyElements = [];
+    let enemyImages = [
+        document.getElementById('myImg02'),
+        document.getElementById('myImg03'),
+        document.getElementById('myImg04')
     ];
 
 
@@ -232,7 +234,8 @@ if (myShooting == 1){
     }
 
 function myEnemySpawn() {
-    const randomEnemyIndex = Math.floor(Math.random() * myEnemies.length); 
+    const randomEnemyIndex = Math.floor(Math.random() * enemyImages.length); 
+    const enemy = enemyImages[randomEnemyIndex];
     
     const randomTop = Math.random() * 100;  
     const randomLeft = Math.random() * 100;
@@ -240,13 +243,13 @@ function myEnemySpawn() {
 
     enemy.style.display = 'block';
     enemy.style.position = 'absolute';
-    enemy.style.top = `${randomTop}%`;
-    enemy.style.left = `${randomLeft}%`;
+    enemy.style.top = ${randomTop}%;
+    enemy.style.left = ${randomLeft}%;
      myEnemies.push(enemy);
 }
 function myWaveStart() {
     myWave++;
-    document.all.myText01.value = `Wave ${myWave} starting!`;
+    document.all.myText01.value = Wave ${myWave} starting!;
     const numEnemies = Math.floor(Math.random() * 4) + 1;
 
     
@@ -264,7 +267,7 @@ function myWaveStart() {
 
     function myWaveStart() {
         myWave++;
-        document.all.myText01.value = `Wave ${myWave} starting!`;
+        document.all.myText01.value = Wave ${myWave} starting!;
         const numEnemies = Math.floor(Math.random() * 4) + 1;
 
     
@@ -275,7 +278,7 @@ function myWaveStart() {
 
 
         for (let i = 0; i < numEnemies; i++) {
-            const randomEnemy = myEnemies[Math.floor(Math.random() * myEnemies.length)];
+            const randomEnemy = enemyImages[Math.floor(Math.random() * enemyImages.length)];
             myEnemySpawn(randomEnemy);
         }
     }
