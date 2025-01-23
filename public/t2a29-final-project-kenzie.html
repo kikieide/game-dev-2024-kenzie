@@ -262,22 +262,7 @@ function myWaveStart() {
     for (let i = 0; i < numEnemies; i++) {
         myEnemySpawn(); 
     }
-    setTimeout(function() {
-        myWaveEnd();
-    }, 5000);
 }
-   function myWaveEnd() {
-   
-    myEnemies.forEach(enemy => {
-        enemy.style.display = 'none';
-    });
-
-
-    myEnemies.length = 0;
-
-    
-    document.all.myText01.value = `Wave ${myWave} ended!`;
-   }
 </script>
 
 
